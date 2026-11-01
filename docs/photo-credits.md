@@ -16,6 +16,16 @@ They are used under the [Unsplash License](https://unsplash.com/license) (free c
 | hero-neom-hisma | Sandstone plateau, Hisma Desert, NEOM | NEOM | https://unsplash.com/photos/Iy59i0M7oP4 |
 | hero-neom-islands | Red Sea coast, Islands of NEOM | NEOM | https://unsplash.com/photos/LAj90eAXOZA |
 
+## About page (`public/media/about`, WebP at 800 / 1280 / 1920 / 2560 px)
+
+| File key | Subject | Photographer | Source |
+| --- | --- | --- | --- |
+| about-riyadh-skyline | Riyadh business district with Al Faisaliah Tower | Oualid Lakhrouti | https://unsplash.com/photos/NCD37SPA2wk |
+| about-handshake | Business handshake over a meeting table | Amina Atar | https://unsplash.com/photos/MA4aW8ZOzLM |
+| about-ushaiqer | Ushaiqer heritage village | Abdulrhman Alkhnaifer | https://unsplash.com/photos/kUANvJwGN4M |
+| about-signing | Reviewing and signing documents | Amina Atar | https://unsplash.com/photos/Mqc-m8kgxkg |
+| about-kingdom-centre | Kingdom Centre at golden hour | Oualid Lakhrouti | https://unsplash.com/photos/ZiN8NGVd2pE |
+
 ## Other sections (`public/media/placeholders`)
 
 Prototype placeholders (Unsplash); the list with alt text is in `database/seeders/data/media.json`.

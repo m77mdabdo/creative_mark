@@ -4,14 +4,14 @@ import Media from '@/components/Media'
 import SmartLink from '@/components/SmartLink'
 import { MAP_H, MAP_W, regionShapes } from '@/data/saudiMap'
 import { useSite } from '@/hooks/useSite'
-import type { HomeProps, RegionItem } from '@/types'
+import type { PageProps, RegionItem } from '@/types'
 
 /**
  * Interactive map of the 13 regions, drawn like the deck: dark land, gold boundaries, a pin on the selection.
  * Regions are buttons (Tab, Enter/Space, arrow keys); a list alternative carries the same content and the
  * selection is announced politely. The map never mirrors in RTL.
  */
-export default function SaudiMap({ page }: { page: HomeProps }) {
+export default function SaudiMap({ page }: { page: PageProps }) {
   const { t } = useSite()
   const regions = page.regions.filter(region => regionShapes[region.slug])
   const [selected, setSelected] = useState(regions[0]?.slug ?? 'riyadh')
@@ -92,7 +92,7 @@ export default function SaudiMap({ page }: { page: HomeProps }) {
   </div>
 }
 
-function RegionPanel({ region, page, announceId }: { region: RegionItem; page: HomeProps; announceId: string }) {
+function RegionPanel({ region, page, announceId }: { region: RegionItem; page: PageProps; announceId: string }) {
   const { t } = useSite()
   const services = new Map(page.services.map(s => [s.slug, s]))
 

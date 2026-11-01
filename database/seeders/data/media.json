@@ -572,5 +572,80 @@
    1920,
    2560
   ]
+ },
+ "about-riyadh-skyline": {
+  "alt": {
+   "en": "Riyadh business district skyline with Al Faisaliah Tower",
+   "ar": "أفق الحي التجاري في الرياض وبرج الفيصلية"
+  },
+  "credit": "Oualid Lakhrouti / Unsplash",
+  "source": "https://unsplash.com/photos/NCD37SPA2wk",
+  "folder": "about",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "about-handshake": {
+  "alt": {
+   "en": "Business handshake over a meeting table",
+   "ar": "مصافحة عمل على طاولة اجتماع"
+  },
+  "credit": "Amina Atar / Unsplash",
+  "source": "https://unsplash.com/photos/MA4aW8ZOzLM",
+  "folder": "about",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "about-ushaiqer": {
+  "alt": {
+   "en": "Traditional mud-brick architecture of Ushaiqer heritage village",
+   "ar": "عمارة طينية تقليدية في قرية أشيقر التراثية"
+  },
+  "credit": "Abdulrhman Alkhnaifer / Unsplash",
+  "source": "https://unsplash.com/photos/kUANvJwGN4M",
+  "folder": "about",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "about-signing": {
+  "alt": {
+   "en": "Reviewing and signing company documents",
+   "ar": "مراجعة مستندات الشركة وتوقيعها"
+  },
+  "credit": "Amina Atar / Unsplash",
+  "source": "https://unsplash.com/photos/Mqc-m8kgxkg",
+  "folder": "about",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "about-kingdom-centre": {
+  "alt": {
+   "en": "Kingdom Centre tower at golden hour, Riyadh",
+   "ar": "برج المملكة وقت الغروب، الرياض"
+  },
+  "credit": "Oualid Lakhrouti / Unsplash",
+  "source": "https://unsplash.com/photos/ZiN8NGVd2pE",
+  "folder": "about",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
  }
 }

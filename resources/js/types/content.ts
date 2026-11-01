@@ -1,5 +1,5 @@
 /**
- * Page content contract. Mirrors what App\Content\HomePageData sends: every string is already
+ * Page content contract. Mirrors what App\Content\PageData sends: every string is already
  * resolved to the visitor's locale (with English fallback) and filtered by the content rules.
  */
 
@@ -13,6 +13,7 @@ export type MotionPreset = 'none' | 'fade-up' | 'reveal-mask' | 'zoom-in' | 'par
 export type SectionType =
   | 'hero' | 'whyInvest' | 'journey' | 'countries' | 'sectors' | 'trackRecord'
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
+  | 'statement' | 'imageText' | 'cards'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
 export type Slide = {
@@ -35,6 +36,7 @@ export type Section = {
   media?: string
   media2?: string
   limit?: number
+  layout?: 'split' | 'split-reverse'
   buttons: Button[]
   cards: Card[]
   slides: Slide[]
@@ -58,7 +60,9 @@ export type TestimonialItem = { id: number; quote: string; context: string | nul
 
 export type ReviewStatus = 'missing' | 'machine' | 'review' | 'approved'
 
-export type HomeProps = {
+export type PageProps = {
+  pageKey: string
+  title: string
   seo: { title: string; description: string }
   reviewStatus: ReviewStatus
   sections: Section[]

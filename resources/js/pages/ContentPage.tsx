@@ -1,15 +1,18 @@
 import { useRef } from 'react'
 import { Head } from '@inertiajs/react'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import { useSite } from '@/hooks/useSite'
 import SiteLayout from '@/layouts/SiteLayout'
 import { useMotion } from '@/motion/useMotion'
 import { SECTION_COMPONENTS } from '@/sections/registry'
-import type { HomeProps } from '@/types'
+import type { PageProps } from '@/types'
 
-export default function Home(page: HomeProps) {
+/** Every CMS page (home, about…) is a list of typed sections rendered by the registry. */
+export default function ContentPage(page: PageProps) {
   const { locale, site } = useSite()
   const scope = useRef<HTMLDivElement>(null)
-  useMotion(scope, `home-${locale.code}`)
+  useMotion(scope, `${page.pageKey}-${locale.code}`)
+  const isHome = page.pageKey === 'home'
 
   return <SiteLayout showTranslationNotice={site.translationNotice && page.reviewStatus !== 'approved'}>
     <Head>
@@ -17,9 +20,12 @@ export default function Home(page: HomeProps) {
       <meta name="description" content={page.seo.description} />
     </Head>
     <div ref={scope}>
-      {page.sections.map(section => {
+      {page.sections.map((section, i) => {
         const Component = SECTION_COMPONENTS[section.type]
-        return <Component key={section.id} section={section} page={page} />
+        return <div key={section.id} className="contents">
+          <Component section={section} page={page} />
+          {!isHome && i === 0 && <Breadcrumbs current={page.title} />}
+        </div>
       })}
     </div>
   </SiteLayout>

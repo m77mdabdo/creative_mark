@@ -1,4 +1,5 @@
 import ButtonGroup from '@/components/ButtonGroup'
+import TextBlock from '@/components/TextBlock'
 import { headingMotion } from './shared/motionAttributes'
 import { HighlightedTitle } from './shared/SectionHeading'
 import SectionShell from './shared/SectionShell'
@@ -13,7 +14,7 @@ export default function ConsultationCta(props: SectionProps) {
         {section.title && <h2 id={`${section.id}-title`} className="font-display t-display-xl" {...headingMotion(section)}>
           <HighlightedTitle title={section.title} highlight={section.highlight} />
         </h2>}
-        {section.body && <p className="t-body-l muted measure mx-auto mt-6">{section.body}</p>}
+        <div className="mt-6 space-y-4"><TextBlock text={section.body} className="t-body-l muted measure mx-auto" /></div>
         <ButtonGroup buttons={section.buttons} className="mt-10 justify-center" />
       </div>
     </div>

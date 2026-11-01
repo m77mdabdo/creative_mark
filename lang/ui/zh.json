@@ -37,5 +37,7 @@
     "slide": "第",
     "of": "张，共",
     "goToSlide": "显示幻灯片",
-    "photoNote": "示意图片"
+    "photoNote": "示意图片",
+    "breadcrumb": "面包屑导航",
+    "homeLabel": "首页"
 }

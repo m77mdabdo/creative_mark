@@ -4,10 +4,12 @@ import ConsultationCta from './ConsultationCta'
 import Countries from './Countries'
 import FaqPreview from './FaqPreview'
 import Hero from './Hero/Hero'
+import ImageText from './ImageText'
 import Journey from './Journey'
 import RegionsMapSection from './RegionsMap/RegionsMapSection'
 import Sectors from './Sectors'
 import Services from './Services'
+import Statement from './Statement'
 import type { SectionProps } from './shared/types'
 import Testimonials from './Testimonials'
 import TrackRecord from './TrackRecord'
@@ -29,4 +31,7 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   faq: FaqPreview,
   cta: ConsultationCta,
   testimonials: Testimonials,
+  statement: Statement,
+  imageText: ImageText,
+  cards: WhyInvest,
 }

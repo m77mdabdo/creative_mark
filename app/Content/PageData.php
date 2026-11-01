@@ -14,15 +14,15 @@ use App\Models\Testimonial;
 use App\Support\Locales;
 
 /**
- * Builds the Home page props from the published revision and the catalogue.
+ * Builds the props of a CMS page (home, about…) from its published revision and the catalogue.
  * Everything filtered by a content rule is removed here, so it never reaches the browser.
  */
-final class HomePageData
+final class PageData
 {
     /** @return array<string, mixed> */
-    public function forLocale(string $locale): array
+    public function forPage(string $key, string $locale): array
     {
-        $page = Page::query()->where('key', 'home')->withLocale($locale)->with('publishedRevision')->firstOrFail();
+        $page = Page::query()->where('key', $key)->withLocale($locale)->with('publishedRevision')->firstOrFail();
         abort_unless($page->publishedRevision, 404);
 
         $faqLimit = 6;
@@ -48,6 +48,8 @@ final class HomePageData
         $translation = $page->translations->firstWhere('locale', $locale);
 
         return [
+            'pageKey' => $page->key,
+            'title' => $page->t('title', $locale),
             'seo' => [
                 'title' => $page->t('seo_title', $locale),
                 'description' => $page->t('seo_description', $locale),

@@ -13,7 +13,10 @@ final class SectionSchema
     public const TYPES = [
         'hero', 'whyInvest', 'journey', 'countries', 'sectors', 'trackRecord',
         'services', 'map', 'faq', 'cta', 'testimonials',
+        'statement', 'imageText', 'cards',
     ];
+
+    public const LAYOUTS = ['split', 'split-reverse'];
 
     public const THEMES = ['dark', 'charcoal', 'ivory', 'white'];
 
@@ -21,7 +24,7 @@ final class SectionSchema
 
     private const TEXT = ['eyebrow', 'title', 'highlight', 'subtitle', 'body'];
 
-    private const KEYS = ['id', 'type', 'label', 'hidden', 'eyebrow', 'title', 'highlight', 'subtitle', 'body', 'media', 'media2', 'buttons', 'cards', 'slides', 'limit', 'style', 'motion'];
+    private const KEYS = ['id', 'type', 'label', 'hidden', 'eyebrow', 'title', 'highlight', 'subtitle', 'body', 'media', 'media2', 'buttons', 'cards', 'slides', 'limit', 'layout', 'style', 'motion'];
 
     private const CARD_KEYS = ['id', 'title', 'text', 'icon', 'media', 'verified'];
 
@@ -87,6 +90,9 @@ final class SectionSchema
             if (isset($c['media']) && ! self::mediaKey($c['media'])) {
                 $e[] = 'Invalid card media.';
             }
+        }
+        if (isset($s['layout']) && ! in_array($s['layout'], self::LAYOUTS, true)) {
+            $e[] = 'Invalid layout.';
         }
         $slides = $s['slides'] ?? [];
         if (! is_array($slides) || count($slides) > self::MAX_SLIDES) {

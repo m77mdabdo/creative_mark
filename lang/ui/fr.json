@@ -37,5 +37,7 @@
     "slide": "Diapositive",
     "of": "sur",
     "goToSlide": "Afficher la diapositive",
-    "photoNote": "Photographies d’illustration"
+    "photoNote": "Photographies d’illustration",
+    "breadcrumb": "Fil d’Ariane",
+    "homeLabel": "Accueil"
 }

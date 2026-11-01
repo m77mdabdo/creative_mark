@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-272_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-277_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -44,6 +44,7 @@ public website and the dashboard its team uses to run it.
 | <img src="docs/screenshots/home-hero-jeddah.jpg" alt="Historic Jeddah slide"> | <img src="docs/screenshots/home-mobile-ar.jpg" alt="Arabic mobile home" width="260"> |
 | <img src="docs/screenshots/home-regions-map.jpg" alt="Interactive map of the 13 regions"> | <img src="docs/screenshots/home-countries.jpg" alt="Countries we work with"> |
 | <img src="docs/screenshots/home-zh.jpg" alt="Chinese version"> | <img src="docs/screenshots/admin-faqs.jpg" alt="Dashboard: FAQ module in Arabic"> |
+| <img src="docs/screenshots/about-hero.jpg" alt="About page hero"> | <img src="docs/screenshots/about-experience.jpg" alt="About page: market experience"> |
 
 ## Features
 
@@ -53,6 +54,8 @@ public website and the dashboard its team uses to run it.
   visitors who prefer reduced motion.
 - Home page sections: why invest, the Saudi journey, countries, sectors, track record, eleven business solutions, regions map,
   FAQ preview, consultation call to action and client reviews.
+- About page built from the company presentation (positioning, market experience, local expertise with an
+  international mindset, support after formation, six reasons to choose Creative Mark, verified track record).
 - Interactive map of the 13 regions: keyboard operable, sector filter, list alternative, screen-reader announcements.
 - Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
 - Localized URLs (`/ar`, `/en`, `/fr`, `/hi`, `/ur`, `/zh`), Arabic by default, per-script typography
@@ -164,6 +167,12 @@ npx tsc --noEmit
 npm run build
 ```
 
+Responsive check across 12 device widths (no horizontal scrolling, one heading, no script errors):
+
+```bash
+node tests/e2e/responsive.mjs /about ar,en,fr,hi,ur,zh
+```
+
 The suite covers locale routing, content rules, publishing, page-block validation (including injection attempts), every
 role × permission combination, dashboard access, two-factor enforcement and the translation pipeline.
 
@@ -184,6 +193,8 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-01
+- About page in six languages with new high-resolution photography, breadcrumbs and SEO metadata; new reusable
+  section types (statement, image and text, feature cards); checked on 12 screen widths from 320 to 1920 px.
 - Professional translations for French, Hindi, Urdu and Chinese across the whole site.
 - Public "translation under review" notice removed (owner decision).
 - Translation system: self-hosted engine, fallback service, glossary, phrasebook, dashboard action and command.

@@ -56,7 +56,7 @@ class HomePageTest extends TestCase
     public function test_home_sections_come_from_the_published_revision_in_approved_order(): void
     {
         $this->get('/en')->assertInertia(fn (Assert $page) => $page
-            ->component('Home')
+            ->component('ContentPage')
             ->where('sections.0.type', 'hero')
             ->where('sections.0.title', 'One place, endless solutions')
             ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'whyInvest', 'journey', 'countries', 'sectors', 'trackRecord', 'services', 'map', 'faq', 'cta', 'testimonials'])

@@ -54,6 +54,9 @@ html[lang="ur-PK"] {
 }
 html[lang="ur-PK"] :is(button, input, select, textarea, .btn, .eyebrow) { font-family: "IBM Plex Sans Arabic", system-ui, sans-serif; }
 html[lang="ur-PK"] body { line-height: 2.1; }
+/* Nastaliq is tall and slanted: headings need far more leading than Naskh or Latin. */
+html[lang="ur-PK"] .font-display { line-height: 1.75 !important; font-weight: 700; }
+html[lang="ur-PK"] :is(.t-display-xl, .t-display-l) { font-size: clamp(30px, 3vw + 20px, 64px); }
 html[lang="hi"] {
   --font-display: "Noto Sans Devanagari", "Cormorant Garamond", serif;
   --font-text: "Noto Sans Devanagari", "Manrope", system-ui, sans-serif;

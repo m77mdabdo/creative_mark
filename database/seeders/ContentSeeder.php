@@ -67,15 +67,23 @@ class ContentSeeder extends Seeder
         }
 
         $this->settings($c);
-        $this->home();
+        $this->pages();
     }
 
-    private function home(): void
+    /** Pages are seeded from data/{key}.json and published once. */
+    private function pages(): void
     {
-        $h = json_decode(file_get_contents(__DIR__.'/data/home.json'), true, flags: JSON_THROW_ON_ERROR);
-        $page = Page::updateOrCreate(['key' => 'home'], ['draft_sections' => $h['sections']]);
+        foreach (['home', 'about'] as $key) {
+            $this->page($key);
+        }
+    }
+
+    private function page(string $key): void
+    {
+        $h = json_decode(file_get_contents(__DIR__."/data/{$key}.json"), true, flags: JSON_THROW_ON_ERROR);
+        $page = Page::updateOrCreate(['key' => $key], ['draft_sections' => $h['sections']]);
         foreach ($h['translations'] as $locale => $t) {
-            $page->translations()->updateOrCreate(['locale' => $locale], [...$t, 'slug' => null, 'review_status' => self::status($locale)]);
+            $page->translations()->updateOrCreate(['locale' => $locale], [...$t, 'slug' => $key === 'home' ? null : $key, 'review_status' => self::status($locale)]);
         }
         (new PublishPage)($page, note: 'Initial content from the presentation');
     }

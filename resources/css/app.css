@@ -75,6 +75,7 @@ html[dir="rtl"] body { font-size: 18px; line-height: 1.8; }
 :focus-visible { outline: 2px solid var(--cm-gold); outline-offset: 2px; }
 .th-ivory :focus-visible, .th-white :focus-visible { outline-color: var(--cm-ink); }
 
+@layer components {
 .font-display { font-family: var(--font-display); }
 html[dir="rtl"] .font-display { font-weight: 700; line-height: 1.3; letter-spacing: 0 !important; }
 html[dir="rtl"] [class*="tracking-"] { letter-spacing: 0 !important; }
@@ -147,6 +148,8 @@ html[dir="rtl"] .measure { max-width: 56ch; }
 /* motion initial states: applied only once JS has confirmed motion is allowed */
 .motion-ready [data-motion="fade-up"], .motion-ready [data-motion="stagger"] > * { opacity: 0; }
 .motion-ready [data-motion="reveal-mask"] { clip-path: inset(0 0 100% 0); }
+
+}
 
 @keyframes cm-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes cm-kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }

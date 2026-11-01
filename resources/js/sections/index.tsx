@@ -1,9 +1,11 @@
-import { useId, useRef, useState, type ComponentType } from 'react'
+import { lazy, Suspense, useId, useRef, useState, type ComponentType } from 'react'
 import { ArrowUpRight, ChevronLeft, ChevronRight, Minus, Plus, Quote } from 'lucide-react'
 import { Buttons, Icon, Img, Paras, SmartLink } from '@/components/ui'
 import { useSite } from '@/lib/useSite'
-import SaudiMap from './SaudiMap'
 import { groupMotion, Head, headMotion, Shell, type SectionProps } from './shared'
+
+/* Map boundaries are ~40 KB of path data: loaded only when the section mounts (NFR-01 budget). */
+const SaudiMap = lazy(() => import('./SaudiMap'))
 
 function Hero({ s, data }: SectionProps) {
   const { L } = useSite()
@@ -159,7 +161,7 @@ function MapSection(p: SectionProps) {
   const { s, data } = p
   return <Shell {...p}><div className="wrap">
     <div className="mb-14 grid items-end gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-10"><Head s={s} /><div {...headMotion(s)}><Paras text={s.body} className="leading-relaxed muted measure" /></div></div>
-    <SaudiMap data={data} />
+    <Suspense fallback={<div className="aspect-[1000/816] w-full lg:w-[55%]" aria-hidden />}><SaudiMap data={data} /></Suspense>
   </div></Shell>
 }
 

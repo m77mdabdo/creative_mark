@@ -73,6 +73,16 @@ class HomePageTest extends TestCase
             ->where('reviewStatus', 'machine'));
     }
 
+    public function test_shared_interface_props_follow_the_url_locale(): void
+    {
+        $this->get('/ar')->assertInertia(fn (Assert $page) => $page
+            ->where('locale.code', 'ar')
+            ->where('locale.dir', 'rtl')
+            ->where('site.cta.label', 'احصل على استشارة')
+            ->where('site.nav.0.label', 'من نحن'));
+        $this->get('/zh')->assertInertia(fn (Assert $page) => $page->where('locale.tag', 'zh-Hans')->where('site.nav.0.label', 'About'));
+    }
+
     public function test_untranslated_locale_falls_back_to_english_with_notice(): void
     {
         $this->get('/fr')->assertInertia(fn (Assert $page) => $page

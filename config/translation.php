@@ -70,6 +70,9 @@ return [
     // Folder of interface label files (lang/ui/{locale}.json); tests point this at a temporary copy.
     'ui_strings_path' => env('TRANSLATION_UI_STRINGS_PATH'),
 
+    // Professional translations of the English master text (English => translation per locale).
+    'memory_path' => database_path('seeders/data/translation-memory'),
+
     // Cache identical requests for a year (keyed by driver-independent text hash).
     'cache_ttl' => 60 * 60 * 24 * 365,
 ];

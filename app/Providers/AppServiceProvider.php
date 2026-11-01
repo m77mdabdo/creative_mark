@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Policies\CataloguePolicy;
 use App\Translation\Drivers\LibreTranslateDriver;
 use App\Translation\Drivers\MyMemoryDriver;
+use App\Translation\TranslationMemory;
 use App\Translation\Translator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
@@ -29,7 +30,13 @@ class AppServiceProvider extends ServiceProvider
                 'mymemory' => new MyMemoryDriver(config('translation.mymemory')),
             }, config('translation.drivers'));
 
-            return new Translator($drivers, config('translation.glossary'), config('translation.cache_ttl'), config('translation.phrasebook'));
+            return new Translator(
+                $drivers,
+                config('translation.glossary'),
+                config('translation.cache_ttl'),
+                config('translation.phrasebook'),
+                new TranslationMemory(config('translation.memory_path')),
+            );
         });
     }
 

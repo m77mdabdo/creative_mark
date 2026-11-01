@@ -46,6 +46,11 @@ class ContentTranslator
             }
 
             $values = [];
+            $sourceTexts = [];
+            foreach ($fields as $field) {
+                $value = $rows[$source]->{$field};
+                $sourceTexts = [...$sourceTexts, ...(is_array($value) ? array_values($value) : [$value])];
+            }
             foreach ($fields as $field) {
                 $value = $rows[$source]->{$field};
                 $values[$field] = match (true) {
@@ -55,7 +60,9 @@ class ContentTranslator
                 };
             }
 
-            $record->translations()->updateOrCreate(['locale' => $locale], [...$values, 'review_status' => ReviewStatus::Machine]);
+            // Professional (translation memory) text is "review"; anything machine-made is "machine".
+            $status = $this->translator->coveredByMemory($sourceTexts, $source, $locale) ? ReviewStatus::Review : ReviewStatus::Machine;
+            $record->translations()->updateOrCreate(['locale' => $locale], [...$values, 'review_status' => $status]);
             $written++;
         }
 
@@ -122,7 +129,9 @@ class ContentTranslator
                 continue;
             }
             $translated = array_combine(array_keys($missing), $this->translator->translate(array_values($missing), 'en', $locale));
-            UiStrings::save($locale, [...$current, ...$translated], array_values(array_unique([...$machine, ...array_keys($translated)])));
+            $machineNow = array_keys(array_filter($missing, fn (string $text) => ! $this->translator->coveredByMemory([$text], 'en', $locale)));
+            $stillMachine = array_diff($machine, array_keys($missing));
+            UiStrings::save($locale, [...$current, ...$translated], array_values(array_unique([...$stillMachine, ...$machineNow])));
             $count += count($translated);
         }
 

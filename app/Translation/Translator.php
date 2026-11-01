@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 /**
  * Entry point for machine translation. Adds what the raw backends do not do:
  *  - fallback across drivers (config translation.drivers),
+ *  - professional translations (translation memory) before anything else,
  *  - a phrasebook of preferred wording for recurring site terms,
  *  - glossary protection so brand and place names are never translated,
  *  - punctuation clean-up for Devanagari, Urdu and CJK output,
@@ -16,7 +17,25 @@ use Illuminate\Support\Facades\Log;
 class Translator
 {
     /** @param list<MachineTranslator> $drivers */
-    public function __construct(private array $drivers, private array $glossary, private int $cacheTtl, private array $phrasebook = []) {}
+    public function __construct(
+        private array $drivers,
+        private array $glossary,
+        private int $cacheTtl,
+        private array $phrasebook = [],
+        private ?TranslationMemory $memory = null,
+    ) {}
+
+    /** True when every text has a professional translation, so no machine output is involved. */
+    public function coveredByMemory(array $texts, string $from, string $to): bool
+    {
+        foreach ($texts as $text) {
+            if (is_string($text) && trim($text) !== '' && $this->memory?->find($text, $from, $to) === null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     /**
      * @param  list<string>  $texts
@@ -33,6 +52,8 @@ class Translator
         foreach (array_values($texts) as $i => $text) {
             if (trim($text) === '') {
                 $results[$i] = $text;
+            } elseif (($professional = $this->memory?->find($text, $from, $to)) !== null) {
+                $results[$i] = $professional;
             } elseif (isset($this->phrasebook[$text][$to])) {
                 $results[$i] = $this->phrasebook[$text][$to];
             } elseif (($hit = Cache::get($this->cacheKey($text, $from, $to))) !== null) {

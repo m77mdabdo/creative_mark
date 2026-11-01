@@ -7,6 +7,7 @@ use App\Models\Faq;
 use App\Models\Page;
 use App\Models\Service;
 use App\Translation\ContentTranslator;
+use App\Translation\TranslationMemory;
 use App\Translation\TranslationUnavailable;
 use App\Translation\Translator;
 use Database\Seeders\ContentSeeder;
@@ -52,6 +53,30 @@ class MachineTranslationTest extends TestCase
         $out = $this->translator()->translateOne('Why choose Creative Mark today', 'en', 'fr');
         $this->assertStringContainsString('Creative Mark', $out);
         $this->assertStringNotContainsString('ZQ', $out);
+    }
+
+    public function test_professional_translation_memory_wins_and_is_not_marked_machine(): void
+    {
+        $this->app->instance(Translator::class, new Translator([$this->fake], [], 60, [], new TranslationMemory(config('translation.memory_path'))));
+        $this->seed(ContentSeeder::class);
+        $service = Service::where('slug', 'company-formation')->firstOrFail();
+
+        app(ContentTranslator::class)->translateRecord($service, ['zh']);
+
+        $zh = $service->translations()->where('locale', 'zh')->first();
+        $this->assertSame('公司注册设立', $zh->title);
+        $this->assertSame(ReviewStatus::Review, $zh->review_status);
+        $this->assertSame([], $this->fake->calls);
+    }
+
+    public function test_translation_memory_covers_every_master_string_in_every_locale(): void
+    {
+        $dir = config('translation.memory_path');
+        $keys = array_keys(json_decode(file_get_contents("{$dir}/fr.json"), true));
+        foreach (['hi', 'ur', 'zh'] as $locale) {
+            $this->assertSame($keys, array_keys(json_decode(file_get_contents("{$dir}/{$locale}.json"), true)), $locale);
+        }
+        $this->assertGreaterThan(390, count($keys));
     }
 
     public function test_phrasebook_wins_over_the_machine(): void

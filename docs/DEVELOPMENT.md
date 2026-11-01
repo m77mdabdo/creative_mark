@@ -62,3 +62,9 @@ Professional translations of every English master string live in `database/seede
 and always win over machine output; when English copy changes, add the new string there for fr, hi, ur and zh.
 
 Adding a section type: PHP `SectionSchema::TYPES`, a component in `sections/`, an entry in `sections/registry.ts`, a test.
+
+## Git workflow
+
+- Remote: `origin` → github.com/m77mdabdo/creative_mark, branch `main`.
+- Every change: add an entry to the README "Changelog", commit with a clear message, `git push origin main`.
+- Commit messages describe the change only; no tool or attribution trailers.

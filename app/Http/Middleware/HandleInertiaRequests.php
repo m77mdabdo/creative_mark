@@ -52,6 +52,8 @@ class HandleInertiaRequests extends Middleware
             'phone' => $contact['phone'] ?? null,
             'whatsapp' => $contact['whatsapp'] ?? null,
             'social' => Setting::group('social')['links'] ?? [],
+            // RULE-06 notice; switched off by the owner on 2026-11-01 (docs/decisions.md, D-07)
+            'translationNotice' => (bool) (Setting::group('site')['translation_notice'] ?? false),
         ];
     }
 }

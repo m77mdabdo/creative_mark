@@ -100,6 +100,8 @@ class ContentSeeder extends Seeder
             'facebook' => 'https://www.facebook.com/creativemark1',
             'linkedin' => 'https://www.linkedin.com/company/105348458/', // derived from the company id; confirm
         ]);
+        // Owner decision D-07 (2026-11-01): no "translation under review" notice on the public site.
+        $set('site', 'translation_notice', false);
         $set('catalogue', 'industries', $c['industries']);
         $set('catalogue', 'faq_categories', $c['faq_categories']);
         // RULE-04: prototype stock photos (Unsplash), placeholders until the client supplies or approves photography

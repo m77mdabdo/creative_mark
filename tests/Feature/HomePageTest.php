@@ -99,6 +99,11 @@ class HomePageTest extends TestCase
         $this->get('/zh')->assertInertia(fn (Assert $page) => $page->where('locale.tag', 'zh-Hans')->where('site.nav.0.label', 'About'));
     }
 
+    public function test_translation_notice_is_off_by_owner_decision(): void
+    {
+        $this->get('/fr')->assertInertia(fn (Assert $page) => $page->where('site.translationNotice', false));
+    }
+
     public function test_untranslated_locale_falls_back_to_english_with_notice(): void
     {
         $this->get('/fr')->assertInertia(fn (Assert $page) => $page

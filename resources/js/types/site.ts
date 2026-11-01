@@ -18,5 +18,6 @@ export type SharedProps = {
     phone: string | null
     whatsapp: string | null
     social: Partial<Record<'instagram' | 'facebook' | 'linkedin', string>>
+    translationNotice: boolean
   }
 }

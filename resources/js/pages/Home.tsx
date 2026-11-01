@@ -7,11 +7,11 @@ import { SECTION_COMPONENTS } from '@/sections/registry'
 import type { HomeProps } from '@/types'
 
 export default function Home(page: HomeProps) {
-  const { locale } = useSite()
+  const { locale, site } = useSite()
   const scope = useRef<HTMLDivElement>(null)
   useMotion(scope, `home-${locale.code}`)
 
-  return <SiteLayout showTranslationNotice={page.reviewStatus !== 'approved'}>
+  return <SiteLayout showTranslationNotice={site.translationNotice && page.reviewStatus !== 'approved'}>
     <Head>
       <title>{page.seo.title}</title>
       <meta name="description" content={page.seo.description} />

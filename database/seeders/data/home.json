@@ -84,9 +84,10 @@
       "ar": "الرياض"
      },
      "subtitle": {
-      "en": "Business services, consulting & corporate operations",
-      "ar": "خدمات الأعمال والاستشارات والعمليات المؤسسية"
-     }
+      "en": "The Kingdom’s primary business centre and a leading destination for headquarters, consulting firms, professional services and technology companies.",
+      "ar": "المركز الرئيسي للأعمال في المملكة، ومن أهم الوجهات للمقرات الرئيسية وشركات الاستشارات والخدمات المهنية والتقنية."
+     },
+     "region": "riyadh"
     },
     {
      "id": "slide-3",
@@ -100,8 +101,8 @@
       "ar": "لا نفتح شركات فقط. نبني دخول السوق."
      },
      "subtitle": {
-      "en": "Company formation, investment licensing and business solutions for investors building in Saudi Arabia.",
-      "ar": "تأسيس الشركات والتراخيص الاستثمارية وحلول الأعمال للمستثمرين في المملكة العربية السعودية."
+      "en": "For companies targeting large corporations, government-linked opportunities and decision-makers, Riyadh offers one of the strongest commercial ecosystems in Saudi Arabia.",
+      "ar": "للشركات التي تستهدف المؤسسات الكبرى والفرص المرتبطة بالحكومة وصناع القرار، توفر الرياض واحدة من أقوى البيئات التجارية في المملكة."
      }
     },
     {
@@ -116,9 +117,10 @@
       "ar": "العلا"
      },
      "subtitle": {
-      "en": "Hospitality & visitor-focused businesses",
-      "ar": "الضيافة والأعمال الموجهة للزوار"
-     }
+      "en": "Continuous domestic and international visitor demand for accommodation, hospitality, food services, transportation and retail.",
+      "ar": "طلب مستمر من الزوار محلياً ودولياً على الإقامة والضيافة وخدمات الطعام والنقل والتجزئة."
+     },
+     "region": "madinah"
     },
     {
      "id": "slide-5",
@@ -132,9 +134,10 @@
       "ar": "جدة التاريخية"
      },
      "subtitle": {
-      "en": "Tourism, hospitality & visitor services",
-      "ar": "السياحة والضيافة وخدمات الزوار"
-     }
+      "en": "Exceptionally high visitor activity creates opportunities in accommodation, food services, hospitality, travel, transportation and retail.",
+      "ar": "نشاط زوار مرتفع جداً يخلق فرصاً في الإقامة وخدمات الطعام والضيافة والسفر والنقل والتجزئة."
+     },
+     "region": "makkah"
     },
     {
      "id": "slide-6",
@@ -148,9 +151,10 @@
       "ar": "أبها"
      },
      "subtitle": {
-      "en": "Tourism & hospitality",
-      "ar": "السياحة والضيافة"
-     }
+      "en": "One of the Kingdom’s emerging tourism destinations, with opportunities in accommodation, restaurants, entertainment and visitor experiences.",
+      "ar": "إحدى الوجهات السياحية الناشئة في المملكة، بفرص في الإقامة والمطاعم والترفيه وتجارب الزوار."
+     },
+     "region": "asir"
     },
     {
      "id": "slide-7",
@@ -164,9 +168,10 @@
       "ar": "نيوم"
      },
      "subtitle": {
-      "en": "Tourism, hospitality & emerging opportunities",
-      "ar": "السياحة والضيافة والفرص الناشئة"
-     }
+      "en": "Large-scale development in the north-west is opening opportunities in project services, construction, logistics, tourism and hospitality.",
+      "ar": "مشاريع التطوير الكبرى في الشمال الغربي تفتح فرصاً في خدمات المشاريع والبناء والخدمات اللوجستية والسياحة والضيافة."
+     },
+     "region": "tabuk"
     },
     {
      "id": "slide-8",
@@ -180,8 +185,8 @@
       "ar": "موقعك يجب ألا يحد من فرصتك"
      },
      "subtitle": {
-      "en": "13 regions. Different opportunities. One market.",
-      "ar": "13 منطقة. فرص مختلفة. سوق واحد."
+      "en": "13 regions. Different opportunities. One market. We evaluate your activity, supply chain and strategy before recommending the right location.",
+      "ar": "13 منطقة. فرص مختلفة. سوق واحد. نقيّم نشاطك وسلسلة الإمداد والاستراتيجية قبل أن نوصي بالموقع المناسب."
      }
     }
    ]

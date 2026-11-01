@@ -15,7 +15,11 @@ export type SectionType =
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
-export type Slide = { id: string; media: string; eyebrow?: string | null; title?: string | null; highlight?: string | null; subtitle?: string | null }
+export type Slide = {
+  id: string; media: string; eyebrow?: string | null; title?: string | null; highlight?: string | null; subtitle?: string | null
+  /** Region slug whose investment opportunities are listed under the copy. */
+  region?: string
+}
 
 export type SectionTheme = 'dark' | 'charcoal' | 'ivory' | 'white'
 

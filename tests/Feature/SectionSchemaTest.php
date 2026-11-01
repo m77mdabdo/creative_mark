@@ -42,6 +42,7 @@ class SectionSchemaTest extends TestCase
             'slide without image' => [fn ($s) => [...$s, 'slides' => [['id' => 's1', 'title' => ['en' => 'x']]]]],
             'slide with html' => [fn ($s) => [...$s, 'slides' => [['id' => 's1', 'media' => 'hero-x', 'title' => ['en' => '<b>x</b>']]]]],
             'slide unknown field' => [fn ($s) => [...$s, 'slides' => [['id' => 's1', 'media' => 'hero-x', 'onload' => 'x']]]],
+            'slide region injection' => [fn ($s) => [...$s, 'slides' => [['id' => 's1', 'media' => 'hero-x', 'region' => '../x']]]],
             'too many slides' => [fn ($s) => [...$s, 'slides' => array_fill(0, 11, ['id' => 's', 'media' => 'hero-x'])]],
         ];
     }

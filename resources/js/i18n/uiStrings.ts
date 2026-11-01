@@ -35,6 +35,7 @@ const STRINGS = {
   unverified: { en: 'Name withheld until the client approves publication.', ar: 'الاسم محجوب حتى يوافق العميل على النشر.' },
   prev: { en: 'Previous', ar: 'السابق' },
   next: { en: 'Next', ar: 'التالي' },
+  investmentOpportunities: { en: 'Investment opportunities', ar: 'فرص الاستثمار' },
   pause: { en: 'Pause slideshow', ar: 'إيقاف العرض مؤقتاً' },
   play: { en: 'Play slideshow', ar: 'تشغيل العرض' },
   slide: { en: 'Slide', ar: 'شريحة' },

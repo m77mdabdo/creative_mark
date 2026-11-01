@@ -29,6 +29,7 @@ export default function Hero({ section, page }: SectionProps) {
   const { overlay, align } = section.style
   const centered = align === 'center'
   const current = slides[show.active]
+  const opportunities = page.regions.find(r => r.slug === current.region)?.opportunities ?? []
   const scrim = `linear-gradient(180deg, rgba(8,8,9,${Math.min(0.9, overlay / 140)}) 0%, rgba(8,8,9,${overlay / 100}) 45%, rgba(8,8,9,.95) 100%)`
 
   return <section id={section.id} data-type="hero" aria-labelledby={`${section.id}-title`} aria-roledescription="carousel"
@@ -57,10 +58,11 @@ export default function Hero({ section, page }: SectionProps) {
         <p className="font-display t-display-xl text-white" style={rise(0.3)}>
           <HighlightedTitle title={current.title ?? ''} highlight={current.highlight} />
         </p>
-        {current.subtitle && <p className={`t-body-l mt-6 max-w-2xl text-white/80 md:mt-8 ${centered ? 'mx-auto' : ''}`} style={rise(0.45)}>{current.subtitle}</p>}
+        {current.subtitle && <p className={`t-body-l mt-6 max-w-2xl text-white/85 md:mt-8 ${centered ? 'mx-auto' : ''}`} style={rise(0.45)}>{current.subtitle}</p>}
+        <Opportunities items={opportunities} centered={centered} label={t('investmentOpportunities')} />
       </div>
       <p className="sr-only" aria-live={show.playing ? 'off' : 'polite'}>
-        {t('slide')} {show.active + 1} {t('of')} {slides.length}: {current.title}. {current.subtitle}
+        {t('slide')} {show.active + 1} {t('of')} {slides.length}: {current.title}. {current.subtitle} {opportunities.join('، ')}
       </p>
       <ButtonGroup buttons={section.buttons} className={`mt-8 text-white md:mt-10 ${centered ? 'justify-center' : ''}`} />
     </div>
@@ -87,6 +89,15 @@ export default function Hero({ section, page }: SectionProps) {
       </div>
     </div>}
   </section>
+}
+
+/** The region's opportunities from the catalogue, as gold-edged chips (kept in sync with the Regions module). */
+function Opportunities({ items, centered, label }: { items: string[]; centered: boolean; label: string }) {
+  if (!items.length) return null
+  return <div className={`mt-6 flex flex-wrap items-center gap-2 ${centered ? 'justify-center' : ''}`} style={rise(0.6)}>
+    <span className="me-1 text-[11px] font-semibold uppercase tracking-[.18em] text-gold">{label}</span>
+    {items.map(item => <span key={item} className="rounded-full border border-gold/45 bg-black/35 px-3 py-1 text-xs text-white/90 backdrop-blur-sm">{item}</span>)}
+  </div>
 }
 
 const rise = (delay: number) => ({ animation: `cm-rise 1.1s var(--ease-out) ${delay}s both` })

@@ -26,7 +26,7 @@ final class SectionSchema
     private const CARD_KEYS = ['id', 'title', 'text', 'icon', 'media', 'verified'];
 
     /** Hero slideshow: each slide has its own image and copy; buttons stay with the section. */
-    private const SLIDE_KEYS = ['id', 'media', 'eyebrow', 'title', 'highlight', 'subtitle'];
+    private const SLIDE_KEYS = ['id', 'media', 'eyebrow', 'title', 'highlight', 'subtitle', 'region'];
 
     private const MAX_SLIDES = 10;
 
@@ -96,6 +96,9 @@ final class SectionSchema
         foreach ($slides as $slide) {
             foreach (array_diff(array_keys((array) $slide), self::SLIDE_KEYS) as $k) {
                 $e[] = "Unknown slide field [$k].";
+            }
+            if (isset($slide['region']) && ! self::mediaKey($slide['region'])) {
+                $e[] = 'Invalid slide region.';
             }
             if (! self::mediaKey($slide['media'] ?? null)) {
                 $e[] = 'Every slide needs an image.';

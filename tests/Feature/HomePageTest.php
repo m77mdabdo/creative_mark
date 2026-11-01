@@ -72,6 +72,8 @@ class HomePageTest extends TestCase
             ->has('sections.0.slides', 8)
             ->where('sections.0.slides.0.title', 'مكان واحد، حلول لا تنتهي')
             ->where('sections.0.slides.3.title', 'العلا')
+            ->where('sections.0.slides.3.region', 'madinah')
+            ->where('sections.0.slides.3.subtitle', fn ($t) => str_contains($t, 'الإقامة والضيافة'))
             ->where('media.hero-alula-elephant-rock.srcset', fn ($s) => str_contains($s, '/media/hero/hero-alula-elephant-rock-2560.webp 2560w'))
             ->where('media.hero-alula-elephant-rock.alt', 'صخرة الفيل مضاءة ليلاً، العلا'));
 

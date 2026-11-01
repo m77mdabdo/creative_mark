@@ -13,7 +13,7 @@ final class SectionSchema
     public const TYPES = [
         'hero', 'whyInvest', 'journey', 'countries', 'sectors', 'trackRecord',
         'services', 'map', 'faq', 'cta', 'testimonials',
-        'statement', 'imageText', 'cards',
+        'statement', 'imageText', 'cards', 'serviceGroups', 'processSteps',
     ];
 
     public const LAYOUTS = ['split', 'split-reverse'];

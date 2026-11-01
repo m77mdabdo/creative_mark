@@ -647,5 +647,170 @@
    1920,
    2560
   ]
+ },
+ "svc-company-formation": {
+  "alt": {
+   "en": "Saudi businessman reviewing company documents on a tablet",
+   "ar": "رجل أعمال سعودي يراجع مستندات الشركة على جهاز لوحي"
+  },
+  "credit": "Amina Atar / Unsplash",
+  "source": "https://unsplash.com/photos/oJ4E_Vm5HaI",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-business-consulting": {
+  "alt": {
+   "en": "Meeting room with a panoramic city view at sunrise",
+   "ar": "غرفة اجتماعات بإطلالة بانورامية على المدينة عند الشروق"
+  },
+  "credit": "Yibei Geng / Unsplash",
+  "source": "https://unsplash.com/photos/-UdYbiywGeg",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-feasibility-studies": {
+  "alt": {
+   "en": "Market and performance analytics on a screen",
+   "ar": "تحليلات السوق والأداء على الشاشة"
+  },
+  "credit": "Luke Chesser / Unsplash",
+  "source": "https://unsplash.com/photos/JKUTrJ4vK00",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-saudi-companies-in-the-uae": {
+  "alt": {
+   "en": "Downtown Dubai and Burj Khalifa at sunrise",
+   "ar": "وسط دبي وبرج خليفة عند الشروق"
+  },
+  "credit": "David Rodrigo / Unsplash",
+  "source": "https://unsplash.com/photos/Fr6zexbmjmc",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-quality-certificates": {
+  "alt": {
+   "en": "Signing a certificate with a fountain pen",
+   "ar": "توقيع شهادة بقلم حبر"
+  },
+  "credit": "Cytonn Photography / Unsplash",
+  "source": "https://unsplash.com/photos/GJao3ZTX9gU",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-hr-and-auditing": {
+  "alt": {
+   "en": "Team reviewing work together in an office",
+   "ar": "فريق يراجع العمل معاً في المكتب"
+  },
+  "credit": "Jud Mackrill / Unsplash",
+  "source": "https://unsplash.com/photos/Of_m3hMsoAA",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-tax-and-budgeting": {
+  "alt": {
+   "en": "Financial planning on paper beside a laptop",
+   "ar": "تخطيط مالي على الورق بجانب حاسوب محمول"
+  },
+  "credit": "Scott Graham / Unsplash",
+  "source": "https://unsplash.com/photos/5fNmWej4tAA",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-investment-tours": {
+  "alt": {
+   "en": "Desert escarpment at sunrise near Huraymila, Riyadh Region",
+   "ar": "جرف صحراوي عند الشروق قرب حريملاء، منطقة الرياض"
+  },
+  "credit": "Datingjungle / Unsplash",
+  "source": "https://unsplash.com/photos/gh3oD_NSiks",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-office-solutions": {
+  "alt": {
+   "en": "Modern meeting room overlooking the city",
+   "ar": "غرفة اجتماعات حديثة تطل على المدينة"
+  },
+  "credit": "Marc Wieland / Unsplash",
+  "source": "https://unsplash.com/photos/yzOieLQof-U",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-international-acquisition": {
+  "alt": {
+   "en": "Looking up at glass office towers",
+   "ar": "نظرة إلى الأعلى نحو أبراج مكاتب زجاجية"
+  },
+  "credit": "Sean Pollock / Unsplash",
+  "source": "https://unsplash.com/photos/PhYq704ffdA",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "svc-licensing-and-government-approvals": {
+  "alt": {
+   "en": "Handshake over signed approval documents",
+   "ar": "مصافحة فوق مستندات موافقات موقّعة"
+  },
+  "credit": "Amina Atar / Unsplash",
+  "source": "https://unsplash.com/photos/4mEyvORkbN0",
+  "folder": "services",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
  }
 }

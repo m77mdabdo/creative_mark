@@ -5,7 +5,7 @@
    "slug": "company-formation",
    "order": 1,
    "icon": "Building2",
-   "media": "cm-handshake",
+   "media": "svc-company-formation",
    "title": {
     "en": "Company Formation",
     "ar": "تأسيس الشركات"
@@ -21,6 +21,74 @@
    "cta": {
     "en": "Start your company",
     "ar": "ابدأ شركتك"
+   },
+   "group": "setup",
+   "related": [
+    "licensing-and-government-approvals",
+    "office-solutions",
+    "tax-and-budgeting"
+   ],
+   "faqs": [
+    "faq5",
+    "faq11",
+    "faq14",
+    "faq15",
+    "faq16",
+    "faq10"
+   ],
+   "overview": {
+    "en": "Creative Mark supports local and foreign investors throughout the company establishment process in Saudi Arabia.\n\nWe help you understand the appropriate business activity, company structure, licensing requirements and establishment procedures before starting the registration process.",
+    "ar": "تدعم كرييتف مارك المستثمرين المحليين والأجانب طوال رحلة تأسيس الشركة في المملكة العربية السعودية.\n\nنساعدك على فهم النشاط التجاري المناسب وهيكل الشركة ومتطلبات الترخيص وإجراءات التأسيس قبل البدء في التسجيل."
+   },
+   "scope": [
+    {
+     "en": "Business activity assessment",
+     "ar": "تقييم النشاط التجاري"
+    },
+    {
+     "en": "Investment licensing support",
+     "ar": "دعم الترخيص الاستثماري"
+    },
+    {
+     "en": "Company incorporation procedures",
+     "ar": "إجراءات تأسيس الشركة"
+    },
+    {
+     "en": "Commercial Registration support",
+     "ar": "دعم استخراج السجل التجاري"
+    },
+    {
+     "en": "Government file activation",
+     "ar": "تفعيل الملفات الحكومية"
+    },
+    {
+     "en": "Municipal licensing support",
+     "ar": "دعم التراخيص البلدية"
+    },
+    {
+     "en": "Industrial licensing support where applicable",
+     "ar": "دعم التراخيص الصناعية عند الحاجة"
+    },
+    {
+     "en": "Investor and General Manager visa support",
+     "ar": "دعم تأشيرات المستثمر والمدير العام"
+    },
+    {
+     "en": "Business address and office solutions",
+     "ar": "العنوان التجاري وحلول المكاتب"
+    },
+    {
+     "en": "Corporate banking guidance",
+     "ar": "الإرشاد في الخدمات المصرفية للشركات"
+    },
+    {
+     "en": "Tax registration support",
+     "ar": "دعم التسجيل الضريبي"
+    }
+   ],
+   "note": {
+    "en": "With more than 1,000 companies established, Creative Mark brings practical experience to every stage of the establishment process.",
+    "ar": "بأكثر من 1,000 شركة تم تأسيسها، تقدم كرييتف مارك خبرة عملية في كل مرحلة من مراحل التأسيس."
    }
   },
   {
@@ -28,7 +96,7 @@
    "slug": "business-consulting",
    "order": 2,
    "icon": "Compass",
-   "media": "cm-presentation",
+   "media": "svc-business-consulting",
    "title": {
     "en": "Business Consulting",
     "ar": "الاستشارات التجارية"
@@ -44,14 +112,58 @@
    "cta": {
     "en": "Speak with a consultant",
     "ar": "تحدث مع مستشار"
-   }
+   },
+   "group": "grow",
+   "related": [
+    "feasibility-studies",
+    "company-formation",
+    "investment-tours"
+   ],
+   "faqs": [
+    "faq8"
+   ],
+   "overview": {
+    "en": "Strategic support for investors entering or expanding in Saudi Arabia.\n\nOur business consulting services help investors assess their business model, market-entry strategy, operational requirements and expansion opportunities before committing capital.",
+    "ar": "دعم استراتيجي للمستثمرين الذين يدخلون السوق السعودي أو يتوسعون فيه.\n\nتساعد خدماتنا الاستشارية المستثمرين على تقييم نموذج العمل واستراتيجية دخول السوق والمتطلبات التشغيلية وفرص التوسع قبل الالتزام برأس المال."
+   },
+   "scope": [
+    {
+     "en": "Market entry",
+     "ar": "دخول السوق"
+    },
+    {
+     "en": "Business models",
+     "ar": "نماذج الأعمال"
+    },
+    {
+     "en": "Investment planning",
+     "ar": "التخطيط الاستثماري"
+    },
+    {
+     "en": "Operations",
+     "ar": "العمليات"
+    },
+    {
+     "en": "Management",
+     "ar": "الإدارة"
+    },
+    {
+     "en": "Marketing",
+     "ar": "التسويق"
+    },
+    {
+     "en": "Financial and accounting consulting",
+     "ar": "الاستشارات المالية والمحاسبية"
+    }
+   ],
+   "note": null
   },
   {
    "key": "feasibility",
    "slug": "feasibility-studies",
    "order": 3,
    "icon": "LineChart",
-   "media": "cm-tablet",
+   "media": "svc-feasibility-studies",
    "title": {
     "en": "Feasibility Studies",
     "ar": "دراسات الجدوى"
@@ -67,6 +179,59 @@
    "cta": {
     "en": "Request a feasibility study",
     "ar": "اطلب دراسة جدوى"
+   },
+   "group": "grow",
+   "related": [
+    "business-consulting",
+    "investment-tours",
+    "company-formation"
+   ],
+   "faqs": [],
+   "overview": {
+    "en": "Reduce uncertainty before investing. Our feasibility studies provide structured market, commercial, operational and financial analysis to support more informed investment decisions.",
+    "ar": "قلّل عدم اليقين قبل الاستثمار. تقدم دراسات الجدوى لدينا تحليلاً منظماً للسوق والجوانب التجارية والتشغيلية والمالية لدعم قرارات استثمارية أكثر وعياً."
+   },
+   "scope": [
+    {
+     "en": "Market demand",
+     "ar": "الطلب في السوق"
+    },
+    {
+     "en": "Target customers",
+     "ar": "العملاء المستهدفون"
+    },
+    {
+     "en": "Competition",
+     "ar": "المنافسة"
+    },
+    {
+     "en": "Pricing",
+     "ar": "التسعير"
+    },
+    {
+     "en": "Market size",
+     "ar": "حجم السوق"
+    },
+    {
+     "en": "Investment requirements",
+     "ar": "متطلبات الاستثمار"
+    },
+    {
+     "en": "Operational needs",
+     "ar": "الاحتياجات التشغيلية"
+    },
+    {
+     "en": "Risks",
+     "ar": "المخاطر"
+    },
+    {
+     "en": "Market entry",
+     "ar": "دخول السوق"
+    }
+   ],
+   "note": {
+    "en": "Make your investment decisions based on insight, not assumptions.",
+    "ar": "اتخذ قراراتك الاستثمارية بناءً على المعرفة، لا الافتراضات."
    }
   },
   {
@@ -74,7 +239,7 @@
    "slug": "saudi-companies-in-the-uae",
    "order": 4,
    "icon": "Plane",
-   "media": "dubai-burj",
+   "media": "svc-saudi-companies-in-the-uae",
    "title": {
     "en": "Saudi Companies in the UAE",
     "ar": "الشركات السعودية في الإمارات"
@@ -90,14 +255,40 @@
    "cta": {
     "en": "Expand to the UAE",
     "ar": "توسّع إلى الإمارات"
-   }
+   },
+   "group": "grow",
+   "related": [
+    "international-acquisition",
+    "business-consulting",
+    "company-formation"
+   ],
+   "faqs": [],
+   "overview": {
+    "en": "Growth does not have to stop at the Saudi border.\n\nCreative Mark supports Saudi companies establishing or expanding their presence in the United Arab Emirates, helping them understand the setup process, requirements and operational considerations as part of their wider GCC expansion strategy.",
+    "ar": "النمو لا يتوقف بالضرورة عند الحدود السعودية.\n\nتدعم كرييتف مارك الشركات السعودية التي تؤسس حضورها أو توسّعه في الإمارات العربية المتحدة، وتساعدها على فهم إجراءات التأسيس والمتطلبات والاعتبارات التشغيلية ضمن استراتيجية توسع أشمل في دول الخليج."
+   },
+   "scope": [
+    {
+     "en": "Setup process",
+     "ar": "إجراءات التأسيس"
+    },
+    {
+     "en": "Requirements",
+     "ar": "المتطلبات"
+    },
+    {
+     "en": "Operational considerations",
+     "ar": "الاعتبارات التشغيلية"
+    }
+   ],
+   "note": null
   },
   {
    "key": "quality",
    "slug": "quality-certificates",
    "order": 5,
    "icon": "BadgeCheck",
-   "media": "cm-sign",
+   "media": "svc-quality-certificates",
    "title": {
     "en": "Quality Certificates",
     "ar": "شهادات الجودة"
@@ -113,14 +304,44 @@
    "cta": {
     "en": "Explore certification support",
     "ar": "استكشف دعم الشهادات"
-   }
+   },
+   "group": "comply",
+   "related": [
+    "licensing-and-government-approvals",
+    "hr-and-auditing",
+    "company-formation"
+   ],
+   "faqs": [],
+   "overview": {
+    "en": "We support businesses in obtaining the professional certificates, classifications and approvals required for their activities.\n\nCreative Mark’s experience includes supporting a wide range of approvals, certifications and professional requirements for companies operating across different activities.",
+    "ar": "ندعم الشركات في الحصول على الشهادات المهنية والتصنيفات والموافقات المطلوبة لأنشطتها.\n\nتشمل خبرة كرييتف مارك دعم مجموعة واسعة من الموافقات والشهادات والمتطلبات المهنية لشركات تعمل في أنشطة مختلفة."
+   },
+   "scope": [
+    {
+     "en": "Professional accreditations",
+     "ar": "الاعتمادات المهنية"
+    },
+    {
+     "en": "Contractor classification certificates",
+     "ar": "شهادات تصنيف المقاولين"
+    },
+    {
+     "en": "Customs registration certificates",
+     "ar": "شهادات التسجيل الجمركي"
+    },
+    {
+     "en": "City service provider execution certificates",
+     "ar": "شهادات التنفيذ لمقدمي خدمات المدن"
+    }
+   ],
+   "note": null
   },
   {
    "key": "hr",
    "slug": "hr-and-auditing",
    "order": 6,
    "icon": "Users",
-   "media": "cm-team",
+   "media": "svc-hr-and-auditing",
    "title": {
     "en": "HR & Auditing",
     "ar": "الموارد البشرية والتدقيق"
@@ -136,14 +357,52 @@
    "cta": {
     "en": "Improve your operations",
     "ar": "حسّن عملياتك"
-   }
+   },
+   "group": "comply",
+   "related": [
+    "tax-and-budgeting",
+    "business-consulting",
+    "quality-certificates"
+   ],
+   "faqs": [],
+   "overview": {
+    "en": "Create a stronger internal business structure through HR support, operational reviews, auditing and organizational development solutions.\n\nWe help companies improve efficiency and internal structure through focused reviews and practical support.",
+    "ar": "ابنِ هيكلاً داخلياً أقوى لعملك من خلال دعم الموارد البشرية والمراجعات التشغيلية والتدقيق وحلول التطوير المؤسسي.\n\nنساعد الشركات على رفع الكفاءة وتحسين هيكلها الداخلي من خلال مراجعات مركّزة ودعم عملي."
+   },
+   "scope": [
+    {
+     "en": "HR reviews",
+     "ar": "مراجعات الموارد البشرية"
+    },
+    {
+     "en": "Organizational support",
+     "ar": "الدعم المؤسسي"
+    },
+    {
+     "en": "Process reviews",
+     "ar": "مراجعة الإجراءات"
+    },
+    {
+     "en": "Operational auditing",
+     "ar": "التدقيق التشغيلي"
+    },
+    {
+     "en": "Business structure assessment",
+     "ar": "تقييم هيكل العمل"
+    },
+    {
+     "en": "Management support",
+     "ar": "دعم الإدارة"
+    }
+   ],
+   "note": null
   },
   {
    "key": "tax",
    "slug": "tax-and-budgeting",
    "order": 7,
    "icon": "Calculator",
-   "media": "cm-calc",
+   "media": "svc-tax-and-budgeting",
    "title": {
     "en": "Tax & Budgeting",
     "ar": "الضرائب والميزانيات"
@@ -159,6 +418,49 @@
    "cta": {
     "en": "Talk to our financial team",
     "ar": "تحدث مع فريقنا المالي"
+   },
+   "group": "comply",
+   "related": [
+    "hr-and-auditing",
+    "company-formation",
+    "business-consulting"
+   ],
+   "faqs": [
+    "faq13"
+   ],
+   "overview": {
+    "en": "Support your company’s financial compliance and planning through tax registration, budgeting, financial organization and ongoing business support.",
+    "ar": "ادعم الامتثال المالي لشركتك وتخطيطها من خلال التسجيل الضريبي وإعداد الميزانيات والتنظيم المالي والدعم المستمر للأعمال."
+   },
+   "scope": [
+    {
+     "en": "Tax registration",
+     "ar": "التسجيل الضريبي"
+    },
+    {
+     "en": "Budget planning",
+     "ar": "تخطيط الميزانية"
+    },
+    {
+     "en": "Accounting structure",
+     "ar": "الهيكل المحاسبي"
+    },
+    {
+     "en": "Financial organization",
+     "ar": "التنظيم المالي"
+    },
+    {
+     "en": "Compliance support",
+     "ar": "دعم الامتثال"
+    },
+    {
+     "en": "Financial planning",
+     "ar": "التخطيط المالي"
+    }
+   ],
+   "note": {
+    "en": "A stronger financial foundation means better business decisions.",
+    "ar": "أساس مالي أقوى يعني قرارات أعمال أفضل."
    }
   },
   {
@@ -166,7 +468,7 @@
    "slug": "investment-tours",
    "order": 8,
    "icon": "Map",
-   "media": "cm-desert-road",
+   "media": "svc-investment-tours",
    "title": {
     "en": "Investment Tours",
     "ar": "الجولات الاستثمارية"
@@ -182,14 +484,44 @@
    "cta": {
     "en": "Plan an investment tour",
     "ar": "خطط لجولة استثمارية"
-   }
+   },
+   "group": "grow",
+   "related": [
+    "feasibility-studies",
+    "business-consulting",
+    "company-formation"
+   ],
+   "faqs": [],
+   "overview": {
+    "en": "Numbers tell part of the story. Seeing the market provides another perspective.\n\nOur investment tours help investors explore potential business locations, projects, commercial environments and investment opportunities directly on the ground.",
+    "ar": "الأرقام تروي جزءاً من القصة، ورؤية السوق بعينك تمنحك منظوراً آخر.\n\nتساعد جولاتنا الاستثمارية المستثمرين على استكشاف مواقع الأعمال المحتملة والمشاريع والبيئات التجارية والفرص الاستثمارية على أرض الواقع."
+   },
+   "scope": [
+    {
+     "en": "Potential business locations",
+     "ar": "مواقع الأعمال المحتملة"
+    },
+    {
+     "en": "Projects",
+     "ar": "المشاريع"
+    },
+    {
+     "en": "Commercial environments",
+     "ar": "البيئات التجارية"
+    },
+    {
+     "en": "Investment opportunities on the ground",
+     "ar": "الفرص الاستثمارية على أرض الواقع"
+    }
+   ],
+   "note": null
   },
   {
    "key": "office",
    "slug": "office-solutions",
    "order": 9,
    "icon": "Briefcase",
-   "media": "cm-office",
+   "media": "svc-office-solutions",
    "title": {
     "en": "Office Solutions",
     "ar": "حلول المكاتب"
@@ -205,6 +537,49 @@
    "cta": {
     "en": "Find your office",
     "ar": "اعثر على مكتبك"
+   },
+   "group": "setup",
+   "related": [
+    "company-formation",
+    "licensing-and-government-approvals",
+    "tax-and-budgeting"
+   ],
+   "faqs": [
+    "faq12"
+   ],
+   "overview": {
+    "en": "Find an office solution aligned with your company activity, registration requirements, operational needs and professional image.\n\nWe help companies identify office solutions that match their:",
+    "ar": "اعثر على حل مكتبي يتوافق مع نشاط شركتك ومتطلبات التسجيل واحتياجاتك التشغيلية وصورتك المهنية.\n\nنساعد الشركات على تحديد حلول المكاتب التي تناسب:"
+   },
+   "scope": [
+    {
+     "en": "Business activity",
+     "ar": "النشاط التجاري"
+    },
+    {
+     "en": "Licensing requirements",
+     "ar": "متطلبات الترخيص"
+    },
+    {
+     "en": "Company size",
+     "ar": "حجم الشركة"
+    },
+    {
+     "en": "Operations",
+     "ar": "العمليات"
+    },
+    {
+     "en": "Budget",
+     "ar": "الميزانية"
+    },
+    {
+     "en": "Preferred location",
+     "ar": "الموقع المفضل"
+    }
+   ],
+   "note": {
+    "en": "From registered business addresses to operational offices.",
+    "ar": "من العناوين التجارية المسجلة إلى المكاتب التشغيلية."
    }
   },
   {
@@ -212,7 +587,7 @@
    "slug": "international-acquisition",
    "order": 10,
    "icon": "Globe2",
-   "media": "cm-earth",
+   "media": "svc-international-acquisition",
    "title": {
     "en": "International Acquisition",
     "ar": "الاستحواذ الدولي"
@@ -228,14 +603,40 @@
    "cta": {
     "en": "Discuss an acquisition",
     "ar": "ناقش استحواذاً"
-   }
+   },
+   "group": "grow",
+   "related": [
+    "saudi-companies-in-the-uae",
+    "business-consulting",
+    "feasibility-studies"
+   ],
+   "faqs": [],
+   "overview": {
+    "en": "Explore international expansion through the acquisition of existing companies and business entities, with professional support throughout the process.\n\nCreative Mark supports investors exploring the acquisition of existing companies and business entities in international markets. We help evaluate the opportunity, business structure and implications of the acquisition before moving forward.",
+    "ar": "استكشف التوسع الدولي من خلال الاستحواذ على شركات وكيانات تجارية قائمة، مع دعم مهني طوال العملية.\n\nتدعم كرييتف مارك المستثمرين الذين يدرسون الاستحواذ على شركات وكيانات تجارية قائمة في الأسواق الدولية، ونساعد على تقييم الفرصة وهيكل العمل وانعكاسات الاستحواذ قبل المضي قدماً."
+   },
+   "scope": [
+    {
+     "en": "Opportunity evaluation",
+     "ar": "تقييم الفرصة"
+    },
+    {
+     "en": "Business structure review",
+     "ar": "مراجعة هيكل العمل"
+    },
+    {
+     "en": "Acquisition implications",
+     "ar": "انعكاسات الاستحواذ"
+    }
+   ],
+   "note": null
   },
   {
    "key": "licensing",
    "slug": "licensing-and-government-approvals",
    "order": 11,
    "icon": "FileCheck2",
-   "media": "cm-docs",
+   "media": "svc-licensing-and-government-approvals",
    "title": {
     "en": "Licensing & Government Approvals",
     "ar": "التراخيص والموافقات الحكومية"
@@ -251,7 +652,67 @@
    "cta": {
     "en": "Discuss your approvals",
     "ar": "ناقش موافقاتك"
-   }
+   },
+   "group": "setup",
+   "related": [
+    "company-formation",
+    "quality-certificates",
+    "office-solutions"
+   ],
+   "faqs": [
+    "faq10"
+   ],
+   "overview": {
+    "en": "Creative Mark supports companies through licensing, registrations, certifications and government approvals across multiple business activities.",
+    "ar": "تدعم كرييتف مارك الشركات في التراخيص والتسجيلات والشهادات والموافقات الحكومية عبر أنشطة تجارية متعددة."
+   },
+   "scope": [
+    {
+     "en": "Investment licenses",
+     "ar": "التراخيص الاستثمارية"
+    },
+    {
+     "en": "Municipal licenses",
+     "ar": "التراخيص البلدية"
+    },
+    {
+     "en": "Industrial licenses",
+     "ar": "التراخيص الصناعية"
+    },
+    {
+     "en": "Professional accreditations",
+     "ar": "الاعتمادات المهنية"
+    },
+    {
+     "en": "Contractor classification certificates",
+     "ar": "شهادات تصنيف المقاولين"
+    },
+    {
+     "en": "Customs registration certificates",
+     "ar": "شهادات التسجيل الجمركي"
+    },
+    {
+     "en": "City service provider execution certificates",
+     "ar": "شهادات التنفيذ لمقدمي خدمات المدن"
+    },
+    {
+     "en": "Environmental compliance certificates",
+     "ar": "شهادات الامتثال البيئي"
+    },
+    {
+     "en": "Advertising licenses",
+     "ar": "التراخيص الإعلانية"
+    },
+    {
+     "en": "Travel & tourism service licenses",
+     "ar": "تراخيص خدمات السفر والسياحة"
+    },
+    {
+     "en": "Fire alarm system installation permits",
+     "ar": "تصاريح تركيب أنظمة إنذار الحريق"
+    }
+   ],
+   "note": null
   }
  ],
  "regions": [

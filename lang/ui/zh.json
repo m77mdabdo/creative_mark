@@ -39,5 +39,15 @@
     "goToSlide": "显示幻灯片",
     "photoNote": "示意图片",
     "breadcrumb": "面包屑导航",
-    "homeLabel": "首页"
+    "homeLabel": "首页",
+    "overview": "概览",
+    "whatsIncluded": "服务内容",
+    "howWeWork": "我们的工作方式",
+    "fromIdea": "从构想到运营",
+    "questions": "常见问题",
+    "serviceQuestions": "关于此项服务的问题",
+    "relatedServices": "相关解决方案",
+    "ctaTitle": "还有疑问？",
+    "ctaBody": "与我们的顾问交流，获得针对您具体经营活动和投资计划的专业建议。",
+    "bookConsultation": "预约咨询"
 }

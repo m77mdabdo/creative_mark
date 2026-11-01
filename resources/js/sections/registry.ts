@@ -8,6 +8,8 @@ import ImageText from './ImageText'
 import Journey from './Journey'
 import RegionsMapSection from './RegionsMap/RegionsMapSection'
 import Sectors from './Sectors'
+import ProcessSteps from './ProcessSteps'
+import ServiceGroups from './ServiceGroups'
 import Services from './Services'
 import Statement from './Statement'
 import type { SectionProps } from './shared/types'
@@ -34,4 +36,6 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   statement: Statement,
   imageText: ImageText,
   cards: WhyInvest,
+  serviceGroups: ServiceGroups,
+  processSteps: ProcessSteps,
 }

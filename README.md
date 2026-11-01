@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-277_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-283_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -45,6 +45,7 @@ public website and the dashboard its team uses to run it.
 | <img src="docs/screenshots/home-regions-map.jpg" alt="Interactive map of the 13 regions"> | <img src="docs/screenshots/home-countries.jpg" alt="Countries we work with"> |
 | <img src="docs/screenshots/home-zh.jpg" alt="Chinese version"> | <img src="docs/screenshots/admin-faqs.jpg" alt="Dashboard: FAQ module in Arabic"> |
 | <img src="docs/screenshots/about-hero.jpg" alt="About page hero"> | <img src="docs/screenshots/about-experience.jpg" alt="About page: market experience"> |
+| <img src="docs/screenshots/service-overview.jpg" alt="Service page: overview and what is included"> | <img src="docs/screenshots/services-zh.jpg" alt="Business solutions in Chinese"> |
 
 ## Features
 
@@ -56,6 +57,8 @@ public website and the dashboard its team uses to run it.
   FAQ preview, consultation call to action and client reviews.
 - About page built from the company presentation (positioning, market experience, local expertise with an
   international mindset, support after formation, six reasons to choose Creative Mark, verified track record).
+- Business solutions: an overview page with the eleven services grouped Set up / Grow / Comply and the seven-step
+  investor journey, plus a detail page per service (overview, what is included, related solutions, FAQs, consultation).
 - Interactive map of the 13 regions: keyboard operable, sector filter, list alternative, screen-reader announcements.
 - Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
 - Localized URLs (`/ar`, `/en`, `/fr`, `/hi`, `/ur`, `/zh`), Arabic by default, per-script typography
@@ -193,6 +196,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-01
+- Business solutions: overview page and eleven service pages in six languages, eleven new 2560 px photographs,
+  service details manageable in the dashboard (overview, included items, group, related services, FAQs).
+- Translation pipeline fills fields added later without replacing reviewed text.
 - About page in six languages with new high-resolution photography, breadcrumbs and SEO metadata; new reusable
   section types (statement, image and text, feature cards); checked on 12 screen widths from 320 to 1920 px.
 - Professional translations for French, Hindi, Urdu and Chinese across the whole site.

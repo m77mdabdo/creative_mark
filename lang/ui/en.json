@@ -39,5 +39,15 @@
     "goToSlide": "Show slide",
     "photoNote": "Illustrative photography",
     "breadcrumb": "Breadcrumb",
-    "homeLabel": "Home"
+    "homeLabel": "Home",
+    "overview": "Overview",
+    "whatsIncluded": "What’s included",
+    "howWeWork": "How we work",
+    "fromIdea": "From idea to operation",
+    "questions": "Questions",
+    "serviceQuestions": "Questions about this solution",
+    "relatedServices": "Related solutions",
+    "ctaTitle": "Still have questions?",
+    "ctaBody": "Speak with one of our consultants and receive guidance based on your specific business activity and investment plan.",
+    "bookConsultation": "Book a consultation"
 }

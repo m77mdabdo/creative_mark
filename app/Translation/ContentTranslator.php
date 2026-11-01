@@ -41,18 +41,18 @@ class ContentTranslator
         $written = 0;
         foreach ($this->targets($targets, $source) as $locale) {
             $existing = $rows->get($locale);
-            if ($existing && ! $this->mayOverwrite($existing->review_status, $refresh)) {
+            // Text a person wrote stays; only its empty fields (e.g. a field added later) are filled.
+            $onlyEmpty = $existing && ! $this->mayOverwrite($existing->review_status, $refresh);
+            $todo = $onlyEmpty ? array_values(array_filter($fields, fn ($f) => blank($existing->{$f}) && filled($rows[$source]->{$f}))) : $fields;
+            if ($todo === []) {
                 continue;
             }
 
             $values = [];
             $sourceTexts = [];
-            foreach ($fields as $field) {
+            foreach ($todo as $field) {
                 $value = $rows[$source]->{$field};
                 $sourceTexts = [...$sourceTexts, ...(is_array($value) ? array_values($value) : [$value])];
-            }
-            foreach ($fields as $field) {
-                $value = $rows[$source]->{$field};
                 $values[$field] = match (true) {
                     is_string($value) && filled($value) => $this->translator->translateOne($value, $source, $locale),
                     is_array($value) => $this->translator->translate(array_values($value), $source, $locale),
@@ -60,9 +60,13 @@ class ContentTranslator
                 };
             }
 
-            // Professional (translation memory) text is "review"; anything machine-made is "machine".
-            $status = $this->translator->coveredByMemory($sourceTexts, $source, $locale) ? ReviewStatus::Review : ReviewStatus::Machine;
-            $record->translations()->updateOrCreate(['locale' => $locale], [...$values, 'review_status' => $status]);
+            if ($onlyEmpty) {
+                $existing->update($values);
+            } else {
+                // Professional (translation memory) text is "review"; anything machine-made is "machine".
+                $status = $this->translator->coveredByMemory($sourceTexts, $source, $locale) ? ReviewStatus::Review : ReviewStatus::Machine;
+                $record->translations()->updateOrCreate(['locale' => $locale], [...$values, 'review_status' => $status]);
+            }
             $written++;
         }
 

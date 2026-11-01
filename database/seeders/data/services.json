@@ -1,0 +1,236 @@
+{
+ "key": "services",
+ "sections": [
+  {
+   "id": "services-hero",
+   "type": "hero",
+   "label": "Hero",
+   "eyebrow": {
+    "en": "Business solutions",
+    "ar": "حلول الأعمال"
+   },
+   "title": {
+    "en": "From business setup to growth",
+    "ar": "من تأسيس الأعمال إلى النمو"
+   },
+   "highlight": {
+    "en": "to growth",
+    "ar": "إلى النمو"
+   },
+   "subtitle": {
+    "en": "One partner for your Saudi journey.",
+    "ar": "شريك واحد لرحلتك في المملكة العربية السعودية."
+   },
+   "media": "hero-riyadh-kafd",
+   "buttons": [
+    {
+     "label": {
+      "en": "Get consultation",
+      "ar": "احصل على استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 52,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "services-intro",
+   "type": "statement",
+   "label": "Introduction",
+   "eyebrow": {
+    "en": "One integrated business partner",
+    "ar": "شريك أعمال متكامل واحد"
+   },
+   "subtitle": {
+    "en": "Entering the Saudi market involves more than registering a company. It requires the right legal structure, investment licensing, regulatory approvals, financial planning, operational setup, market understanding and long-term business support.",
+    "ar": "دخول السوق السعودي يتطلب أكثر من تسجيل شركة؛ يتطلب الهيكل القانوني الصحيح والترخيص الاستثماري والموافقات التنظيمية والتخطيط المالي والتجهيز التشغيلي وفهم السوق والدعم طويل الأمد."
+   },
+   "title": {
+    "en": "From your first investment decision to your company’s day-to-day operations, our team supports every stage of your business journey.",
+    "ar": "من أول قرار استثماري إلى العمليات اليومية لشركتك، يدعم فريقنا كل مرحلة من رحلة عملك."
+   },
+   "highlight": {
+    "en": "every stage of your business journey.",
+    "ar": "كل مرحلة من رحلة عملك."
+   },
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "charcoal",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "center"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "solutions",
+   "type": "serviceGroups",
+   "label": "All business solutions",
+   "eyebrow": {
+    "en": "Our business solutions",
+    "ar": "حلول أعمالنا"
+   },
+   "title": {
+    "en": "Integrated solutions to establish, operate and expand",
+    "ar": "حلول متكاملة للتأسيس والتشغيل والتوسع"
+   },
+   "subtitle": {
+    "en": "At Creative Mark, we provide integrated business solutions designed to help entrepreneurs, investors and companies establish, operate and expand their businesses with greater clarity and confidence.",
+    "ar": "نقدم في كرييتف مارك حلول أعمال متكاملة تساعد رواد الأعمال والمستثمرين والشركات على تأسيس أعمالهم وتشغيلها وتوسيعها بوضوح وثقة أكبر."
+   },
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "process",
+   "type": "processSteps",
+   "label": "From idea to operation",
+   "eyebrow": {
+    "en": "Investor guide",
+    "ar": "دليل المستثمر"
+   },
+   "title": {
+    "en": "From idea to operation",
+    "ar": "من الفكرة إلى التشغيل"
+   },
+   "highlight": {
+    "en": "to operation",
+    "ar": "إلى التشغيل"
+   },
+   "buttons": [
+    {
+     "label": {
+      "en": "Start your Saudi journey",
+      "ar": "ابدأ رحلتك السعودية"
+     },
+     "href": "/investor-guide",
+     "style": "outline"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "charcoal",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "services-track-record",
+   "type": "trackRecord",
+   "label": "Track record",
+   "eyebrow": {
+    "en": "Our track record",
+    "ar": "سجلنا"
+   },
+   "title": {
+    "en": "Numbers that build trust",
+    "ar": "أرقام تبني الثقة"
+   },
+   "highlight": {
+    "en": "build trust",
+    "ar": "تبني الثقة"
+   },
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 82,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "about-kingdom-centre"
+   },
+   "motion": {
+    "preset": "counter",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "services-cta",
+   "type": "cta",
+   "label": "Consultation",
+   "title": {
+    "en": "Still have questions?",
+    "ar": "لا تزال لديك أسئلة؟"
+   },
+   "body": {
+    "en": "Speak with one of our consultants and receive guidance based on your specific business activity and investment plan.",
+    "ar": "تحدث مع أحد مستشارينا واحصل على إرشاد مبني على نشاطك وخطتك الاستثمارية."
+   },
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "charcoal",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "center"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Business solutions",
+   "seo_title": "Business solutions | Creative Mark",
+   "seo_description": "Company formation, licensing, consulting, feasibility studies, tax, HR and office solutions for investors in Saudi Arabia."
+  },
+  "ar": {
+   "title": "حلول الأعمال",
+   "seo_title": "حلول الأعمال | كرييتف مارك",
+   "seo_description": "تأسيس الشركات والتراخيص والاستشارات ودراسات الجدوى والضرائب والموارد البشرية وحلول المكاتب للمستثمرين في المملكة العربية السعودية."
+  }
+ }
+}

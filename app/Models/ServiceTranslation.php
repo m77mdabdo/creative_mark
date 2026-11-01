@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ServiceTranslation extends Model
 {
-    protected $fillable = ['locale', 'title', 'tagline', 'summary', 'cta', 'review_status', 'reviewed_at'];
+    protected $fillable = ['locale', 'title', 'tagline', 'summary', 'overview', 'scope', 'note', 'cta', 'review_status', 'reviewed_at'];
 
     protected function casts(): array
     {
-        return ['review_status' => ReviewStatus::class, 'reviewed_at' => 'datetime'];
+        return ['review_status' => ReviewStatus::class, 'reviewed_at' => 'datetime', 'scope' => 'array'];
     }
 
     public function service(): BelongsTo

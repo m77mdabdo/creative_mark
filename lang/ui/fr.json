@@ -39,5 +39,15 @@
     "goToSlide": "Afficher la diapositive",
     "photoNote": "Photographies d’illustration",
     "breadcrumb": "Fil d’Ariane",
-    "homeLabel": "Accueil"
+    "homeLabel": "Accueil",
+    "overview": "Présentation",
+    "whatsIncluded": "Ce qui est inclus",
+    "howWeWork": "Notre méthode",
+    "fromIdea": "De l’idée à l’exploitation",
+    "questions": "Questions",
+    "serviceQuestions": "Questions sur cette solution",
+    "relatedServices": "Solutions associées",
+    "ctaTitle": "Vous avez encore des questions ?",
+    "ctaBody": "Échangez avec l’un de nos consultants et recevez des conseils adaptés à votre activité et à votre projet d’investissement.",
+    "bookConsultation": "Réserver une consultation"
 }

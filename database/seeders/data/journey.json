@@ -1,0 +1,72 @@
+[
+ {
+  "title": {
+   "en": "Consultation",
+   "ar": "الاستشارة"
+  },
+  "text": {
+   "en": "Understand your business and investment objectives.",
+   "ar": "فهم أهداف عملك واستثمارك."
+  }
+ },
+ {
+  "title": {
+   "en": "Assessment",
+   "ar": "التقييم"
+  },
+  "text": {
+   "en": "Evaluate the activity, structure, location and requirements.",
+   "ar": "تقييم النشاط والهيكل والموقع والمتطلبات."
+  }
+ },
+ {
+  "title": {
+   "en": "Licensing",
+   "ar": "الترخيص"
+  },
+  "text": {
+   "en": "Complete the necessary approvals and registrations.",
+   "ar": "استكمال الموافقات والتسجيلات اللازمة."
+  }
+ },
+ {
+  "title": {
+   "en": "Establishment",
+   "ar": "التأسيس"
+  },
+  "text": {
+   "en": "Form the company and complete the official procedures.",
+   "ar": "تأسيس الشركة واستكمال الإجراءات الرسمية."
+  }
+ },
+ {
+  "title": {
+   "en": "Operational setup",
+   "ar": "التجهيز التشغيلي"
+  },
+  "text": {
+   "en": "Prepare tax, finance, office, HR and business operations.",
+   "ar": "تجهيز الضرائب والمالية والمكتب والموارد البشرية وعمليات العمل."
+  }
+ },
+ {
+  "title": {
+   "en": "Market entry",
+   "ar": "دخول السوق"
+  },
+  "text": {
+   "en": "Build your strategy, positioning and commercial direction.",
+   "ar": "بناء استراتيجيتك وتموضعك وتوجهك التجاري."
+  }
+ },
+ {
+  "title": {
+   "en": "Growth",
+   "ar": "النمو"
+  },
+  "text": {
+   "en": "Expand, optimize and develop the business.",
+   "ar": "التوسع وتحسين العمل وتطويره."
+  }
+ }
+]

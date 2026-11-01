@@ -39,5 +39,15 @@
     "goToSlide": "عرض الشريحة",
     "photoNote": "صور توضيحية",
     "breadcrumb": "مسار التنقل",
-    "homeLabel": "الرئيسية"
+    "homeLabel": "الرئيسية",
+    "overview": "نظرة عامة",
+    "whatsIncluded": "ما تشمله الخدمة",
+    "howWeWork": "كيف نعمل",
+    "fromIdea": "من الفكرة إلى التشغيل",
+    "questions": "أسئلة",
+    "serviceQuestions": "أسئلة حول هذه الخدمة",
+    "relatedServices": "حلول ذات صلة",
+    "ctaTitle": "لا تزال لديك أسئلة؟",
+    "ctaBody": "تحدث مع أحد مستشارينا واحصل على إرشاد مبني على نشاطك وخطتك الاستثمارية.",
+    "bookConsultation": "احجز استشارة"
 }

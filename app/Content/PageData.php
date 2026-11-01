@@ -61,6 +61,45 @@ final class PageData
         ];
     }
 
+    /**
+     * A business solution's detail page: the service itself, its linked FAQs (never ones needing review)
+     * and up to three related services.
+     *
+     * @return array<string, mixed>
+     */
+    public function forService(string $slug, string $locale): array
+    {
+        $service = Service::query()->where('slug', $slug)->where('status', 'published')->withLocale($locale)
+            ->with(['faqs' => fn ($q) => $q->where('status', 'published')->where('needs_review', false)->orderBy('sort_order')->withLocale($locale)])
+            ->firstOrFail();
+        $catalogue = $this->catalogue($locale, 0);
+        $bySlug = collect($catalogue['services'])->keyBy('slug');
+        $related = collect($service->related ?? [])->map(fn ($s) => $bySlug[$s] ?? null)->filter()->take(3)->values()->all();
+        $translation = $service->translation($locale);
+        $title = $service->t('title', $locale);
+
+        $props = [
+            'pageKey' => 'service',
+            'title' => $title,
+            'seo' => ['title' => "{$title} | Creative Mark", 'description' => $service->t('tagline', $locale).'. '.$service->t('summary', $locale)],
+            'reviewStatus' => ($translation?->review_status ?? ReviewStatus::Missing)->value,
+            'service' => [
+                'slug' => $service->slug, 'icon' => $service->icon, 'media' => $service->media, 'group' => $service->group,
+                'title' => $title, 'tagline' => $service->t('tagline', $locale), 'overview' => $service->t('overview', $locale),
+                'scope' => $translation?->scope ?: ($service->translation(Locales::FALLBACK)?->scope ?? []),
+                'note' => $service->t('note', $locale), 'cta' => $service->t('cta', $locale),
+            ],
+            'related' => $related,
+            'serviceFaqs' => $service->faqs->map(fn (Faq $f) => ['id' => $f->id, 'question' => $f->t('question', $locale), 'answer' => $f->t('answer', $locale)])->all(),
+            'journey' => $service->slug === 'company-formation' ? $catalogue['journey'] : [],
+            'serviceGroups' => $catalogue['serviceGroups'],
+            'stats' => $catalogue['stats'],
+        ];
+        $props['media'] = $this->mediaFor([$service->media, ...array_column($related, 'media'), 'about-kingdom-centre'], $locale);
+
+        return $props;
+    }
+
     /** @param array<string, mixed> $s */
     private function localizeSection(array $s, string $locale): array
     {
@@ -95,7 +134,7 @@ final class PageData
 
         return [
             'services' => $services->map(fn (Service $m) => [
-                'slug' => $m->slug, 'icon' => $m->icon, 'media' => $m->media, 'order' => $m->sort_order,
+                'slug' => $m->slug, 'icon' => $m->icon, 'media' => $m->media, 'order' => $m->sort_order, 'group' => $m->group,
                 'title' => $m->t('title', $locale), 'tagline' => $m->t('tagline', $locale),
                 // RULE-01: a summary quoting an unverified figure is replaced by the tagline
                 'summary' => $m->needs_review ? $m->t('tagline', $locale) : $m->t('summary', $locale), 'cta' => $m->t('cta', $locale),
@@ -110,6 +149,12 @@ final class PageData
                     'services' => $m->services->map(fn ($s) => $slugs[$s->id] ?? null)->filter()->values()->all(),
                 ])->all(),
             'industries' => array_map(fn ($l) => $l[$locale] ?? $l[Locales::FALLBACK], $industries),
+            'serviceGroups' => array_map(fn ($l) => $l[$locale] ?? $l[Locales::FALLBACK], Setting::group('catalogue')['service_groups'] ?? []),
+            // The investor journey (presentation p39) used by the process section and the formation page.
+            'journey' => array_map(fn (array $step) => [
+                'title' => $step['title'][$locale] ?? $step['title'][Locales::FALLBACK],
+                'text' => $step['text'][$locale] ?? $step['text'][Locales::FALLBACK],
+            ], Setting::group('catalogue')['journey'] ?? []),
             // RULE-01: only verified figures are sent
             'stats' => Stat::query()->where('verified', true)->orderBy('sort_order')->withLocale($locale)->get()
                 ->map(fn (Stat $m) => ['key' => $m->key, 'value' => $m->value, 'icon' => $m->icon, 'label' => $m->t('label', $locale)])->all(),
@@ -141,8 +186,17 @@ final class PageData
                 ...array_column($s['cards'], 'media'), ...array_column($s['slides'], 'media'));
         }
         array_push($ids, ...array_column($catalogue['services'], 'media'), ...array_column($catalogue['regions'], 'media'));
-        $alts = Setting::group('media')['placeholders'] ?? [];
 
+        return $this->mediaFor($ids, $locale);
+    }
+
+    /**
+     * @param  array<int, string|null>  $ids
+     * @return array<string, array{src: string, srcset: string, alt: string}>
+     */
+    private function mediaFor(array $ids, string $locale): array
+    {
+        $alts = Setting::group('media')['placeholders'] ?? [];
         $out = [];
         foreach (array_unique(array_filter($ids)) as $id) {
             if (! isset($alts[$id])) {

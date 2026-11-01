@@ -111,7 +111,9 @@ class MachineTranslationTest extends TestCase
         $written = app(ContentTranslator::class)->translateRecord($service, refresh: true);
 
         $rows = $service->translations()->get()->keyBy('locale');
-        $this->assertSame(3, $written); // hi, ur, zh — ar is human "review" text, fr is approved
+        $this->assertSame(4, $written); // hi, ur, zh in full; fr only its empty fields; ar is complete
+        $this->assertSame(ReviewStatus::Approved, $rows['fr']->review_status);
+        $this->assertSame('[fr] Start your business on the right foundation', $rows['fr']->tagline);
         $this->assertSame('Création de société (relue)', $rows['fr']->title);
         $this->assertSame('[zh] Company Formation', $rows['zh']->title);
         $this->assertSame(ReviewStatus::Machine, $rows['zh']->review_status);

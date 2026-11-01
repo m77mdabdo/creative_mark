@@ -39,5 +39,15 @@
     "goToSlide": "سلائیڈ دکھائیں",
     "photoNote": "وضاحتی تصاویر",
     "breadcrumb": "بریڈ کرمب",
-    "homeLabel": "ہوم"
+    "homeLabel": "ہوم",
+    "overview": "جائزہ",
+    "whatsIncluded": "اس میں کیا شامل ہے",
+    "howWeWork": "ہمارا طریقہ کار",
+    "fromIdea": "خیال سے آپریشن تک",
+    "questions": "سوالات",
+    "serviceQuestions": "اس حل کے بارے میں سوالات",
+    "relatedServices": "متعلقہ حل",
+    "ctaTitle": "اب بھی کوئی سوال ہے؟",
+    "ctaBody": "ہمارے کسی مشیر سے بات کریں اور اپنی مخصوص کاروباری سرگرمی اور سرمایہ کاری کے منصوبے کے مطابق رہنمائی حاصل کریں۔",
+    "bookConsultation": "مشاورت بُک کریں"
 }

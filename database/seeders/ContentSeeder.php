@@ -30,8 +30,12 @@ class ContentSeeder extends Seeder
         $services = [];
         foreach ($c['services'] as $s) {
             $m = Service::updateOrCreate(['slug' => $s['slug']], ['icon' => $s['icon'], 'media' => $s['media'], 'sort_order' => $s['order'], 'status' => 'published',
-                'needs_review' => (bool) preg_match('/\d/', $s['summary']['en'])]);
-            $this->translate($m, ['title' => $s['title'], 'tagline' => $s['tagline'], 'summary' => $s['summary'], 'cta' => $s['cta']]);
+                'group' => $s['group'], 'related' => $s['related'], 'needs_review' => (bool) preg_match('/\d/', $s['summary']['en'])]);
+            $this->translate($m, [
+                'title' => $s['title'], 'tagline' => $s['tagline'], 'summary' => $s['summary'], 'cta' => $s['cta'],
+                'overview' => $s['overview'], 'note' => $s['note'],
+                'scope' => ['en' => array_column($s['scope'], 'en'), 'ar' => array_column($s['scope'], 'ar')],
+            ]);
             $services[$s['key']] = $m->id;
         }
 
@@ -55,9 +59,14 @@ class ContentSeeder extends Seeder
         }
 
         Faq::query()->delete();
+        $faqIds = [];
         foreach ($c['faqs'] as $f) {
             $m = Faq::create(['category' => $f['category'], 'sort_order' => $f['order'], 'status' => 'published', 'needs_review' => $f['needs_review'], 'show_on_home' => ! $f['needs_review']]);
             $this->translate($m, ['question' => $f['question'], 'answer' => $f['answer']]);
+            $faqIds[$f['key']] = $m->id;
+        }
+        foreach ($c['services'] as $s) {
+            Service::where('slug', $s['slug'])->first()->faqs()->sync(array_map(fn ($k) => $faqIds[$k], $s['faqs']));
         }
 
         Testimonial::query()->delete();
@@ -73,7 +82,7 @@ class ContentSeeder extends Seeder
     /** Pages are seeded from data/{key}.json and published once. */
     private function pages(): void
     {
-        foreach (['home', 'about'] as $key) {
+        foreach (['home', 'about', 'services'] as $key) {
             $this->page($key);
         }
     }
@@ -112,6 +121,13 @@ class ContentSeeder extends Seeder
         $set('site', 'translation_notice', false);
         $set('catalogue', 'industries', $c['industries']);
         $set('catalogue', 'faq_categories', $c['faq_categories']);
+        // Business solutions grouping (Gate 3, G3-6) and the investor journey (presentation p39).
+        $set('catalogue', 'service_groups', [
+            'setup' => ['en' => 'Set up', 'ar' => 'التأسيس'],
+            'grow' => ['en' => 'Grow', 'ar' => 'النمو'],
+            'comply' => ['en' => 'Comply', 'ar' => 'الامتثال'],
+        ]);
+        $set('catalogue', 'journey', json_decode(file_get_contents(__DIR__.'/data/journey.json'), true, flags: JSON_THROW_ON_ERROR));
         // RULE-04: prototype stock photos (Unsplash), placeholders until the client supplies or approves photography
         $set('media', 'placeholders', json_decode(file_get_contents(__DIR__.'/data/media.json'), true, flags: JSON_THROW_ON_ERROR));
         $set('navigation', 'header', [

@@ -26,6 +26,22 @@ They are used under the [Unsplash License](https://unsplash.com/license) (free c
 | about-signing | Reviewing and signing documents | Amina Atar | https://unsplash.com/photos/Mqc-m8kgxkg |
 | about-kingdom-centre | Kingdom Centre at golden hour | Oualid Lakhrouti | https://unsplash.com/photos/ZiN8NGVd2pE |
 
+## Business solutions (`public/media/services`, WebP at 800 / 1280 / 1920 / 2560 px)
+
+| File key | Photographer | Source |
+| --- | --- | --- |
+| svc-company-formation | Amina Atar | https://unsplash.com/photos/oJ4E_Vm5HaI |
+| svc-business-consulting | Yibei Geng | https://unsplash.com/photos/-UdYbiywGeg |
+| svc-feasibility-studies | Luke Chesser | https://unsplash.com/photos/JKUTrJ4vK00 |
+| svc-saudi-companies-in-the-uae | David Rodrigo | https://unsplash.com/photos/Fr6zexbmjmc |
+| svc-quality-certificates | Cytonn Photography | https://unsplash.com/photos/GJao3ZTX9gU |
+| svc-hr-and-auditing | Jud Mackrill | https://unsplash.com/photos/Of_m3hMsoAA |
+| svc-tax-and-budgeting | Scott Graham | https://unsplash.com/photos/5fNmWej4tAA |
+| svc-investment-tours | Datingjungle | https://unsplash.com/photos/gh3oD_NSiks |
+| svc-office-solutions | Marc Wieland | https://unsplash.com/photos/yzOieLQof-U |
+| svc-international-acquisition | Sean Pollock | https://unsplash.com/photos/PhYq704ffdA |
+| svc-licensing-and-government-approvals | Amina Atar | https://unsplash.com/photos/4mEyvORkbN0 |
+
 ## Other sections (`public/media/placeholders`)
 
 Prototype placeholders (Unsplash); the list with alt text is in `database/seeders/data/media.json`.

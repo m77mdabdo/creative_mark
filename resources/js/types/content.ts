@@ -13,7 +13,7 @@ export type MotionPreset = 'none' | 'fade-up' | 'reveal-mask' | 'zoom-in' | 'par
 export type SectionType =
   | 'hero' | 'whyInvest' | 'journey' | 'countries' | 'sectors' | 'trackRecord'
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
-  | 'statement' | 'imageText' | 'cards'
+  | 'statement' | 'imageText' | 'cards' | 'serviceGroups' | 'processSteps'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
 export type Slide = {
@@ -46,7 +46,9 @@ export type Section = {
 
 export type MediaItem = { src: string; srcset: string; alt: string }
 
-export type ServiceItem = { slug: string; icon: string; media: string; order: number; title: string; tagline: string; summary: string; cta: string }
+export type ServiceGroup = 'setup' | 'grow' | 'comply'
+export type ServiceItem = { slug: string; icon: string; media: string; order: number; group: ServiceGroup; title: string; tagline: string; summary: string; cta: string }
+export type JourneyStep = { title: string; text: string }
 
 export type RegionItem = {
   slug: string; media: string; name: string; capital: string; bestFor: string
@@ -69,9 +71,29 @@ export type PageProps = {
   services: ServiceItem[]
   regions: RegionItem[]
   industries: Record<string, string>
+  serviceGroups: Record<ServiceGroup, string>
+  journey: JourneyStep[]
   stats: StatItem[]
   countries: CountryItem[]
   faqs: FaqItem[]
   testimonials: TestimonialItem[]
+  media: Record<string, MediaItem>
+}
+
+/** Props of a business solution's detail page (App\Content\PageData::forService). */
+export type ServicePageProps = {
+  pageKey: 'service'
+  title: string
+  seo: { title: string; description: string }
+  reviewStatus: ReviewStatus
+  service: {
+    slug: string; icon: string; media: string; group: ServiceGroup
+    title: string; tagline: string; overview: string | null; scope: string[]; note: string | null; cta: string
+  }
+  related: ServiceItem[]
+  serviceFaqs: FaqItem[]
+  journey: JourneyStep[]
+  serviceGroups: Record<ServiceGroup, string>
+  stats: StatItem[]
   media: Record<string, MediaItem>
 }

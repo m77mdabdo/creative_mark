@@ -86,7 +86,7 @@ class HomePageTest extends TestCase
     {
         $this->get('/ar')->assertInertia(fn (Assert $page) => $page
             ->where('sections.0.title', 'مكان واحد، حلول لا تنتهي')
-            ->where('reviewStatus', 'machine'));
+            ->where('reviewStatus', 'review'));
     }
 
     public function test_shared_interface_props_follow_the_url_locale(): void

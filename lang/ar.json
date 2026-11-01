@@ -71,5 +71,9 @@
     "Verified client": "عميل موثق",
     "Verified": "موثق",
     "While on, the public card shows the tagline instead of the summary (RULE-01).": "أثناء التفعيل تعرض البطاقة الشعار بدل الملخص (RULE-01).",
-    "Content": "المحتوى"
+    "Content": "المحتوى",
+    "Translate missing languages": "ترجمة اللغات الناقصة",
+    "Empty languages are filled by machine translation and marked for review. Text a person wrote is never replaced.": "تُملأ اللغات الفارغة بالترجمة الآلية وتُعلَّم للمراجعة، ولا يُستبدل أي نص كتبه شخص.",
+    "Translation service unavailable": "خدمة الترجمة غير متاحة",
+    ":count languages translated": "تمت ترجمة :count لغات"
 }

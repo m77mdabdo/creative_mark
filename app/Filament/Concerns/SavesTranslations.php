@@ -3,13 +3,17 @@
 namespace App\Filament\Concerns;
 
 use App\Enums\ReviewStatus;
+use App\Translation\ContentTranslator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
 /**
  * For Create/Edit pages of models using App\Models\Concerns\HasTranslations.
  * Fills `translations.{locale}.*` from the translation rows and writes them back in the same transaction.
  * A locale edited by someone who cannot approve translations returns to "review" (D-05).
+ * After saving, empty languages are machine translated in the background (after the response is sent).
  */
 trait SavesTranslations
 {
@@ -78,5 +82,22 @@ trait SavesTranslations
 
             $translation->save();
         }
+
+        $this->translateEmptyLanguagesLater($record);
+    }
+
+    private function translateEmptyLanguagesLater(Model $record): void
+    {
+        if (! config('translation.auto_on_save')) {
+            return;
+        }
+
+        dispatch(function () use ($record) {
+            try {
+                app(ContentTranslator::class)->translateRecord($record->fresh());
+            } catch (Throwable $e) {
+                Log::warning('Automatic translation failed', ['record' => $record::class.'#'.$record->getKey(), 'error' => $e->getMessage()]);
+            }
+        })->afterResponse();
     }
 }

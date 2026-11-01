@@ -64,7 +64,9 @@ export function useSlideshow(count: number, { layers, photos, progress }: Refs) 
     const tl = gsap.timeline({ paused: !playing })
 
     if (reduced) {
-      tl.fromTo(layer, { autoAlpha: 0 }, { autoAlpha: 1, duration: outgoing ? 0.4 : 0 })
+      // No movement: the chosen slide simply replaces the previous one.
+      gsap.set(layer, { autoAlpha: 1, clipPath: 'none' })
+      if (outgoing) gsap.set(outgoing, { autoAlpha: 0 })
       gsap.set(photo, { scale: 1 })
       if (bar) gsap.set(bar, { scaleX: 1 })
       timeline.current = tl

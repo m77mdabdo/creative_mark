@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Support\Locales;
+use App\Translation\UiStrings;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -30,6 +31,7 @@ class HandleInertiaRequests extends Middleware
                 'available' => collect(Locales::ALL)->map(fn ($l, $code) => ['code' => $code, 'tag' => $l['tag'], 'native' => $l['native'], 'dir' => $l['dir']])->values(),
             ],
             'site' => fn () => $this->site(app()->getLocale()),
+            'ui' => fn () => UiStrings::forLocale(app()->getLocale()),
         ];
     }
 

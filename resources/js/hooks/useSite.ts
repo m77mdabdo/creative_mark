@@ -1,6 +1,6 @@
 import { usePage } from '@inertiajs/react'
 import type { SharedProps } from '@/types'
-import { ui, type UiKey } from '@/i18n/uiStrings'
+import type { UiKey } from '@/i18n/uiStrings'
 
 /** Shared site props plus two helpers: `t` for interface strings and `href` for locale-prefixed links. */
 export function useSite() {
@@ -9,7 +9,7 @@ export function useSite() {
 
   return {
     ...props,
-    t: (key: UiKey) => ui(key, code),
+    t: (key: UiKey): string => props.ui[key] ?? key,
     /** Prefixes internal CMS paths with the current locale; external, mailto, tel and anchors pass through. */
     href: (path: string) => (path.startsWith('/') && !path.startsWith('//') ? `/${code}${path === '/' ? '' : path}` : path),
   }

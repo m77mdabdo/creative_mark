@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Stats\Pages;
 
+use App\Filament\Actions\TranslateMissingLanguagesAction;
 use App\Filament\Concerns\SavesTranslations;
 use App\Filament\Resources\Stats\StatResource;
 use Filament\Actions\DeleteAction;
@@ -15,6 +16,6 @@ class EditStat extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [DeleteAction::make()];
+        return [TranslateMissingLanguagesAction::make(), DeleteAction::make()];
     }
 }

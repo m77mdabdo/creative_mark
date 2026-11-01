@@ -4,7 +4,10 @@ export type LocaleInfo = { code: string; tag: string; native: string; dir: 'ltr'
 
 export type NavItem = { label: string; href: string; mega?: 'services' }
 
+import type { UiStrings } from '@/i18n/uiStrings'
+
 export type SharedProps = {
+  ui: UiStrings
   locale: LocaleInfo & { available: LocaleInfo[] }
   site: {
     nav: NavItem[]

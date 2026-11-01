@@ -19,7 +19,7 @@ use Illuminate\Database\Seeder;
  * Seeds the presentation content ported from the React prototype (S-09) in Arabic and English.
  * Figures are unverified unless the owner confirmed them (RULE-01); testimonials carry no names (RULE-02).
  * English is the presentation's own text (approved). The Arabic text was drafted in the prototype and has not
- * been reviewed by a translator, so it is seeded as "machine" (D-05). Other locales stay "missing" (RULE-06).
+ * been reviewed by a translator, so it is seeded as "review" (D-05). Other locales stay "missing" (RULE-06).
  */
 class ContentSeeder extends Seeder
 {
@@ -118,7 +118,7 @@ class ContentSeeder extends Seeder
 
     private static function status(string $locale): ReviewStatus
     {
-        return $locale === 'en' ? ReviewStatus::Approved : ReviewStatus::Machine;
+        return $locale === 'en' ? ReviewStatus::Approved : ReviewStatus::Review;
     }
 
     /** @param array<string, array<string, mixed>|null> $fields field => [locale => value] */

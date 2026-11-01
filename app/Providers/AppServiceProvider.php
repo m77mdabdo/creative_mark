@@ -11,6 +11,9 @@ use App\Models\Stat;
 use App\Models\Testimonial;
 use App\Models\User;
 use App\Policies\CataloguePolicy;
+use App\Translation\Drivers\LibreTranslateDriver;
+use App\Translation\Drivers\MyMemoryDriver;
+use App\Translation\Translator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -18,6 +21,18 @@ use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public function register(): void
+    {
+        $this->app->singleton(Translator::class, function () {
+            $drivers = array_map(fn (string $name) => match ($name) {
+                'libretranslate' => new LibreTranslateDriver(config('translation.libretranslate')),
+                'mymemory' => new MyMemoryDriver(config('translation.mymemory')),
+            }, config('translation.drivers'));
+
+            return new Translator($drivers, config('translation.glossary'), config('translation.cache_ttl'), config('translation.phrasebook'));
+        });
+    }
+
     public function boot(): void
     {
         // Silent bugs become loud ones in development: lazy loading, unknown attributes, discarded fills.

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Testimonials\Pages;
 
+use App\Filament\Actions\TranslateMissingLanguagesAction;
 use App\Filament\Concerns\SavesTranslations;
 use App\Filament\Resources\Testimonials\TestimonialResource;
 use Filament\Actions\DeleteAction;
@@ -15,6 +16,6 @@ class EditTestimonial extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [DeleteAction::make()];
+        return [TranslateMissingLanguagesAction::make(), DeleteAction::make()];
     }
 }

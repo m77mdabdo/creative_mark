@@ -1,0 +1,18 @@
+# Self-hosted machine translation for the CMS (LibreTranslate, AGPL, free).
+# Only the six site languages are loaded; bound to localhost so nothing outside the Mac can use it.
+#   docker compose -f infra/translation/docker-compose.yml up -d
+name: creative-mark-translation
+services:
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5050:5000"
+    environment:
+      LT_LOAD_ONLY: "en,ar,fr,hi,ur,zh"
+      LT_UPDATE_MODELS: "true"
+      LT_DISABLE_WEB_UI: "true"
+    volumes:
+      - lt-models:/home/libretranslate/.local
+volumes:
+  lt-models:

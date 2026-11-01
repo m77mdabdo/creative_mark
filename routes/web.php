@@ -1,7 +1,16 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleRedirectController;
+use App\Http\Middleware\SetLocale;
+use App\Support\Locales;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', LocaleRedirectController::class);
+
+Route::prefix('{locale}')
+    ->where(['locale' => implode('|', Locales::codes())])
+    ->middleware(SetLocale::class)
+    ->group(function () {
+        Route::get('/', HomeController::class)->name('home');
+    });

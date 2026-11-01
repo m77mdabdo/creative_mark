@@ -1,0 +1,1429 @@
+{
+ "services": [
+  {
+   "key": "formation",
+   "slug": "company-formation",
+   "order": 1,
+   "icon": "Building2",
+   "media": "cm-handshake",
+   "title": {
+    "en": "Company Formation",
+    "ar": "تأسيس الشركات"
+   },
+   "tagline": {
+    "en": "Start your business on the right foundation",
+    "ar": "ابدأ عملك على الأساس الصحيح"
+   },
+   "summary": {
+    "en": "Establish your company in Saudi Arabia through a structured, professionally managed process — from initial consultation and activity selection to licensing, Commercial Registration and operational setup.",
+    "ar": "أسس شركتك في المملكة العربية السعودية عبر عملية منظمة ومدارة باحترافية — من الاستشارة الأولى واختيار النشاط إلى الترخيص والسجل التجاري والتجهيز التشغيلي."
+   },
+   "cta": {
+    "en": "Start your company",
+    "ar": "ابدأ شركتك"
+   }
+  },
+  {
+   "key": "consulting",
+   "slug": "business-consulting",
+   "order": 2,
+   "icon": "Compass",
+   "media": "cm-presentation",
+   "title": {
+    "en": "Business Consulting",
+    "ar": "الاستشارات التجارية"
+   },
+   "tagline": {
+    "en": "Make better decisions before you invest",
+    "ar": "اتخذ قرارات أفضل قبل أن تستثمر"
+   },
+   "summary": {
+    "en": "Entering a market worth nearly SAR 4.8 trillion requires informed decisions. We help investors assess their business model, market-entry strategy, operational requirements and expansion opportunities before committing capital.",
+    "ar": "دخول سوق تبلغ قيمته نحو 4.8 تريليون ريال يتطلب قرارات مدروسة. نساعد المستثمرين على تقييم نموذج العمل واستراتيجية دخول السوق والمتطلبات التشغيلية وفرص التوسع قبل الالتزام برأس المال."
+   },
+   "cta": {
+    "en": "Speak with a consultant",
+    "ar": "تحدث مع مستشار"
+   }
+  },
+  {
+   "key": "feasibility",
+   "slug": "feasibility-studies",
+   "order": 3,
+   "icon": "LineChart",
+   "media": "cm-tablet",
+   "title": {
+    "en": "Feasibility Studies",
+    "ar": "دراسات الجدوى"
+   },
+   "tagline": {
+    "en": "Validate the opportunity before you invest",
+    "ar": "تحقق من الفرصة قبل أن تستثمر"
+   },
+   "summary": {
+    "en": "Reduce uncertainty before investing. Our feasibility studies provide structured market, commercial, operational and financial analysis to support more informed investment decisions.",
+    "ar": "قلّل عدم اليقين قبل الاستثمار. تقدم دراسات الجدوى لدينا تحليلاً منظماً للسوق والجوانب التجارية والتشغيلية والمالية لدعم قرارات استثمارية أكثر وعياً."
+   },
+   "cta": {
+    "en": "Request a feasibility study",
+    "ar": "اطلب دراسة جدوى"
+   }
+  },
+  {
+   "key": "uae",
+   "slug": "saudi-companies-in-the-uae",
+   "order": 4,
+   "icon": "Plane",
+   "media": "dubai-burj",
+   "title": {
+    "en": "Saudi Companies in the UAE",
+    "ar": "الشركات السعودية في الإمارات"
+   },
+   "tagline": {
+    "en": "Expand your business across the GCC",
+    "ar": "وسّع أعمالك في دول الخليج"
+   },
+   "summary": {
+    "en": "Growth does not have to stop at the Saudi border. Creative Mark supports Saudi businesses seeking to establish and develop their presence in the UAE as part of a wider GCC expansion strategy.",
+    "ar": "النمو لا يتوقف عند الحدود السعودية. تدعم كرييتف مارك الشركات السعودية الراغبة في التأسيس والتوسع في الإمارات ضمن استراتيجية توسع خليجية أوسع."
+   },
+   "cta": {
+    "en": "Expand to the UAE",
+    "ar": "توسّع إلى الإمارات"
+   }
+  },
+  {
+   "key": "quality",
+   "slug": "quality-certificates",
+   "order": 5,
+   "icon": "BadgeCheck",
+   "media": "cm-sign",
+   "title": {
+    "en": "Quality Certificates",
+    "ar": "شهادات الجودة"
+   },
+   "tagline": {
+    "en": "Build compliance. Strengthen credibility.",
+    "ar": "امتثال أقوى ومصداقية أكبر"
+   },
+   "summary": {
+    "en": "Build greater credibility and operational readiness through professional qualification and certification support.",
+    "ar": "عزّز المصداقية والجاهزية التشغيلية عبر دعم التأهيل المهني والشهادات."
+   },
+   "cta": {
+    "en": "Explore certification support",
+    "ar": "استكشف دعم الشهادات"
+   }
+  },
+  {
+   "key": "hr",
+   "slug": "hr-and-auditing",
+   "order": 6,
+   "icon": "Users",
+   "media": "cm-team",
+   "title": {
+    "en": "HR & Auditing",
+    "ar": "الموارد البشرية والتدقيق"
+   },
+   "tagline": {
+    "en": "Build stronger internal operations",
+    "ar": "ابنِ عمليات داخلية أقوى"
+   },
+   "summary": {
+    "en": "Create a stronger internal business structure through HR support, operational reviews, auditing and organizational development solutions.",
+    "ar": "ابنِ هيكلاً داخلياً أقوى عبر دعم الموارد البشرية والمراجعات التشغيلية والتدقيق وحلول التطوير التنظيمي."
+   },
+   "cta": {
+    "en": "Improve your operations",
+    "ar": "حسّن عملياتك"
+   }
+  },
+  {
+   "key": "tax",
+   "slug": "tax-and-budgeting",
+   "order": 7,
+   "icon": "Calculator",
+   "media": "cm-calc",
+   "title": {
+    "en": "Tax & Budgeting",
+    "ar": "الضرائب والميزانيات"
+   },
+   "tagline": {
+    "en": "Build the right financial structure",
+    "ar": "ابنِ الهيكل المالي الصحيح"
+   },
+   "summary": {
+    "en": "Support your company’s financial compliance and planning through tax registration, budgeting, financial organization and ongoing business support.",
+    "ar": "ادعم الامتثال المالي لشركتك وتخطيطها عبر التسجيل الضريبي والميزانيات والتنظيم المالي والدعم المستمر."
+   },
+   "cta": {
+    "en": "Talk to our financial team",
+    "ar": "تحدث مع فريقنا المالي"
+   }
+  },
+  {
+   "key": "tours",
+   "slug": "investment-tours",
+   "order": 8,
+   "icon": "Map",
+   "media": "cm-desert-road",
+   "title": {
+    "en": "Investment Tours",
+    "ar": "الجولات الاستثمارية"
+   },
+   "tagline": {
+    "en": "See the market for yourself",
+    "ar": "شاهد السوق بنفسك"
+   },
+   "summary": {
+    "en": "Numbers tell part of the story. Seeing the market provides another perspective. Our investment tours help investors explore potential business locations, projects, commercial environments and investment opportunities directly on the ground.",
+    "ar": "الأرقام تروي جزءاً من القصة، ورؤية السوق تمنحك منظوراً آخر. تساعد جولاتنا الاستثمارية المستثمرين على استكشاف المواقع والمشاريع والبيئات التجارية والفرص على أرض الواقع."
+   },
+   "cta": {
+    "en": "Plan an investment tour",
+    "ar": "خطط لجولة استثمارية"
+   }
+  },
+  {
+   "key": "office",
+   "slug": "office-solutions",
+   "order": 9,
+   "icon": "Briefcase",
+   "media": "cm-office",
+   "title": {
+    "en": "Office Solutions",
+    "ar": "حلول المكاتب"
+   },
+   "tagline": {
+    "en": "Find the right space for your business",
+    "ar": "اعثر على المساحة المناسبة لعملك"
+   },
+   "summary": {
+    "en": "Find an office solution aligned with your company activity, registration requirements, operational needs and professional image — from registered business addresses to operational offices.",
+    "ar": "اعثر على حل مكتبي يتوافق مع نشاط شركتك ومتطلبات التسجيل واحتياجاتك التشغيلية وصورتك المهنية — من العنوان التجاري المسجل إلى المكاتب التشغيلية."
+   },
+   "cta": {
+    "en": "Find your office",
+    "ar": "اعثر على مكتبك"
+   }
+  },
+  {
+   "key": "acquisition",
+   "slug": "international-acquisition",
+   "order": 10,
+   "icon": "Globe2",
+   "media": "cm-earth",
+   "title": {
+    "en": "International Acquisition",
+    "ar": "الاستحواذ الدولي"
+   },
+   "tagline": {
+    "en": "Grow through strategic acquisition",
+    "ar": "انمُ عبر الاستحواذ الاستراتيجي"
+   },
+   "summary": {
+    "en": "Explore international expansion through the acquisition of existing companies and business entities, with professional support throughout the process.",
+    "ar": "استكشف التوسع الدولي عبر الاستحواذ على شركات وكيانات قائمة، مع دعم مهني طوال العملية."
+   },
+   "cta": {
+    "en": "Discuss an acquisition",
+    "ar": "ناقش استحواذاً"
+   }
+  },
+  {
+   "key": "licensing",
+   "slug": "licensing-and-government-approvals",
+   "order": 11,
+   "icon": "FileCheck2",
+   "media": "cm-docs",
+   "title": {
+    "en": "Licensing & Government Approvals",
+    "ar": "التراخيص والموافقات الحكومية"
+   },
+   "tagline": {
+    "en": "Experience across multiple business activities",
+    "ar": "خبرة في أنشطة تجارية متعددة"
+   },
+   "summary": {
+    "en": "Creative Mark supports companies through licensing, registrations, certifications and government approvals.",
+    "ar": "تدعم كرييتف مارك الشركات في التراخيص والتسجيلات والشهادات والموافقات الحكومية."
+   },
+   "cta": {
+    "en": "Discuss your approvals",
+    "ar": "ناقش موافقاتك"
+   }
+  }
+ ],
+ "regions": [
+  {
+   "slug": "riyadh",
+   "media": "cm-riyadh-tower",
+   "services": [
+    "formation",
+    "consulting",
+    "office"
+   ],
+   "industries": [
+    "services",
+    "technology",
+    "consulting",
+    "b2b"
+   ],
+   "source": "PDF p.9",
+   "name": {
+    "en": "Riyadh",
+    "ar": "الرياض"
+   },
+   "capital": {
+    "en": "Riyadh",
+    "ar": "الرياض"
+   },
+   "best_for": {
+    "en": "Business services, consulting & corporate operations",
+    "ar": "خدمات الأعمال والاستشارات والعمليات المؤسسية"
+   },
+   "description": {
+    "en": "Riyadh is the Kingdom’s primary business and corporate centre and one of the most important destinations for headquarters, consulting firms, professional services, technology companies and B2B businesses. For companies targeting large corporations, government-linked opportunities, corporate clients and decision-makers, Riyadh provides one of the strongest commercial ecosystems in Saudi Arabia.",
+    "ar": "الرياض هي المركز الرئيسي للأعمال والشركات في المملكة ومن أهم الوجهات للمقرات الرئيسية وشركات الاستشارات والخدمات المهنية وشركات التقنية والأعمال بين الشركات. وللشركات التي تستهدف المؤسسات الكبرى والفرص المرتبطة بالحكومة وصناع القرار، توفر الرياض واحدة من أقوى البيئات التجارية في المملكة."
+   },
+   "opportunities": [
+    {
+     "en": "Regional headquarters",
+     "ar": "المقرات الإقليمية"
+    },
+    {
+     "en": "Professional services",
+     "ar": "الخدمات المهنية"
+    },
+    {
+     "en": "Technology companies",
+     "ar": "شركات التقنية"
+    }
+   ]
+  },
+  {
+   "slug": "makkah",
+   "media": "jeddah-coast",
+   "services": [
+    "formation",
+    "licensing",
+    "tours"
+   ],
+   "industries": [
+    "tourism",
+    "hospitality",
+    "retail",
+    "logistics"
+   ],
+   "source": "PDF p.10",
+   "name": {
+    "en": "Makkah Region",
+    "ar": "منطقة مكة المكرمة"
+   },
+   "capital": {
+    "en": "Makkah",
+    "ar": "مكة المكرمة"
+   },
+   "best_for": {
+    "en": "Tourism, hospitality & visitor services",
+    "ar": "السياحة والضيافة وخدمات الزوار"
+   },
+   "description": {
+    "en": "The Makkah Region benefits from exceptionally high domestic and international visitor activity driven by Makkah, Jeddah, religious tourism, hospitality and commercial activity. This creates opportunities across accommodation, food services, hospitality operations, travel services, transportation, retail and supporting businesses.",
+    "ar": "تستفيد منطقة مكة المكرمة من نشاط زوار محلي ودولي مرتفع جداً بفضل مكة وجدة والسياحة الدينية والضيافة والنشاط التجاري، ما يخلق فرصاً في الإقامة وخدمات الطعام وتشغيل الضيافة وخدمات السفر والنقل والتجزئة والأعمال المساندة."
+   },
+   "opportunities": [
+    {
+     "en": "Accommodation and hospitality",
+     "ar": "الإقامة والضيافة"
+    },
+    {
+     "en": "Food services",
+     "ar": "خدمات الطعام"
+    },
+    {
+     "en": "Travel and transportation",
+     "ar": "السفر والنقل"
+    }
+   ]
+  },
+  {
+   "slug": "madinah",
+   "media": "cm-madinah",
+   "services": [
+    "formation",
+    "licensing"
+   ],
+   "industries": [
+    "hospitality",
+    "retail",
+    "logistics"
+   ],
+   "source": "PDF p.11",
+   "name": {
+    "en": "Madinah",
+    "ar": "المدينة المنورة"
+   },
+   "capital": {
+    "en": "Madinah",
+    "ar": "المدينة المنورة"
+   },
+   "best_for": {
+    "en": "Hospitality & visitor-focused businesses",
+    "ar": "الضيافة والأعمال الموجهة للزوار"
+   },
+   "description": {
+    "en": "Madinah represents a major destination for religious visitors and creates continuous demand for accommodation, hospitality, food services, transportation, retail and visitor-related businesses. Companies that understand the visitor economy can access a market supported by both domestic and international demand.",
+    "ar": "تمثل المدينة المنورة وجهة رئيسية للزوار وتخلق طلباً مستمراً على الإقامة والضيافة وخدمات الطعام والنقل والتجزئة والأعمال المرتبطة بالزوار. والشركات التي تفهم اقتصاد الزوار تصل إلى سوق مدعوم بطلب محلي ودولي."
+   },
+   "opportunities": [
+    {
+     "en": "Visitor accommodation",
+     "ar": "إقامة الزوار"
+    },
+    {
+     "en": "Retail",
+     "ar": "التجزئة"
+    },
+    {
+     "en": "Transportation",
+     "ar": "النقل"
+    }
+   ]
+  },
+  {
+   "slug": "eastern",
+   "media": "cm-refinery",
+   "services": [
+    "formation",
+    "licensing",
+    "quality"
+   ],
+   "industries": [
+    "energy",
+    "industry",
+    "logistics",
+    "b2b"
+   ],
+   "source": "PDF p.12",
+   "name": {
+    "en": "Eastern Province",
+    "ar": "المنطقة الشرقية"
+   },
+   "capital": {
+    "en": "Dammam",
+    "ar": "الدمام"
+   },
+   "best_for": {
+    "en": "Energy, industry & industrial services",
+    "ar": "الطاقة والصناعة والخدمات الصناعية"
+   },
+   "description": {
+    "en": "The Eastern Province is one of Saudi Arabia’s most important industrial and energy centres. Its ecosystem supports opportunities across energy, manufacturing, industrial services, petrochemicals, logistics, engineering and B2B supply-chain activities. For industrial investors, the region provides proximity to major infrastructure, businesses and supply networks.",
+    "ar": "المنطقة الشرقية من أهم المراكز الصناعية ومراكز الطاقة في المملكة. تدعم بيئتها فرصاً في الطاقة والتصنيع والخدمات الصناعية والبتروكيماويات والخدمات اللوجستية والهندسة وسلاسل الإمداد. وتوفر للمستثمرين الصناعيين قرباً من البنية التحتية الكبرى والشركات وشبكات الإمداد."
+   },
+   "opportunities": [
+    {
+     "en": "Manufacturing",
+     "ar": "التصنيع"
+    },
+    {
+     "en": "Industrial services",
+     "ar": "الخدمات الصناعية"
+    },
+    {
+     "en": "Supply chain",
+     "ar": "سلاسل الإمداد"
+    }
+   ]
+  },
+  {
+   "slug": "qassim",
+   "media": "cm-farm",
+   "services": [
+    "formation",
+    "feasibility"
+   ],
+   "industries": [
+    "agriculture",
+    "food",
+    "logistics"
+   ],
+   "source": "PDF p.13–14 (duplicate page consolidated)",
+   "name": {
+    "en": "Qassim",
+    "ar": "القصيم"
+   },
+   "capital": {
+    "en": "Buraydah",
+    "ar": "بريدة"
+   },
+   "best_for": {
+    "en": "Agriculture & food-related businesses",
+    "ar": "الزراعة والأعمال الغذائية"
+   },
+   "description": {
+    "en": "Qassim is strongly associated with Saudi Arabia’s agricultural and food ecosystem. Opportunities exist across food production, agricultural products, processing, packaging, cold storage, distribution and supporting services.",
+    "ar": "ترتبط القصيم بقوة بالمنظومة الزراعية والغذائية في المملكة. وتوجد فرص في إنتاج الغذاء والمنتجات الزراعية والتصنيع والتغليف والتخزين المبرد والتوزيع والخدمات المساندة."
+   },
+   "opportunities": [
+    {
+     "en": "Food processing",
+     "ar": "تصنيع الأغذية"
+    },
+    {
+     "en": "Cold storage",
+     "ar": "التخزين المبرد"
+    },
+    {
+     "en": "Distribution",
+     "ar": "التوزيع"
+    }
+   ]
+  },
+  {
+   "slug": "asir",
+   "media": "cm-abha",
+   "services": [
+    "formation",
+    "tours"
+   ],
+   "industries": [
+    "tourism",
+    "hospitality"
+   ],
+   "source": "PDF p.15",
+   "name": {
+    "en": "Asir",
+    "ar": "عسير"
+   },
+   "capital": {
+    "en": "Abha",
+    "ar": "أبها"
+   },
+   "best_for": {
+    "en": "Tourism & hospitality",
+    "ar": "السياحة والضيافة"
+   },
+   "description": {
+    "en": "Tourism has become a major pillar of Saudi Arabia’s diversification strategy, and Asir is positioned as one of the Kingdom’s emerging tourism destinations. This creates opportunities for accommodation, hospitality, restaurants, tourism services, entertainment concepts and visitor experiences.",
+    "ar": "أصبحت السياحة ركيزة أساسية في استراتيجية التنويع، وتبرز عسير كإحدى الوجهات السياحية الناشئة في المملكة، ما يخلق فرصاً في الإقامة والضيافة والمطاعم والخدمات السياحية ومفاهيم الترفيه وتجارب الزوار."
+   },
+   "opportunities": [
+    {
+     "en": "Hospitality",
+     "ar": "الضيافة"
+    },
+    {
+     "en": "Restaurants",
+     "ar": "المطاعم"
+    },
+    {
+     "en": "Visitor experiences",
+     "ar": "تجارب الزوار"
+    }
+   ]
+  },
+  {
+   "slug": "tabuk",
+   "media": "cm-tabuk",
+   "services": [
+    "formation",
+    "tours",
+    "consulting"
+   ],
+   "industries": [
+    "tourism",
+    "construction",
+    "logistics"
+   ],
+   "source": "PDF p.16",
+   "name": {
+    "en": "Tabuk",
+    "ar": "تبوك"
+   },
+   "capital": {
+    "en": "Tabuk",
+    "ar": "تبوك"
+   },
+   "best_for": {
+    "en": "Tourism, hospitality & emerging opportunities",
+    "ar": "السياحة والضيافة والفرص الناشئة"
+   },
+   "description": {
+    "en": "Tabuk is benefiting from large-scale development and tourism activity in north-western Saudi Arabia. For investors, this can create opportunities across hospitality, project services, construction-related activities, logistics, tourism and businesses serving newly developing economic ecosystems.",
+    "ar": "تستفيد تبوك من مشاريع تطوير كبرى ونشاط سياحي في شمال غرب المملكة، ما قد يخلق فرصاً في الضيافة وخدمات المشاريع والأنشطة المرتبطة بالبناء والخدمات اللوجستية والسياحة والأعمال التي تخدم بيئات اقتصادية ناشئة."
+   },
+   "opportunities": [
+    {
+     "en": "Project services",
+     "ar": "خدمات المشاريع"
+    },
+    {
+     "en": "Construction-related activities",
+     "ar": "أنشطة مرتبطة بالبناء"
+    },
+    {
+     "en": "Hospitality",
+     "ar": "الضيافة"
+    }
+   ]
+  },
+  {
+   "slug": "hail",
+   "media": "cm-greenhouse",
+   "services": [
+    "formation",
+    "feasibility"
+   ],
+   "industries": [
+    "agriculture",
+    "food",
+    "logistics"
+   ],
+   "source": "PDF p.17",
+   "name": {
+    "en": "Ha’il",
+    "ar": "حائل"
+   },
+   "capital": {
+    "en": "Ha’il",
+    "ar": "حائل"
+   },
+   "best_for": {
+    "en": "Agriculture & food businesses",
+    "ar": "الزراعة والأعمال الغذائية"
+   },
+   "description": {
+    "en": "Ha’il offers opportunities across agricultural production, food-related businesses, warehousing, distribution, processing and supporting commercial services.",
+    "ar": "توفر حائل فرصاً في الإنتاج الزراعي والأعمال الغذائية والتخزين والتوزيع والتصنيع والخدمات التجارية المساندة."
+   },
+   "opportunities": [
+    {
+     "en": "Agricultural production",
+     "ar": "الإنتاج الزراعي"
+    },
+    {
+     "en": "Warehousing",
+     "ar": "التخزين"
+    },
+    {
+     "en": "Processing",
+     "ar": "التصنيع"
+    }
+   ]
+  },
+  {
+   "slug": "jazan",
+   "media": "cm-port",
+   "services": [
+    "formation",
+    "licensing"
+   ],
+   "industries": [
+    "industry",
+    "logistics",
+    "food"
+   ],
+   "source": "PDF p.18",
+   "name": {
+    "en": "Jazan",
+    "ar": "جازان"
+   },
+   "capital": {
+    "en": "Jazan",
+    "ar": "جازان"
+   },
+   "best_for": {
+    "en": "Industry, logistics & food-related activities",
+    "ar": "الصناعة والخدمات اللوجستية والأنشطة الغذائية"
+   },
+   "description": {
+    "en": "Jazan combines agricultural potential with industrial and logistics infrastructure. This makes the region relevant for manufacturing, logistics, supply-chain operations, food processing, distribution and related services.",
+    "ar": "تجمع جازان بين الإمكانات الزراعية والبنية التحتية الصناعية واللوجستية، ما يجعلها مناسبة للتصنيع والخدمات اللوجستية وعمليات سلاسل الإمداد وتصنيع الأغذية والتوزيع والخدمات المرتبطة."
+   },
+   "opportunities": [
+    {
+     "en": "Manufacturing",
+     "ar": "التصنيع"
+    },
+    {
+     "en": "Supply-chain operations",
+     "ar": "سلاسل الإمداد"
+    },
+    {
+     "en": "Food processing",
+     "ar": "تصنيع الأغذية"
+    }
+   ]
+  },
+  {
+   "slug": "najran",
+   "media": "cm-quarry",
+   "services": [
+    "formation",
+    "licensing"
+   ],
+   "industries": [
+    "mining",
+    "construction"
+   ],
+   "source": "PDF p.19",
+   "name": {
+    "en": "Najran",
+    "ar": "نجران"
+   },
+   "capital": {
+    "en": "Najran",
+    "ar": "نجران"
+   },
+   "best_for": {
+    "en": "Mining & building-related activities",
+    "ar": "التعدين والأنشطة المرتبطة بالبناء"
+   },
+   "description": {
+    "en": "Saudi Arabia continues to develop mining as a major pillar of its economic diversification strategy. Najran offers potential for businesses connected to mining, construction materials, industrial support, transportation and related commercial services.",
+    "ar": "تواصل المملكة تطوير التعدين كركيزة رئيسية للتنويع الاقتصادي. وتوفر نجران إمكانات للأعمال المرتبطة بالتعدين ومواد البناء والدعم الصناعي والنقل والخدمات التجارية المرتبطة."
+   },
+   "opportunities": [
+    {
+     "en": "Construction materials",
+     "ar": "مواد البناء"
+    },
+    {
+     "en": "Industrial support",
+     "ar": "الدعم الصناعي"
+    },
+    {
+     "en": "Transportation",
+     "ar": "النقل"
+    }
+   ]
+  },
+  {
+   "slug": "al-baha",
+   "media": "cm-abha2",
+   "services": [
+    "formation",
+    "tours"
+   ],
+   "industries": [
+    "tourism",
+    "agriculture",
+    "hospitality"
+   ],
+   "source": "PDF p.20",
+   "name": {
+    "en": "Al Baha",
+    "ar": "الباحة"
+   },
+   "capital": {
+    "en": "Al Baha",
+    "ar": "الباحة"
+   },
+   "best_for": {
+    "en": "Tourism, hospitality & agriculture",
+    "ar": "السياحة والضيافة والزراعة"
+   },
+   "description": {
+    "en": "Al Baha’s natural environment and agricultural character create opportunities across tourism, hospitality, food businesses, agricultural products and visitor-related services.",
+    "ar": "تخلق الطبيعة والطابع الزراعي في الباحة فرصاً في السياحة والضيافة والأعمال الغذائية والمنتجات الزراعية والخدمات المرتبطة بالزوار."
+   },
+   "opportunities": [
+    {
+     "en": "Eco-tourism",
+     "ar": "السياحة البيئية"
+    },
+    {
+     "en": "Agricultural products",
+     "ar": "المنتجات الزراعية"
+    },
+    {
+     "en": "Hospitality",
+     "ar": "الضيافة"
+    }
+   ]
+  },
+  {
+   "slug": "al-jouf",
+   "media": "cm-tractor",
+   "services": [
+    "formation",
+    "feasibility"
+   ],
+   "industries": [
+    "agriculture",
+    "food"
+   ],
+   "source": "PDF p.21",
+   "name": {
+    "en": "Al Jouf",
+    "ar": "الجوف"
+   },
+   "capital": {
+    "en": "Sakaka",
+    "ar": "سكاكا"
+   },
+   "best_for": {
+    "en": "Agriculture & food processing",
+    "ar": "الزراعة وتصنيع الأغذية"
+   },
+   "description": {
+    "en": "Al Jouf is one of Saudi Arabia’s prominent agricultural regions, creating opportunities for farming, food production, processing, packaging, storage and related services. Investors can also explore value-added businesses that transform agricultural production into higher-value commercial products.",
+    "ar": "الجوف من أبرز المناطق الزراعية في المملكة، ما يخلق فرصاً في الزراعة وإنتاج الغذاء والتصنيع والتغليف والتخزين والخدمات المرتبطة. ويمكن للمستثمرين استكشاف أعمال ذات قيمة مضافة تحول الإنتاج الزراعي إلى منتجات تجارية أعلى قيمة."
+   },
+   "opportunities": [
+    {
+     "en": "Farming",
+     "ar": "الزراعة"
+    },
+    {
+     "en": "Packaging",
+     "ar": "التغليف"
+    },
+    {
+     "en": "Value-added food products",
+     "ar": "منتجات غذائية ذات قيمة مضافة"
+    }
+   ]
+  },
+  {
+   "slug": "northern-borders",
+   "media": "cm-mining",
+   "services": [
+    "formation",
+    "licensing"
+   ],
+   "industries": [
+    "mining",
+    "industry",
+    "logistics"
+   ],
+   "source": "PDF p.22",
+   "name": {
+    "en": "Northern Borders",
+    "ar": "الحدود الشمالية"
+   },
+   "capital": {
+    "en": "Arar",
+    "ar": "عرعر"
+   },
+   "best_for": {
+    "en": "Mining & industrial activities",
+    "ar": "التعدين والأنشطة الصناعية"
+   },
+   "description": {
+    "en": "The Northern Borders region offers potential for businesses linked to mining, mineral processing, industrial support, transportation and supporting services.",
+    "ar": "توفر منطقة الحدود الشمالية إمكانات للأعمال المرتبطة بالتعدين ومعالجة المعادن والدعم الصناعي والنقل والخدمات المساندة."
+   },
+   "opportunities": [
+    {
+     "en": "Mineral processing",
+     "ar": "معالجة المعادن"
+    },
+    {
+     "en": "Industrial support",
+     "ar": "الدعم الصناعي"
+    },
+    {
+     "en": "Transportation",
+     "ar": "النقل"
+    }
+   ]
+  }
+ ],
+ "industries": {
+  "services": {
+   "en": "Business services",
+   "ar": "خدمات الأعمال"
+  },
+  "technology": {
+   "en": "Technology",
+   "ar": "التقنية"
+  },
+  "consulting": {
+   "en": "Consulting",
+   "ar": "الاستشارات"
+  },
+  "b2b": {
+   "en": "B2B",
+   "ar": "أعمال بين الشركات"
+  },
+  "tourism": {
+   "en": "Tourism",
+   "ar": "السياحة"
+  },
+  "hospitality": {
+   "en": "Hospitality",
+   "ar": "الضيافة"
+  },
+  "retail": {
+   "en": "Retail",
+   "ar": "التجزئة"
+  },
+  "logistics": {
+   "en": "Logistics",
+   "ar": "الخدمات اللوجستية"
+  },
+  "energy": {
+   "en": "Energy",
+   "ar": "الطاقة"
+  },
+  "industry": {
+   "en": "Industry",
+   "ar": "الصناعة"
+  },
+  "agriculture": {
+   "en": "Agriculture",
+   "ar": "الزراعة"
+  },
+  "food": {
+   "en": "Food",
+   "ar": "الأغذية"
+  },
+  "construction": {
+   "en": "Construction",
+   "ar": "البناء"
+  },
+  "mining": {
+   "en": "Mining",
+   "ar": "التعدين"
+  }
+ },
+ "stats": [
+  {
+   "key": "companies-established",
+   "value": "1,000+",
+   "group": "primary",
+   "label": {
+    "en": "Companies established",
+    "ar": "شركة تم تأسيسها"
+   },
+   "verified": true,
+   "source": "Owner statement, 2026-11-01"
+  },
+  {
+   "key": "years-experience",
+   "value": "8",
+   "group": "primary",
+   "label": {
+    "en": "Years of experience",
+    "ar": "سنوات من الخبرة"
+   },
+   "verified": true,
+   "source": "Owner statement, 2026-11-01"
+  },
+  {
+   "key": "s2",
+   "value": "500+",
+   "group": "primary",
+   "label": {
+    "en": "Investment licenses",
+    "ar": "ترخيص استثماري"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s3",
+   "value": "103",
+   "group": "primary",
+   "label": {
+    "en": "Municipal licenses",
+    "ar": "ترخيص بلدي"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s4",
+   "value": "64",
+   "group": "primary",
+   "label": {
+    "en": "Industrial licenses",
+    "ar": "ترخيص صناعي"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s5",
+   "value": "209",
+   "group": "primary",
+   "label": {
+    "en": "Professional accreditations",
+    "ar": "اعتماد مهني"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s6",
+   "value": "157",
+   "group": "secondary",
+   "label": {
+    "en": "Contractor classification certificates",
+    "ar": "شهادة تصنيف مقاولين"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s7",
+   "value": "144",
+   "group": "secondary",
+   "label": {
+    "en": "Customs registration certificates",
+    "ar": "شهادة تسجيل جمركي"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s8",
+   "value": "32",
+   "group": "secondary",
+   "label": {
+    "en": "City service provider execution certificates",
+    "ar": "شهادة تنفيذ لمقدمي خدمات المدن"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s9",
+   "value": "18",
+   "group": "secondary",
+   "label": {
+    "en": "Environmental compliance certificates",
+    "ar": "شهادة امتثال بيئي"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s10",
+   "value": "17",
+   "group": "secondary",
+   "label": {
+    "en": "Advertising licenses",
+    "ar": "ترخيص إعلاني"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s11",
+   "value": "14",
+   "group": "secondary",
+   "label": {
+    "en": "Travel & tourism service licenses",
+    "ar": "ترخيص خدمات سفر وسياحة"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  },
+  {
+   "key": "s12",
+   "value": "11",
+   "group": "secondary",
+   "label": {
+    "en": "Fire alarm system installation permits",
+    "ar": "تصريح تركيب أنظمة إنذار الحريق"
+   },
+   "verified": false,
+   "source": "Presentation p6/p29 (unverified, Q-01)"
+  }
+ ],
+ "faqs": [
+  {
+   "key": "faq1",
+   "category": "market",
+   "order": 1,
+   "needs_review": true,
+   "question": {
+    "en": "Is Saudi Arabia a growing market for investors?",
+    "ar": "هل السعودية سوق متنامٍ للمستثمرين؟"
+   },
+   "answer": {
+    "en": "Yes. Saudi Arabia’s GDP reached approximately SAR 4.79 trillion in 2025, while real GDP grew by approximately 4.5% during the year. The continued growth of non-oil sectors and private investment is creating new opportunities across multiple activities.",
+    "ar": "نعم. بلغ الناتج المحلي الإجمالي للمملكة نحو 4.79 تريليون ريال في 2025، ونما الناتج الحقيقي بنحو 4.5% خلال العام. ويخلق النمو المستمر للقطاعات غير النفطية والاستثمار الخاص فرصاً جديدة في أنشطة متعددة."
+   }
+  },
+  {
+   "key": "faq2",
+   "category": "market",
+   "order": 2,
+   "needs_review": true,
+   "question": {
+    "en": "Is foreign investment growing in Saudi Arabia?",
+    "ar": "هل الاستثمار الأجنبي في نمو بالسعودية؟"
+   },
+   "answer": {
+    "en": "Yes. Foreign direct investment inflows increased by approximately 64.7% year-on-year in Q2 2025, reflecting continued international investor interest in the Kingdom.",
+    "ar": "نعم. ارتفعت تدفقات الاستثمار الأجنبي المباشر بنحو 64.7% على أساس سنوي في الربع الثاني من 2025، ما يعكس اهتماماً دولياً مستمراً بالمملكة."
+   }
+  },
+  {
+   "key": "faq3",
+   "category": "setup",
+   "order": 3,
+   "needs_review": true,
+   "question": {
+    "en": "How long does it take to establish a company in Saudi Arabia?",
+    "ar": "كم يستغرق تأسيس شركة في السعودية؟"
+   },
+   "answer": {
+    "en": "A standard establishment journey may take approximately 7–15 working days once the required documents and approvals are available. Timelines vary according to the business activity, licensing requirements, investor structure and government approvals.",
+    "ar": "قد تستغرق رحلة التأسيس المعتادة نحو 7–15 يوم عمل بعد توفر المستندات والموافقات المطلوبة. وتختلف المدة حسب النشاط ومتطلبات الترخيص وهيكل المستثمر والموافقات الحكومية."
+   }
+  },
+  {
+   "key": "faq4",
+   "category": "setup",
+   "order": 4,
+   "needs_review": true,
+   "question": {
+    "en": "How experienced is Creative Mark in company formation?",
+    "ar": "ما مدى خبرة كرييتف مارك في تأسيس الشركات؟"
+   },
+   "answer": {
+    "en": "Creative Mark’s track record includes 500+ companies established, 500+ investment licenses, 209 professional accreditations, 157 contractor classification certificates, 103 municipal licenses and 64 industrial licenses.",
+    "ar": "يشمل سجل كرييتف مارك أكثر من 500 شركة مؤسسة وأكثر من 500 ترخيص استثماري و209 اعتمادات مهنية و157 شهادة تصنيف مقاولين و103 تراخيص بلدية و64 ترخيصاً صناعياً."
+   }
+  },
+  {
+   "key": "faq5",
+   "category": "setup",
+   "order": 5,
+   "needs_review": false,
+   "question": {
+    "en": "What documents are required to start a company?",
+    "ar": "ما المستندات المطلوبة لبدء شركة؟"
+   },
+   "answer": {
+    "en": "Requirements depend on whether the investor is an individual or an existing corporate entity, the selected business activity, ownership structure and required licenses. Our team reviews your case before starting to determine the exact documentation required.",
+    "ar": "تعتمد المتطلبات على ما إذا كان المستثمر فرداً أو كياناً قائماً، وعلى النشاط المختار وهيكل الملكية والتراخيص المطلوبة. يراجع فريقنا حالتك قبل البدء لتحديد المستندات المطلوبة بدقة."
+   }
+  },
+  {
+   "key": "faq6",
+   "category": "ownership",
+   "order": 6,
+   "needs_review": true,
+   "question": {
+    "en": "Can foreigners own 100% of a company in Saudi Arabia?",
+    "ar": "هل يمكن للأجانب تملك 100% من شركة في السعودية؟"
+   },
+   "answer": {
+    "en": "Foreign investors may establish companies with 100% foreign ownership in eligible activities, subject to the applicable investment regulations, registration requirements and sector-specific conditions.",
+    "ar": "يمكن للمستثمرين الأجانب تأسيس شركات بملكية أجنبية كاملة في الأنشطة المؤهلة، وفقاً لأنظمة الاستثمار ومتطلبات التسجيل والاشتراطات الخاصة بكل قطاع."
+   }
+  },
+  {
+   "key": "faq7",
+   "category": "ownership",
+   "order": 7,
+   "needs_review": true,
+   "question": {
+    "en": "Do I need a Saudi partner to establish my company?",
+    "ar": "هل أحتاج شريكاً سعودياً لتأسيس شركتي؟"
+   },
+   "answer": {
+    "en": "Not necessarily. For many eligible foreign investment activities, companies can be established without a Saudi shareholder. The required structure depends on the activity, investor profile and applicable regulations.",
+    "ar": "ليس بالضرورة. في كثير من أنشطة الاستثمار الأجنبي المؤهلة يمكن التأسيس دون شريك سعودي. ويعتمد الهيكل المطلوب على النشاط وملف المستثمر والأنظمة المعمول بها."
+   }
+  },
+  {
+   "key": "faq8",
+   "category": "ownership",
+   "order": 8,
+   "needs_review": false,
+   "question": {
+    "en": "Can Creative Mark help me choose the right business activity?",
+    "ar": "هل تساعدني كرييتف مارك في اختيار النشاط المناسب؟"
+   },
+   "answer": {
+    "en": "Yes. We assess your business model, investment objectives, operational structure and market requirements to help you select the appropriate activity before beginning the establishment process.",
+    "ar": "نعم. نقيّم نموذج عملك وأهدافك الاستثمارية وهيكلك التشغيلي ومتطلبات السوق لمساعدتك على اختيار النشاط المناسب قبل بدء التأسيس."
+   }
+  },
+  {
+   "key": "faq9",
+   "category": "setup",
+   "order": 9,
+   "needs_review": true,
+   "question": {
+    "en": "Can Creative Mark assist with investment licensing?",
+    "ar": "هل تساعد كرييتف مارك في الترخيص الاستثماري؟"
+   },
+   "answer": {
+    "en": "Yes. Creative Mark has supported 500+ investment licenses, giving our team extensive practical experience with investor establishment procedures.",
+    "ar": "نعم. دعمت كرييتف مارك أكثر من 500 ترخيص استثماري، ما منح فريقنا خبرة عملية واسعة في إجراءات تأسيس المستثمرين."
+   }
+  },
+  {
+   "key": "faq10",
+   "category": "setup",
+   "order": 10,
+   "needs_review": false,
+   "question": {
+    "en": "Can you help with Commercial Registration?",
+    "ar": "هل تساعدون في السجل التجاري؟"
+   },
+   "answer": {
+    "en": "Yes. We support clients throughout the establishment process, including the procedures required to obtain the company’s Commercial Registration and related approvals.",
+    "ar": "نعم. ندعم العملاء طوال عملية التأسيس، بما في ذلك إجراءات الحصول على السجل التجاري والموافقات المرتبطة."
+   }
+  },
+  {
+   "key": "faq11",
+   "category": "setup",
+   "order": 11,
+   "needs_review": false,
+   "question": {
+    "en": "Can I establish my company while I am outside Saudi Arabia?",
+    "ar": "هل يمكنني تأسيس شركتي وأنا خارج السعودية؟"
+   },
+   "answer": {
+    "en": "In many cases, a significant part of the establishment process can be coordinated while the investor is outside Saudi Arabia, depending on the company structure, required documentation and legal procedures.",
+    "ar": "في كثير من الحالات يمكن تنسيق جزء كبير من التأسيس والمستثمر خارج المملكة، بحسب هيكل الشركة والمستندات المطلوبة والإجراءات النظامية."
+   }
+  },
+  {
+   "key": "faq12",
+   "category": "setup",
+   "order": 12,
+   "needs_review": true,
+   "question": {
+    "en": "Do I need an office to establish my business?",
+    "ar": "هل أحتاج مكتباً لتأسيس عملي؟"
+   },
+   "answer": {
+    "en": "A registered business address is generally required, while specific office requirements vary according to activity and regulatory conditions. Creative Mark provides office solutions designed to support both registration and operational needs.",
+    "ar": "يُشترط عادة عنوان تجاري مسجل، بينما تختلف متطلبات المكتب حسب النشاط والاشتراطات النظامية. وتقدم كرييتف مارك حلولاً مكتبية تدعم التسجيل والاحتياجات التشغيلية."
+   }
+  },
+  {
+   "key": "faq13",
+   "category": "after",
+   "order": 13,
+   "needs_review": false,
+   "question": {
+    "en": "Do you assist with tax registration?",
+    "ar": "هل تساعدون في التسجيل الضريبي؟"
+   },
+   "answer": {
+    "en": "Yes. Creative Mark supports companies with tax registration, financial compliance, budgeting and related financial requirements.",
+    "ar": "نعم. تدعم كرييتف مارك الشركات في التسجيل الضريبي والامتثال المالي والميزانيات والمتطلبات المالية المرتبطة."
+   }
+  },
+  {
+   "key": "faq14",
+   "category": "after",
+   "order": 14,
+   "needs_review": false,
+   "question": {
+    "en": "Can you assist with investor and General Manager visas?",
+    "ar": "هل تساعدون في تأشيرات المستثمر والمدير العام؟"
+   },
+   "answer": {
+    "en": "Yes. We support investor visas, General Manager visas, residency procedures and related services required after or during company establishment.",
+    "ar": "نعم. ندعم تأشيرات المستثمر والمدير العام وإجراءات الإقامة والخدمات المرتبطة أثناء التأسيس أو بعده."
+   }
+  },
+  {
+   "key": "faq15",
+   "category": "after",
+   "order": 15,
+   "needs_review": false,
+   "question": {
+    "en": "Can you help with bank account setup?",
+    "ar": "هل تساعدون في فتح الحساب البنكي؟"
+   },
+   "answer": {
+    "en": "Yes. Our team supports clients through the corporate establishment requirements leading to the company banking stage and provides guidance throughout the process.",
+    "ar": "نعم. يدعم فريقنا العملاء في متطلبات التأسيس وصولاً إلى مرحلة الحساب البنكي للشركة ويقدم الإرشاد طوال العملية."
+   }
+  },
+  {
+   "key": "faq16",
+   "category": "after",
+   "order": 16,
+   "needs_review": false,
+   "question": {
+    "en": "What happens after my company is established?",
+    "ar": "ماذا يحدث بعد تأسيس شركتي؟"
+   },
+   "answer": {
+    "en": "Company formation is only the beginning. Creative Mark can continue supporting your business through tax and budgeting, HR and auditing, office solutions, certifications, consulting and other operational requirements.",
+    "ar": "التأسيس مجرد البداية. يمكن لكرييتف مارك مواصلة دعم عملك في الضرائب والميزانيات والموارد البشرية والتدقيق وحلول المكاتب والشهادات والاستشارات والمتطلبات التشغيلية الأخرى."
+   }
+  }
+ ],
+ "faq_categories": {
+  "market": {
+   "en": "Saudi market",
+   "ar": "السوق السعودي"
+  },
+  "setup": {
+   "en": "Company setup",
+   "ar": "تأسيس الشركة"
+  },
+  "ownership": {
+   "en": "Ownership & structure",
+   "ar": "الملكية والهيكل"
+  },
+  "after": {
+   "en": "After formation",
+   "ar": "بعد التأسيس"
+  }
+ },
+ "testimonials": [
+  {
+   "quote": {
+    "en": "Creative Mark made the establishment process clear and manageable from the beginning. Their team guided us through the procedures and helped us understand every step required to start our business.",
+    "ar": "جعلت كرييتف مارك عملية التأسيس واضحة وسهلة الإدارة منذ البداية. أرشدنا فريقها خلال الإجراءات وساعدنا على فهم كل خطوة لبدء أعمالنا."
+   },
+   "author": {
+    "en": "Client review",
+    "ar": "رأي عميل"
+   },
+   "context": {
+    "en": "Company formation",
+    "ar": "تأسيس شركة"
+   },
+   "verified": false
+  },
+  {
+   "quote": {
+    "en": "What we valued most was having practical support beyond the registration process. Creative Mark helped us move from company formation toward actual business operations.",
+    "ar": "أكثر ما قدّرناه هو الدعم العملي بعد التسجيل. ساعدتنا كرييتف مارك على الانتقال من تأسيس الشركة إلى التشغيل الفعلي."
+   },
+   "author": {
+    "en": "Client review",
+    "ar": "رأي عميل"
+   },
+   "context": {
+    "en": "Business setup",
+    "ar": "إعداد الأعمال"
+   },
+   "verified": false
+  },
+  {
+   "quote": {
+    "en": "The team was responsive, professional and highly supportive throughout our investment journey. Having one team coordinating the process made a major difference.",
+    "ar": "كان الفريق سريع الاستجابة ومحترفاً وداعماً طوال رحلتنا الاستثمارية. وجود فريق واحد ينسق العملية أحدث فرقاً كبيراً."
+   },
+   "author": {
+    "en": "Client review",
+    "ar": "رأي عميل"
+   },
+   "context": {
+    "en": "Foreign investment",
+    "ar": "استثمار أجنبي"
+   },
+   "verified": false
+  }
+ ],
+ "countries": [
+  {
+   "code": "sa",
+   "name": {
+    "en": "Saudi Arabia",
+    "ar": "السعودية"
+   }
+  },
+  {
+   "code": "ae",
+   "name": {
+    "en": "United Arab Emirates",
+    "ar": "الإمارات"
+   }
+  },
+  {
+   "code": "kw",
+   "name": {
+    "en": "Kuwait",
+    "ar": "الكويت"
+   }
+  },
+  {
+   "code": "qa",
+   "name": {
+    "en": "Qatar",
+    "ar": "قطر"
+   }
+  },
+  {
+   "code": "bh",
+   "name": {
+    "en": "Bahrain",
+    "ar": "البحرين"
+   }
+  },
+  {
+   "code": "om",
+   "name": {
+    "en": "Oman",
+    "ar": "عُمان"
+   }
+  },
+  {
+   "code": "gb",
+   "name": {
+    "en": "United Kingdom",
+    "ar": "المملكة المتحدة"
+   }
+  },
+  {
+   "code": "us",
+   "name": {
+    "en": "United States",
+    "ar": "الولايات المتحدة"
+   }
+  },
+  {
+   "code": "tr",
+   "name": {
+    "en": "Türkiye",
+    "ar": "تركيا"
+   }
+  },
+  {
+   "code": "ye",
+   "name": {
+    "en": "Yemen",
+    "ar": "اليمن"
+   }
+  },
+  {
+   "code": "ca",
+   "name": {
+    "en": "Canada",
+    "ar": "كندا"
+   }
+  },
+  {
+   "code": "my",
+   "name": {
+    "en": "Malaysia",
+    "ar": "ماليزيا"
+   }
+  },
+  {
+   "code": "cn",
+   "name": {
+    "en": "China",
+    "ar": "الصين"
+   }
+  },
+  {
+   "code": "eg",
+   "name": {
+    "en": "Egypt",
+    "ar": "مصر"
+   }
+  }
+ ]
+}

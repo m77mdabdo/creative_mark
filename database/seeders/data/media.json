@@ -1,0 +1,464 @@
+{
+ "riyadh-kingdom-dusk": {
+  "alt": {
+   "en": "Riyadh skyline with the Kingdom Centre at dusk",
+   "ar": "أفق الرياض وبرج المملكة عند الغروب"
+  },
+  "credit": "Unsplash"
+ },
+ "riyadh-kingdom-pink": {
+  "alt": {
+   "en": "Kingdom Centre against a pink evening sky",
+   "ar": "برج المملكة في سماء المساء"
+  },
+  "credit": "Unsplash"
+ },
+ "riyadh-night": {
+  "alt": {
+   "en": "Riyadh at night",
+   "ar": "الرياض ليلاً"
+  },
+  "credit": "Unsplash"
+ },
+ "riyadh-aerial": {
+  "alt": {
+   "en": "Aerial view of Riyadh",
+   "ar": "منظر جوي للرياض"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-riyadh-tower": {
+  "alt": {
+   "en": "Glass office tower in Riyadh",
+   "ar": "برج مكاتب زجاجي في الرياض"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-riyadh-aerial2": {
+  "alt": {
+   "en": "Riyadh business district from above",
+   "ar": "الحي التجاري في الرياض من الأعلى"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-riyadh-mosque-night": {
+  "alt": {
+   "en": "Riyadh skyline at night with a mosque",
+   "ar": "أفق الرياض ليلاً مع مسجد"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-riyadh-palms": {
+  "alt": {
+   "en": "City skyline with palm trees",
+   "ar": "أفق المدينة مع النخيل"
+  },
+  "credit": "Unsplash"
+ },
+ "glass-tower": {
+  "alt": {
+   "en": "Glass tower facade",
+   "ar": "واجهة برج زجاجي"
+  },
+  "credit": "Unsplash"
+ },
+ "glass-tower2": {
+  "alt": {
+   "en": "Looking up at high-rise towers",
+   "ar": "أبراج شاهقة"
+  },
+  "credit": "Unsplash"
+ },
+ "architecture-curve": {
+  "alt": {
+   "en": "Curved modern architecture",
+   "ar": "عمارة حديثة منحنية"
+  },
+  "credit": "Unsplash"
+ },
+ "office-lobby": {
+  "alt": {
+   "en": "Corporate office lobby",
+   "ar": "ردهة مكتب شركة"
+  },
+  "credit": "Unsplash"
+ },
+ "office-lounge": {
+  "alt": {
+   "en": "Modern office lounge",
+   "ar": "صالة مكتب حديثة"
+  },
+  "credit": "Unsplash"
+ },
+ "meeting": {
+  "alt": {
+   "en": "Business team in a meeting",
+   "ar": "فريق أعمال في اجتماع"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-handshake": {
+  "alt": {
+   "en": "Two businessmen shaking hands across a table",
+   "ar": "رجلا أعمال يتصافحان"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-handshake2": {
+  "alt": {
+   "en": "Business handshake",
+   "ar": "مصافحة أعمال"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-meeting4": {
+  "alt": {
+   "en": "Business professionals discussing ideas",
+   "ar": "مهنيون يناقشون الأفكار"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-lobby-talk": {
+  "alt": {
+   "en": "Business people talking in a lobby",
+   "ar": "رجال أعمال يتحدثون في الردهة"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-boardroom": {
+  "alt": {
+   "en": "Boardroom with a panoramic city view at sunset",
+   "ar": "قاعة اجتماعات بإطلالة على المدينة"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-boardroom2": {
+  "alt": {
+   "en": "Conference table and chairs",
+   "ar": "طاولة اجتماعات"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-presentation": {
+  "alt": {
+   "en": "Consultant presenting to a team",
+   "ar": "مستشار يقدم عرضاً لفريق"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-team": {
+  "alt": {
+   "en": "Team around a meeting table",
+   "ar": "فريق حول طاولة الاجتماعات"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-office": {
+  "alt": {
+   "en": "Modern office interior",
+   "ar": "مكتب عصري"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-laptop": {
+  "alt": {
+   "en": "Planning on a laptop",
+   "ar": "تخطيط على الحاسوب"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-docs": {
+  "alt": {
+   "en": "Two people reviewing documents",
+   "ar": "شخصان يراجعان مستندات"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-sign": {
+  "alt": {
+   "en": "Signing a document",
+   "ar": "توقيع مستند"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-calc": {
+  "alt": {
+   "en": "Financial planning with a calculator",
+   "ar": "تخطيط مالي"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-tablet": {
+  "alt": {
+   "en": "Reviewing figures on a tablet",
+   "ar": "مراجعة الأرقام على جهاز لوحي"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-factory": {
+  "alt": {
+   "en": "Interior of an industrial factory",
+   "ar": "داخل مصنع"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-factory2": {
+  "alt": {
+   "en": "Manufacturing machinery",
+   "ar": "آلات تصنيع"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-welding": {
+  "alt": {
+   "en": "Metal fabrication",
+   "ar": "تصنيع معدني"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-port": {
+  "alt": {
+   "en": "Shipping containers at a busy port",
+   "ar": "حاويات شحن في ميناء"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-ship": {
+  "alt": {
+   "en": "Cargo ship docked with cranes",
+   "ar": "سفينة شحن راسية"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-warehouse": {
+  "alt": {
+   "en": "Warehouse aisle with shelves",
+   "ar": "ممر مستودع"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-warehouse2": {
+  "alt": {
+   "en": "Large warehouse",
+   "ar": "مستودع كبير"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-farm": {
+  "alt": {
+   "en": "Rows of crops at sunset",
+   "ar": "صفوف المحاصيل عند الغروب"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-greenhouse": {
+  "alt": {
+   "en": "Greenhouse cultivation",
+   "ar": "زراعة محمية"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-tractor": {
+  "alt": {
+   "en": "Tractor harvesting crops",
+   "ar": "جرار يحصد المحاصيل"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-mining": {
+  "alt": {
+   "en": "Excavators at a mining site",
+   "ar": "حفارات في موقع تعدين"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-quarry": {
+  "alt": {
+   "en": "Open-pit quarry from above",
+   "ar": "محجر مفتوح من الأعلى"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-trucks": {
+  "alt": {
+   "en": "Dump trucks at a mine",
+   "ar": "شاحنات في منجم"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-solar": {
+  "alt": {
+   "en": "Rows of solar panels",
+   "ar": "ألواح شمسية"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-refinery": {
+  "alt": {
+   "en": "Industrial refinery with storage tanks",
+   "ar": "مصفاة صناعية"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-crane": {
+  "alt": {
+   "en": "Construction crane at twilight",
+   "ar": "رافعة بناء عند الغسق"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-abha": {
+  "alt": {
+   "en": "Green mountains of Asir",
+   "ar": "جبال عسير الخضراء"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-abha2": {
+  "alt": {
+   "en": "Mountain valley in the south-west",
+   "ar": "وادٍ جبلي في الجنوب الغربي"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-alula-village": {
+  "alt": {
+   "en": "Ancient earthen village on a hillside",
+   "ar": "قرية طينية قديمة"
+  },
+  "credit": "Unsplash"
+ },
+ "alula-arch": {
+  "alt": {
+   "en": "Rock arch in AlUla",
+   "ar": "قوس صخري في العلا"
+  },
+  "credit": "Unsplash"
+ },
+ "alula-rock": {
+  "alt": {
+   "en": "Sandstone formations",
+   "ar": "تكوينات صخرية"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-tabuk": {
+  "alt": {
+   "en": "Rock formations near Tabuk",
+   "ar": "تكوينات صخرية قرب تبوك"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-tabuk-stars": {
+  "alt": {
+   "en": "Desert rock under a starry sky",
+   "ar": "صخرة صحراوية تحت سماء مرصعة بالنجوم"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-neom-sea": {
+  "alt": {
+   "en": "Mountains meeting the sea",
+   "ar": "الجبال تلتقي بالبحر"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-dammam": {
+  "alt": {
+   "en": "Eastern Province waterfront",
+   "ar": "واجهة بحرية في المنطقة الشرقية"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-dammam-sunset": {
+  "alt": {
+   "en": "Gulf coast at sunset",
+   "ar": "ساحل الخليج عند الغروب"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-madinah": {
+  "alt": {
+   "en": "Al-Masjid an-Nabawi, Madinah",
+   "ar": "المسجد النبوي، المدينة المنورة"
+  },
+  "credit": "Unsplash"
+ },
+ "jeddah-coast": {
+  "alt": {
+   "en": "Jeddah coastline and towers",
+   "ar": "ساحل جدة وأبراجها"
+  },
+  "credit": "Unsplash"
+ },
+ "jeddah-historic": {
+  "alt": {
+   "en": "Historic Jeddah",
+   "ar": "جدة التاريخية"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-desert-road": {
+  "alt": {
+   "en": "Desert road toward the mountains",
+   "ar": "طريق صحراوي نحو الجبال"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-desert-valley": {
+  "alt": {
+   "en": "Desert valley",
+   "ar": "وادٍ صحراوي"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-camel": {
+  "alt": {
+   "en": "Camel rider in the desert",
+   "ar": "راكب جمل في الصحراء"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-airport": {
+  "alt": {
+   "en": "Modern airport terminal",
+   "ar": "صالة مطار حديثة"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-plane": {
+  "alt": {
+   "en": "Aircraft on the tarmac",
+   "ar": "طائرة على المدرج"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-passport": {
+  "alt": {
+   "en": "Passport with travel stamps",
+   "ar": "جواز سفر بأختام"
+  },
+  "credit": "Unsplash"
+ },
+ "cm-earth": {
+  "alt": {
+   "en": "Earth from space",
+   "ar": "الأرض من الفضاء"
+  },
+  "credit": "Unsplash"
+ },
+ "dubai-burj": {
+  "alt": {
+   "en": "Dubai skyline",
+   "ar": "أفق دبي"
+  },
+  "credit": "Unsplash"
+ },
+ "dubai-night": {
+  "alt": {
+   "en": "Dubai at night",
+   "ar": "دبي ليلاً"
+  },
+  "credit": "Unsplash"
+ }
+}

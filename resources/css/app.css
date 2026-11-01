@@ -1,9 +1,164 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/latin-600.css";
+@import "@fontsource/manrope/latin-700.css";
+@import "@fontsource/cormorant-garamond/latin-300.css";
+@import "@fontsource/cormorant-garamond/latin-500.css";
+@import "@fontsource/cormorant-garamond/latin-500-italic.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-400.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-500.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-600.css";
+@import "@fontsource/amiri/arabic-700.css";
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+@source "../js";
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/*
+ * Direction A "Night Majlis" tokens (Phase C/D §11). Brand gold is the client's wordmark colour #EBBD6C.
+ * Gold is never text on light themes: --cm-gold-text replaces it there (6.2:1 on white).
+ * The CMS theme screen (FR-141) will write these on :root.
+ */
+:root {
+  --cm-gold: #EBBD6C;
+  --cm-gold-soft: #F3D08F;
+  --cm-gold-deep: #9C7A3C;
+  --cm-gold-text: #7A5C2C;
+  --cm-ink: #0B0B0C;
+  --cm-ink-2: #141415;
+  --cm-charcoal: #151515;
+  --cm-ivory: #F7F5EF;
+  --cm-text: #F4F1EA;
+  --cm-muted: #A9A59C;
+  --cm-radius: 4px;
+  --cm-header: 64px;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-text: "Manrope", system-ui, sans-serif;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --ease-expo: cubic-bezier(.77, 0, .18, 1);
 }
+@media (min-width: 1280px) { :root { --cm-header: 88px; } }
+html[lang="ar"], html[lang="ur-PK"] {
+  --font-display: "Amiri", "IBM Plex Sans Arabic", serif;
+  --font-text: "IBM Plex Sans Arabic", "Manrope", system-ui, sans-serif;
+}
+
+@theme inline {
+  --font-sans: var(--font-text);
+  --font-display: var(--font-display);
+  --color-gold: var(--cm-gold);
+  --color-gold-soft: var(--cm-gold-soft);
+  --color-gold-deep: var(--cm-gold-deep);
+  --color-gold-text: var(--cm-gold-text);
+  --color-ink: var(--cm-ink);
+  --color-ink-2: var(--cm-ink-2);
+  --color-charcoal: var(--cm-charcoal);
+  --color-ivory: var(--cm-ivory);
+  --color-mute: var(--cm-muted);
+  --ease-out-quint: var(--ease-out);
+}
+
+html { scroll-padding-top: calc(var(--cm-header) + 16px); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--cm-ink);
+  color: var(--cm-text);
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+html[dir="rtl"] body { font-size: 18px; line-height: 1.8; }
+::selection { background: var(--cm-gold); color: var(--cm-ink); }
+:focus-visible { outline: 2px solid var(--cm-gold); outline-offset: 2px; }
+.th-ivory :focus-visible, .th-white :focus-visible { outline-color: var(--cm-ink); }
+
+.font-display { font-family: var(--font-display); }
+html[dir="rtl"] .font-display { font-weight: 700; line-height: 1.3; letter-spacing: 0 !important; }
+html[dir="rtl"] [class*="tracking-"] { letter-spacing: 0 !important; }
+html[dir="rtl"] .flip-rtl { transform: scaleX(-1); }
+
+/* type scale (fluid 390 → 1440) */
+.t-display-xl { font-size: clamp(44px, 4.6vw + 26px, 96px); font-weight: 300; line-height: .98; letter-spacing: -.02em; }
+.t-display-l { font-size: clamp(36px, 2.6vw + 26px, 64px); font-weight: 300; line-height: 1.05; letter-spacing: -.01em; }
+.t-display-m { font-size: clamp(28px, 1.4vw + 22px, 40px); font-weight: 500; line-height: 1.15; }
+.t-body-l { font-size: clamp(17px, .2vw + 16px, 19px); line-height: 1.65; }
+html[dir="rtl"] .t-display-xl { line-height: 1.25; font-size: clamp(40px, 4vw + 24px, 84px); }
+html[dir="rtl"] .t-display-l { line-height: 1.3; font-size: clamp(32px, 2.2vw + 24px, 56px); }
+html[dir="rtl"] .t-display-m { line-height: 1.4; }
+
+.eyebrow { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 700; color: var(--cm-gold); }
+html[dir="rtl"] .eyebrow { font-size: 13px; letter-spacing: 0; text-transform: none; }
+.th-ivory .eyebrow, .th-white .eyebrow { color: var(--cm-gold-text); }
+.gold-rule { height: 1px; background: linear-gradient(90deg, var(--cm-gold), transparent); transform-origin: left center; }
+html[dir="rtl"] .gold-rule { background: linear-gradient(270deg, var(--cm-gold), transparent); transform-origin: right center; }
+.th-ivory .gold-rule, .th-white .gold-rule { background: linear-gradient(90deg, var(--cm-gold-deep), transparent); }
+
+/* buttons: 44px minimum touch target */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 48px; padding: .85rem 1.5rem; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border-radius: var(--cm-radius); transition: background-color .32s var(--ease-out), color .32s var(--ease-out), border-color .32s var(--ease-out), gap .32s var(--ease-out); white-space: nowrap; }
+html[dir="rtl"] .btn { letter-spacing: 0; font-size: 15px; text-transform: none; font-weight: 600; }
+.btn-gold { background: var(--cm-gold); color: var(--cm-ink); }
+.btn-gold:hover { background: var(--cm-gold-soft); }
+.btn-outline { border: 1px solid color-mix(in srgb, currentColor 40%, transparent); }
+.btn-outline:hover { border-color: var(--cm-gold); color: var(--cm-gold); }
+.th-ivory .btn-outline:hover, .th-white .btn-outline:hover { border-color: var(--cm-ink); color: var(--cm-ink); }
+.btn-link { padding-inline: 0; color: var(--cm-gold); }
+.th-ivory .btn-link, .th-white .btn-link { color: var(--cm-gold-text); }
+.btn:hover .btn-arrow { transform: translateX(3px); }
+html[dir="rtl"] .btn:hover .btn-arrow { transform: scaleX(-1) translateX(3px); }
+.btn-arrow { transition: transform .32s var(--ease-out); }
+
+/* section themes (FR-114) */
+.th-dark { background: var(--cm-ink); color: var(--cm-text); }
+.th-charcoal { background: var(--cm-charcoal); color: var(--cm-text); }
+.th-ivory { background: var(--cm-ivory); color: #141414; }
+.th-white { background: #fff; color: #141414; }
+.th-dark .muted, .th-charcoal .muted { color: var(--cm-muted); }
+.th-ivory .muted, .th-white .muted { color: #5F5B53; }
+.th-dark .hair, .th-charcoal .hair { border-color: #2A2A2C; }
+.th-ivory .hair, .th-white .hair { border-color: #E4DFD3; }
+.th-dark .accent, .th-charcoal .accent { color: var(--cm-gold); }
+.th-ivory .accent, .th-white .accent { color: var(--cm-gold-text); }
+.th-ivory .card-s, .th-white .card-s { background: #fff; border: 1px solid #E4DFD3; }
+.th-dark .card-s { background: var(--cm-ink-2); border: 1px solid #262628; }
+.th-charcoal .card-s { background: #1D1D1F; border: 1px solid #2D2D30; }
+
+.pad-sm { padding-block: 40px; } .pad-md { padding-block: 56px; } .pad-lg { padding-block: 72px; }
+@media (min-width: 1024px) { .pad-sm { padding-block: 56px; } .pad-md { padding-block: 88px; } .pad-lg { padding-block: 120px; } }
+
+.wrap { margin-inline: auto; width: 100%; max-width: 1320px; padding-inline: 20px; }
+@media (min-width: 768px) { .wrap { padding-inline: 40px; } }
+@media (min-width: 1024px) { .wrap { padding-inline: 56px; } }
+@media (min-width: 1920px) { .wrap { max-width: 1440px; } }
+
+.measure { max-width: 62ch; }
+html[dir="rtl"] .measure { max-width: 56ch; }
+
+/* swipe rows on mobile with a visible next-card peek */
+.swipe { display: grid; grid-auto-flow: column; grid-auto-columns: 82%; gap: 1px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.swipe::-webkit-scrollbar { display: none; }
+.swipe > * { scroll-snap-align: start; }
+
+.skip-link { position: absolute; inset-inline-start: 16px; top: -100px; z-index: 100; padding: 12px 18px; background: var(--cm-gold); color: var(--cm-ink); font-weight: 700; border-radius: var(--cm-radius); }
+.skip-link:focus { top: 12px; }
+
+/* motion initial states: applied only once JS has confirmed motion is allowed */
+.motion-ready [data-motion="fade-up"], .motion-ready [data-motion="stagger"] > * { opacity: 0; }
+.motion-ready [data-motion="reveal-mask"] { clip-path: inset(0 0 100% 0); }
+
+@keyframes cm-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes cm-kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* map */
+.map-region { cursor: pointer; transition: fill .3s var(--ease-out), opacity .3s; }
+.map-region:focus-visible { outline: none; stroke: #fff; stroke-width: 2.5; }

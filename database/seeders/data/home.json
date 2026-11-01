@@ -1,0 +1,533 @@
+{
+ "key": "home",
+ "sections": [
+  {
+   "id": "hero",
+   "type": "hero",
+   "label": "Hero",
+   "eyebrow": {
+    "en": "Vision 2030 · Invest Saudi",
+    "ar": "رؤية 2030 · استثمر في السعودية"
+   },
+   "title": {
+    "en": "One place, endless solutions",
+    "ar": "مكان واحد، حلول لا تنتهي"
+   },
+   "subtitle": {
+    "en": "Company formation, investment licensing and business solutions for investors building in Saudi Arabia.",
+    "ar": "تأسيس الشركات والتراخيص الاستثمارية وحلول الأعمال للمستثمرين في المملكة العربية السعودية."
+   },
+   "media": "riyadh-kingdom-dusk",
+   "buttons": [
+    {
+     "label": {
+      "en": "Start your company",
+      "ar": "ابدأ شركتك"
+     },
+     "href": "/start-your-company",
+     "style": "gold"
+    },
+    {
+     "label": {
+      "en": "Talk to a consultant",
+      "ar": "تحدث مع مستشار"
+     },
+     "href": "/consultation",
+     "style": "outline"
+    }
+   ],
+   "style": {
+    "theme": "dark",
+    "overlay": 45,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "whyInvest",
+   "type": "whyInvest",
+   "label": "Why invest in Saudi Arabia",
+   "eyebrow": {
+    "en": "Why Saudi Arabia",
+    "ar": "لماذا السعودية"
+   },
+   "title": {
+    "en": "Build your business in one of the region’s fastest-transforming economies",
+    "ar": "ابنِ عملك في واحد من أسرع اقتصادات المنطقة تحولاً"
+   },
+   "body": {
+    "en": "Saudi Arabia is no longer simply a market to enter — it is becoming a global destination for investment, expansion, innovation and long-term business growth. Under Vision 2030, the Kingdom has accelerated economic diversification and opened new opportunities for local and international investors.",
+    "ar": "لم تعد السعودية مجرد سوق للدخول — بل أصبحت وجهة عالمية للاستثمار والتوسع والابتكار والنمو طويل الأمد. ومع رؤية 2030 تسارع التنويع الاقتصادي وفُتحت فرص جديدة للمستثمرين المحليين والدوليين."
+   },
+   "media": "riyadh-kingdom-pink",
+   "cards": [
+    {
+     "id": "whyInvest-1",
+     "title": {
+      "en": "A multi-trillion-riyal economy",
+      "ar": "اقتصاد بتريليونات الريالات"
+     },
+     "text": {
+      "en": "With GDP approaching SAR 4.8 trillion, Saudi Arabia gives investors access to one of the largest economies in the Middle East.",
+      "ar": "مع ناتج محلي يقترب من 4.8 تريليون ريال، تمنح السعودية المستثمرين الوصول إلى أحد أكبر اقتصادات الشرق الأوسط."
+     },
+     "icon": "Landmark",
+     "verified": false
+    },
+    {
+     "id": "whyInvest-2",
+     "title": {
+      "en": "A rapidly diversifying market",
+      "ar": "سوق يتنوع بسرعة"
+     },
+     "text": {
+      "en": "Non-oil activity plays an increasingly important role, creating opportunities across services, technology, industry, tourism, logistics and real estate.",
+      "ar": "يلعب النشاط غير النفطي دوراً متزايداً، ما يخلق فرصاً في الخدمات والتقنية والصناعة والسياحة والخدمات اللوجستية والعقار."
+     },
+     "icon": "Shapes",
+     "verified": true
+    },
+    {
+     "id": "whyInvest-3",
+     "title": {
+      "en": "Growing foreign investment",
+      "ar": "استثمار أجنبي متنامٍ"
+     },
+     "text": {
+      "en": "FDI inflows increased by approximately 64.7% year-on-year in Q2 2025 as the investment environment strengthens.",
+      "ar": "ارتفعت تدفقات الاستثمار الأجنبي المباشر بنحو 64.7% سنوياً في الربع الثاني 2025 مع تعزز بيئة الاستثمار."
+     },
+     "icon": "TrendingUp",
+     "verified": false
+    },
+    {
+     "id": "whyInvest-4",
+     "title": {
+      "en": "Vision 2030 is creating new markets",
+      "ar": "رؤية 2030 تخلق أسواقاً جديدة"
+     },
+     "text": {
+      "en": "Vision 2030 aims to raise the private sector’s contribution to GDP to 65% by 2030, opening opportunities for entrepreneurs and international companies.",
+      "ar": "تستهدف رؤية 2030 رفع مساهمة القطاع الخاص في الناتج المحلي إلى 65% بحلول 2030، ما يفتح فرصاً لرواد الأعمال والشركات الدولية."
+     },
+     "icon": "Sparkles",
+     "verified": false
+    },
+    {
+     "id": "whyInvest-5",
+     "title": {
+      "en": "A strategic regional gateway",
+      "ar": "بوابة إقليمية استراتيجية"
+     },
+     "text": {
+      "en": "A strategic base for accessing GCC, Middle Eastern, Asian, African and international markets.",
+      "ar": "قاعدة استراتيجية للوصول إلى أسواق الخليج والشرق الأوسط وآسيا وأفريقيا والعالم."
+     },
+     "icon": "Globe2",
+     "verified": true
+    }
+   ],
+   "style": {
+    "theme": "dark",
+    "overlay": 82,
+    "padding": "lg",
+    "align": "start",
+    "bgMedia": "riyadh-kingdom-pink"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "journey",
+   "type": "journey",
+   "label": "Your Saudi journey",
+   "eyebrow": {
+    "en": "Your Saudi journey starts here",
+    "ar": "رحلتك السعودية تبدأ هنا"
+   },
+   "title": {
+    "en": "Entering a growing market requires more than a business idea",
+    "ar": "دخول سوق متنامٍ يتطلب أكثر من فكرة عمل"
+   },
+   "body": {
+    "en": "It requires the right activity, legal structure, investment route, location, approvals and operational setup. From selecting the appropriate activity and obtaining the necessary approvals to Commercial Registration, office solutions, banking support and tax registration — Creative Mark supports investors throughout the company formation journey.",
+    "ar": "يتطلب النشاط الصحيح والهيكل القانوني ومسار الاستثمار والموقع والموافقات والتجهيز التشغيلي. من اختيار النشاط المناسب والحصول على الموافقات إلى السجل التجاري وحلول المكاتب والدعم البنكي والتسجيل الضريبي — تدعم كرييتف مارك المستثمرين طوال رحلة التأسيس."
+   },
+   "media": "cm-boardroom",
+   "media2": "cm-handshake2",
+   "buttons": [
+    {
+     "label": {
+      "en": "Start your business with confidence",
+      "ar": "ابدأ عملك بثقة"
+     },
+     "href": "/investor-guide",
+     "style": "gold"
+    }
+   ],
+   "style": {
+    "theme": "ivory",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "parallax-slow",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "countries",
+   "type": "countries",
+   "label": "Countries we work with",
+   "eyebrow": {
+    "en": "Global investors · Local expertise",
+    "ar": "مستثمرون عالميون · خبرة محلية"
+   },
+   "title": {
+    "en": "Your location should never limit your opportunity",
+    "ar": "موقعك يجب ألا يحد من فرصتك"
+   },
+   "body": {
+    "en": "We work with entrepreneurs, companies and investors from different markets who want to establish or expand their businesses in Saudi Arabia. Our international experience helps us understand different ownership structures, corporate requirements, investment objectives and market-entry challenges.",
+    "ar": "نعمل مع رواد أعمال وشركات ومستثمرين من أسواق مختلفة يرغبون في التأسيس أو التوسع في المملكة. وتساعدنا خبرتنا الدولية على فهم هياكل الملكية المختلفة ومتطلبات الشركات وأهداف الاستثمار وتحديات دخول السوق."
+   },
+   "media": "cm-earth",
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "sectors",
+   "type": "sectors",
+   "label": "Our sectors",
+   "eyebrow": {
+    "en": "Our sectors",
+    "ar": "قطاعاتنا"
+   },
+   "title": {
+    "en": "Business solutions built around your investment journey",
+    "ar": "حلول أعمال مبنية حول رحلتك الاستثمارية"
+   },
+   "body": {
+    "en": "Establishing a company is only the first stage. Companies need regulatory support, financial planning, strategic guidance, operational solutions and long-term business infrastructure.",
+    "ar": "التأسيس هو المرحلة الأولى فقط. تحتاج الشركات إلى دعم تنظيمي وتخطيط مالي وإرشاد استراتيجي وحلول تشغيلية وبنية أعمال طويلة الأمد."
+   },
+   "cards": [
+    {
+     "id": "sectors-1",
+     "title": {
+      "en": "Industry & manufacturing",
+      "ar": "الصناعة والتصنيع"
+     },
+     "text": {
+      "en": "Industrial licensing, classifications and compliance.",
+      "ar": "التراخيص الصناعية والتصنيفات والامتثال."
+     },
+     "media": "cm-factory",
+     "verified": true
+    },
+    {
+     "id": "sectors-2",
+     "title": {
+      "en": "Logistics & trade",
+      "ar": "الخدمات اللوجستية والتجارة"
+     },
+     "text": {
+      "en": "Customs registration and supply-chain setup.",
+      "ar": "التسجيل الجمركي وإعداد سلاسل الإمداد."
+     },
+     "media": "cm-port",
+     "verified": true
+    },
+    {
+     "id": "sectors-3",
+     "title": {
+      "en": "Agriculture & food",
+      "ar": "الزراعة والأغذية"
+     },
+     "text": {
+      "en": "Activity selection, feasibility and licensing.",
+      "ar": "اختيار النشاط ودراسات الجدوى والترخيص."
+     },
+     "media": "cm-farm",
+     "verified": true
+    },
+    {
+     "id": "sectors-4",
+     "title": {
+      "en": "Tourism & hospitality",
+      "ar": "السياحة والضيافة"
+     },
+     "text": {
+      "en": "Tourism licenses and visitor-economy setup.",
+      "ar": "تراخيص السياحة وإعداد أعمال اقتصاد الزوار."
+     },
+     "media": "cm-abha",
+     "verified": true
+    },
+    {
+     "id": "sectors-5",
+     "title": {
+      "en": "Construction & contracting",
+      "ar": "البناء والمقاولات"
+     },
+     "text": {
+      "en": "Contractor classification and professional certificates.",
+      "ar": "تصنيف المقاولين والشهادات المهنية."
+     },
+     "media": "cm-crane",
+     "verified": true
+    },
+    {
+     "id": "sectors-6",
+     "title": {
+      "en": "Mining & energy",
+      "ar": "التعدين والطاقة"
+     },
+     "text": {
+      "en": "Approvals for industrial and resource activities.",
+      "ar": "موافقات الأنشطة الصناعية والتعدينية."
+     },
+     "media": "cm-mining",
+     "verified": true
+    }
+   ],
+   "style": {
+    "theme": "charcoal",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "trackRecord",
+   "type": "trackRecord",
+   "label": "Track record",
+   "eyebrow": {
+    "en": "Our track record",
+    "ar": "سجلنا"
+   },
+   "title": {
+    "en": "Numbers that build trust",
+    "ar": "أرقام تبني الثقة"
+   },
+   "subtitle": {
+    "en": "Behind every number is a business we helped build, a dream we helped launch, and a partnership we value.",
+    "ar": "خلف كل رقم عمل ساعدنا في بنائه وحلم ساعدنا في إطلاقه وشراكة نعتز بها."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 85,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "riyadh-kingdom-dusk"
+   },
+   "motion": {
+    "preset": "counter",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "services",
+   "type": "services",
+   "label": "Featured business solutions",
+   "eyebrow": {
+    "en": "Business solutions",
+    "ar": "حلول الأعمال"
+   },
+   "title": {
+    "en": "From business setup to growth — one partner for your Saudi journey",
+    "ar": "من التأسيس إلى النمو — شريك واحد لرحلتك في السعودية"
+   },
+   "buttons": [
+    {
+     "label": {
+      "en": "All business solutions",
+      "ar": "جميع حلول الأعمال"
+     },
+     "href": "/services",
+     "style": "outline"
+    }
+   ],
+   "limit": 11,
+   "style": {
+    "theme": "ivory",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "map",
+   "type": "map",
+   "label": "Saudi investment map",
+   "eyebrow": {
+    "en": "13 regions. Different opportunities. One market.",
+    "ar": "13 منطقة. فرص مختلفة. سوق واحد."
+   },
+   "title": {
+    "en": "Best places for each sector in Saudi Arabia",
+    "ar": "أفضل المناطق لكل قطاع في السعودية"
+   },
+   "body": {
+    "en": "The right location can directly affect your access to customers, suppliers, talent, logistics networks and future expansion. We evaluate your activity, customer profile, operating model, supply chain, investment size and long-term strategy before recommending a location.",
+    "ar": "يؤثر الموقع الصحيح مباشرة على وصولك إلى العملاء والموردين والكفاءات وشبكات الإمداد والتوسع المستقبلي. نقيّم نشاطك وعملاءك ونموذج التشغيل وسلسلة الإمداد وحجم الاستثمار والاستراتيجية قبل التوصية بالموقع."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "faq-preview",
+   "type": "faq",
+   "label": "FAQs",
+   "eyebrow": {
+    "en": "FAQs",
+    "ar": "الأسئلة الشائعة"
+   },
+   "title": {
+    "en": "Everything you need to know before starting",
+    "ar": "كل ما تحتاج معرفته قبل البدء"
+   },
+   "buttons": [
+    {
+     "label": {
+      "en": "All questions",
+      "ar": "كل الأسئلة"
+     },
+     "href": "/faq",
+     "style": "link"
+    }
+   ],
+   "limit": 6,
+   "style": {
+    "theme": "ivory",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "label": "Consultation CTA",
+   "title": {
+    "en": "Still have questions?",
+    "ar": "لا تزال لديك أسئلة؟"
+   },
+   "body": {
+    "en": "Speak with one of our consultants and receive guidance based on your specific business activity and investment plan.",
+    "ar": "تحدث مع أحد مستشارينا واحصل على إرشاد مبني على نشاطك وخطتك الاستثمارية."
+   },
+   "media": "cm-boardroom",
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    },
+    {
+     "label": {
+      "en": "Start your Saudi journey",
+      "ar": "ابدأ رحلتك السعودية"
+     },
+     "href": "/investor-guide",
+     "style": "outline"
+    }
+   ],
+   "style": {
+    "theme": "dark",
+    "overlay": 70,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "cm-boardroom"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "testimonials",
+   "type": "testimonials",
+   "label": "Testimonials",
+   "eyebrow": {
+    "en": "What our clients say",
+    "ar": "ماذا يقول عملاؤنا"
+   },
+   "title": {
+    "en": "Experience you can measure",
+    "ar": "خبرة يمكن قياسها"
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "center"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Home",
+   "seo_title": "Creative Mark | One Place, Endless Solutions",
+   "seo_description": "Company formation, investment licensing, government approvals and business solutions for investors in Saudi Arabia."
+  },
+  "ar": {
+   "title": "الرئيسية",
+   "seo_title": "كرييتف مارك | مكان واحد، حلول لا تنتهي",
+   "seo_description": "تأسيس الشركات والتراخيص الاستثمارية والموافقات الحكومية وحلول الأعمال للمستثمرين في السعودية."
+  }
+ }
+}

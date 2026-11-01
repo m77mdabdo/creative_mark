@@ -1,0 +1,154 @@
+<?php
+
+namespace App\Content;
+
+use App\Enums\ReviewStatus;
+use App\Models\Country;
+use App\Models\Faq;
+use App\Models\Page;
+use App\Models\Region;
+use App\Models\Service;
+use App\Models\Setting;
+use App\Models\Stat;
+use App\Models\Testimonial;
+use App\Support\Locales;
+
+/**
+ * Builds the Home page props from the published revision and the catalogue.
+ * Everything filtered by a content rule is removed here, so it never reaches the browser.
+ */
+final class HomePageData
+{
+    /** @return array<string, mixed> */
+    public function forLocale(string $locale): array
+    {
+        $page = Page::query()->where('key', 'home')->withLocale($locale)->with('publishedRevision')->firstOrFail();
+        abort_unless($page->publishedRevision, 404);
+
+        $faqLimit = 6;
+        $sections = [];
+        foreach ($page->publishedRevision->sections as $s) {
+            if (! empty($s['hidden'])) {
+                continue; // FR-021: hidden sections are absent from the HTML
+            }
+            if ($s['type'] === 'faq') {
+                $faqLimit = (int) ($s['limit'] ?? 6);
+            }
+            $sections[] = $this->localizeSection($s, $locale);
+        }
+
+        $catalogue = $this->catalogue($locale, $faqLimit);
+        $sections = array_values(array_filter($sections, fn ($s) => match ($s['type']) {
+            'trackRecord' => $catalogue['stats'] !== [],
+            'testimonials' => $catalogue['testimonials'] !== [],
+            'faq' => $catalogue['faqs'] !== [],
+            default => true,
+        }));
+
+        $translation = $page->translations->firstWhere('locale', $locale);
+
+        return [
+            'seo' => [
+                'title' => $page->t('seo_title', $locale),
+                'description' => $page->t('seo_description', $locale),
+            ],
+            'reviewStatus' => ($translation?->review_status ?? ReviewStatus::Missing)->value,
+            'sections' => $sections,
+            ...$catalogue,
+            'media' => $this->media($sections, $catalogue, $locale),
+        ];
+    }
+
+    /** @param array<string, mixed> $s */
+    private function localizeSection(array $s, string $locale): array
+    {
+        $pick = fn (?array $map) => $map === null ? null : (filled($map[$locale] ?? null) ? $map[$locale] : $map[Locales::FALLBACK]);
+
+        foreach (['eyebrow', 'title', 'subtitle', 'body'] as $k) {
+            if (isset($s[$k])) {
+                $s[$k] = $pick($s[$k]);
+            }
+        }
+        $s['buttons'] = array_map(fn ($b) => [...$b, 'label' => $pick($b['label'])], $s['buttons'] ?? []);
+        // RULE-01: a card quoting an unverified figure is not published
+        $s['cards'] = array_values(array_map(
+            fn ($c) => [...$c, 'title' => $pick($c['title'] ?? null), 'text' => $pick($c['text'] ?? null)],
+            array_filter($s['cards'] ?? [], fn ($c) => ($c['verified'] ?? true) === true),
+        ));
+        unset($s['label']);
+
+        return $s;
+    }
+
+    /** @return array<string, mixed> */
+    private function catalogue(string $locale, int $faqLimit): array
+    {
+        $services = Service::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get();
+        $slugs = $services->pluck('slug', 'id');
+        $industries = Setting::group('catalogue')['industries'] ?? [];
+
+        return [
+            'services' => $services->map(fn (Service $m) => [
+                'slug' => $m->slug, 'icon' => $m->icon, 'media' => $m->media, 'order' => $m->sort_order,
+                'title' => $m->t('title', $locale), 'tagline' => $m->t('tagline', $locale),
+                // RULE-01: a summary quoting an unverified figure is replaced by the tagline
+                'summary' => $m->needs_review ? $m->t('tagline', $locale) : $m->t('summary', $locale), 'cta' => $m->t('cta', $locale),
+            ])->all(),
+            'regions' => Region::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->with('services:id')->get()
+                ->map(fn (Region $m) => [
+                    'slug' => $m->slug, 'media' => $m->media,
+                    'name' => $m->t('name', $locale), 'capital' => $m->t('capital', $locale),
+                    'bestFor' => $m->t('best_for', $locale), 'description' => $m->t('description', $locale),
+                    'opportunities' => $m->translation($locale)?->opportunities ?? [],
+                    'industries' => $m->industries ?? [],
+                    'services' => $m->services->map(fn ($s) => $slugs[$s->id] ?? null)->filter()->values()->all(),
+                ])->all(),
+            'industries' => array_map(fn ($l) => $l[$locale] ?? $l[Locales::FALLBACK], $industries),
+            // RULE-01: only verified figures are sent
+            'stats' => Stat::query()->where('verified', true)->orderBy('sort_order')->withLocale($locale)->get()
+                ->map(fn (Stat $m) => ['key' => $m->key, 'value' => $m->value, 'label' => $m->t('label', $locale)])->all(),
+            'countries' => Country::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get()
+                ->map(fn (Country $m) => ['code' => $m->code, 'name' => $m->t('name', $locale)])->all(),
+            'faqs' => Faq::query()->where('status', 'published')->where('show_on_home', true)->where('needs_review', false)
+                ->orderBy('sort_order')->limit($faqLimit)->withLocale($locale)->get()
+                ->map(fn (Faq $m) => ['id' => $m->id, 'question' => $m->t('question', $locale), 'answer' => $m->t('answer', $locale)])->all(),
+            // RULE-02: names only with recorded consent; otherwise the neutral "Client review" label
+            'testimonials' => Testimonial::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get()
+                ->map(fn (Testimonial $m) => [
+                    'id' => $m->id, 'quote' => $m->t('quote', $locale), 'context' => $m->t('context', $locale),
+                    'author' => $m->consent_recorded_at ? $m->t('author', $locale) : null,
+                    'verified' => $m->verified && $m->consent_recorded_at !== null,
+                ])->all(),
+        ];
+    }
+
+    /**
+     * Placeholder photography until the media library lands (ADR-0006). Only images used on the page are sent.
+     *
+     * @return array<string, array{src: string, srcset: string, alt: string}>
+     */
+    private function media(array $sections, array $catalogue, string $locale): array
+    {
+        $ids = [];
+        foreach ($sections as $s) {
+            array_push($ids, $s['media'] ?? null, $s['media2'] ?? null, $s['style']['bgMedia'] ?? null, ...array_column($s['cards'], 'media'));
+        }
+        array_push($ids, ...array_column($catalogue['services'], 'media'), ...array_column($catalogue['regions'], 'media'));
+        $alts = Setting::group('media')['placeholders'] ?? [];
+
+        $out = [];
+        foreach (array_unique(array_filter($ids)) as $id) {
+            if (! isset($alts[$id])) {
+                continue;
+            }
+            $base = "/media/placeholders/$id";
+            $out[$id] = [
+                'src' => "$base-1600.webp",
+                'srcset' => "$base-800.webp 800w, $base-1600.webp 1600w",
+                'alt' => $alts[$id]['alt'][$locale] ?? $alts[$id]['alt'][Locales::FALLBACK],
+            ];
+        }
+
+        return $out;
+    }
+}

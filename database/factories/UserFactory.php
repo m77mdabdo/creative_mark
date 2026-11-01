@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -36,6 +37,17 @@ class UserFactory extends Factory
     /**
      * Indicate that the model's email address should be unverified.
      */
+    /** A staff member with one of the approved roles. */
+    public function withRole(Role $role): static
+    {
+        return $this->afterCreating(fn (User $user) => $user->assignRole($role->value));
+    }
+
+    public function inactive(): static
+    {
+        return $this->afterCreating(fn (User $user) => $user->forceFill(['is_active' => false])->save());
+    }
+
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [

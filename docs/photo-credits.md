@@ -61,6 +61,22 @@ The Riyadh region uses `hero-riyadh-night` and the regions hero `hero-neom-hisma
 | reg-al-jouf | Irrigated farmland in the Saudi desert | Ameer Albahouth | https://unsplash.com/photos/OnA4H-GYs28 |
 | reg-northern-borders | Haul trucks at a mineral extraction site, seen from above | Shane McLendon | https://unsplash.com/photos/EN1tF2EG-50 |
 
+## Investor guide (`public/media/guide`, WebP at 800 / 1280 / 1920 / 2560 px)
+
+| File key | Subject | Photographer | Source |
+| --- | --- | --- | --- |
+| guide-metro | Metro line curving into the King Abdullah Financial District station, Riyadh | Ameer Albahouth | https://unsplash.com/photos/XplX5vASmkM |
+| guide-road | Open highway towards the mountains between Tabuk and Haql | SALEH | https://unsplash.com/photos/-LOepD7fEu4 |
+| guide-door | Traditional wooden gate with iron rings in Diriyah | Ibrahim Abdullah | https://unsplash.com/photos/X8YDXWUzMvw |
+| guide-structure | Steel structure of a landmark building rising in Riyadh | Nojood Al Aqeel | https://unsplash.com/photos/7TG1fm1RdYU |
+| guide-towers | Office towers in the King Abdullah Financial District | Ahmed Alghali | https://unsplash.com/photos/SAEmKKPBpl8 |
+| guide-jeddah | Aerial view of a Jeddah business district and highway | MD ENAMUL HAQUE TETU | https://unsplash.com/photos/Qxa1iPcoXW4 |
+| guide-palms | Palm trees in golden light seen from an office lobby in Al Olaya, Riyadh | Ahmed Alghali | https://unsplash.com/photos/5iHEEyjeQ9g |
+| guide-site | Aerial view of a major construction site in Riyadh | Nojood Al Aqeel | https://unsplash.com/photos/mzF_aDw9l9Y |
+| guide-sunset | Riyadh skyline at sunset above a busy highway | Ahnaf Jubayer | https://unsplash.com/photos/un57AeVQP1k |
+| guide-drive | Road through the Saudi countryside seen from a car | Mohammed Shonar | https://unsplash.com/photos/zmN0DDbsNGo |
+| guide-boulevard | Illuminated digital art facades at Boulevard Riyadh | MUHAMMAD KAMRAN KHAN | https://unsplash.com/photos/-BS0ht06X_c |
+
 ## Other sections (`public/media/placeholders`)
 
 Prototype placeholders (Unsplash); the list with alt text is in `database/seeders/data/media.json`.

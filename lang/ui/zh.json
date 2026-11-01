@@ -56,5 +56,16 @@
     "regionLocation": "在沙特阿拉伯地图上的位置",
     "otherRegions": "探索更多地区",
     "regionServices": "我们在此为您提供的支持",
-    "discussRegion": "与我们探讨您在该地区的计划"
+    "discussRegion": "与我们探讨您在该地区的计划",
+    "chapter": "第",
+    "inPractice": "实操要点",
+    "keyFacts": "关键数据",
+    "goodToKnow": "值得注意",
+    "sources": "资料来源",
+    "completed": "已完成",
+    "resetChecklist": "重置清单",
+    "readingProgress": "阅读进度",
+    "previousChapter": "上一章",
+    "nextChapter": "下一章",
+    "opensNewTab": "在新标签页中打开"
 }

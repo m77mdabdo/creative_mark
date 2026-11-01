@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-289_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-294_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -48,6 +48,8 @@ public website and the dashboard its team uses to run it.
 | <img src="docs/screenshots/service-overview.jpg" alt="Service page: overview and what is included"> | <img src="docs/screenshots/services-zh.jpg" alt="Business solutions in Chinese"> |
 | <img src="docs/screenshots/edge-comparison.jpg" alt="Our edge: registration only compared with Creative Mark"> | <img src="docs/screenshots/region-mobile-zh.jpg" alt="Eastern Province page on mobile, Chinese" width="260"> |
 | <img src="docs/screenshots/regions-grid-ar.jpg" alt="The 13 regions in Arabic"> | <img src="docs/screenshots/region-opportunity.jpg" alt="Region page: opportunities, leading sectors and location"> |
+| <img src="docs/screenshots/guide-hero.jpg" alt="Investor guide hero"> | <img src="docs/screenshots/guide-mobile-ar.jpg" alt="Investor guide chapter on mobile, Arabic" width="260"> |
+| <img src="docs/screenshots/guide-chapters.jpg" alt="Investor guide: chapter overview"> | <img src="docs/screenshots/guide-tax.jpg" alt="Investor guide: tax chapter with key figures and reading progress"> |
 
 ## Features
 
@@ -65,6 +67,10 @@ public website and the dashboard its team uses to run it.
   investors work with Creative Mark, markets served, the seven-step journey and verified figures.
 - Regions: an overview with the interactive map and a photo card per region, plus a page for each of the 13 regions
   (where the opportunity lies, opportunities, leading sectors, location on the map, recommended solutions, more regions).
+- Investor guide: eight chapters (why now, investor registration, company structures, licences, tax and zakat, hiring,
+  incentives, residency and property) with key figures, practical steps and the sources behind every figure; chapter
+  overview, floating reading progress, an interactive twelve-step checklist saved in the browser and a library of
+  29 official and advisory sources.
 - Interactive map of the 13 regions: keyboard operable, sector filter, list alternative, screen-reader announcements.
 - Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
 - Localized URLs (`/ar`, `/en`, `/fr`, `/hi`, `/ur`, `/zh`), Arabic by default, per-script typography
@@ -200,6 +206,11 @@ role × permission combination, dashboard access, two-factor enforcement and the
 - [Photo credits](docs/photo-credits.md)
 
 ## Changelog
+
+### 2026-11-02
+- Investor guide in six languages: eight sourced chapters, chapter navigation with reading progress, interactive
+  investor checklist, sources library, eleven new 2560 px photographs; new section types (guide chapter, guide
+  navigation, checklist, source list) validated on the server, with https-only source links.
 
 ### 2026-11-01
 - Our edge and Regions pages in six languages: comparison section, region cards, 13 region pages with a location map,

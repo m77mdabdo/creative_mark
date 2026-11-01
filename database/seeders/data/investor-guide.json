@@ -1,0 +1,1739 @@
+{
+ "key": "investor-guide",
+ "sections": [
+  {
+   "id": "guide-hero",
+   "type": "hero",
+   "label": "Hero",
+   "eyebrow": {
+    "en": "Investor guide · Reviewed November 2026",
+    "ar": "دليل المستثمر · مراجَع في نوفمبر 2026"
+   },
+   "title": {
+    "en": "Your field guide to doing business in Saudi Arabia",
+    "ar": "دليلك العملي لممارسة الأعمال في السعودية"
+   },
+   "highlight": {
+    "en": "in Saudi Arabia",
+    "ar": "في السعودية"
+   },
+   "subtitle": {
+    "en": "Eight chapters on what an investor actually needs to know: registration, structures, licences, tax, hiring, incentives, residency and property. Every figure is linked to its source.",
+    "ar": "ثمانية فصول عمّا يحتاج المستثمر إلى معرفته فعلًا: التسجيل، والكيانات، والتراخيص، والضرائب، والتوظيف، والحوافز، والإقامة، والعقار. وكل رقم مرتبط بمصدره."
+   },
+   "media": "guide-metro",
+   "buttons": [
+    {
+     "label": {
+      "en": "Start reading",
+      "ar": "ابدأ القراءة"
+     },
+     "href": "#guide-why",
+     "style": "gold"
+    },
+    {
+     "label": {
+      "en": "Talk to an adviser",
+      "ar": "تحدث إلى مستشار"
+     },
+     "href": "/consultation",
+     "style": "outline"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 52,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "guide-nav",
+   "type": "guideNav",
+   "label": "Chapters",
+   "eyebrow": {
+    "en": "In this guide",
+    "ar": "في هذا الدليل"
+   },
+   "title": {
+    "en": "From first question to first invoice",
+    "ar": "من السؤال الأول إلى الفاتورة الأولى"
+   },
+   "highlight": {
+    "en": "first invoice",
+    "ar": "الفاتورة الأولى"
+   },
+   "subtitle": {
+    "en": "Read it in order or jump to the chapter you need. The rules have changed a lot in recent years, so each chapter shows where its facts come from.",
+    "ar": "اقرأه بالترتيب أو انتقل مباشرة إلى الفصل الذي تحتاجه. تغيّرت الأنظمة كثيرًا في السنوات الأخيرة، لذلك يوضح كل فصل مصادر معلوماته."
+   },
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "charcoal",
+    "overlay": 55,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "guide-why",
+   "type": "guideChapter",
+   "label": "Why now",
+   "eyebrow": {
+    "en": "Why now",
+    "ar": "لماذا الآن"
+   },
+   "title": {
+    "en": "A market rewriting its own rules",
+    "ar": "سوق يعيد كتابة قواعده"
+   },
+   "subtitle": {
+    "en": "Since 2016, Vision 2030 has set out to diversify the Saudi economy beyond oil, and much of the legal framework investors deal with has been rewritten in the past few years.",
+    "ar": "منذ عام 2016 تعمل رؤية 2030 على تنويع الاقتصاد السعودي بعيدًا عن النفط، وأُعيدت كتابة جزء كبير من الأنظمة التي يتعامل معها المستثمر خلال السنوات القليلة الماضية."
+   },
+   "body": {
+    "en": "For an investor, that means two things. The opportunity is real: new sectors are opening and the government actively seeks foreign capital. But the rulebook is recent, so advice that was correct three years ago may no longer be.\n\nThis guide brings the current picture together in one place, chapter by chapter, with the source of every rule and figure.",
+    "ar": "وهذا يعني للمستثمر أمرين. الفرصة حقيقية: قطاعات جديدة تُفتح، والحكومة تسعى بجدية لجذب رأس المال الأجنبي. لكن القواعد حديثة، فالنصيحة التي كانت صحيحة قبل ثلاث سنوات قد لا تكون كذلك اليوم.\n\nيجمع هذا الدليل الصورة الحالية في مكان واحد، فصلًا بعد فصل، مع مصدر كل قاعدة وكل رقم."
+   },
+   "media": "guide-road",
+   "layout": "split",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "why-2016",
+     "title": {
+      "en": "2016",
+      "ar": "2016"
+     },
+     "text": {
+      "en": "Vision 2030 launched",
+      "ar": "إطلاق رؤية 2030"
+     }
+    },
+    {
+     "id": "why-2023",
+     "title": {
+      "en": "2023",
+      "ar": "2023"
+     },
+     "text": {
+      "en": "New Companies Law in force",
+      "ar": "نفاذ نظام الشركات الجديد"
+     }
+    },
+    {
+     "id": "why-2025",
+     "title": {
+      "en": "2025",
+      "ar": "2025"
+     },
+     "text": {
+      "en": "New Investment Law in force",
+      "ar": "نفاذ نظام الاستثمار الجديد"
+     }
+    },
+    {
+     "id": "why-2026",
+     "title": {
+      "en": "2026",
+      "ar": "2026"
+     },
+     "text": {
+      "en": "Foreign property ownership law in force",
+      "ar": "نفاذ نظام تملك غير السعوديين للعقار"
+     }
+    }
+   ],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "sources": [
+    {
+     "id": "vision",
+     "label": {
+      "en": "Vision 2030: overview",
+      "ar": "رؤية 2030: نظرة عامة"
+     },
+     "publisher": {
+      "en": "Saudi Vision 2030",
+      "ar": "رؤية السعودية 2030"
+     },
+     "href": "https://www.vision2030.gov.sa/en"
+    },
+    {
+     "id": "clyde-co",
+     "label": {
+      "en": "Recent updates on the New Companies Law in Saudi Arabia",
+      "ar": "آخر المستجدات في نظام الشركات الجديد بالسعودية"
+     },
+     "publisher": {
+      "en": "Clyde & Co",
+      "ar": "كلايد آند كو"
+     },
+     "href": "https://www.clydeco.com/en/insights/2024/06/recent-updates-on-the-new-companies-law-in-ksa",
+     "date": "2024-06"
+    },
+    {
+     "id": "misa-law",
+     "label": {
+      "en": "Updated Investment Law",
+      "ar": "نظام الاستثمار المحدّث"
+     },
+     "publisher": {
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
+     },
+     "href": "https://misa.gov.sa/activities/laws-regulations-copy/",
+     "date": "2025"
+    },
+    {
+     "id": "an-property",
+     "label": {
+      "en": "Saudi Arabia opens real estate market to foreign buyers",
+      "ar": "السعودية تفتح سوق العقار أمام المشترين الأجانب"
+     },
+     "publisher": {
+      "en": "Arab News",
+      "ar": "عرب نيوز"
+     },
+     "href": "https://www.arabnews.com/node/2630261/business-economy",
+     "date": "2026-01-22"
+    }
+   ]
+  },
+  {
+   "id": "guide-register",
+   "type": "guideChapter",
+   "label": "Register",
+   "eyebrow": {
+    "en": "Register",
+    "ar": "التسجيل"
+   },
+   "title": {
+    "en": "Step one: register as an investor",
+    "ar": "الخطوة الأولى: سجّل كمستثمر"
+   },
+   "subtitle": {
+    "en": "Under the Investment Law that took effect in February 2025, foreign investors no longer apply for an investment licence. They register with the Ministry of Investment before they invest.",
+    "ar": "بموجب نظام الاستثمار الذي دخل حيز التنفيذ في فبراير 2025، لم يعد المستثمر الأجنبي يتقدم بطلب ترخيص استثماري، بل يسجّل لدى وزارة الاستثمار قبل أن يبدأ استثماره."
+   },
+   "body": {
+    "en": "Registration is done online through the Invest Saudi platform, with no visit to the ministry required. Once registration is confirmed, the investor can obtain a commercial registration and the licences required by the authority that regulates the activity.\n\nThe law also sets out what investors can expect in return: equal treatment of local and foreign investors in similar circumstances, the freedom to transfer funds into and out of the Kingdom, protection from confiscation except by a final court ruling, and the option to settle disputes through arbitration, mediation or conciliation.",
+    "ar": "يتم التسجيل إلكترونيًا عبر منصة «استثمر في السعودية» دون الحاجة إلى زيارة الوزارة. وبعد تأكيد التسجيل يستطيع المستثمر استخراج السجل التجاري والتراخيص التي تتطلبها الجهة المنظِّمة لنشاطه.\n\nكما يحدد النظام ما يحصل عليه المستثمر في المقابل: المساواة في المعاملة بين المستثمر المحلي والأجنبي في الظروف المماثلة، وحرية تحويل الأموال من المملكة وإليها، والحماية من المصادرة إلا بحكم قضائي نهائي، وإمكانية تسوية النزاعات بالتحكيم أو الوساطة أو التوفيق."
+   },
+   "media": "guide-door",
+   "layout": "split-reverse",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "reg-days",
+     "title": {
+      "en": "10 days",
+      "ar": "10 أيام"
+     },
+     "text": {
+      "en": "Maximum review period for a registration application",
+      "ar": "الحد الأقصى لمدة دراسة طلب التسجيل"
+     }
+    },
+    {
+     "id": "reg-online",
+     "title": {
+      "en": "Online",
+      "ar": "إلكترونيًا"
+     },
+     "text": {
+      "en": "No visit to the ministry is required",
+      "ar": "دون الحاجة إلى زيارة الوزارة"
+     }
+    },
+    {
+     "id": "reg-equal",
+     "title": {
+      "en": "Equal",
+      "ar": "المساواة"
+     },
+     "text": {
+      "en": "Treatment of local and foreign investors in similar circumstances",
+      "ar": "في معاملة المستثمر المحلي والأجنبي في الظروف المماثلة"
+     }
+    }
+   ],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "points": {
+    "en": "Commercial registration of the parent company, authenticated by the Saudi embassy\nFinancial statements for the last financial year, authenticated\nA clear description of the activity you plan to carry out\nPremium Residency holders are exempt from the commercial registration and financial statements",
+    "ar": "السجل التجاري للشركة الأم مصدّقًا من السفارة السعودية\nالقوائم المالية لآخر سنة مالية مصدّقة\nوصف واضح للنشاط الذي تنوي ممارسته\nحاملو الإقامة المميزة معفون من تقديم السجل التجاري والقوائم المالية"
+   },
+   "note": {
+    "en": "Investor registration is not the same as a commercial registration. It confirms your status as a foreign investor; the company itself is registered afterwards with the Ministry of Commerce.",
+    "ar": "تسجيل المستثمر ليس هو السجل التجاري. فهو يثبت صفتك كمستثمر أجنبي، أما الشركة نفسها فتُسجَّل بعد ذلك لدى وزارة التجارة."
+   },
+   "sources": [
+    {
+     "id": "misa-law",
+     "label": {
+      "en": "Updated Investment Law",
+      "ar": "نظام الاستثمار المحدّث"
+     },
+     "publisher": {
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
+     },
+     "href": "https://misa.gov.sa/activities/laws-regulations-copy/",
+     "date": "2025"
+    },
+    {
+     "id": "misa-faq",
+     "label": {
+      "en": "Frequently asked questions on investor registration",
+      "ar": "الأسئلة الشائعة حول تسجيل المستثمر"
+     },
+     "publisher": {
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
+     },
+     "href": "https://misa.gov.sa/frequently-asked-questions/"
+    },
+    {
+     "id": "wc-law",
+     "label": {
+      "en": "Saudi Arabia: New Investment Law",
+      "ar": "السعودية: نظام الاستثمار الجديد"
+     },
+     "publisher": {
+      "en": "White & Case",
+      "ar": "وايت آند كيس"
+     },
+     "href": "https://www.whitecase.com/insight-alert/saudi-arabia-new-investment-law",
+     "date": "2024"
+    },
+    {
+     "id": "spa-law",
+     "label": {
+      "en": "Investment Minister on the updated Investment Law",
+      "ar": "وزير الاستثمار عن نظام الاستثمار المحدّث"
+     },
+     "publisher": {
+      "en": "Saudi Press Agency",
+      "ar": "وكالة الأنباء السعودية"
+     },
+     "href": "https://www.spa.gov.sa/en/N2151998"
+    }
+   ]
+  },
+  {
+   "id": "guide-structure",
+   "type": "guideChapter",
+   "label": "Structure",
+   "eyebrow": {
+    "en": "Structure",
+    "ar": "الكيان القانوني"
+   },
+   "title": {
+    "en": "Step two: choose the right structure",
+    "ar": "الخطوة الثانية: اختر الكيان المناسب"
+   },
+   "subtitle": {
+    "en": "The Companies Law in force since 19 January 2023 simplified company forms and made it possible for a single person to own a company.",
+    "ar": "بسّط نظام الشركات النافذ منذ 19 يناير 2023 أشكال الشركات، وأتاح لشخص واحد أن يمتلك شركة."
+   },
+   "body": {
+    "en": "Most foreign investors choose between a limited liability company, a simplified joint stock company, a joint stock company or a branch of their foreign company. The right choice depends on who will own it, how you plan to raise capital, how much liability you are prepared to carry and what the regulator of your activity requires.\n\nMinimum capital can depend on the activity and its regulator, so confirm it for your activity before you settle on a structure.",
+    "ar": "يختار معظم المستثمرين الأجانب بين الشركة ذات المسؤولية المحدودة، وشركة المساهمة المبسطة، وشركة المساهمة، وفرع الشركة الأجنبية. ويتوقف الاختيار الصحيح على من سيملك الشركة، وكيف تخطط لزيادة رأس المال، وحجم المسؤولية التي تقبل تحمّلها، ومتطلبات الجهة المنظِّمة لنشاطك.\n\nقد يتوقف الحد الأدنى لرأس المال على النشاط والجهة المنظِّمة له، فتأكد منه لنشاطك قبل أن تستقر على الكيان."
+   },
+   "media": "guide-structure",
+   "layout": "split",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "st-date",
+     "title": {
+      "en": "19 Jan 2023",
+      "ar": "19 يناير 2023"
+     },
+     "text": {
+      "en": "The current Companies Law came into force",
+      "ar": "دخول نظام الشركات الحالي حيز التنفيذ"
+     }
+    },
+    {
+     "id": "st-one",
+     "title": {
+      "en": "1",
+      "ar": "1"
+     },
+     "text": {
+      "en": "Shareholder is enough to own a limited liability company",
+      "ar": "مساهم واحد يكفي لتملّك شركة ذات مسؤولية محدودة"
+     }
+    }
+   ],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "points": {
+    "en": "Limited liability company: the most common choice, and it can be owned by one person\nSimplified joint stock company: a newer form that a single shareholder can set up without a board of directors\nJoint stock company: suited to larger capital and a future listing\nBranch of a foreign company: operates under the parent company’s name and liability\nRegional headquarters: for groups that manage their regional business from Saudi Arabia (chapter 7)",
+    "ar": "الشركة ذات المسؤولية المحدودة: الخيار الأكثر شيوعًا، ويمكن أن يملكها شخص واحد\nشركة المساهمة المبسطة: شكل أحدث يستطيع مساهم واحد تأسيسه دون مجلس إدارة\nشركة المساهمة: تناسب رؤوس الأموال الأكبر والإدراج مستقبلًا\nفرع الشركة الأجنبية: يعمل باسم الشركة الأم وتحت مسؤوليتها\nالمقر الإقليمي: للمجموعات التي تدير أعمالها الإقليمية من السعودية (الفصل 7)"
+   },
+   "note": {
+    "en": "Shareholder resolutions, articles of association and powers of attorney prepared abroad usually need authentication and an Arabic translation. Build that time into your plan.",
+    "ar": "قرارات الشركاء وعقود التأسيس والوكالات المعدّة خارج المملكة تحتاج عادةً إلى تصديق وترجمة عربية، فاحسب هذا الوقت ضمن خطتك."
+   },
+   "sources": [
+    {
+     "id": "clyde-co",
+     "label": {
+      "en": "Recent updates on the New Companies Law in Saudi Arabia",
+      "ar": "آخر المستجدات في نظام الشركات الجديد بالسعودية"
+     },
+     "publisher": {
+      "en": "Clyde & Co",
+      "ar": "كلايد آند كو"
+     },
+     "href": "https://www.clydeco.com/en/insights/2024/06/recent-updates-on-the-new-companies-law-in-ksa",
+     "date": "2024-06"
+    },
+    {
+     "id": "mc-law",
+     "label": {
+      "en": "New Companies Law offers facilities to small businesses and entrepreneurs",
+      "ar": "نظام الشركات الجديد يقدم تسهيلات للمنشآت الصغيرة ورواد الأعمال"
+     },
+     "publisher": {
+      "en": "Ministry of Commerce",
+      "ar": "وزارة التجارة"
+     },
+     "href": "https://mc.gov.sa/en/mediacenter/News/Pages/29-01-23-01.aspx",
+     "date": "2023-01"
+    },
+    {
+     "id": "pwc-doing",
+     "label": {
+      "en": "Doing business in the Kingdom of Saudi Arabia 2025",
+      "ar": "ممارسة الأعمال في المملكة العربية السعودية 2025"
+     },
+     "publisher": {
+      "en": "PwC Middle East",
+      "ar": "بي دبليو سي الشرق الأوسط"
+     },
+     "href": "https://www.pwc.com/m1/en/tax/documents/doing-business-guides/dbisa.pdf",
+     "date": "2025"
+    }
+   ]
+  },
+  {
+   "id": "guide-licences",
+   "type": "guideChapter",
+   "label": "Licences",
+   "eyebrow": {
+    "en": "Licences",
+    "ar": "التراخيص"
+   },
+   "title": {
+    "en": "Step three: commercial registration and licences",
+    "ar": "الخطوة الثالثة: السجل التجاري والتراخيص"
+   },
+   "subtitle": {
+    "en": "With your investor registration confirmed, the company is registered with the Ministry of Commerce and then licensed for its activity.",
+    "ar": "بعد تأكيد تسجيلك كمستثمر، تُسجَّل الشركة لدى وزارة التجارة، ثم تُرخَّص لممارسة نشاطها."
+   },
+   "body": {
+    "en": "The commercial registration gives the company its legal existence. From there, the authorities you deal with depend on what you do: a municipal licence for your premises, sector licences for regulated activities such as healthcare, education, financial services or industry, and registrations with the tax and labour authorities.\n\nMost of these services are now digital and many start from the Saudi Business Center, which brings government business services together in one place.",
+    "ar": "يمنح السجل التجاري الشركة وجودها النظامي. وبعده تتحدد الجهات التي ستتعامل معها بحسب نشاطك: رخصة بلدية لمقرك، وتراخيص قطاعية للأنشطة المنظَّمة مثل الصحة والتعليم والخدمات المالية والصناعة، والتسجيل لدى الجهات الضريبية وجهات العمل.\n\nأصبحت معظم هذه الخدمات رقمية، ويبدأ كثير منها من المركز السعودي للأعمال الذي يجمع خدمات الأعمال الحكومية في مكان واحد."
+   },
+   "media": "guide-towers",
+   "layout": "split-reverse",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "points": {
+    "en": "Reserve the trade name and register the company with the Ministry of Commerce\nApprove and publish the articles of association\nObtain the licences of the authority that regulates your activity\nSecure premises, the municipal licence and the national address\nOpen the corporate bank account and deposit the capital\nRegister with ZATCA, GOSI and the labour platforms",
+    "ar": "حجز الاسم التجاري وتسجيل الشركة لدى وزارة التجارة\nاعتماد عقد التأسيس ونشره\nاستخراج تراخيص الجهة المنظِّمة لنشاطك\nتجهيز المقر والرخصة البلدية والعنوان الوطني\nفتح الحساب البنكي للشركة وإيداع رأس المال\nالتسجيل لدى هيئة الزكاة والضريبة والجمارك والتأمينات الاجتماعية ومنصات العمل"
+   },
+   "note": {
+    "en": "Order matters. Several steps unlock the next one, so a missing document early on can delay everything that follows. Mapping the sequence for your activity before you start is the fastest route.",
+    "ar": "الترتيب مهم. كثير من الخطوات يفتح الطريق لما بعدها، فمستند ناقص في البداية قد يؤخر كل ما يليه. ورسم التسلسل الخاص بنشاطك قبل البدء هو أسرع طريق."
+   },
+   "sources": [
+    {
+     "id": "sbc",
+     "label": {
+      "en": "Saudi Business Center",
+      "ar": "المركز السعودي للأعمال"
+     },
+     "publisher": {
+      "en": "Saudi Business Center",
+      "ar": "المركز السعودي للأعمال"
+     },
+     "href": "https://business.sa"
+    },
+    {
+     "id": "mc",
+     "label": {
+      "en": "Commercial registration services",
+      "ar": "خدمات السجل التجاري"
+     },
+     "publisher": {
+      "en": "Ministry of Commerce",
+      "ar": "وزارة التجارة"
+     },
+     "href": "https://mc.gov.sa/en"
+    },
+    {
+     "id": "balady",
+     "label": {
+      "en": "Municipal licences",
+      "ar": "الرخص البلدية"
+     },
+     "publisher": {
+      "en": "Balady",
+      "ar": "بلدي"
+     },
+     "href": "https://balady.gov.sa"
+    }
+   ]
+  },
+  {
+   "id": "guide-tax",
+   "type": "guideChapter",
+   "label": "Tax and zakat",
+   "eyebrow": {
+    "en": "Tax and zakat",
+    "ar": "الضريبة والزكاة"
+   },
+   "title": {
+    "en": "Tax and zakat, in plain numbers",
+    "ar": "الضريبة والزكاة بأرقام واضحة"
+   },
+   "subtitle": {
+    "en": "Saudi Arabia does not tax salaries earned from employment in the Kingdom. Companies pay income tax or zakat depending on who owns them, and most goods and services carry VAT.",
+    "ar": "لا تفرض السعودية ضريبة على الرواتب المكتسبة من العمل داخل المملكة. وتدفع الشركات ضريبة الدخل أو الزكاة بحسب ملكيتها، وتخضع معظم السلع والخدمات لضريبة القيمة المضافة."
+   },
+   "body": {
+    "en": "The share of profit attributable to foreign owners is subject to corporate income tax; the share owned by Saudi and GCC nationals pays zakat. A company with mixed ownership files both, each on its own share.\n\nPayments to non-residents, such as dividends, royalties and fees for services, may be subject to withholding tax, which a tax treaty can reduce.",
+    "ar": "تخضع حصة الأرباح العائدة للملّاك الأجانب لضريبة دخل الشركات، وتؤدي الحصة المملوكة للسعوديين ومواطني دول الخليج الزكاة. والشركة ذات الملكية المختلطة تقدم الإقرارين، كلٌّ على حصته.\n\nقد تخضع المدفوعات لغير المقيمين، مثل توزيعات الأرباح والإتاوات وأتعاب الخدمات، لضريبة الاستقطاع، ويمكن أن تخفضها اتفاقيات الازدواج الضريبي."
+   },
+   "media": "guide-jeddah",
+   "layout": "split",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "tx-cit",
+     "title": {
+      "en": "20%",
+      "ar": "20%"
+     },
+     "text": {
+      "en": "Corporate income tax on the foreign-owned share of profit",
+      "ar": "ضريبة دخل الشركات على الحصة المملوكة للأجانب من الأرباح"
+     }
+    },
+    {
+     "id": "tx-zakat",
+     "title": {
+      "en": "2.5%",
+      "ar": "2.5%"
+     },
+     "text": {
+      "en": "Zakat on the Saudi and GCC-owned share",
+      "ar": "الزكاة على الحصة المملوكة للسعوديين ومواطني الخليج"
+     }
+    },
+    {
+     "id": "tx-vat",
+     "title": {
+      "en": "15%",
+      "ar": "15%"
+     },
+     "text": {
+      "en": "VAT standard rate since 1 July 2020",
+      "ar": "النسبة الأساسية لضريبة القيمة المضافة منذ 1 يوليو 2020"
+     }
+    },
+    {
+     "id": "tx-div",
+     "title": {
+      "en": "5%",
+      "ar": "5%"
+     },
+     "text": {
+      "en": "Withholding tax on dividends paid abroad",
+      "ar": "ضريبة الاستقطاع على توزيعات الأرباح المدفوعة للخارج"
+     }
+    },
+    {
+     "id": "tx-roy",
+     "title": {
+      "en": "15%",
+      "ar": "15%"
+     },
+     "text": {
+      "en": "Withholding tax on royalties paid abroad",
+      "ar": "ضريبة الاستقطاع على الإتاوات المدفوعة للخارج"
+     }
+    },
+    {
+     "id": "tx-rett",
+     "title": {
+      "en": "5%",
+      "ar": "5%"
+     },
+     "text": {
+      "en": "Real estate transaction tax",
+      "ar": "ضريبة التصرفات العقارية"
+     }
+    }
+   ],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "note": {
+    "en": "These are general rates. Oil and hydrocarbon production, the special economic zones and the regional headquarters programme follow their own rules.",
+    "ar": "هذه نسب عامة. ولإنتاج النفط والمواد الهيدروكربونية والمناطق الاقتصادية الخاصة وبرنامج المقرات الإقليمية قواعدها الخاصة."
+   },
+   "sources": [
+    {
+     "id": "pwc-cit",
+     "label": {
+      "en": "Saudi Arabia: taxes on corporate income",
+      "ar": "السعودية: الضرائب على دخل الشركات"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/corporate/taxes-on-corporate-income",
+     "date": "2026-07"
+    },
+    {
+     "id": "pwc-other",
+     "label": {
+      "en": "Saudi Arabia: other taxes",
+      "ar": "السعودية: الضرائب الأخرى"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/corporate/other-taxes",
+     "date": "2026-07"
+    },
+    {
+     "id": "pwc-wht",
+     "label": {
+      "en": "Saudi Arabia: withholding taxes",
+      "ar": "السعودية: ضريبة الاستقطاع"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/corporate/withholding-taxes",
+     "date": "2026-07"
+    },
+    {
+     "id": "pwc-pit",
+     "label": {
+      "en": "Saudi Arabia: taxes on personal income",
+      "ar": "السعودية: الضرائب على دخل الأفراد"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/individual/taxes-on-personal-income",
+     "date": "2026-07"
+    },
+    {
+     "id": "zatca",
+     "label": {
+      "en": "Zakat, tax and customs",
+      "ar": "الزكاة والضريبة والجمارك"
+     },
+     "publisher": {
+      "en": "Zakat, Tax and Customs Authority",
+      "ar": "هيئة الزكاة والضريبة والجمارك"
+     },
+     "href": "https://zatca.gov.sa/en"
+    }
+   ]
+  },
+  {
+   "id": "guide-people",
+   "type": "guideChapter",
+   "label": "People",
+   "eyebrow": {
+    "en": "People",
+    "ar": "فريق العمل"
+   },
+   "title": {
+    "en": "Hiring: build a team the system supports",
+    "ar": "التوظيف: ابنِ فريقًا يدعمه النظام"
+   },
+   "subtitle": {
+    "en": "Employment runs through digital platforms, and every private company is expected to employ Saudi nationals in proportions set for its activity and size.",
+    "ar": "تُدار شؤون التوظيف عبر منصات رقمية، ويُنتظر من كل شركة خاصة توظيف مواطنين سعوديين بنسب تُحدَّد بحسب نشاطها وحجمها."
+   },
+   "body": {
+    "en": "Nitaqat, the Saudization programme of the Ministry of Human Resources and Social Development, classifies companies by the share of Saudi employees they have against the target for their activity and size. A company’s classification affects what it can do on the labour platforms, including requesting work visas for foreign staff.\n\nContracts, visas and residence permits are handled through Qiwa and Muqeem, and social insurance through GOSI.",
+    "ar": "يصنّف برنامج «نطاقات» للتوطين، التابع لوزارة الموارد البشرية والتنمية الاجتماعية، الشركات بحسب نسبة موظفيها السعوديين مقارنةً بالنسبة المستهدفة لنشاطها وحجمها. ويؤثر تصنيف الشركة فيما يمكنها إنجازه على منصات العمل، ومن ذلك طلب تأشيرات العمل للموظفين الأجانب.\n\nوتُدار العقود والتأشيرات والإقامات عبر منصتي «قوى» و«مقيم»، والتأمينات الاجتماعية عبر المؤسسة العامة للتأمينات الاجتماعية."
+   },
+   "media": "guide-palms",
+   "layout": "split-reverse",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "pp-gosi",
+     "title": {
+      "en": "2%",
+      "ar": "2%"
+     },
+     "text": {
+      "en": "Employer social insurance contribution for non-Saudi employees",
+      "ar": "اشتراك صاحب العمل في التأمينات الاجتماعية عن الموظف غير السعودي"
+     }
+    },
+    {
+     "id": "pp-cap",
+     "title": {
+      "en": "SAR 45,000",
+      "ar": "45,000 ريال"
+     },
+     "text": {
+      "en": "Monthly salary cap for social insurance contributions",
+      "ar": "الحد الأعلى للأجر الشهري الخاضع للاشتراك"
+     }
+    }
+   ],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "points": {
+    "en": "Register on Qiwa and GOSI as soon as the commercial registration is issued\nPlan Saudi hires from the start, not after the first visa request\nBudget for social insurance on every salary\nUse written employment contracts documented on Qiwa",
+    "ar": "سجّل في «قوى» والتأمينات الاجتماعية فور صدور السجل التجاري\nخطط لتوظيف السعوديين من البداية، لا بعد أول طلب تأشيرة\nاحسب تكلفة التأمينات الاجتماعية على كل راتب\nاعتمد عقود عمل مكتوبة وموثقة في «قوى»"
+   },
+   "note": {
+    "en": "Saudization targets differ by activity and company size, and they are updated. Check the current targets for your activity on Qiwa before you plan your headcount.",
+    "ar": "تختلف نسب التوطين بحسب النشاط وحجم الشركة، ويتم تحديثها. تحقق من النسب الحالية لنشاطك على «قوى» قبل أن تخطط لعدد الموظفين."
+   },
+   "sources": [
+    {
+     "id": "pwc-other",
+     "label": {
+      "en": "Saudi Arabia: other taxes",
+      "ar": "السعودية: الضرائب الأخرى"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/corporate/other-taxes",
+     "date": "2026-07"
+    },
+    {
+     "id": "hrsd",
+     "label": {
+      "en": "Labour market and Saudization",
+      "ar": "سوق العمل والتوطين"
+     },
+     "publisher": {
+      "en": "Ministry of Human Resources and Social Development",
+      "ar": "وزارة الموارد البشرية والتنمية الاجتماعية"
+     },
+     "href": "https://www.hrsd.gov.sa/en"
+    },
+    {
+     "id": "qiwa",
+     "label": {
+      "en": "Qiwa labour platform",
+      "ar": "منصة قوى"
+     },
+     "publisher": {
+      "en": "Qiwa",
+      "ar": "قوى"
+     },
+     "href": "https://qiwa.sa/en"
+    },
+    {
+     "id": "gosi",
+     "label": {
+      "en": "Social insurance for employers",
+      "ar": "التأمينات الاجتماعية لأصحاب العمل"
+     },
+     "publisher": {
+      "en": "General Organization for Social Insurance",
+      "ar": "المؤسسة العامة للتأمينات الاجتماعية"
+     },
+     "href": "https://www.gosi.gov.sa/en"
+    }
+   ]
+  },
+  {
+   "id": "guide-incentives",
+   "type": "guideChapter",
+   "label": "Incentives",
+   "eyebrow": {
+    "en": "Incentives",
+    "ar": "الحوافز"
+   },
+   "title": {
+    "en": "Incentives that change the arithmetic",
+    "ar": "حوافز تغيّر الحسابات"
+   },
+   "subtitle": {
+    "en": "Two programmes deserve a close look before you decide where and how to set up: regional headquarters and the special economic zones.",
+    "ar": "قبل أن تحدد أين وكيف تؤسس، يستحق برنامجان نظرة متأنية: المقرات الإقليمية والمناطق الاقتصادية الخاصة."
+   },
+   "body": {
+    "en": "Multinational groups that run their regional business from Riyadh can obtain a regional headquarters licence. In December 2023 the government announced a 30-year package for qualifying regional headquarters: 0% corporate income tax on qualifying activities and 0% withholding tax on dividends and certain payments, provided the headquarters carries out the required activities and has real substance in the Kingdom.\n\nFour special economic zones were announced in April 2023: King Abdullah Economic City, Ras Al Khair, Jazan and a cloud computing zone. Their implementing regulations took effect in April 2026. In the three geographic zones, qualifying activities can benefit from a 5% corporate income tax rate for 20 years, along with customs and VAT relief, subject to economic substance rules issued in August 2026.",
+    "ar": "تستطيع المجموعات متعددة الجنسيات التي تدير أعمالها الإقليمية من الرياض الحصول على ترخيص مقر إقليمي. وفي ديسمبر 2023 أعلنت الحكومة حزمة حوافز لمدة 30 عامًا للمقرات الإقليمية المؤهلة: ضريبة دخل 0% على الأنشطة المؤهلة، و0% ضريبة استقطاع على توزيعات الأرباح وبعض المدفوعات، بشرط أن يمارس المقر الأنشطة المطلوبة وأن يكون له وجود فعلي في المملكة.\n\nوأُعلن في أبريل 2023 عن أربع مناطق اقتصادية خاصة: مدينة الملك عبدالله الاقتصادية، ورأس الخير، وجازان، ومنطقة للحوسبة السحابية. ودخلت لوائحها التنفيذية حيز التنفيذ في أبريل 2026. وفي المناطق الجغرافية الثلاث يمكن أن تستفيد الأنشطة المؤهلة من ضريبة دخل بنسبة 5% لمدة 20 عامًا، إضافة إلى إعفاءات جمركية وفي ضريبة القيمة المضافة، وفق متطلبات الجوهر الاقتصادي الصادرة في أغسطس 2026."
+   },
+   "media": "guide-site",
+   "layout": "split",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "in-rhq",
+     "title": {
+      "en": "0%",
+      "ar": "0%"
+     },
+     "text": {
+      "en": "Corporate income tax for qualifying regional headquarters, for 30 years",
+      "ar": "ضريبة الدخل على المقرات الإقليمية المؤهلة لمدة 30 عامًا"
+     }
+    },
+    {
+     "id": "in-sez",
+     "title": {
+      "en": "5%",
+      "ar": "5%"
+     },
+     "text": {
+      "en": "Corporate income tax on qualifying activities in three special economic zones",
+      "ar": "ضريبة الدخل على الأنشطة المؤهلة في ثلاث مناطق اقتصادية خاصة"
+     }
+    },
+    {
+     "id": "in-zones",
+     "title": {
+      "en": "4",
+      "ar": "4"
+     },
+     "text": {
+      "en": "Special economic zones announced in 2023",
+      "ar": "مناطق اقتصادية خاصة أُعلنت في 2023"
+     }
+    }
+   ],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "note": {
+    "en": "Incentives come with conditions on activity, staffing and substance. They are worth modelling early, because they can change where and how you set up.",
+    "ar": "للحوافز شروط تتعلق بالنشاط والتوظيف والوجود الفعلي. ومن المفيد دراستها مبكرًا، لأنها قد تغيّر مكان التأسيس وطريقته."
+   },
+   "sources": [
+    {
+     "id": "deloitte-rhq",
+     "label": {
+      "en": "Regional headquarters tax exemption",
+      "ar": "الإعفاء الضريبي للمقرات الإقليمية"
+     },
+     "publisher": {
+      "en": "Deloitte Middle East",
+      "ar": "ديلويت الشرق الأوسط"
+     },
+     "href": "https://www.deloitte.com/middle-east/en/services/tax/perspectives/regional-headquarters-tax-exemption.html",
+     "date": "2023-12"
+    },
+    {
+     "id": "rhq",
+     "label": {
+      "en": "Regional Headquarters Program",
+      "ar": "برنامج المقرات الإقليمية"
+     },
+     "publisher": {
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
+     },
+     "href": "https://rhq.misa.gov.sa/"
+    },
+    {
+     "id": "pwc-incentives",
+     "label": {
+      "en": "Saudi Arabia: tax credits and incentives",
+      "ar": "السعودية: الحوافز والإعفاءات الضريبية"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/corporate/tax-credits-and-incentives",
+     "date": "2026"
+    },
+    {
+     "id": "pwc-sez",
+     "label": {
+      "en": "Establishment of four new Special Economic Zones",
+      "ar": "إنشاء أربع مناطق اقتصادية خاصة جديدة"
+     },
+     "publisher": {
+      "en": "PwC Middle East",
+      "ar": "بي دبليو سي الشرق الأوسط"
+     },
+     "href": "https://www.pwc.com/m1/en/services/tax/me-tax-legal-news/2023/saudi-arabia-establishment-of-four-new-special-economic-zones.html",
+     "date": "2023-04"
+    },
+    {
+     "id": "ey-sez",
+     "label": {
+      "en": "Saudi Arabia issues Implementing Regulations for Special Economic Zones",
+      "ar": "السعودية تصدر اللوائح التنفيذية للمناطق الاقتصادية الخاصة"
+     },
+     "publisher": {
+      "en": "EY Tax News",
+      "ar": "أخبار إي واي الضريبية"
+     },
+     "href": "https://taxnews.ey.com/news/2026-0315-saudi-arabia-issues-implementing-regulations-for-special-economic-zones",
+     "date": "2026"
+    },
+    {
+     "id": "kpmg-sez",
+     "label": {
+      "en": "Final economic substance regulations for special economic zones",
+      "ar": "اللوائح النهائية لمتطلبات الجوهر الاقتصادي في المناطق الاقتصادية الخاصة"
+     },
+     "publisher": {
+      "en": "KPMG",
+      "ar": "كي بي إم جي"
+     },
+     "href": "https://kpmg.com/us/en/taxnewsflash/news/2026/08/saudi-arabia-final-economic-substance-regulations-special-economic-zones.html",
+     "date": "2026-08"
+    }
+   ]
+  },
+  {
+   "id": "guide-living",
+   "type": "guideChapter",
+   "label": "Residency and property",
+   "eyebrow": {
+    "en": "Residency and property",
+    "ar": "الإقامة والعقار"
+   },
+   "title": {
+    "en": "Residency and property for investors",
+    "ar": "الإقامة والعقار للمستثمرين"
+   },
+   "subtitle": {
+    "en": "Investors can now settle in the Kingdom on their own terms and, since January 2026, foreign individuals and companies can own property in designated areas.",
+    "ar": "أصبح بإمكان المستثمرين الاستقرار في المملكة بشروطهم، ومنذ يناير 2026 أصبح بإمكان الأفراد والشركات الأجنبية تملّك العقار في مناطق محددة."
+   },
+   "body": {
+    "en": "The Premium Residency programme includes an investor category for those who invest at least SAR 7 million in the Kingdom, supported by an investment registration and a commercial registration. Premium Residency holders can also register as investors with fewer documents.\n\nThe system regulating real estate ownership by non-Saudis came into force on 22 January 2026. It allows foreign residents, non-residents and companies to own property in designated areas of cities such as Riyadh and Jeddah; ownership in Makkah and Madinah remains restricted. Foreign companies without a presence in the Kingdom register with the Ministry of Investment first.",
+    "ar": "يتضمن برنامج الإقامة المميزة فئة للمستثمرين لمن يستثمر 7 ملايين ريال على الأقل في المملكة، مدعومةً بتسجيل استثماري وسجل تجاري. كما يستطيع حاملو الإقامة المميزة التسجيل كمستثمرين بمستندات أقل.\n\nودخل نظام تملك غير السعوديين للعقار حيز التنفيذ في 22 يناير 2026، ويتيح للمقيمين وغير المقيمين والشركات الأجنبية تملّك العقار في مناطق محددة من مدن مثل الرياض وجدة، بينما يبقى التملك في مكة المكرمة والمدينة المنورة مقيّدًا. وتسجّل الشركات الأجنبية التي ليس لها وجود في المملكة لدى وزارة الاستثمار أولًا."
+   },
+   "media": "guide-sunset",
+   "layout": "split-reverse",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "lv-pr",
+     "title": {
+      "en": "SAR 7M",
+      "ar": "7 ملايين ريال"
+     },
+     "text": {
+      "en": "Minimum investment for the Premium Residency investor category",
+      "ar": "الحد الأدنى للاستثمار في فئة المستثمر بالإقامة المميزة"
+     }
+    },
+    {
+     "id": "lv-prop",
+     "title": {
+      "en": "22 Jan 2026",
+      "ar": "22 يناير 2026"
+     },
+     "text": {
+      "en": "Foreign property ownership law in force",
+      "ar": "نفاذ نظام تملك غير السعوديين للعقار"
+     }
+    }
+   ],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "note": {
+    "en": "Residency fees, job-creation conditions and the list of designated property areas are set by regulation and can change. Confirm them with the Premium Residency Center and the Real Estate General Authority before you commit.",
+    "ar": "رسوم الإقامة وشروط توفير الوظائف وقائمة المناطق العقارية المحددة تنظمها اللوائح وقد تتغير، فتأكد منها لدى مركز الإقامة المميزة والهيئة العامة للعقار قبل الالتزام."
+   },
+   "sources": [
+    {
+     "id": "pr",
+     "label": {
+      "en": "Issuing investor residency",
+      "ar": "إصدار إقامة المستثمر"
+     },
+     "publisher": {
+      "en": "Unified National Platform (my.gov.sa)",
+      "ar": "المنصة الوطنية الموحدة (my.gov.sa)"
+     },
+     "href": "https://www.my.gov.sa/wps/portal/snp/servicesDirectory/servicedetails/3013"
+    },
+    {
+     "id": "fragomen",
+     "label": {
+      "en": "Five new Premium Residency permit categories introduced",
+      "ar": "استحداث خمس فئات جديدة للإقامة المميزة"
+     },
+     "publisher": {
+      "en": "Fragomen",
+      "ar": "فراغومن"
+     },
+     "href": "https://www.fragomen.com/insights/Saudi-Arabia-five-new-premium-residency-permit-categories-introduced.html",
+     "date": "2024"
+    },
+    {
+     "id": "an-property",
+     "label": {
+      "en": "Saudi Arabia opens real estate market to foreign buyers",
+      "ar": "السعودية تفتح سوق العقار أمام المشترين الأجانب"
+     },
+     "publisher": {
+      "en": "Arab News",
+      "ar": "عرب نيوز"
+     },
+     "href": "https://www.arabnews.com/node/2630261/business-economy",
+     "date": "2026-01-22"
+    },
+    {
+     "id": "wc-property",
+     "label": {
+      "en": "Saudi Arabia approves landmark real estate ownership law for non-Saudis",
+      "ar": "السعودية تقر نظامًا تاريخيًا لتملك غير السعوديين للعقار"
+     },
+     "publisher": {
+      "en": "White & Case",
+      "ar": "وايت آند كيس"
+     },
+     "href": "https://www.whitecase.com/insight-alert/saudi-arabia-approves-landmark-real-estate-ownership-law-non-saudis",
+     "date": "2025"
+    }
+   ]
+  },
+  {
+   "id": "guide-checklist",
+   "type": "checklist",
+   "label": "Investor checklist",
+   "eyebrow": {
+    "en": "Your checklist",
+    "ar": "قائمة مهامك"
+   },
+   "title": {
+    "en": "Twelve steps from idea to operation",
+    "ar": "اثنتا عشرة خطوة من الفكرة إلى التشغيل"
+   },
+   "highlight": {
+    "en": "idea to operation",
+    "ar": "الفكرة إلى التشغيل"
+   },
+   "subtitle": {
+    "en": "Tick them off as you go. Your progress is saved on this device only.",
+    "ar": "علّم على كل خطوة عند إنجازها. يُحفظ تقدّمك على هذا الجهاز فقط."
+   },
+   "buttons": [],
+   "slides": [],
+   "cards": [
+    {
+     "id": "ck-01",
+     "title": {
+      "en": "Define the activity",
+      "ar": "حدّد النشاط"
+     },
+     "text": {
+      "en": "Confirm the exact activity and the authority that regulates it.",
+      "ar": "تأكد من النشاط بدقة ومن الجهة المنظِّمة له."
+     }
+    },
+    {
+     "id": "ck-02",
+     "title": {
+      "en": "Choose the location",
+      "ar": "اختر الموقع"
+     },
+     "text": {
+      "en": "Compare regions against your customers, suppliers and talent.",
+      "ar": "قارن بين المناطق بحسب عملائك ومورديك والكفاءات التي تحتاجها."
+     }
+    },
+    {
+     "id": "ck-03",
+     "title": {
+      "en": "Prepare parent documents",
+      "ar": "جهّز مستندات الشركة الأم"
+     },
+     "text": {
+      "en": "Authenticate the commercial registration and latest financial statements.",
+      "ar": "صدّق السجل التجاري وآخر قوائم مالية."
+     }
+    },
+    {
+     "id": "ck-04",
+     "title": {
+      "en": "Register with MISA",
+      "ar": "سجّل لدى وزارة الاستثمار"
+     },
+     "text": {
+      "en": "Apply on the Invest Saudi platform; review takes up to 10 days.",
+      "ar": "قدّم عبر منصة «استثمر في السعودية»، ومدة الدراسة حتى 10 أيام."
+     }
+    },
+    {
+     "id": "ck-05",
+     "title": {
+      "en": "Choose the structure",
+      "ar": "اختر الكيان"
+     },
+     "text": {
+      "en": "Limited liability company, joint stock company, branch or regional headquarters.",
+      "ar": "شركة ذات مسؤولية محدودة أو شركة مساهمة أو فرع أو مقر إقليمي."
+     }
+    },
+    {
+     "id": "ck-06",
+     "title": {
+      "en": "Commercial registration",
+      "ar": "السجل التجاري"
+     },
+     "text": {
+      "en": "Register the company and publish its articles with the Ministry of Commerce.",
+      "ar": "سجّل الشركة وانشر عقد تأسيسها لدى وزارة التجارة."
+     }
+    },
+    {
+     "id": "ck-07",
+     "title": {
+      "en": "Activity licences",
+      "ar": "تراخيص النشاط"
+     },
+     "text": {
+      "en": "Obtain the licences of the regulator for your sector.",
+      "ar": "استخرج تراخيص الجهة المنظِّمة لقطاعك."
+     }
+    },
+    {
+     "id": "ck-08",
+     "title": {
+      "en": "Premises and address",
+      "ar": "المقر والعنوان"
+     },
+     "text": {
+      "en": "Secure an office, the municipal licence and the national address.",
+      "ar": "جهّز المكتب والرخصة البلدية والعنوان الوطني."
+     }
+    },
+    {
+     "id": "ck-09",
+     "title": {
+      "en": "Bank account",
+      "ar": "الحساب البنكي"
+     },
+     "text": {
+      "en": "Open the corporate account and deposit the capital.",
+      "ar": "افتح حساب الشركة وأودِع رأس المال."
+     }
+    },
+    {
+     "id": "ck-10",
+     "title": {
+      "en": "Tax registration",
+      "ar": "التسجيل الضريبي"
+     },
+     "text": {
+      "en": "Register with ZATCA for income tax or zakat, and VAT.",
+      "ar": "سجّل لدى هيئة الزكاة والضريبة والجمارك لضريبة الدخل أو الزكاة وضريبة القيمة المضافة."
+     }
+    },
+    {
+     "id": "ck-11",
+     "title": {
+      "en": "People",
+      "ar": "فريق العمل"
+     },
+     "text": {
+      "en": "Register on Qiwa and GOSI, plan Saudization and request visas.",
+      "ar": "سجّل في «قوى» والتأمينات، وخطط للتوطين واطلب التأشيرات."
+     }
+    },
+    {
+     "id": "ck-12",
+     "title": {
+      "en": "Stay compliant",
+      "ar": "حافظ على الالتزام"
+     },
+     "text": {
+      "en": "Track renewals, tax filings and Saudization targets after launch.",
+      "ar": "تابع التجديدات والإقرارات الضريبية ونسب التوطين بعد الانطلاق."
+     }
+    }
+   ],
+   "style": {
+    "theme": "charcoal",
+    "overlay": 86,
+    "padding": "lg",
+    "align": "start",
+    "bgMedia": "guide-drive"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "guide-sources",
+   "type": "sourceList",
+   "label": "Sources",
+   "eyebrow": {
+    "en": "Sources and further reading",
+    "ar": "المصادر والقراءات الإضافية"
+   },
+   "title": {
+    "en": "Read the originals",
+    "ar": "اقرأ المصادر الأصلية"
+   },
+   "subtitle": {
+    "en": "Every rule and figure in this guide comes from one of these publications: official sources first, then analysis by international advisory firms and the press.",
+    "ar": "كل قاعدة ورقم في هذا الدليل مأخوذ من أحد هذه المصادر: المصادر الرسمية أولًا، ثم تحليلات شركات الاستشارات الدولية والصحافة."
+   },
+   "note": {
+    "en": "This guide is general information, reviewed in November 2026. It is not legal, tax or immigration advice. Rules and rates change; confirm them for your situation before you act.",
+    "ar": "هذا الدليل معلومات عامة رُوجعت في نوفمبر 2026، وليس استشارة قانونية أو ضريبية أو استشارة هجرة. الأنظمة والنسب تتغير، فتأكد منها بحسب حالتك قبل أن تتخذ أي قرار."
+   },
+   "sources": [
+    {
+     "id": "vision",
+     "label": {
+      "en": "Vision 2030: overview",
+      "ar": "رؤية 2030: نظرة عامة"
+     },
+     "publisher": {
+      "en": "Saudi Vision 2030",
+      "ar": "رؤية السعودية 2030"
+     },
+     "href": "https://www.vision2030.gov.sa/en"
+    },
+    {
+     "id": "misa-law",
+     "label": {
+      "en": "Updated Investment Law",
+      "ar": "نظام الاستثمار المحدّث"
+     },
+     "publisher": {
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
+     },
+     "href": "https://misa.gov.sa/activities/laws-regulations-copy/",
+     "date": "2025"
+    },
+    {
+     "id": "misa-faq",
+     "label": {
+      "en": "Frequently asked questions on investor registration",
+      "ar": "الأسئلة الشائعة حول تسجيل المستثمر"
+     },
+     "publisher": {
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
+     },
+     "href": "https://misa.gov.sa/frequently-asked-questions/"
+    },
+    {
+     "id": "wc-law",
+     "label": {
+      "en": "Saudi Arabia: New Investment Law",
+      "ar": "السعودية: نظام الاستثمار الجديد"
+     },
+     "publisher": {
+      "en": "White & Case",
+      "ar": "وايت آند كيس"
+     },
+     "href": "https://www.whitecase.com/insight-alert/saudi-arabia-new-investment-law",
+     "date": "2024"
+    },
+    {
+     "id": "spa-law",
+     "label": {
+      "en": "Investment Minister on the updated Investment Law",
+      "ar": "وزير الاستثمار عن نظام الاستثمار المحدّث"
+     },
+     "publisher": {
+      "en": "Saudi Press Agency",
+      "ar": "وكالة الأنباء السعودية"
+     },
+     "href": "https://www.spa.gov.sa/en/N2151998"
+    },
+    {
+     "id": "clyde-co",
+     "label": {
+      "en": "Recent updates on the New Companies Law in Saudi Arabia",
+      "ar": "آخر المستجدات في نظام الشركات الجديد بالسعودية"
+     },
+     "publisher": {
+      "en": "Clyde & Co",
+      "ar": "كلايد آند كو"
+     },
+     "href": "https://www.clydeco.com/en/insights/2024/06/recent-updates-on-the-new-companies-law-in-ksa",
+     "date": "2024-06"
+    },
+    {
+     "id": "mc-law",
+     "label": {
+      "en": "New Companies Law offers facilities to small businesses and entrepreneurs",
+      "ar": "نظام الشركات الجديد يقدم تسهيلات للمنشآت الصغيرة ورواد الأعمال"
+     },
+     "publisher": {
+      "en": "Ministry of Commerce",
+      "ar": "وزارة التجارة"
+     },
+     "href": "https://mc.gov.sa/en/mediacenter/News/Pages/29-01-23-01.aspx",
+     "date": "2023-01"
+    },
+    {
+     "id": "pwc-doing",
+     "label": {
+      "en": "Doing business in the Kingdom of Saudi Arabia 2025",
+      "ar": "ممارسة الأعمال في المملكة العربية السعودية 2025"
+     },
+     "publisher": {
+      "en": "PwC Middle East",
+      "ar": "بي دبليو سي الشرق الأوسط"
+     },
+     "href": "https://www.pwc.com/m1/en/tax/documents/doing-business-guides/dbisa.pdf",
+     "date": "2025"
+    },
+    {
+     "id": "sbc",
+     "label": {
+      "en": "Saudi Business Center",
+      "ar": "المركز السعودي للأعمال"
+     },
+     "publisher": {
+      "en": "Saudi Business Center",
+      "ar": "المركز السعودي للأعمال"
+     },
+     "href": "https://business.sa"
+    },
+    {
+     "id": "mc",
+     "label": {
+      "en": "Commercial registration services",
+      "ar": "خدمات السجل التجاري"
+     },
+     "publisher": {
+      "en": "Ministry of Commerce",
+      "ar": "وزارة التجارة"
+     },
+     "href": "https://mc.gov.sa/en"
+    },
+    {
+     "id": "balady",
+     "label": {
+      "en": "Municipal licences",
+      "ar": "الرخص البلدية"
+     },
+     "publisher": {
+      "en": "Balady",
+      "ar": "بلدي"
+     },
+     "href": "https://balady.gov.sa"
+    },
+    {
+     "id": "pwc-cit",
+     "label": {
+      "en": "Saudi Arabia: taxes on corporate income",
+      "ar": "السعودية: الضرائب على دخل الشركات"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/corporate/taxes-on-corporate-income",
+     "date": "2026-07"
+    },
+    {
+     "id": "pwc-other",
+     "label": {
+      "en": "Saudi Arabia: other taxes",
+      "ar": "السعودية: الضرائب الأخرى"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/corporate/other-taxes",
+     "date": "2026-07"
+    },
+    {
+     "id": "pwc-wht",
+     "label": {
+      "en": "Saudi Arabia: withholding taxes",
+      "ar": "السعودية: ضريبة الاستقطاع"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/corporate/withholding-taxes",
+     "date": "2026-07"
+    },
+    {
+     "id": "pwc-pit",
+     "label": {
+      "en": "Saudi Arabia: taxes on personal income",
+      "ar": "السعودية: الضرائب على دخل الأفراد"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/individual/taxes-on-personal-income",
+     "date": "2026-07"
+    },
+    {
+     "id": "zatca",
+     "label": {
+      "en": "Zakat, tax and customs",
+      "ar": "الزكاة والضريبة والجمارك"
+     },
+     "publisher": {
+      "en": "Zakat, Tax and Customs Authority",
+      "ar": "هيئة الزكاة والضريبة والجمارك"
+     },
+     "href": "https://zatca.gov.sa/en"
+    },
+    {
+     "id": "hrsd",
+     "label": {
+      "en": "Labour market and Saudization",
+      "ar": "سوق العمل والتوطين"
+     },
+     "publisher": {
+      "en": "Ministry of Human Resources and Social Development",
+      "ar": "وزارة الموارد البشرية والتنمية الاجتماعية"
+     },
+     "href": "https://www.hrsd.gov.sa/en"
+    },
+    {
+     "id": "qiwa",
+     "label": {
+      "en": "Qiwa labour platform",
+      "ar": "منصة قوى"
+     },
+     "publisher": {
+      "en": "Qiwa",
+      "ar": "قوى"
+     },
+     "href": "https://qiwa.sa/en"
+    },
+    {
+     "id": "gosi",
+     "label": {
+      "en": "Social insurance for employers",
+      "ar": "التأمينات الاجتماعية لأصحاب العمل"
+     },
+     "publisher": {
+      "en": "General Organization for Social Insurance",
+      "ar": "المؤسسة العامة للتأمينات الاجتماعية"
+     },
+     "href": "https://www.gosi.gov.sa/en"
+    },
+    {
+     "id": "deloitte-rhq",
+     "label": {
+      "en": "Regional headquarters tax exemption",
+      "ar": "الإعفاء الضريبي للمقرات الإقليمية"
+     },
+     "publisher": {
+      "en": "Deloitte Middle East",
+      "ar": "ديلويت الشرق الأوسط"
+     },
+     "href": "https://www.deloitte.com/middle-east/en/services/tax/perspectives/regional-headquarters-tax-exemption.html",
+     "date": "2023-12"
+    },
+    {
+     "id": "rhq",
+     "label": {
+      "en": "Regional Headquarters Program",
+      "ar": "برنامج المقرات الإقليمية"
+     },
+     "publisher": {
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
+     },
+     "href": "https://rhq.misa.gov.sa/"
+    },
+    {
+     "id": "pwc-incentives",
+     "label": {
+      "en": "Saudi Arabia: tax credits and incentives",
+      "ar": "السعودية: الحوافز والإعفاءات الضريبية"
+     },
+     "publisher": {
+      "en": "PwC Worldwide Tax Summaries",
+      "ar": "ملخصات بي دبليو سي الضريبية"
+     },
+     "href": "https://taxsummaries.pwc.com/saudi-arabia/corporate/tax-credits-and-incentives",
+     "date": "2026"
+    },
+    {
+     "id": "pwc-sez",
+     "label": {
+      "en": "Establishment of four new Special Economic Zones",
+      "ar": "إنشاء أربع مناطق اقتصادية خاصة جديدة"
+     },
+     "publisher": {
+      "en": "PwC Middle East",
+      "ar": "بي دبليو سي الشرق الأوسط"
+     },
+     "href": "https://www.pwc.com/m1/en/services/tax/me-tax-legal-news/2023/saudi-arabia-establishment-of-four-new-special-economic-zones.html",
+     "date": "2023-04"
+    },
+    {
+     "id": "ey-sez",
+     "label": {
+      "en": "Saudi Arabia issues Implementing Regulations for Special Economic Zones",
+      "ar": "السعودية تصدر اللوائح التنفيذية للمناطق الاقتصادية الخاصة"
+     },
+     "publisher": {
+      "en": "EY Tax News",
+      "ar": "أخبار إي واي الضريبية"
+     },
+     "href": "https://taxnews.ey.com/news/2026-0315-saudi-arabia-issues-implementing-regulations-for-special-economic-zones",
+     "date": "2026"
+    },
+    {
+     "id": "kpmg-sez",
+     "label": {
+      "en": "Final economic substance regulations for special economic zones",
+      "ar": "اللوائح النهائية لمتطلبات الجوهر الاقتصادي في المناطق الاقتصادية الخاصة"
+     },
+     "publisher": {
+      "en": "KPMG",
+      "ar": "كي بي إم جي"
+     },
+     "href": "https://kpmg.com/us/en/taxnewsflash/news/2026/08/saudi-arabia-final-economic-substance-regulations-special-economic-zones.html",
+     "date": "2026-08"
+    },
+    {
+     "id": "pr",
+     "label": {
+      "en": "Issuing investor residency",
+      "ar": "إصدار إقامة المستثمر"
+     },
+     "publisher": {
+      "en": "Unified National Platform (my.gov.sa)",
+      "ar": "المنصة الوطنية الموحدة (my.gov.sa)"
+     },
+     "href": "https://www.my.gov.sa/wps/portal/snp/servicesDirectory/servicedetails/3013"
+    },
+    {
+     "id": "fragomen",
+     "label": {
+      "en": "Five new Premium Residency permit categories introduced",
+      "ar": "استحداث خمس فئات جديدة للإقامة المميزة"
+     },
+     "publisher": {
+      "en": "Fragomen",
+      "ar": "فراغومن"
+     },
+     "href": "https://www.fragomen.com/insights/Saudi-Arabia-five-new-premium-residency-permit-categories-introduced.html",
+     "date": "2024"
+    },
+    {
+     "id": "an-property",
+     "label": {
+      "en": "Saudi Arabia opens real estate market to foreign buyers",
+      "ar": "السعودية تفتح سوق العقار أمام المشترين الأجانب"
+     },
+     "publisher": {
+      "en": "Arab News",
+      "ar": "عرب نيوز"
+     },
+     "href": "https://www.arabnews.com/node/2630261/business-economy",
+     "date": "2026-01-22"
+    },
+    {
+     "id": "wc-property",
+     "label": {
+      "en": "Saudi Arabia approves landmark real estate ownership law for non-Saudis",
+      "ar": "السعودية تقر نظامًا تاريخيًا لتملك غير السعوديين للعقار"
+     },
+     "publisher": {
+      "en": "White & Case",
+      "ar": "وايت آند كيس"
+     },
+     "href": "https://www.whitecase.com/insight-alert/saudi-arabia-approves-landmark-real-estate-ownership-law-non-saudis",
+     "date": "2025"
+    }
+   ],
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "guide-cta",
+   "type": "cta",
+   "label": "Consultation",
+   "title": {
+    "en": "Turn this guide into your plan",
+    "ar": "حوّل هذا الدليل إلى خطتك"
+   },
+   "highlight": {
+    "en": "your plan",
+    "ar": "خطتك"
+   },
+   "body": {
+    "en": "Tell us your activity and your timeline. We will map the registrations, licences and incentives that apply to you, in the right order.",
+    "ar": "أخبرنا بنشاطك وجدولك الزمني، وسنرسم لك التسجيلات والتراخيص والحوافز التي تنطبق عليك، بالترتيب الصحيح."
+   },
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 72,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "guide-boulevard"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Investor guide",
+   "seo_title": "Investor guide to Saudi Arabia 2026 | Registration, tax, incentives | Creative Mark",
+   "seo_description": "A practical guide for foreign investors entering Saudi Arabia: investor registration, company structures, licences, tax and zakat, hiring, incentives, residency and property, with sources."
+  },
+  "ar": {
+   "title": "دليل المستثمر",
+   "seo_title": "دليل المستثمر في السعودية 2026 | التسجيل والضرائب والحوافز | كرييتف مارك",
+   "seo_description": "دليل عملي للمستثمر الأجنبي الراغب في دخول السوق السعودي: تسجيل المستثمر، والكيانات القانونية، والتراخيص، والضريبة والزكاة، والتوظيف، والحوافز، والإقامة والعقار، مع المصادر."
+  }
+ }
+}

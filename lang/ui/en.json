@@ -56,5 +56,16 @@
     "regionLocation": "Location on the map of Saudi Arabia",
     "otherRegions": "Explore more regions",
     "regionServices": "How we support you here",
-    "discussRegion": "Discuss your plans for this region"
+    "discussRegion": "Discuss your plans for this region",
+    "chapter": "Chapter",
+    "inPractice": "In practice",
+    "keyFacts": "Key facts",
+    "goodToKnow": "Good to know",
+    "sources": "Sources",
+    "completed": "completed",
+    "resetChecklist": "Reset checklist",
+    "readingProgress": "Reading progress",
+    "previousChapter": "Previous chapter",
+    "nextChapter": "Next chapter",
+    "opensNewTab": "opens in a new tab"
 }

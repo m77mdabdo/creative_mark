@@ -56,5 +56,16 @@
     "regionLocation": "सऊदी अरब के मानचित्र पर स्थिति",
     "otherRegions": "और क्षेत्र देखें",
     "regionServices": "यहाँ हम आपकी कैसे मदद करते हैं",
-    "discussRegion": "इस क्षेत्र के लिए अपनी योजना पर चर्चा करें"
+    "discussRegion": "इस क्षेत्र के लिए अपनी योजना पर चर्चा करें",
+    "chapter": "अध्याय",
+    "inPractice": "व्यवहार में",
+    "keyFacts": "मुख्य तथ्य",
+    "goodToKnow": "जानना ज़रूरी है",
+    "sources": "स्रोत",
+    "completed": "पूरे हुए",
+    "resetChecklist": "सूची रीसेट करें",
+    "readingProgress": "पढ़ने की प्रगति",
+    "previousChapter": "पिछला अध्याय",
+    "nextChapter": "अगला अध्याय",
+    "opensNewTab": "नए टैब में खुलता है"
 }

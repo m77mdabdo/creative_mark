@@ -56,5 +56,16 @@
     "regionLocation": "الموقع على خريطة المملكة",
     "otherRegions": "استكشف مناطق أخرى",
     "regionServices": "كيف ندعمك هنا",
-    "discussRegion": "ناقش خطتك في هذه المنطقة"
+    "discussRegion": "ناقش خطتك في هذه المنطقة",
+    "chapter": "الفصل",
+    "inPractice": "عمليًا",
+    "keyFacts": "أرقام أساسية",
+    "goodToKnow": "معلومة مهمة",
+    "sources": "المصادر",
+    "completed": "مكتملة",
+    "resetChecklist": "إعادة ضبط القائمة",
+    "readingProgress": "تقدّم القراءة",
+    "previousChapter": "الفصل السابق",
+    "nextChapter": "الفصل التالي",
+    "opensNewTab": "يفتح في علامة تبويب جديدة"
 }

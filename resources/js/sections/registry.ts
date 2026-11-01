@@ -4,6 +4,10 @@ import Comparison from './Comparison'
 import ConsultationCta from './ConsultationCta'
 import Countries from './Countries'
 import FaqPreview from './FaqPreview'
+import Checklist from './guide/Checklist'
+import GuideChapter from './guide/GuideChapter'
+import GuideNav from './guide/GuideNav'
+import SourceList from './guide/SourceList'
 import Hero from './Hero/Hero'
 import ImageText from './ImageText'
 import Journey from './Journey'
@@ -42,4 +46,8 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   processSteps: ProcessSteps,
   comparison: Comparison,
   regionGrid: RegionGrid,
+  guideNav: GuideNav,
+  guideChapter: GuideChapter,
+  checklist: Checklist,
+  sourceList: SourceList,
 }

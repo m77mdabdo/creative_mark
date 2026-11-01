@@ -14,6 +14,7 @@ export type SectionType =
   | 'hero' | 'whyInvest' | 'journey' | 'countries' | 'sectors' | 'trackRecord'
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
   | 'statement' | 'imageText' | 'cards' | 'serviceGroups' | 'processSteps' | 'comparison' | 'regionGrid'
+  | 'guideNav' | 'guideChapter' | 'checklist' | 'sourceList'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
 export type Slide = {
@@ -21,6 +22,9 @@ export type Slide = {
   /** Region slug whose investment opportunities are listed under the copy. */
   region?: string
 }
+
+/** A cited reference (investor guide). `date` is YYYY, YYYY-MM or YYYY-MM-DD. */
+export type SourceRef = { id: string; label: string; publisher: string | null; href: string; date?: string }
 
 export type SectionTheme = 'dark' | 'charcoal' | 'ivory' | 'white'
 
@@ -40,6 +44,11 @@ export type Section = {
   buttons: Button[]
   cards: Card[]
   slides: Slide[]
+  /** One item per line (guide chapters). */
+  points?: string | null
+  /** Short callout shown beside the body. */
+  note?: string | null
+  sources?: SourceRef[]
   style: { theme: SectionTheme; overlay: number; padding: 'sm' | 'md' | 'lg'; align: 'start' | 'center'; bgMedia?: string }
   motion: { preset: MotionPreset; intensity: number; delay: number }
 }

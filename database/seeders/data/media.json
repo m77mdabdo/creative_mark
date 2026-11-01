@@ -992,5 +992,170 @@
    1920,
    2560
   ]
+ },
+ "guide-metro": {
+  "alt": {
+   "en": "Metro line curving into the King Abdullah Financial District station, Riyadh",
+   "ar": "خط المترو ينعطف نحو محطة مركز الملك عبدالله المالي في الرياض"
+  },
+  "credit": "Ameer Albahouth / Unsplash",
+  "source": "https://unsplash.com/photos/XplX5vASmkM",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-road": {
+  "alt": {
+   "en": "Open highway towards the mountains between Tabuk and Haql",
+   "ar": "طريق مفتوح نحو الجبال بين تبوك وحقل"
+  },
+  "credit": "SALEH / Unsplash",
+  "source": "https://unsplash.com/photos/-LOepD7fEu4",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-door": {
+  "alt": {
+   "en": "Traditional wooden gate with iron rings in Diriyah",
+   "ar": "بوابة خشبية تقليدية بحلقات حديدية في الدرعية"
+  },
+  "credit": "Ibrahim Abdullah / Unsplash",
+  "source": "https://unsplash.com/photos/X8YDXWUzMvw",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-structure": {
+  "alt": {
+   "en": "Steel structure of a landmark building rising in Riyadh",
+   "ar": "هيكل فولاذي لمبنى بارز قيد الإنشاء في الرياض"
+  },
+  "credit": "Nojood Al Aqeel / Unsplash",
+  "source": "https://unsplash.com/photos/7TG1fm1RdYU",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-towers": {
+  "alt": {
+   "en": "Office towers in the King Abdullah Financial District",
+   "ar": "أبراج المكاتب في مركز الملك عبدالله المالي"
+  },
+  "credit": "Ahmed Alghali / Unsplash",
+  "source": "https://unsplash.com/photos/SAEmKKPBpl8",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-jeddah": {
+  "alt": {
+   "en": "Aerial view of a Jeddah business district and highway",
+   "ar": "منظر جوي لحي أعمال وطريق سريع في جدة"
+  },
+  "credit": "MD ENAMUL HAQUE TETU / Unsplash",
+  "source": "https://unsplash.com/photos/Qxa1iPcoXW4",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-palms": {
+  "alt": {
+   "en": "Palm trees in golden light seen from an office lobby in Al Olaya, Riyadh",
+   "ar": "نخيل في ضوء ذهبي من بهو مكتب في العليا بالرياض"
+  },
+  "credit": "Ahmed Alghali / Unsplash",
+  "source": "https://unsplash.com/photos/5iHEEyjeQ9g",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-site": {
+  "alt": {
+   "en": "Aerial view of a major construction site in Riyadh",
+   "ar": "منظر جوي لموقع إنشاءات كبير في الرياض"
+  },
+  "credit": "Nojood Al Aqeel / Unsplash",
+  "source": "https://unsplash.com/photos/mzF_aDw9l9Y",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-sunset": {
+  "alt": {
+   "en": "Riyadh skyline at sunset above a busy highway",
+   "ar": "أفق الرياض عند الغروب فوق طريق مزدحم"
+  },
+  "credit": "Ahnaf Jubayer / Unsplash",
+  "source": "https://unsplash.com/photos/un57AeVQP1k",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-drive": {
+  "alt": {
+   "en": "Road through the Saudi countryside seen from a car",
+   "ar": "طريق في الريف السعودي من داخل سيارة"
+  },
+  "credit": "Mohammed Shonar / Unsplash",
+  "source": "https://unsplash.com/photos/zmN0DDbsNGo",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "guide-boulevard": {
+  "alt": {
+   "en": "Illuminated digital art facades at Boulevard Riyadh",
+   "ar": "واجهات فنية رقمية مضيئة في بوليفارد الرياض"
+  },
+  "credit": "MUHAMMAD KAMRAN KHAN / Unsplash",
+  "source": "https://unsplash.com/photos/-BS0ht06X_c",
+  "folder": "guide",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
  }
 }

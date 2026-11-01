@@ -140,7 +140,7 @@ final class PageData
     {
         $pick = fn (?array $map) => $map === null ? null : (filled($map[$locale] ?? null) ? $map[$locale] : $map[Locales::FALLBACK]);
 
-        foreach (['eyebrow', 'title', 'highlight', 'subtitle', 'body'] as $k) {
+        foreach (['eyebrow', 'title', 'highlight', 'subtitle', 'body', 'points', 'note'] as $k) {
             if (isset($s[$k])) {
                 $s[$k] = $pick($s[$k]);
             }
@@ -155,6 +155,7 @@ final class PageData
             ...$slide,
             ...array_map($pick, array_intersect_key($slide, array_flip(['eyebrow', 'title', 'highlight', 'subtitle']))),
         ], $s['slides'] ?? []);
+        $s['sources'] = array_map(fn ($src) => [...$src, 'label' => $pick($src['label']), 'publisher' => $pick($src['publisher'] ?? null)], $s['sources'] ?? []);
         unset($s['label']);
 
         return $s;

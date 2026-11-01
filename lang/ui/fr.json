@@ -56,5 +56,16 @@
     "regionLocation": "Situation sur la carte de l’Arabie saoudite",
     "otherRegions": "Découvrir d’autres régions",
     "regionServices": "Comment nous vous accompagnons ici",
-    "discussRegion": "Parlez-nous de votre projet dans cette région"
+    "discussRegion": "Parlez-nous de votre projet dans cette région",
+    "chapter": "Chapitre",
+    "inPractice": "En pratique",
+    "keyFacts": "Chiffres clés",
+    "goodToKnow": "Bon à savoir",
+    "sources": "Sources",
+    "completed": "terminées",
+    "resetChecklist": "Réinitialiser la liste",
+    "readingProgress": "Progression de la lecture",
+    "previousChapter": "Chapitre précédent",
+    "nextChapter": "Chapitre suivant",
+    "opensNewTab": "s’ouvre dans un nouvel onglet"
 }

@@ -14,6 +14,7 @@ final class SectionSchema
         'hero', 'whyInvest', 'journey', 'countries', 'sectors', 'trackRecord',
         'services', 'map', 'faq', 'cta', 'testimonials',
         'statement', 'imageText', 'cards', 'serviceGroups', 'processSteps', 'comparison', 'regionGrid',
+        'guideNav', 'guideChapter', 'checklist', 'sourceList',
     ];
 
     public const LAYOUTS = ['split', 'split-reverse'];
@@ -22,9 +23,9 @@ final class SectionSchema
 
     public const MOTION = ['none', 'fade-up', 'reveal-mask', 'zoom-in', 'parallax-slow', 'stagger-cards', 'counter', 'line-draw'];
 
-    private const TEXT = ['eyebrow', 'title', 'highlight', 'subtitle', 'body'];
+    private const TEXT = ['eyebrow', 'title', 'highlight', 'subtitle', 'body', 'points', 'note'];
 
-    private const KEYS = ['id', 'type', 'label', 'hidden', 'eyebrow', 'title', 'highlight', 'subtitle', 'body', 'media', 'media2', 'buttons', 'cards', 'slides', 'limit', 'layout', 'style', 'motion'];
+    private const KEYS = ['id', 'type', 'label', 'hidden', 'eyebrow', 'title', 'highlight', 'subtitle', 'body', 'media', 'media2', 'buttons', 'cards', 'slides', 'limit', 'layout', 'style', 'motion', 'points', 'note', 'sources'];
 
     private const CARD_KEYS = ['id', 'title', 'text', 'icon', 'media', 'verified'];
 
@@ -32,6 +33,11 @@ final class SectionSchema
     private const SLIDE_KEYS = ['id', 'media', 'eyebrow', 'title', 'highlight', 'subtitle', 'region'];
 
     private const MAX_SLIDES = 10;
+
+    /** Cited references (investor guide): a named publisher, a title and an https link. */
+    private const SOURCE_KEYS = ['id', 'label', 'publisher', 'href', 'date'];
+
+    private const MAX_SOURCES = 30;
 
     /** @param  list<array<string, mixed>>  $sections */
     public static function validate(array $sections): void
@@ -111,6 +117,24 @@ final class SectionSchema
             }
             foreach (['eyebrow', 'title', 'highlight', 'subtitle'] as $k) {
                 array_push($e, ...self::localeMap($slide[$k] ?? null, "slide $k"));
+            }
+        }
+        $sources = $s['sources'] ?? [];
+        if (! is_array($sources) || count($sources) > self::MAX_SOURCES) {
+            $e[] = 'At most '.self::MAX_SOURCES.' sources.';
+            $sources = [];
+        }
+        foreach ($sources as $source) {
+            foreach (array_diff(array_keys((array) $source), self::SOURCE_KEYS) as $k) {
+                $e[] = "Unknown source field [$k].";
+            }
+            array_push($e, ...self::localeMap($source['label'] ?? null, 'source label'), ...self::localeMap($source['publisher'] ?? null, 'source publisher'));
+            // External references must be secure absolute links.
+            if (! preg_match('~^https://[^\s/]+\.[^\s]+$~i', (string) ($source['href'] ?? ''))) {
+                $e[] = 'Source links must be https URLs.';
+            }
+            if (isset($source['date']) && ! preg_match('/^\d{4}(-\d{2}){0,2}$/', (string) $source['date'])) {
+                $e[] = 'Source date must be YYYY, YYYY-MM or YYYY-MM-DD.';
             }
         }
         $style = $s['style'] ?? [];

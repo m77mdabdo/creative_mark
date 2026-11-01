@@ -1,58 +1,198 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center">Creative Mark</h1>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <strong>Premium multilingual corporate website and content management system</strong><br>
+  Business formation and investment consultancy · Kingdom of Saudi Arabia
 </p>
 
-## About Laravel
+<p align="center">
+  <img alt="Laravel 13" src="https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white">
+  <img alt="PHP 8.5" src="https://img.shields.io/badge/PHP-8.5-777BB4?logo=php&logoColor=white">
+  <img alt="React 19" src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white">
+  <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
+  <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
+  <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-272_passing-2E7D32">
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  <img src="docs/screenshots/home-hero-alula.jpg" alt="Home page hero: AlUla slide with investment opportunities" width="100%">
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Overview
 
-## Learning Laravel
+Creative Mark helps investors establish, license and grow companies in Saudi Arabia. This repository contains the company's
+public website and the dashboard its team uses to run it.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Public website** with a cinematic black-and-gold identity, a landmark slideshow, an interactive map of the 13 regions and
+  six languages (Arabic, English, French, Hindi, Urdu, Simplified Chinese) with full right-to-left support.
+- **Dashboard** where staff manage services, regions, FAQs, statistics, testimonials and countries in every language, with
+  roles, permissions and two-factor authentication.
+- **Content rules built in**: unverified figures never reach the public site, client names appear only with recorded consent,
+  and editors' drafts go live only when a content manager publishes them.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> العربية: موقع شركة كرييتف مارك ولوحة إدارة المحتوى. الموقع بست لغات مع دعم كامل للعربية، وكل المحتوى يُدار من لوحة التحكم
+> بصلاحيات وأدوار وتحقق بخطوتين.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Screenshots
 
-## Agentic Development
+| Home (desktop) | Home (mobile, Arabic) |
+| --- | --- |
+| <img src="docs/screenshots/home-hero-jeddah.jpg" alt="Historic Jeddah slide"> | <img src="docs/screenshots/home-mobile-ar.jpg" alt="Arabic mobile home" width="260"> |
+| <img src="docs/screenshots/home-regions-map.jpg" alt="Interactive map of the 13 regions"> | <img src="docs/screenshots/home-countries.jpg" alt="Countries we work with"> |
+| <img src="docs/screenshots/home-zh.jpg" alt="Chinese version"> | <img src="docs/screenshots/admin-faqs.jpg" alt="Dashboard: FAQ module in Arabic"> |
 
+## Features
 
-```bash
-composer require laravel/boost --dev
+### Public website
+- Landmark slideshow (Riyadh, KAFD, AlUla, Historic Jeddah, Abha, NEOM): each photo moves from close-up to wide, the next
+  one wipes in, and the copy describes the investment opportunities of that region. Pause control and a still version for
+  visitors who prefer reduced motion.
+- Home page sections: why invest, the Saudi journey, countries, sectors, track record, eleven business solutions, regions map,
+  FAQ preview, consultation call to action and client reviews.
+- Interactive map of the 13 regions: keyboard operable, sector filter, list alternative, screen-reader announcements.
+- Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
+- Localized URLs (`/ar`, `/en`, `/fr`, `/hi`, `/ur`, `/zh`), Arabic by default, per-script typography
+  (Amiri, IBM Plex Sans Arabic, Noto Nastaliq Urdu, Noto Sans Devanagari, Cormorant Garamond, Manrope).
+- Responsive images (WebP up to 2560 px), lazy-loaded map, initial JavaScript under 180 KB gzip.
 
-php artisan boost:install
+### Dashboard (`/admin`)
+- Eight staff roles and 25 permissions; access denied by default and enforced on the server.
+- Two-factor authentication required for Super Admin, Content Manager and Sales Manager.
+- Content modules with one tab per language and a review status per language.
+- Draft and publish workflow: editors save drafts, content managers publish.
+- "Translate missing languages" action and automatic filling of empty languages after saving.
+
+### Translation
+- Professional translations of every site string in French, Hindi, Urdu and Chinese (translation memory).
+- Self-hosted machine translation (LibreTranslate) for new content, with a free fallback service, protected brand and place
+  names, and a phrasebook for menu terms. Text written or reviewed by a person is never overwritten.
+
+## Tech stack
+
+| Layer | Technology |
+| --- | --- |
+| Backend | Laravel 13, PHP 8.5 |
+| Frontend | React 19, TypeScript (strict), Inertia.js 3, Vite 8, Tailwind CSS 4 |
+| Motion | GSAP + ScrollTrigger, Lenis |
+| Dashboard | Filament 5 (Livewire 4), spatie/laravel-permission |
+| Database | MySQL / MariaDB (utf8mb4) |
+| Translation | LibreTranslate (Docker), translation memory |
+| Quality | PHPUnit feature tests, Playwright visual checks, Laravel Pint |
+
+## Project structure
+
+```
+app/
+  Content/            Page data, section schema validation, publishing
+  Translation/        Translator, drivers, translation memory, content translator
+  Filament/           Dashboard resources, shared fields and actions
+  Models/             Content models with per-locale translation tables
+  Policies/           Server-side authorization
+resources/js/
+  pages/              Inertia pages
+  sections/           One component per home section (+ registry)
+  layouts/            Header, mega menu, mobile drawer, footer
+  components/         Media, Icon, SmartLink, ButtonGroup, Flag…
+  motion/             Animation presets and smooth scrolling
+database/
+  migrations/         Schema
+  seeders/            Content from the company presentation, roles and permissions
+  setup/              One-time SQL for the dedicated database and users
+docs/                 Architecture decisions, development guide, reports
+infra/translation/    Self-hosted translation service
+lang/ui/              Interface labels per language
+tests/                Feature tests and Playwright capture scripts
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Getting started
 
-## Contributing
+### Requirements
+- PHP 8.3+ (developed on 8.5) and Composer
+- Node.js 20+ and npm
+- MySQL 8 or MariaDB 10.4+
+- Docker (optional, for machine translation)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Installation
 
-## Code of Conduct
+```bash
+git clone https://github.com/m77mdabdo/creative_mark.git
+cd creative_mark
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Create the database and its two users (run once with an account that can grant privileges, after replacing the two
+placeholder passwords), then put the same credentials in `.env`:
 
-## Security Vulnerabilities
+```bash
+mysql -u root -p < database/setup/001_create_database_and_users.sql
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Build the schema and content, then start the site:
+
+```bash
+php artisan migrate --database=mariadb_migrate
+php artisan db:seed
+npm run build
+php artisan serve
+```
+
+The site runs at `http://127.0.0.1:8000`; the dashboard is at `/admin`. Create the first administrator interactively:
+
+```bash
+php artisan cm:create-admin
+```
+
+### Translation service (optional)
+
+```bash
+docker compose -f infra/translation/docker-compose.yml up -d
+php artisan cm:translate --publish
+```
+
+## Testing
+
+```bash
+php artisan test
+npx tsc --noEmit
+npm run build
+```
+
+The suite covers locale routing, content rules, publishing, page-block validation (including injection attempts), every
+role × permission combination, dashboard access, two-factor enforcement and the translation pipeline.
+
+## Security
+
+- Dedicated database with a runtime user limited to data access and a separate migration user; no root credentials.
+- Deny-by-default authorization checked in policies for every dashboard action.
+- Two-factor secrets and recovery codes encrypted at rest; strong password rules.
+- Page content is structured data validated on the server; text is never rendered as HTML and links are allow-listed.
+
+## Documentation
+
+- [Development guide](docs/DEVELOPMENT.md)
+- [Architecture decisions](docs/adr)
+- [Owner decisions](docs/decisions.md)
+- [Photo credits](docs/photo-credits.md)
+
+## Changelog
+
+### 2026-11-01
+- Professional translations for French, Hindi, Urdu and Chinese across the whole site.
+- Public "translation under review" notice removed (owner decision).
+- Translation system: self-hosted engine, fallback service, glossary, phrasebook, dashboard action and command.
+- Home hero turned into a cinematic slideshow of eight Saudi landmarks with investment opportunities per region.
+- Dashboard: Filament panel, eight roles, two-factor authentication, content modules in six languages.
+- Home page aligned with the company presentation: dark cinematic sections, flags, stat blocks, gold map.
+- Foundation: Laravel 13, Inertia + React + TypeScript, localized routing, database-backed content, motion system.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# creative_mark
+Proprietary. © Creative Mark. All rights reserved. Photographs are placeholders used under the Unsplash License until
+replaced by the client's own imagery.

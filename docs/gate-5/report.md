@@ -10,7 +10,7 @@ Nov 1, 2026 · Commits `7d9aae3`..HEAD on local `main` (no remote yet, A-03)
 
 | ID | Status | Evidence |
 | --- | --- | --- |
-| G5-01 Environment safety | Done | Skeleton bootstrap docs replaced (no installer pipe), `docs/adr/0001..0008` |
+| G5-01 Environment safety | Done | Skeleton bootstrap docs replaced by `docs/DEVELOPMENT.md` (no installer pipe), `docs/adr/0001..0008` |
 | G5-02 Dedicated DB | **Blocked on owner** (A-02) | Script ready: `database/setup/001_create_creative_mark.sql`; `.env.example` uses `cm_app`/`cm_migrate`; `.env` still points to root and is untouched |
 | G5-03 Dependencies | Done | inertia-laravel 3.6, @inertiajs/react 3.10, React 19.3, TypeScript (strict), GSAP 3.15, Lenis 1.3, Vite 8, Tailwind 4.3. A-01: `composer require filament/filament:^5 spatie/laravel-permission spatie/laravel-medialibrary --dry-run` resolves Filament 5.11.0, Livewire 4.4.8, permission 8.3.2, medialibrary 11.23.11 on PHP 8.5.2 |
 | G5-04 Locale routing | Done | `/` → 302 by cookie → Accept-Language → `ar`; 6 prefixes; `lang`/`dir` per locale; unknown → 404 |

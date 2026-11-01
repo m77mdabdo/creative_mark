@@ -13,7 +13,7 @@ export type MotionPreset = 'none' | 'fade-up' | 'reveal-mask' | 'zoom-in' | 'par
 export type SectionType =
   | 'hero' | 'whyInvest' | 'journey' | 'countries' | 'sectors' | 'trackRecord'
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
-  | 'statement' | 'imageText' | 'cards' | 'serviceGroups' | 'processSteps'
+  | 'statement' | 'imageText' | 'cards' | 'serviceGroups' | 'processSteps' | 'comparison' | 'regionGrid'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
 export type Slide = {
@@ -95,5 +95,19 @@ export type ServicePageProps = {
   journey: JourneyStep[]
   serviceGroups: Record<ServiceGroup, string>
   stats: StatItem[]
+  media: Record<string, MediaItem>
+}
+
+/** Props of a region's detail page (App\Content\PageData::forRegion). */
+export type RegionPageProps = {
+  pageKey: 'region'
+  title: string
+  regionsTitle: string
+  seo: { title: string; description: string }
+  reviewStatus: ReviewStatus
+  region: RegionItem
+  industries: Record<string, string>
+  related: ServiceItem[]
+  otherRegions: RegionItem[]
   media: Record<string, MediaItem>
 }

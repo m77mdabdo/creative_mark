@@ -718,7 +718,7 @@
  "regions": [
   {
    "slug": "riyadh",
-   "media": "cm-riyadh-tower",
+   "media": "hero-riyadh-night",
    "services": [
     "formation",
     "consulting",
@@ -764,7 +764,7 @@
   },
   {
    "slug": "makkah",
-   "media": "jeddah-coast",
+   "media": "reg-makkah",
    "services": [
     "formation",
     "licensing",
@@ -810,7 +810,7 @@
   },
   {
    "slug": "madinah",
-   "media": "cm-madinah",
+   "media": "reg-madinah",
    "services": [
     "formation",
     "licensing"
@@ -854,7 +854,7 @@
   },
   {
    "slug": "eastern",
-   "media": "cm-refinery",
+   "media": "reg-eastern",
    "services": [
     "formation",
     "licensing",
@@ -900,7 +900,7 @@
   },
   {
    "slug": "qassim",
-   "media": "cm-farm",
+   "media": "reg-qassim",
    "services": [
     "formation",
     "feasibility"
@@ -944,7 +944,7 @@
   },
   {
    "slug": "asir",
-   "media": "cm-abha",
+   "media": "reg-asir",
    "services": [
     "formation",
     "tours"
@@ -987,7 +987,7 @@
   },
   {
    "slug": "tabuk",
-   "media": "cm-tabuk",
+   "media": "reg-tabuk",
    "services": [
     "formation",
     "tours",
@@ -1032,7 +1032,7 @@
   },
   {
    "slug": "hail",
-   "media": "cm-greenhouse",
+   "media": "reg-hail",
    "services": [
     "formation",
     "feasibility"
@@ -1076,7 +1076,7 @@
   },
   {
    "slug": "jazan",
-   "media": "cm-port",
+   "media": "reg-jazan",
    "services": [
     "formation",
     "licensing"
@@ -1120,7 +1120,7 @@
   },
   {
    "slug": "najran",
-   "media": "cm-quarry",
+   "media": "reg-najran",
    "services": [
     "formation",
     "licensing"
@@ -1163,7 +1163,7 @@
   },
   {
    "slug": "al-baha",
-   "media": "cm-abha2",
+   "media": "reg-al-baha",
    "services": [
     "formation",
     "tours"
@@ -1207,7 +1207,7 @@
   },
   {
    "slug": "al-jouf",
-   "media": "cm-tractor",
+   "media": "reg-al-jouf",
    "services": [
     "formation",
     "feasibility"
@@ -1250,7 +1250,7 @@
   },
   {
    "slug": "northern-borders",
-   "media": "cm-mining",
+   "media": "reg-northern-borders",
    "services": [
     "formation",
     "licensing"

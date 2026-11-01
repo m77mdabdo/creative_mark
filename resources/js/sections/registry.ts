@@ -1,11 +1,13 @@
 import type { ComponentType } from 'react'
 import type { SectionType } from '@/types'
+import Comparison from './Comparison'
 import ConsultationCta from './ConsultationCta'
 import Countries from './Countries'
 import FaqPreview from './FaqPreview'
 import Hero from './Hero/Hero'
 import ImageText from './ImageText'
 import Journey from './Journey'
+import RegionGrid from './RegionGrid'
 import RegionsMapSection from './RegionsMap/RegionsMapSection'
 import Sectors from './Sectors'
 import ProcessSteps from './ProcessSteps'
@@ -38,4 +40,6 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   cards: WhyInvest,
   serviceGroups: ServiceGroups,
   processSteps: ProcessSteps,
+  comparison: Comparison,
+  regionGrid: RegionGrid,
 }

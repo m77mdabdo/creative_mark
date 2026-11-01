@@ -42,6 +42,25 @@ They are used under the [Unsplash License](https://unsplash.com/license) (free c
 | svc-international-acquisition | Sean Pollock | https://unsplash.com/photos/PhYq704ffdA |
 | svc-licensing-and-government-approvals | Amina Atar | https://unsplash.com/photos/4mEyvORkbN0 |
 
+## Regions (`public/media/regions`, WebP at 800 / 1280 / 1920 / 2560 px)
+
+The Riyadh region uses `hero-riyadh-night` and the regions hero `hero-neom-hisma` (see Hero above); the Our edge page reuses `hero-riyadh-kafd` and `cm-riyadh-aerial2`.
+
+| File key | Subject | Photographer | Source |
+| --- | --- | --- | --- |
+| reg-makkah | Jeddah waterfront and towers along the Red Sea | Suhrid | https://unsplash.com/photos/Zfk19D5hmGc |
+| reg-madinah | Al-Masjid an-Nabawi, Madinah | djonk creative | https://unsplash.com/photos/AdZ68iA9X08 |
+| reg-eastern | Sunset over the Gulf in Dammam | Usama Fakhry | https://unsplash.com/photos/G6Mbil33Rmw |
+| reg-qassim | Date palm farm in central Saudi Arabia | yaser alakeel | https://unsplash.com/photos/gwkR5ZxVyX4 |
+| reg-asir | Sunrise over the highlands of Abha | Abdul Basith A Y | https://unsplash.com/photos/iHej0vXizMs |
+| reg-tabuk | Sandstone formations of the Hisma Desert, NEOM | NEOM | https://unsplash.com/photos/yT7En_eUUnI |
+| reg-hail | Sand dunes and granite mountains of Ha’il | Rabah Al Shammary | https://unsplash.com/photos/7vOpzRF33Zo |
+| reg-jazan | Sunset over the sea from a coastal promenade | Abdulaziz Alfawzan | https://unsplash.com/photos/VaySrAWMJ9Y |
+| reg-najran | Excavators and haul trucks at a mining site | Dominik Vanyi | https://unsplash.com/photos/Mk2ls9UBO2E |
+| reg-al-baha | Green mountain landscape in south-western Saudi Arabia | Rikaz Basyouni | https://unsplash.com/photos/ImO6__H9wnE |
+| reg-al-jouf | Irrigated farmland in the Saudi desert | Ameer Albahouth | https://unsplash.com/photos/OnA4H-GYs28 |
+| reg-northern-borders | Haul trucks at a mineral extraction site, seen from above | Shane McLendon | https://unsplash.com/photos/EN1tF2EG-50 |
+
 ## Other sections (`public/media/placeholders`)
 
 Prototype placeholders (Unsplash); the list with alt text is in `database/seeders/data/media.json`.

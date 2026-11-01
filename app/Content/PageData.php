@@ -100,6 +100,41 @@ final class PageData
         return $props;
     }
 
+    /**
+     * A region's detail page: the region from the catalogue, its recommended services and three neighbours
+     * in catalogue order for further exploration.
+     *
+     * @return array<string, mixed>
+     */
+    public function forRegion(string $slug, string $locale): array
+    {
+        $catalogue = $this->catalogue($locale, 0);
+        $regions = collect($catalogue['regions']);
+        $index = $regions->search(fn ($r) => $r['slug'] === $slug);
+        abort_if($index === false, 404);
+        $region = $regions[$index];
+        $services = collect($catalogue['services'])->keyBy('slug');
+        $related = collect($region['services'])->map(fn ($s) => $services[$s] ?? null)->filter()->values()->all();
+        $others = collect(range(1, 3))->map(fn ($i) => $regions[($index + $i) % $regions->count()])->all();
+        $page = Page::query()->where('key', 'regions')->withLocale($locale)->first();
+
+        return [
+            'pageKey' => 'region',
+            'title' => $region['name'],
+            'regionsTitle' => $page?->t('title', $locale) ?? 'Regions',
+            'seo' => [
+                'title' => "{$region['name']} | {$region['bestFor']} | Creative Mark",
+                'description' => mb_strimwidth((string) $region['description'], 0, 300, '…'),
+            ],
+            'reviewStatus' => ReviewStatus::Approved->value,
+            'region' => $region,
+            'industries' => $catalogue['industries'],
+            'related' => $related,
+            'otherRegions' => $others,
+            'media' => $this->mediaFor([$region['media'], ...array_column($related, 'media'), ...array_column($others, 'media'), 'about-kingdom-centre'], $locale),
+        ];
+    }
+
     /** @param array<string, mixed> $s */
     private function localizeSection(array $s, string $locale): array
     {
@@ -186,6 +221,7 @@ final class PageData
                 ...array_column($s['cards'], 'media'), ...array_column($s['slides'], 'media'));
         }
         array_push($ids, ...array_column($catalogue['services'], 'media'), ...array_column($catalogue['regions'], 'media'));
+        // Section backgrounds may name any library image, not only those referenced by content.
 
         return $this->mediaFor($ids, $locale);
     }

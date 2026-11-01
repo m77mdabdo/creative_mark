@@ -1,0 +1,157 @@
+{
+ "key": "regions",
+ "sections": [
+  {
+   "id": "regions-hero",
+   "type": "hero",
+   "label": "Hero",
+   "eyebrow": {
+    "en": "Saudi Arabia’s 13 regions",
+    "ar": "مناطق المملكة الثلاث عشرة"
+   },
+   "title": {
+    "en": "13 regions. Different opportunities. One market.",
+    "ar": "13 منطقة. فرص مختلفة. سوق واحد."
+   },
+   "highlight": {
+    "en": "One market.",
+    "ar": "سوق واحد."
+   },
+   "subtitle": {
+    "en": "The right location can directly affect your access to customers, suppliers, talent, logistics networks and future expansion.",
+    "ar": "يؤثر الموقع الصحيح مباشرة على وصولك إلى العملاء والموردين والكفاءات وشبكات الإمداد والتوسع المستقبلي."
+   },
+   "media": "hero-neom-hisma",
+   "buttons": [
+    {
+     "label": {
+      "en": "Find the right region with us",
+      "ar": "اختر المنطقة المناسبة معنا"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 50,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "regions-map",
+   "type": "map",
+   "label": "Interactive map",
+   "eyebrow": {
+    "en": "Interactive map",
+    "ar": "خريطة تفاعلية"
+   },
+   "title": {
+    "en": "Best places for each sector in Saudi Arabia",
+    "ar": "أفضل المناطق لكل قطاع في السعودية"
+   },
+   "body": {
+    "en": "We evaluate your activity, customer profile, operating model, supply chain, investment size and long-term strategy before recommending a location.",
+    "ar": "نقيّم نشاطك وعملاءك ونموذج التشغيل وسلسلة الإمداد وحجم الاستثمار واستراتيجيتك طويلة المدى قبل التوصية بالموقع."
+   },
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "charcoal",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "regions-grid",
+   "type": "regionGrid",
+   "label": "All regions",
+   "eyebrow": {
+    "en": "Explore the regions",
+    "ar": "استكشف المناطق"
+   },
+   "title": {
+    "en": "Where each sector fits best",
+    "ar": "أين يناسب كل قطاع"
+   },
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "regions-cta",
+   "type": "cta",
+   "label": "Call to action",
+   "title": {
+    "en": "Not sure which region fits your plans?",
+    "ar": "لست متأكداً أي منطقة تناسب خططك؟"
+   },
+   "body": {
+    "en": "Our consultants compare locations against your activity, customers and supply chain before you commit.",
+    "ar": "يقارن مستشارونا المواقع وفق نشاطك وعملائك وسلسلة الإمداد قبل أن تلتزم."
+   },
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 78,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "reg-hail"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Regions",
+   "seo_title": "Saudi Arabia’s 13 regions | Investment opportunities | Creative Mark",
+   "seo_description": "Compare Saudi Arabia’s 13 regions and the sectors each one suits best, from business services in Riyadh to tourism in Asir and mining in Najran."
+  },
+  "ar": {
+   "title": "المناطق",
+   "seo_title": "مناطق المملكة الثلاث عشرة | الفرص الاستثمارية | كرييتف مارك",
+   "seo_description": "قارن بين مناطق المملكة الثلاث عشرة والقطاعات الأنسب لكل منها، من خدمات الأعمال في الرياض إلى السياحة في عسير والتعدين في نجران."
+  }
+ }
+}

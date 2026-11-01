@@ -812,5 +812,185 @@
    1920,
    2560
   ]
+ },
+ "reg-makkah": {
+  "alt": {
+   "en": "Jeddah waterfront and towers along the Red Sea",
+   "ar": "واجهة جدة البحرية وأبراجها على البحر الأحمر"
+  },
+  "credit": "Suhrid / Unsplash",
+  "source": "https://unsplash.com/photos/Zfk19D5hmGc",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-madinah": {
+  "alt": {
+   "en": "Al-Masjid an-Nabawi, Madinah",
+   "ar": "المسجد النبوي، المدينة المنورة"
+  },
+  "credit": "djonk creative / Unsplash",
+  "source": "https://unsplash.com/photos/AdZ68iA9X08",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-eastern": {
+  "alt": {
+   "en": "Sunset over the Gulf in Dammam",
+   "ar": "غروب الشمس على الخليج في الدمام"
+  },
+  "credit": "Usama Fakhry / Unsplash",
+  "source": "https://unsplash.com/photos/G6Mbil33Rmw",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-qassim": {
+  "alt": {
+   "en": "Date palm farm in central Saudi Arabia",
+   "ar": "مزرعة نخيل في وسط المملكة العربية السعودية"
+  },
+  "credit": "yaser alakeel / Unsplash",
+  "source": "https://unsplash.com/photos/gwkR5ZxVyX4",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-asir": {
+  "alt": {
+   "en": "Sunrise over the highlands of Abha",
+   "ar": "شروق الشمس على مرتفعات أبها"
+  },
+  "credit": "Abdul Basith A Y / Unsplash",
+  "source": "https://unsplash.com/photos/iHej0vXizMs",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-tabuk": {
+  "alt": {
+   "en": "Sandstone formations of the Hisma Desert, NEOM",
+   "ar": "تكوينات الحجر الرملي في صحراء حسمى، نيوم"
+  },
+  "credit": "NEOM / Unsplash",
+  "source": "https://unsplash.com/photos/yT7En_eUUnI",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-hail": {
+  "alt": {
+   "en": "Sand dunes and granite mountains of Ha’il",
+   "ar": "كثبان رملية وجبال جرانيتية في حائل"
+  },
+  "credit": "Rabah Al Shammary / Unsplash",
+  "source": "https://unsplash.com/photos/7vOpzRF33Zo",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-jazan": {
+  "alt": {
+   "en": "Sunset over the sea from a coastal promenade",
+   "ar": "غروب الشمس على البحر من ممشى ساحلي"
+  },
+  "credit": "Abdulaziz Alfawzan / Unsplash",
+  "source": "https://unsplash.com/photos/VaySrAWMJ9Y",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-najran": {
+  "alt": {
+   "en": "Excavators and haul trucks at a mining site",
+   "ar": "حفارات وشاحنات في موقع تعدين"
+  },
+  "credit": "Dominik Vanyi / Unsplash",
+  "source": "https://unsplash.com/photos/Mk2ls9UBO2E",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-al-baha": {
+  "alt": {
+   "en": "Green mountain landscape in south-western Saudi Arabia",
+   "ar": "طبيعة جبلية خضراء في جنوب غرب المملكة"
+  },
+  "credit": "Rikaz Basyouni / Unsplash",
+  "source": "https://unsplash.com/photos/ImO6__H9wnE",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-al-jouf": {
+  "alt": {
+   "en": "Irrigated farmland in the Saudi desert",
+   "ar": "أراضٍ زراعية مروية في الصحراء السعودية"
+  },
+  "credit": "Ameer Albahouth / Unsplash",
+  "source": "https://unsplash.com/photos/OnA4H-GYs28",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "reg-northern-borders": {
+  "alt": {
+   "en": "Haul trucks at a mineral extraction site, seen from above",
+   "ar": "شاحنات في موقع لاستخراج المعادن من الأعلى"
+  },
+  "credit": "Shane McLendon / Unsplash",
+  "source": "https://unsplash.com/photos/EN1tF2EG-50",
+  "folder": "regions",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
  }
 }

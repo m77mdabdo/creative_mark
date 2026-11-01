@@ -1,24 +1,25 @@
 import { useRef } from 'react'
-import { Head as InertiaHead } from '@inertiajs/react'
+import { Head } from '@inertiajs/react'
+import { useSite } from '@/hooks/useSite'
 import SiteLayout from '@/layouts/SiteLayout'
-import { SECTIONS } from '@/sections'
 import { useMotion } from '@/motion/useMotion'
-import { useSite } from '@/lib/useSite'
+import { SECTION_COMPONENTS } from '@/sections/registry'
 import type { HomeProps } from '@/types'
 
-export default function Home(props: HomeProps) {
+export default function Home(page: HomeProps) {
   const { locale } = useSite()
   const scope = useRef<HTMLDivElement>(null)
   useMotion(scope, `home-${locale.code}`)
-  return <SiteLayout notice={props.reviewStatus === 'approved' ? null : props.reviewStatus}>
-    <InertiaHead>
-      <title>{props.seo.title}</title>
-      <meta name="description" content={props.seo.description} />
-    </InertiaHead>
+
+  return <SiteLayout showTranslationNotice={page.reviewStatus !== 'approved'}>
+    <Head>
+      <title>{page.seo.title}</title>
+      <meta name="description" content={page.seo.description} />
+    </Head>
     <div ref={scope}>
-      {props.sections.map(s => {
-        const C = SECTIONS[s.type]
-        return C ? <C key={s.id} s={s} data={props} /> : null
+      {page.sections.map(section => {
+        const Component = SECTION_COMPONENTS[section.type]
+        return <Component key={section.id} section={section} page={page} />
       })}
     </div>
   </SiteLayout>

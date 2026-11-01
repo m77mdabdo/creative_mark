@@ -17,7 +17,7 @@
     "en": "Company formation, investment licensing and business solutions for investors building in Saudi Arabia.",
     "ar": "تأسيس الشركات والتراخيص الاستثمارية وحلول الأعمال للمستثمرين في المملكة العربية السعودية."
    },
-   "media": "riyadh-kingdom-dusk",
+   "media": "riyadh-night",
    "buttons": [
     {
      "label": {
@@ -38,14 +38,18 @@
    ],
    "style": {
     "theme": "dark",
-    "overlay": 45,
+    "overlay": 40,
     "padding": "lg",
-    "align": "start"
+    "align": "center"
    },
    "motion": {
     "preset": "zoom-in",
     "intensity": 100,
     "delay": 0
+   },
+   "highlight": {
+    "en": "One place,",
+    "ar": "مكان واحد،"
    }
   },
   {
@@ -174,7 +178,7 @@
     }
    ],
    "style": {
-    "theme": "ivory",
+    "theme": "charcoal",
     "overlay": 55,
     "padding": "lg",
     "align": "start"
@@ -201,12 +205,12 @@
     "en": "We work with entrepreneurs, companies and investors from different markets who want to establish or expand their businesses in Saudi Arabia. Our international experience helps us understand different ownership structures, corporate requirements, investment objectives and market-entry challenges.",
     "ar": "نعمل مع رواد أعمال وشركات ومستثمرين من أسواق مختلفة يرغبون في التأسيس أو التوسع في المملكة. وتساعدنا خبرتنا الدولية على فهم هياكل الملكية المختلفة ومتطلبات الشركات وأهداف الاستثمار وتحديات دخول السوق."
    },
-   "media": "cm-earth",
    "style": {
     "theme": "dark",
-    "overlay": 55,
+    "overlay": 88,
     "padding": "lg",
-    "align": "start"
+    "align": "start",
+    "bgMedia": "cm-riyadh-aerial2"
    },
    "motion": {
     "preset": "fade-up",
@@ -340,7 +344,7 @@
    },
    "style": {
     "theme": "dark",
-    "overlay": 85,
+    "overlay": 78,
     "padding": "lg",
     "align": "center",
     "bgMedia": "riyadh-kingdom-dusk"
@@ -349,6 +353,10 @@
     "preset": "counter",
     "intensity": 100,
     "delay": 0
+   },
+   "highlight": {
+    "en": "build trust",
+    "ar": "تبني الثقة"
    }
   },
   {
@@ -375,7 +383,7 @@
    ],
    "limit": 11,
    "style": {
-    "theme": "ivory",
+    "theme": "dark",
     "overlay": 55,
     "padding": "lg",
     "align": "start"
@@ -403,7 +411,7 @@
     "ar": "يؤثر الموقع الصحيح مباشرة على وصولك إلى العملاء والموردين والكفاءات وشبكات الإمداد والتوسع المستقبلي. نقيّم نشاطك وعملاءك ونموذج التشغيل وسلسلة الإمداد وحجم الاستثمار والاستراتيجية قبل التوصية بالموقع."
    },
    "style": {
-    "theme": "dark",
+    "theme": "charcoal",
     "overlay": 55,
     "padding": "lg",
     "align": "start"
@@ -438,10 +446,11 @@
    ],
    "limit": 6,
    "style": {
-    "theme": "ivory",
-    "overlay": 55,
+    "theme": "dark",
+    "overlay": 90,
     "padding": "lg",
-    "align": "start"
+    "align": "start",
+    "bgMedia": "cm-riyadh-tower"
    },
    "motion": {
     "preset": "fade-up",
@@ -482,7 +491,7 @@
    ],
    "style": {
     "theme": "dark",
-    "overlay": 70,
+    "overlay": 72,
     "padding": "lg",
     "align": "center",
     "bgMedia": "cm-boardroom"
@@ -506,10 +515,11 @@
     "ar": "خبرة يمكن قياسها"
    },
    "style": {
-    "theme": "dark",
-    "overlay": 55,
+    "theme": "charcoal",
+    "overlay": 90,
     "padding": "lg",
-    "align": "center"
+    "align": "center",
+    "bgMedia": "riyadh-aerial"
    },
    "motion": {
     "preset": "stagger-cards",

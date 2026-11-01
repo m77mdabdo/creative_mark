@@ -64,7 +64,7 @@ final class HomePageData
     {
         $pick = fn (?array $map) => $map === null ? null : (filled($map[$locale] ?? null) ? $map[$locale] : $map[Locales::FALLBACK]);
 
-        foreach (['eyebrow', 'title', 'subtitle', 'body'] as $k) {
+        foreach (['eyebrow', 'title', 'highlight', 'subtitle', 'body'] as $k) {
             if (isset($s[$k])) {
                 $s[$k] = $pick($s[$k]);
             }
@@ -106,7 +106,7 @@ final class HomePageData
             'industries' => array_map(fn ($l) => $l[$locale] ?? $l[Locales::FALLBACK], $industries),
             // RULE-01: only verified figures are sent
             'stats' => Stat::query()->where('verified', true)->orderBy('sort_order')->withLocale($locale)->get()
-                ->map(fn (Stat $m) => ['key' => $m->key, 'value' => $m->value, 'label' => $m->t('label', $locale)])->all(),
+                ->map(fn (Stat $m) => ['key' => $m->key, 'value' => $m->value, 'icon' => $m->icon, 'label' => $m->t('label', $locale)])->all(),
             'countries' => Country::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get()
                 ->map(fn (Country $m) => ['code' => $m->code, 'name' => $m->t('name', $locale)])->all(),
             'faqs' => Faq::query()->where('status', 'published')->where('show_on_home', true)->where('needs_review', false)

@@ -1,4 +1,7 @@
-/* Interface strings (not CMS content). Moves to the ui_strings table with the translation workspace (FR-181). */
+/**
+ * Interface strings (labels, controls, notices), as opposed to CMS content.
+ * They move to the ui_strings table with the translation workspace (FR-181); until then add keys here.
+ */
 const STRINGS = {
   skip: { en: 'Skip to content', ar: 'تخطَّ إلى المحتوى' },
   menu: { en: 'Menu', ar: 'القائمة' },

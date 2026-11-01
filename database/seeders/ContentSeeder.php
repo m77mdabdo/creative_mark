@@ -45,7 +45,7 @@ class ContentSeeder extends Seeder
         }
 
         foreach ($c['stats'] as $i => $s) {
-            $m = Stat::updateOrCreate(['key' => $s['key']], ['value' => $s['value'], 'group' => $s['group'], 'verified' => $s['verified'], 'source' => $s['source'], 'sort_order' => $i + 1]);
+            $m = Stat::updateOrCreate(['key' => $s['key']], ['value' => $s['value'], 'icon' => $s['icon'] ?? null, 'group' => $s['group'], 'verified' => $s['verified'], 'source' => $s['source'], 'sort_order' => $i + 1]);
             $this->translate($m, ['label' => $s['label']]);
         }
 

@@ -9,7 +9,7 @@ class Stat extends Model
 {
     use HasTranslations;
 
-    protected $fillable = ['key', 'value', 'group', 'verified', 'source', 'source_url', 'sort_order'];
+    protected $fillable = ['key', 'value', 'icon', 'group', 'verified', 'source', 'source_url', 'sort_order'];
 
     protected function casts(): array
     {

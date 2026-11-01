@@ -19,9 +19,9 @@ final class SectionSchema
 
     public const MOTION = ['none', 'fade-up', 'reveal-mask', 'zoom-in', 'parallax-slow', 'stagger-cards', 'counter', 'line-draw'];
 
-    private const TEXT = ['eyebrow', 'title', 'subtitle', 'body'];
+    private const TEXT = ['eyebrow', 'title', 'highlight', 'subtitle', 'body'];
 
-    private const KEYS = ['id', 'type', 'label', 'hidden', 'eyebrow', 'title', 'subtitle', 'body', 'media', 'media2', 'buttons', 'cards', 'limit', 'style', 'motion'];
+    private const KEYS = ['id', 'type', 'label', 'hidden', 'eyebrow', 'title', 'highlight', 'subtitle', 'body', 'media', 'media2', 'buttons', 'cards', 'limit', 'style', 'motion'];
 
     private const CARD_KEYS = ['id', 'title', 'text', 'icon', 'media', 'verified'];
 

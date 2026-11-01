@@ -900,7 +900,8 @@
     "ar": "شركة تم تأسيسها"
    },
    "verified": true,
-   "source": "Owner statement, 2026-11-01"
+   "source": "Owner statement, 2026-11-01",
+   "icon": "Building2"
   },
   {
    "key": "years-experience",
@@ -911,7 +912,8 @@
     "ar": "سنوات من الخبرة"
    },
    "verified": true,
-   "source": "Owner statement, 2026-11-01"
+   "source": "Owner statement, 2026-11-01",
+   "icon": "CalendarCheck"
   },
   {
    "key": "s2",
@@ -922,7 +924,8 @@
     "ar": "ترخيص استثماري"
    },
    "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "source": "Presentation p6/p29 (unverified, Q-01)",
+   "icon": "FileCheck2"
   },
   {
    "key": "s3",
@@ -933,7 +936,8 @@
     "ar": "ترخيص بلدي"
    },
    "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "source": "Presentation p6/p29 (unverified, Q-01)",
+   "icon": "Landmark"
   },
   {
    "key": "s4",
@@ -944,7 +948,8 @@
     "ar": "ترخيص صناعي"
    },
    "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "source": "Presentation p6/p29 (unverified, Q-01)",
+   "icon": "Shapes"
   },
   {
    "key": "s5",
@@ -955,7 +960,8 @@
     "ar": "اعتماد مهني"
    },
    "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "source": "Presentation p6/p29 (unverified, Q-01)",
+   "icon": "Award"
   },
   {
    "key": "s6",

@@ -151,6 +151,28 @@ html[dir="rtl"] .measure { max-width: 56ch; }
 
 }
 
+/* Cinematic hero layers (Hero.tsx): slow drift, warm light sweep, film grain, vignette. */
+.hero-drift { animation: cm-drift 38s ease-in-out infinite alternate; will-change: transform; }
+.hero-light {
+  background: radial-gradient(60% 55% at 78% 22%, color-mix(in srgb, var(--cm-gold) 26%, transparent), transparent 70%);
+  mix-blend-mode: soft-light;
+  animation: cm-light 18s ease-in-out infinite alternate;
+}
+.hero-vignette { background: radial-gradient(120% 90% at 50% 45%, transparent 45%, rgba(0,0,0,.72) 100%); }
+.hero-grain {
+  inset: -50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .09;
+  mix-blend-mode: overlay;
+  animation: cm-grain 1.2s steps(6) infinite;
+}
+@keyframes cm-drift { from { transform: scale(1.04) translate3d(0, 0, 0); } to { transform: scale(1.12) translate3d(-1.5%, -1%, 0); } }
+@keyframes cm-light { from { opacity: .55; transform: translateX(-4%); } to { opacity: 1; transform: translateX(4%); } }
+@keyframes cm-grain {
+  0% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); } 80% { transform: translate(3%, 3%); } 100% { transform: translate(0, 0); }
+}
+
 @keyframes cm-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes cm-kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) {

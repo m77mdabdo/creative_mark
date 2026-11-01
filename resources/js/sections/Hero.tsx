@@ -9,17 +9,24 @@ export default function Hero({ section, page }: SectionProps) {
   const { t } = useSite()
   const { overlay, align } = section.style
   const centered = align === 'center'
+  const cinematic = section.motion.preset !== 'none'
   const rise = (delay: number) => ({ animation: `cm-rise 1.1s var(--ease-out) ${delay}s both` })
 
   return <section id={section.id} data-type="hero" aria-labelledby={`${section.id}-title`}
     className="th-dark relative flex min-h-[88svh] items-end overflow-hidden lg:min-h-[100svh]">
+    {/* Layers, back to front: photo (load zoom + endless slow drift), warm light, scrim, vignette, film grain. */}
     <div className="absolute inset-0 overflow-hidden" aria-hidden>
-      <Media media={section.media ? page.media[section.media] : undefined} eager decorative className="h-full w-full"
-        {...(section.motion.preset === 'none' ? {} : { 'data-motion': 'zoom' })} />
+      <div className={`h-full w-full ${cinematic ? 'hero-drift' : ''}`}>
+        <Media media={section.media ? page.media[section.media] : undefined} eager decorative sizes="100vw" className="h-full w-full"
+          {...(cinematic ? { 'data-motion': 'zoom' } : {})} />
+      </div>
+      {cinematic && <div className="hero-light absolute inset-0" />}
+      <div className="absolute inset-0" style={{
+        background: `linear-gradient(180deg, rgba(8,8,9,${Math.min(0.9, overlay / 140)}) 0%, rgba(8,8,9,${overlay / 100}) 45%, rgba(8,8,9,.95) 100%)`,
+      }} />
+      <div className="hero-vignette absolute inset-0" />
+      {cinematic && <div className="hero-grain pointer-events-none absolute" />}
     </div>
-    <div className="absolute inset-0" aria-hidden style={{
-      background: `linear-gradient(180deg, rgba(8,8,9,${Math.min(0.9, overlay / 140)}) 0%, rgba(8,8,9,${overlay / 100}) 45%, rgba(8,8,9,.95) 100%)`,
-    }} />
 
     <div className={`wrap relative pb-14 pt-32 md:pb-24 lg:pt-44 ${centered ? 'text-center' : ''}`}>
       <div className={`max-w-5xl ${centered ? 'mx-auto' : ''}`}>

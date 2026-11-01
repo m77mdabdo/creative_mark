@@ -75,6 +75,10 @@ final class HomePageData
             fn ($c) => [...$c, 'title' => $pick($c['title'] ?? null), 'text' => $pick($c['text'] ?? null)],
             array_filter($s['cards'] ?? [], fn ($c) => ($c['verified'] ?? true) === true),
         ));
+        $s['slides'] = array_map(fn ($slide) => [
+            ...$slide,
+            ...array_map($pick, array_intersect_key($slide, array_flip(['eyebrow', 'title', 'highlight', 'subtitle']))),
+        ], $s['slides'] ?? []);
         unset($s['label']);
 
         return $s;
@@ -131,7 +135,8 @@ final class HomePageData
     {
         $ids = [];
         foreach ($sections as $s) {
-            array_push($ids, $s['media'] ?? null, $s['media2'] ?? null, $s['style']['bgMedia'] ?? null, ...array_column($s['cards'], 'media'));
+            array_push($ids, $s['media'] ?? null, $s['media2'] ?? null, $s['style']['bgMedia'] ?? null,
+                ...array_column($s['cards'], 'media'), ...array_column($s['slides'], 'media'));
         }
         array_push($ids, ...array_column($catalogue['services'], 'media'), ...array_column($catalogue['regions'], 'media'));
         $alts = Setting::group('media')['placeholders'] ?? [];
@@ -141,10 +146,12 @@ final class HomePageData
             if (! isset($alts[$id])) {
                 continue;
             }
-            $base = "/media/placeholders/$id";
+            // Each entry knows its folder and generated widths (hero photography has larger renditions).
+            $base = '/media/'.($alts[$id]['folder'] ?? 'placeholders')."/$id";
+            $widths = $alts[$id]['widths'] ?? [800, 1600];
             $out[$id] = [
-                'src' => "$base-1600.webp",
-                'srcset' => "$base-800.webp 800w, $base-1600.webp 1600w",
+                'src' => "$base-".$widths[intdiv(count($widths), 2)].'.webp',
+                'srcset' => implode(', ', array_map(fn (int $w) => "$base-$w.webp {$w}w", $widths)),
                 'alt' => $alts[$id]['alt'][$locale] ?? $alts[$id]['alt'][Locales::FALLBACK],
             ];
         }

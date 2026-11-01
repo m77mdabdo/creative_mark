@@ -14,6 +14,9 @@ export type SectionType =
   | 'hero' | 'whyInvest' | 'journey' | 'countries' | 'sectors' | 'trackRecord'
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
 
+/** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
+export type Slide = { id: string; media: string; eyebrow?: string | null; title?: string | null; highlight?: string | null; subtitle?: string | null }
+
 export type SectionTheme = 'dark' | 'charcoal' | 'ivory' | 'white'
 
 export type Section = {
@@ -30,6 +33,7 @@ export type Section = {
   limit?: number
   buttons: Button[]
   cards: Card[]
+  slides: Slide[]
   style: { theme: SectionTheme; overlay: number; padding: 'sm' | 'md' | 'lg'; align: 'start' | 'center'; bgMedia?: string }
   motion: { preset: MotionPreset; intensity: number; delay: number }
 }

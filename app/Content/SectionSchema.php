@@ -21,9 +21,14 @@ final class SectionSchema
 
     private const TEXT = ['eyebrow', 'title', 'highlight', 'subtitle', 'body'];
 
-    private const KEYS = ['id', 'type', 'label', 'hidden', 'eyebrow', 'title', 'highlight', 'subtitle', 'body', 'media', 'media2', 'buttons', 'cards', 'limit', 'style', 'motion'];
+    private const KEYS = ['id', 'type', 'label', 'hidden', 'eyebrow', 'title', 'highlight', 'subtitle', 'body', 'media', 'media2', 'buttons', 'cards', 'slides', 'limit', 'style', 'motion'];
 
     private const CARD_KEYS = ['id', 'title', 'text', 'icon', 'media', 'verified'];
+
+    /** Hero slideshow: each slide has its own image and copy; buttons stay with the section. */
+    private const SLIDE_KEYS = ['id', 'media', 'eyebrow', 'title', 'highlight', 'subtitle'];
+
+    private const MAX_SLIDES = 10;
 
     /** @param  list<array<string, mixed>>  $sections */
     public static function validate(array $sections): void
@@ -81,6 +86,22 @@ final class SectionSchema
             array_push($e, ...self::localeMap($c['title'] ?? null, 'card title'), ...self::localeMap($c['text'] ?? null, 'card text'));
             if (isset($c['media']) && ! self::mediaKey($c['media'])) {
                 $e[] = 'Invalid card media.';
+            }
+        }
+        $slides = $s['slides'] ?? [];
+        if (! is_array($slides) || count($slides) > self::MAX_SLIDES) {
+            $e[] = 'At most '.self::MAX_SLIDES.' slides.';
+            $slides = [];
+        }
+        foreach ($slides as $slide) {
+            foreach (array_diff(array_keys((array) $slide), self::SLIDE_KEYS) as $k) {
+                $e[] = "Unknown slide field [$k].";
+            }
+            if (! self::mediaKey($slide['media'] ?? null)) {
+                $e[] = 'Every slide needs an image.';
+            }
+            foreach (['eyebrow', 'title', 'highlight', 'subtitle'] as $k) {
+                array_push($e, ...self::localeMap($slide[$k] ?? null, "slide $k"));
             }
         }
         $style = $s['style'] ?? [];

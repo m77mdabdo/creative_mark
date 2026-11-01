@@ -17,7 +17,7 @@
     "en": "Company formation, investment licensing and business solutions for investors building in Saudi Arabia.",
     "ar": "تأسيس الشركات والتراخيص الاستثمارية وحلول الأعمال للمستثمرين في المملكة العربية السعودية."
    },
-   "media": "riyadh-night",
+   "media": "hero-riyadh-kingdom-dusk",
    "buttons": [
     {
      "label": {
@@ -50,7 +50,141 @@
    "highlight": {
     "en": "One place,",
     "ar": "مكان واحد،"
-   }
+   },
+   "slides": [
+    {
+     "id": "slide-1",
+     "media": "hero-riyadh-kingdom-dusk",
+     "eyebrow": {
+      "en": "Vision 2030 · Invest Saudi",
+      "ar": "رؤية 2030 · استثمر في السعودية"
+     },
+     "title": {
+      "en": "One place, endless solutions",
+      "ar": "مكان واحد، حلول لا تنتهي"
+     },
+     "subtitle": {
+      "en": "Company formation, investment licensing and business solutions for investors building in Saudi Arabia.",
+      "ar": "تأسيس الشركات والتراخيص الاستثمارية وحلول الأعمال للمستثمرين في المملكة العربية السعودية."
+     },
+     "highlight": {
+      "en": "One place,",
+      "ar": "مكان واحد،"
+     }
+    },
+    {
+     "id": "slide-2",
+     "media": "hero-riyadh-night",
+     "eyebrow": {
+      "en": "Riyadh Region",
+      "ar": "منطقة الرياض"
+     },
+     "title": {
+      "en": "Riyadh",
+      "ar": "الرياض"
+     },
+     "subtitle": {
+      "en": "Business services, consulting & corporate operations",
+      "ar": "خدمات الأعمال والاستشارات والعمليات المؤسسية"
+     }
+    },
+    {
+     "id": "slide-3",
+     "media": "hero-riyadh-kafd",
+     "eyebrow": {
+      "en": "The Creative Mark difference",
+      "ar": "الفرق مع كرييتف مارك"
+     },
+     "title": {
+      "en": "We don’t just open companies. We build market entry.",
+      "ar": "لا نفتح شركات فقط. نبني دخول السوق."
+     },
+     "subtitle": {
+      "en": "Company formation, investment licensing and business solutions for investors building in Saudi Arabia.",
+      "ar": "تأسيس الشركات والتراخيص الاستثمارية وحلول الأعمال للمستثمرين في المملكة العربية السعودية."
+     }
+    },
+    {
+     "id": "slide-4",
+     "media": "hero-alula-elephant-rock",
+     "eyebrow": {
+      "en": "AlUla · Madinah Region",
+      "ar": "العلا · منطقة المدينة المنورة"
+     },
+     "title": {
+      "en": "AlUla",
+      "ar": "العلا"
+     },
+     "subtitle": {
+      "en": "Hospitality & visitor-focused businesses",
+      "ar": "الضيافة والأعمال الموجهة للزوار"
+     }
+    },
+    {
+     "id": "slide-5",
+     "media": "hero-jeddah-al-balad",
+     "eyebrow": {
+      "en": "Makkah Region",
+      "ar": "منطقة مكة المكرمة"
+     },
+     "title": {
+      "en": "Historic Jeddah",
+      "ar": "جدة التاريخية"
+     },
+     "subtitle": {
+      "en": "Tourism, hospitality & visitor services",
+      "ar": "السياحة والضيافة وخدمات الزوار"
+     }
+    },
+    {
+     "id": "slide-6",
+     "media": "hero-abha-mountains",
+     "eyebrow": {
+      "en": "Asir Region",
+      "ar": "منطقة عسير"
+     },
+     "title": {
+      "en": "Abha",
+      "ar": "أبها"
+     },
+     "subtitle": {
+      "en": "Tourism & hospitality",
+      "ar": "السياحة والضيافة"
+     }
+    },
+    {
+     "id": "slide-7",
+     "media": "hero-neom-hisma",
+     "eyebrow": {
+      "en": "Tabuk Region",
+      "ar": "منطقة تبوك"
+     },
+     "title": {
+      "en": "NEOM",
+      "ar": "نيوم"
+     },
+     "subtitle": {
+      "en": "Tourism, hospitality & emerging opportunities",
+      "ar": "السياحة والضيافة والفرص الناشئة"
+     }
+    },
+    {
+     "id": "slide-8",
+     "media": "hero-neom-islands",
+     "eyebrow": {
+      "en": "Red Sea · NEOM",
+      "ar": "البحر الأحمر · نيوم"
+     },
+     "title": {
+      "en": "Your location should never limit your opportunity",
+      "ar": "موقعك يجب ألا يحد من فرصتك"
+     },
+     "subtitle": {
+      "en": "13 regions. Different opportunities. One market.",
+      "ar": "13 منطقة. فرص مختلفة. سوق واحد."
+     }
+    }
+   ]
   },
   {
    "id": "whyInvest",

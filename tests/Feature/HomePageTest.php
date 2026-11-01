@@ -66,6 +66,20 @@ class HomePageTest extends TestCase
             ->has('countries', 14));
     }
 
+    public function test_hero_slideshow_sends_eight_landmark_slides_with_large_renditions(): void
+    {
+        $this->get('/ar')->assertInertia(fn (Assert $page) => $page
+            ->has('sections.0.slides', 8)
+            ->where('sections.0.slides.0.title', 'مكان واحد، حلول لا تنتهي')
+            ->where('sections.0.slides.3.title', 'العلا')
+            ->where('media.hero-alula-elephant-rock.srcset', fn ($s) => str_contains($s, '/media/hero/hero-alula-elephant-rock-2560.webp 2560w'))
+            ->where('media.hero-alula-elephant-rock.alt', 'صخرة الفيل مضاءة ليلاً، العلا'));
+
+        foreach (['1280', '1920', '2560'] as $w) {
+            $this->assertFileExists(public_path("media/hero/hero-neom-islands-{$w}.webp"));
+        }
+    }
+
     public function test_arabic_content_is_flagged_until_reviewed(): void
     {
         $this->get('/ar')->assertInertia(fn (Assert $page) => $page

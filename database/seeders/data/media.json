@@ -460,5 +460,117 @@
    "ar": "دبي ليلاً"
   },
   "credit": "Unsplash"
+ },
+ "hero-riyadh-kingdom-dusk": {
+  "alt": {
+   "en": "Kingdom Centre tower against a golden evening sky, Riyadh",
+   "ar": "برج المملكة في سماء المساء الذهبية، الرياض"
+  },
+  "credit": "Ibrahim Abdullah / Unsplash",
+  "source": "https://unsplash.com/photos/_UxsPARhtOg",
+  "folder": "hero",
+  "widths": [
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "hero-riyadh-night": {
+  "alt": {
+   "en": "Riyadh skyline at night from above",
+   "ar": "أفق الرياض ليلاً من الأعلى"
+  },
+  "credit": "Saif Aldhaher / Unsplash",
+  "source": "https://unsplash.com/photos/vAkHAP27QMk",
+  "folder": "hero",
+  "widths": [
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "hero-riyadh-kafd": {
+  "alt": {
+   "en": "KAFD metro station lit at night, Riyadh",
+   "ar": "محطة مترو مركز الملك عبدالله المالي ليلاً، الرياض"
+  },
+  "credit": "Amanda Nicole / Unsplash",
+  "source": "https://unsplash.com/photos/9cbkE8kNUBA",
+  "folder": "hero",
+  "widths": [
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "hero-alula-elephant-rock": {
+  "alt": {
+   "en": "Elephant Rock illuminated at night, AlUla",
+   "ar": "صخرة الفيل مضاءة ليلاً، العلا"
+  },
+  "credit": "Xiaoqian Shen / Unsplash",
+  "source": "https://unsplash.com/photos/RwShKfaErck",
+  "folder": "hero",
+  "widths": [
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "hero-jeddah-al-balad": {
+  "alt": {
+   "en": "Historic coral-stone house with wooden rawasheen, Al-Balad, Jeddah",
+   "ar": "بيت تاريخي بالرواشين الخشبية في البلد، جدة"
+  },
+  "credit": "abdullah alallah / Unsplash",
+  "source": "https://unsplash.com/photos/GY1yuc1bdak",
+  "folder": "hero",
+  "widths": [
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "hero-abha-mountains": {
+  "alt": {
+   "en": "Mountain retreat on a cliff above green slopes, Abha",
+   "ar": "منتجع جبلي على جرف فوق المنحدرات الخضراء، أبها"
+  },
+  "credit": "Ben Latif / Unsplash",
+  "source": "https://unsplash.com/photos/pxnFeZIITnk",
+  "folder": "hero",
+  "widths": [
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "hero-neom-hisma": {
+  "alt": {
+   "en": "Sandstone plateau at sunset, Hisma Desert, NEOM",
+   "ar": "هضبة رملية عند الغروب، صحراء حسمى، نيوم"
+  },
+  "credit": "NEOM / Unsplash",
+  "source": "https://unsplash.com/photos/Iy59i0M7oP4",
+  "folder": "hero",
+  "widths": [
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "hero-neom-islands": {
+  "alt": {
+   "en": "Coral-fringed coast of the Red Sea, Islands of NEOM",
+   "ar": "ساحل البحر الأحمر وشعابه المرجانية، جزر نيوم"
+  },
+  "credit": "NEOM / Unsplash",
+  "source": "https://unsplash.com/photos/LAj90eAXOZA",
+  "folder": "hero",
+  "widths": [
+   1280,
+   1920,
+   2560
+  ]
  }
 }

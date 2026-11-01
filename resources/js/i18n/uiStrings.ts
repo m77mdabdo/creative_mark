@@ -35,6 +35,11 @@ const STRINGS = {
   unverified: { en: 'Name withheld until the client approves publication.', ar: 'الاسم محجوب حتى يوافق العميل على النشر.' },
   prev: { en: 'Previous', ar: 'السابق' },
   next: { en: 'Next', ar: 'التالي' },
+  pause: { en: 'Pause slideshow', ar: 'إيقاف العرض مؤقتاً' },
+  play: { en: 'Play slideshow', ar: 'تشغيل العرض' },
+  slide: { en: 'Slide', ar: 'شريحة' },
+  of: { en: 'of', ar: 'من' },
+  goToSlide: { en: 'Show slide', ar: 'عرض الشريحة' },
   photoNote: { en: 'Illustrative photography', ar: 'صور توضيحية' },
 } satisfies Record<string, { en: string; ar: string }>
 

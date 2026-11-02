@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Enums\Role;
 use App\Models\Country;
 use App\Models\Faq;
+use App\Models\NewsArticle;
 use App\Models\Region;
 use App\Models\Service;
 use App\Models\Stat;
@@ -48,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
         // Super Admin passes every gate (Phase E/F §8 rule 1); every other role is deny-by-default.
         Gate::before(fn (User $user) => $user->is_active && $user->hasRole(Role::SuperAdmin->value) ? true : null);
 
-        foreach ([Service::class, Region::class, Faq::class, Stat::class, Testimonial::class, Country::class] as $model) {
+        foreach ([Service::class, Region::class, Faq::class, Stat::class, Testimonial::class, Country::class, NewsArticle::class] as $model) {
             Gate::policy($model, CataloguePolicy::class);
         }
 

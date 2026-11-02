@@ -14,7 +14,7 @@ final class SectionSchema
         'hero', 'whyInvest', 'journey', 'countries', 'sectors', 'trackRecord',
         'services', 'map', 'faq', 'cta', 'testimonials',
         'statement', 'imageText', 'cards', 'serviceGroups', 'processSteps', 'comparison', 'regionGrid',
-        'guideNav', 'guideChapter', 'checklist', 'sourceList',
+        'guideNav', 'guideChapter', 'checklist', 'sourceList', 'newsLead', 'newsGrid',
     ];
 
     public const LAYOUTS = ['split', 'split-reverse'];

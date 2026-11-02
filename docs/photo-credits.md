@@ -77,6 +77,23 @@ The Riyadh region uses `hero-riyadh-night` and the regions hero `hero-neom-hisma
 | guide-drive | Road through the Saudi countryside seen from a car | Mohammed Shonar | https://unsplash.com/photos/zmN0DDbsNGo |
 | guide-boulevard | Illuminated digital art facades at Boulevard Riyadh | MUHAMMAD KAMRAN KHAN | https://unsplash.com/photos/-BS0ht06X_c |
 
+## Newsroom (`public/media/news`, WebP at 800 / 1280 / 1920 / 2560 px)
+
+Illustrative photography chosen for each topic; the photos are not from the reported events.
+
+| File key | Subject | Photographer | Source |
+| --- | --- | --- | --- |
+| news-riyadh-night | Riyadh skyline at night with King Abdullah Financial District towers | سيف الظاهر | https://unsplash.com/photos/vAkHAP27QMk |
+| news-historic-jeddah | Traditional wooden balconies in Historic Jeddah | Jeremiah Del Mar | https://unsplash.com/photos/6GDl1D5JZQs |
+| news-kingdom-centre | Kingdom Centre seen from a car on a Riyadh road | Ameer Albahouth | https://unsplash.com/photos/zIw7tdxFtUw |
+| news-signing | Hands signing a contract | Jakub Żerdzicki | https://unsplash.com/photos/QI6NLgN5XnM |
+| news-riyadh-aerial | Aerial view of Riyadh with Al Faisaliah Tower in the distance | Omar Al-Ghosson | https://unsplash.com/photos/YnKtZSEDX7g |
+| news-keys | Hand holding the keys of a new home | Jakub Żerdzicki | https://unsplash.com/photos/bqUZEAeWuok |
+| news-cranes | Container cranes against a blue sky | Julia Taubitz | https://unsplash.com/photos/v8zoz8wobfM |
+| news-industry | Rows of electrical cabinets in an industrial production hall | İsmail Enes Ayhan | https://unsplash.com/photos/lVZjvw-u9V8 |
+| news-payment | Card payment at a point-of-sale terminal | Towfiqu barbhuiya | https://unsplash.com/photos/HNPrWOH2Z8U |
+| news-corniche | Waves along the Jeddah corniche with the city skyline | Asim Alghamdi | https://unsplash.com/photos/635VLTHmmdI |
+
 ## Other sections (`public/media/placeholders`)
 
 Prototype placeholders (Unsplash); the list with alt text is in `database/seeders/data/media.json`.

@@ -9,6 +9,8 @@ import GuideChapter from './guide/GuideChapter'
 import GuideNav from './guide/GuideNav'
 import SourceList from './guide/SourceList'
 import Hero from './Hero/Hero'
+import NewsGrid from './news/NewsGrid'
+import NewsLead from './news/NewsLead'
 import ImageText from './ImageText'
 import Journey from './Journey'
 import RegionGrid from './RegionGrid'
@@ -50,4 +52,6 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   guideChapter: GuideChapter,
   checklist: Checklist,
   sourceList: SourceList,
+  newsLead: NewsLead,
+  newsGrid: NewsGrid,
 }

@@ -6,6 +6,7 @@ use App\Enums\Role;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\Country;
 use App\Models\Faq;
+use App\Models\NewsArticle;
 use App\Models\Region;
 use App\Models\Service;
 use App\Models\Stat;
@@ -37,6 +38,7 @@ class CatalogueResourcesTest extends TestCase
             'stats' => ['stats', Stat::class],
             'testimonials' => ['testimonials', Testimonial::class],
             'countries' => ['countries', Country::class],
+            'news' => ['news-articles', NewsArticle::class],
         ];
     }
 

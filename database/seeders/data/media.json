@@ -1157,5 +1157,154 @@
    1920,
    2560
   ]
+ },
+ "news-riyadh-night": {
+  "alt": {
+   "en": "Riyadh skyline at night with King Abdullah Financial District towers",
+   "ar": "أفق الرياض ليلًا مع أبراج مركز الملك عبدالله المالي"
+  },
+  "credit": "سيف الظاهر / Unsplash",
+  "source": "https://unsplash.com/photos/vAkHAP27QMk",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "news-historic-jeddah": {
+  "alt": {
+   "en": "Traditional wooden balconies in Historic Jeddah",
+   "ar": "رواشين خشبية تقليدية في جدة التاريخية"
+  },
+  "credit": "Jeremiah Del Mar / Unsplash",
+  "source": "https://unsplash.com/photos/6GDl1D5JZQs",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "news-kingdom-centre": {
+  "alt": {
+   "en": "Kingdom Centre seen from a car on a Riyadh road",
+   "ar": "برج المملكة من داخل سيارة على أحد طرق الرياض"
+  },
+  "credit": "Ameer Albahouth / Unsplash",
+  "source": "https://unsplash.com/photos/zIw7tdxFtUw",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "news-signing": {
+  "alt": {
+   "en": "Hands signing a contract",
+   "ar": "يدان توقّعان عقدًا"
+  },
+  "credit": "Jakub Żerdzicki / Unsplash",
+  "source": "https://unsplash.com/photos/QI6NLgN5XnM",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920
+  ]
+ },
+ "news-riyadh-aerial": {
+  "alt": {
+   "en": "Aerial view of Riyadh with Al Faisaliah Tower in the distance",
+   "ar": "منظر جوي للرياض وبرج الفيصلية في الأفق"
+  },
+  "credit": "Omar Al-Ghosson / Unsplash",
+  "source": "https://unsplash.com/photos/YnKtZSEDX7g",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "news-keys": {
+  "alt": {
+   "en": "Hand holding the keys of a new home",
+   "ar": "يد تحمل مفاتيح منزل جديد"
+  },
+  "credit": "Jakub Żerdzicki / Unsplash",
+  "source": "https://unsplash.com/photos/bqUZEAeWuok",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "news-cranes": {
+  "alt": {
+   "en": "Container cranes against a blue sky",
+   "ar": "رافعات حاويات تحت سماء زرقاء"
+  },
+  "credit": "Julia Taubitz / Unsplash",
+  "source": "https://unsplash.com/photos/v8zoz8wobfM",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "news-industry": {
+  "alt": {
+   "en": "Rows of electrical cabinets in an industrial production hall",
+   "ar": "صفوف من الخزائن الكهربائية في قاعة إنتاج صناعية"
+  },
+  "credit": "İsmail Enes Ayhan / Unsplash",
+  "source": "https://unsplash.com/photos/lVZjvw-u9V8",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "news-payment": {
+  "alt": {
+   "en": "Card payment at a point-of-sale terminal",
+   "ar": "دفع بالبطاقة عبر جهاز نقاط البيع"
+  },
+  "credit": "Towfiqu barbhuiya / Unsplash",
+  "source": "https://unsplash.com/photos/HNPrWOH2Z8U",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "news-corniche": {
+  "alt": {
+   "en": "Waves along the Jeddah corniche with the city skyline",
+   "ar": "أمواج على كورنيش جدة مع أفق المدينة"
+  },
+  "credit": "Asim Alghamdi / Unsplash",
+  "source": "https://unsplash.com/photos/635VLTHmmdI",
+  "folder": "news",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
  }
 }

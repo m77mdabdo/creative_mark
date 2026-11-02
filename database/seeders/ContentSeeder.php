@@ -6,6 +6,7 @@ use App\Content\PublishPage;
 use App\Enums\ReviewStatus;
 use App\Models\Country;
 use App\Models\Faq;
+use App\Models\NewsArticle;
 use App\Models\Page;
 use App\Models\Region;
 use App\Models\Service;
@@ -75,14 +76,28 @@ class ContentSeeder extends Seeder
             $this->translate($m, ['quote' => $t['quote'], 'author' => $t['author'], 'context' => $t['context']]);
         }
 
+        $this->news();
         $this->settings($c);
         $this->pages();
+    }
+
+    /** Newsroom: summaries of published reports, each linking to its source (data/news-articles.json). */
+    private function news(): void
+    {
+        foreach (json_decode(file_get_contents(__DIR__.'/data/news-articles.json'), true, flags: JSON_THROW_ON_ERROR) as $n) {
+            $m = NewsArticle::updateOrCreate(['slug' => $n['slug']], array_intersect_key($n, array_flip(['category', 'media', 'published_on', 'source_name', 'source_url', 'featured', 'status'])));
+            $fields = [];
+            foreach (['title', 'excerpt', 'body', 'takeaway', 'fact_values', 'fact_labels'] as $field) {
+                $fields[$field] = ['en' => $n['translations']['en'][$field], 'ar' => $n['translations']['ar'][$field]];
+            }
+            $this->translate($m, $fields);
+        }
     }
 
     /** Pages are seeded from data/{key}.json and published once. */
     private function pages(): void
     {
-        foreach (['home', 'about', 'services', 'our-edge', 'regions', 'investor-guide'] as $key) {
+        foreach (['home', 'about', 'services', 'our-edge', 'regions', 'investor-guide', 'news'] as $key) {
             $this->page($key);
         }
     }

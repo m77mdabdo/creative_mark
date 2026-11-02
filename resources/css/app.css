@@ -202,6 +202,13 @@ html[dir="rtl"] .measure { max-width: 56ch; }
 }
 
 @keyframes cm-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+/* Newsroom ticker: two copies of the list slide by half their width; pauses for reading. */
+@keyframes cm-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.news-ticker-track { animation: cm-ticker 60s linear infinite; }
+html[dir="rtl"] .news-ticker-track { animation-name: cm-ticker-rtl; }
+@keyframes cm-ticker-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
+.news-ticker:hover .news-ticker-track, .news-ticker:focus-within .news-ticker-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .news-ticker-track { animation: none; } .news-ticker-track > ul + ul { display: none; } }
 @keyframes cm-kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }

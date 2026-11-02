@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-294_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-301_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -50,6 +50,8 @@ public website and the dashboard its team uses to run it.
 | <img src="docs/screenshots/regions-grid-ar.jpg" alt="The 13 regions in Arabic"> | <img src="docs/screenshots/region-opportunity.jpg" alt="Region page: opportunities, leading sectors and location"> |
 | <img src="docs/screenshots/guide-hero.jpg" alt="Investor guide hero"> | <img src="docs/screenshots/guide-mobile-ar.jpg" alt="Investor guide chapter on mobile, Arabic" width="260"> |
 | <img src="docs/screenshots/guide-chapters.jpg" alt="Investor guide: chapter overview"> | <img src="docs/screenshots/guide-tax.jpg" alt="Investor guide: tax chapter with key figures and reading progress"> |
+| <img src="docs/screenshots/news-masthead.jpg" alt="Newsroom: masthead, latest ticker and lead story"> | <img src="docs/screenshots/news-mobile-ar.jpg" alt="Newsroom on mobile, Arabic" width="260"> |
+| <img src="docs/screenshots/news-article.jpg" alt="News story: summary, what it means for investors, key figures and source"> | <img src="docs/screenshots/news-grid.jpg" alt="Newsroom: stories filtered by topic"> |
 
 ## Features
 
@@ -71,6 +73,9 @@ public website and the dashboard its team uses to run it.
   incentives, residency and property) with key figures, practical steps and the sources behind every figure; chapter
   overview, floating reading progress, an interactive twelve-step checklist saved in the browser and a library of
   29 official and advisory sources.
+- Newsroom: real market news summarised by the team, each story with what it means for investors, key figures and a
+  link to the original report; masthead with a scrolling "Latest" ticker, cinematic lead story, topic filter and a page
+  per story with related stories.
 - Interactive map of the 13 regions: keyboard operable, sector filter, list alternative, screen-reader announcements.
 - Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
 - Localized URLs (`/ar`, `/en`, `/fr`, `/hi`, `/ur`, `/zh`), Arabic by default, per-script typography
@@ -81,6 +86,8 @@ public website and the dashboard its team uses to run it.
 - Eight staff roles and 25 permissions; access denied by default and enforced on the server.
 - Two-factor authentication required for Super Admin, Content Manager and Sales Manager.
 - Content modules with one tab per language and a review status per language.
+- News module: headline, summary, article, investor takeaway and key figures per language; topic, photo, report date,
+  source name and https link; lead-story flag; draft and publish.
 - Draft and publish workflow: editors save drafts, content managers publish.
 - "Translate missing languages" action and automatic filling of empty languages after saving.
 
@@ -208,6 +215,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-02
+- Newsroom in six languages: nine real 2026 stories (foreign investment, hospitality projects, US investment licences,
+  commercial transactions law, foreign property ownership and zones, special economic zones, e-invoicing inspections),
+  each linked to its source; news module in the dashboard; ten new 2560 px photographs.
 - Investor guide in six languages: eight sourced chapters, chapter navigation with reading progress, interactive
   investor checklist, sources library, eleven new 2560 px photographs; new section types (guide chapter, guide
   navigation, checklist, source list) validated on the server, with https-only source links.

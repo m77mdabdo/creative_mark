@@ -14,7 +14,7 @@ export type SectionType =
   | 'hero' | 'whyInvest' | 'journey' | 'countries' | 'sectors' | 'trackRecord'
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
   | 'statement' | 'imageText' | 'cards' | 'serviceGroups' | 'processSteps' | 'comparison' | 'regionGrid'
-  | 'guideNav' | 'guideChapter' | 'checklist' | 'sourceList'
+  | 'guideNav' | 'guideChapter' | 'checklist' | 'sourceList' | 'newsLead' | 'newsGrid'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
 export type Slide = {
@@ -64,6 +64,16 @@ export type RegionItem = {
   description: string; opportunities: string[]; industries: string[]; services: string[]
 }
 
+export type NewsCategory = 'economy' | 'regulation' | 'real-estate' | 'tourism' | 'tax' | 'zones'
+
+/** A newsroom story (App\Content\PageData::articles). `date` is the original report's date (YYYY-MM-DD). */
+export type NewsItem = {
+  slug: string; category: NewsCategory; media: string; featured: boolean; date: string
+  source: { name: string; url: string }; title: string; excerpt: string
+}
+
+export type NewsArticle = NewsItem & { body: string; takeaway: string | null; facts: { value: string; label: string }[] }
+
 export type StatItem = { key: string; value: string; label: string; icon: string | null }
 export type CountryItem = { code: string; name: string }
 export type FaqItem = { id: number; question: string; answer: string }
@@ -79,6 +89,8 @@ export type PageProps = {
   sections: Section[]
   services: ServiceItem[]
   regions: RegionItem[]
+  /** Present on pages with newsroom sections. */
+  articles?: NewsItem[]
   industries: Record<string, string>
   serviceGroups: Record<ServiceGroup, string>
   journey: JourneyStep[]
@@ -118,5 +130,18 @@ export type RegionPageProps = {
   industries: Record<string, string>
   related: ServiceItem[]
   otherRegions: RegionItem[]
+  media: Record<string, MediaItem>
+}
+
+/** Props of a news article page (App\Content\PageData::forArticle). */
+export type NewsArticlePageProps = {
+  pageKey: 'article'
+  title: string
+  newsTitle: string
+  seo: { title: string; description: string }
+  reviewStatus: ReviewStatus
+  article: NewsArticle
+  related: NewsItem[]
+  latest: { slug: string; title: string }[]
   media: Record<string, MediaItem>
 }

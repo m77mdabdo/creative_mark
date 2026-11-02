@@ -1,0 +1,120 @@
+{
+ "key": "news",
+ "sections": [
+  {
+   "id": "news-lead",
+   "type": "newsLead",
+   "label": "Masthead and lead story",
+   "eyebrow": {
+    "en": "Creative Mark newsroom",
+    "ar": "غرفة أخبار كرييتف مارك"
+   },
+   "title": {
+    "en": "Saudi business news, explained",
+    "ar": "أخبار الأعمال في السعودية، بوضوح"
+   },
+   "highlight": {
+    "en": "explained",
+    "ar": "بوضوح"
+   },
+   "subtitle": {
+    "en": "Real reports from official statistics and the business press, summarised by our team with what each one means for investors. Every story links to its original source.",
+    "ar": "تقارير حقيقية من الإحصاءات الرسمية والصحافة الاقتصادية، يلخصها فريقنا مع ما تعنيه لكل مستثمر. وكل خبر مرتبط بمصدره الأصلي."
+   },
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 60,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "news-grid",
+   "type": "newsGrid",
+   "label": "All stories",
+   "eyebrow": {
+    "en": "Latest",
+    "ar": "الأحدث"
+   },
+   "title": {
+    "en": "More from the newsroom",
+    "ar": "المزيد من غرفة الأخبار"
+   },
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 0,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "news-cta",
+   "type": "cta",
+   "label": "Consultation",
+   "title": {
+    "en": "Wondering how a change affects your plans?",
+    "ar": "هل تتساءل كيف يؤثر تغيير ما على خططك؟"
+   },
+   "highlight": {
+    "en": "your plans",
+    "ar": "خططك"
+   },
+   "body": {
+    "en": "Our consultants follow these changes every day. Tell us about your activity and we will explain what applies to you.",
+    "ar": "يتابع مستشارونا هذه التغييرات يوميًا. أخبرنا عن نشاطك وسنوضح لك ما ينطبق عليك."
+   },
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 72,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "news-corniche"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "News",
+   "seo_title": "Saudi business and investment news | Creative Mark newsroom",
+   "seo_description": "Saudi investment, regulation, tax, real estate and special economic zone news, summarised by Creative Mark with what each story means for investors and a link to the original report."
+  },
+  "ar": {
+   "title": "الأخبار",
+   "seo_title": "أخبار الأعمال والاستثمار في السعودية | غرفة أخبار كرييتف مارك",
+   "seo_description": "أخبار الاستثمار والأنظمة والضرائب والعقار والمناطق الاقتصادية الخاصة في السعودية، يلخصها فريق كرييتف مارك مع ما يعنيه كل خبر للمستثمر ورابط التقرير الأصلي."
+  }
+ }
+}

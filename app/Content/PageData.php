@@ -5,6 +5,7 @@ namespace App\Content;
 use App\Enums\ReviewStatus;
 use App\Models\Country;
 use App\Models\Faq;
+use App\Models\NewsArticle;
 use App\Models\Page;
 use App\Models\Region;
 use App\Models\Service;
@@ -38,6 +39,9 @@ final class PageData
         }
 
         $catalogue = $this->catalogue($locale, $faqLimit);
+        if (collect($sections)->contains(fn ($s) => str_starts_with($s['type'], 'news'))) {
+            $catalogue['articles'] = $this->articles(NewsArticle::query()->live()->withLocale($locale)->get(), $locale);
+        }
         $sections = array_values(array_filter($sections, fn ($s) => match ($s['type']) {
             'trackRecord' => $catalogue['stats'] !== [],
             'testimonials' => $catalogue['testimonials'] !== [],
@@ -135,6 +139,60 @@ final class PageData
         ];
     }
 
+    /**
+     * One news article with up to three related articles (same category first, then the latest).
+     *
+     * @return array<string, mixed>
+     */
+    public function forArticle(string $slug, string $locale): array
+    {
+        $all = NewsArticle::query()->live()->withLocale($locale)->get();
+        $article = $all->firstWhere('slug', $slug);
+        abort_unless($article, 404);
+        $others = $all->reject(fn ($a) => $a->is($article));
+        $related = $others->where('category', $article->category)->merge($others->where('category', '!=', $article->category))->take(3);
+        [$item] = $this->articles(collect([$article]), $locale, withBody: true);
+        $page = Page::query()->where('key', 'news')->withLocale($locale)->first();
+
+        return [
+            'pageKey' => 'article',
+            'title' => $item['title'],
+            'newsTitle' => $page?->t('title', $locale) ?? 'News',
+            'seo' => ['title' => "{$item['title']} | Creative Mark", 'description' => $item['excerpt']],
+            'reviewStatus' => ($article->translation($locale)?->review_status ?? ReviewStatus::Missing)->value,
+            'article' => $item,
+            'related' => $this->articles($related, $locale),
+            'latest' => array_map(fn ($a) => ['slug' => $a['slug'], 'title' => $a['title']], $this->articles($others->take(6), $locale)),
+            'media' => $this->mediaFor([$article->media, ...$related->pluck('media')->all(), 'news-corniche'], $locale),
+        ];
+    }
+
+    /**
+     * @param  iterable<NewsArticle>  $articles
+     * @return list<array<string, mixed>>
+     */
+    private function articles(iterable $articles, string $locale, bool $withBody = false): array
+    {
+        $out = [];
+        foreach ($articles as $a) {
+            $t = $a->translation($locale);
+            $values = $t?->fact_values ?? [];
+            $labels = $t?->fact_labels ?? [];
+            $out[] = [
+                'slug' => $a->slug, 'category' => $a->category, 'media' => $a->media, 'featured' => $a->featured,
+                'date' => $a->published_on->toDateString(), 'source' => ['name' => $a->source_name, 'url' => $a->source_url],
+                'title' => $a->t('title', $locale), 'excerpt' => $a->t('excerpt', $locale),
+                ...($withBody ? [
+                    'body' => $a->t('body', $locale), 'takeaway' => $a->t('takeaway', $locale),
+                    // Facts are shown only when both lists line up.
+                    'facts' => count($values) === count($labels) ? array_map(fn ($v, $l) => ['value' => $v, 'label' => $l], $values, $labels) : [],
+                ] : []),
+            ];
+        }
+
+        return $out;
+    }
+
     /** @param array<string, mixed> $s */
     private function localizeSection(array $s, string $locale): array
     {
@@ -221,7 +279,7 @@ final class PageData
             array_push($ids, $s['media'] ?? null, $s['media2'] ?? null, $s['style']['bgMedia'] ?? null,
                 ...array_column($s['cards'], 'media'), ...array_column($s['slides'], 'media'));
         }
-        array_push($ids, ...array_column($catalogue['services'], 'media'), ...array_column($catalogue['regions'], 'media'));
+        array_push($ids, ...array_column($catalogue['services'], 'media'), ...array_column($catalogue['regions'], 'media'), ...array_column($catalogue['articles'] ?? [], 'media'));
         // Section backgrounds may name any library image, not only those referenced by content.
 
         return $this->mediaFor($ids, $locale);

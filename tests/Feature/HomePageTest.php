@@ -140,6 +140,8 @@ class HomePageTest extends TestCase
 
     public function test_rule_01_unverified_figures_are_never_sent(): void
     {
+        // The rule itself: figures marked unverified never reach the page (D-09 approved the seeded ones).
+        Stat::whereNotIn('key', ['companies-established', 'years-experience'])->update(['verified' => false]);
         $html = $this->get('/en')->getContent();
         $this->assertStringContainsString('1,000+', $html);
         foreach (['500+', '64.7%', '4.8 trillion', '157', '209'] as $figure) {
@@ -154,6 +156,7 @@ class HomePageTest extends TestCase
 
     public function test_rule_02_testimonial_names_need_consent(): void
     {
+        Testimonial::query()->update(['consent_recorded_at' => null]);
         Testimonial::first()->translations()->where('locale', 'en')->update(['author' => 'Jane Example']);
         $this->assertStringNotContainsString('Jane Example', $this->get('/en')->getContent());
 

@@ -340,7 +340,7 @@ final class PageData
             ], Setting::group('catalogue')['journey'] ?? []),
             // RULE-01: only verified figures are sent
             'stats' => Stat::query()->where('verified', true)->orderBy('sort_order')->withLocale($locale)->get()
-                ->map(fn (Stat $m) => ['key' => $m->key, 'value' => $m->value, 'icon' => $m->icon, 'label' => $m->t('label', $locale)])->all(),
+                ->map(fn (Stat $m) => ['key' => $m->key, 'value' => $m->value, 'icon' => $m->icon, 'group' => $m->group, 'label' => $m->t('label', $locale)])->all(),
             'countries' => Country::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get()
                 ->map(fn (Country $m) => ['code' => $m->code, 'name' => $m->t('name', $locale)])->all(),
             'faqs' => Faq::query()->where('status', 'published')->where('show_on_home', true)->where('needs_review', false)

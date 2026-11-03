@@ -7,6 +7,7 @@ use App\Content\SectionSchema;
 use App\Support\Locales;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -18,6 +19,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Components\Utilities\Get;
+use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
 /**
@@ -147,6 +149,16 @@ final class SectionForm
                 ->itemLabel(fn (array $state) => $state['label'][app()->getLocale()] ?? $state['label']['en'] ?? __('Button'))
                 ->addActionLabel(__('Add a button')),
 
+            Placeholder::make('catalogue_hint')->hiddenLabel()
+                ->visible($is(['trackRecord', 'testimonials', 'services', 'countries', 'map', 'faq']))
+                ->content(fn (Get $get) => new HtmlString('<div style="padding:.75rem 1rem;border-radius:.75rem;background:rgba(235,189,108,.15);font-size:.875rem">'.e(match ($get('type')) {
+                    'trackRecord' => __('The figures come from Content › Statistics, or the “Figures” button at the top of this page.'),
+                    'testimonials' => __('The reviews come from Content › Testimonials, or the “Client reviews” button at the top of this page.'),
+                    'services' => __('The solutions come from Content › Services.'),
+                    'countries' => __('The countries come from Content › Countries.'),
+                    'map' => __('The regions come from Content › Regions.'),
+                    default => __('The questions come from Content › FAQs.'),
+                }).'</div>')),
             TextInput::make('limit')->label(__('How many items to show'))->numeric()->minValue(1)->maxValue(50)->visible($is(self::WITH_LIMIT)),
 
             Section::make(__('Design and motion'))->collapsed()->compact()->columns(['default' => 1, 'md' => 3])->schema([

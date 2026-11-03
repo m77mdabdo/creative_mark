@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Content\SectionSchema;
 use App\Models\Page;
+use App\Models\Stat;
 use Database\Seeders\ContentSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Validation\ValidationException;
@@ -50,6 +51,8 @@ class AboutPageTest extends TestCase
 
     public function test_only_verified_figures_appear_on_about(): void
     {
+        // The rule itself: figures marked unverified never reach the page (D-09 approved the seeded ones).
+        Stat::whereNotIn('key', ['companies-established', 'years-experience'])->update(['verified' => false]);
         $html = $this->get('/en/about')->getContent();
         $this->assertStringContainsString('1,000+', $html);
         $this->assertStringNotContainsString('500+', $html);

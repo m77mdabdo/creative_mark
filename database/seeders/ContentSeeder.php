@@ -73,7 +73,8 @@ class ContentSeeder extends Seeder
 
         Testimonial::query()->delete();
         foreach ($c['testimonials'] as $i => $t) {
-            $m = Testimonial::create(['verified' => false, 'consent_recorded_at' => null, 'sort_order' => $i + 1, 'status' => 'published']);
+            // D-09 (2026-11-03): the owner approved the presentation reviews; they stay anonymous.
+            $m = Testimonial::create(['verified' => true, 'consent_recorded_at' => '2026-11-03 19:05:00', 'sort_order' => $i + 1, 'status' => 'published']);
             $this->translate($m, ['quote' => $t['quote'], 'author' => $t['author'], 'context' => $t['context']]);
         }
 

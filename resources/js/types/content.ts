@@ -86,7 +86,7 @@ export type CaseStory = CaseItem & {
   steps: { title: string; text: string }[]; delivered: string[]
 }
 
-export type StatItem = { key: string; value: string; label: string; icon: string | null }
+export type StatItem = { key: string; value: string; label: string; icon: string | null; group?: 'primary' | 'secondary' }
 export type CountryItem = { code: string; name: string }
 export type FaqItem = { id: number; question: string; answer: string }
 export type TestimonialItem = { id: number; quote: string; context: string | null; author: string | null; verified: boolean }

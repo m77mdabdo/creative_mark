@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use App\Content\PublishPage;
 use App\Content\SectionSchema;
 use App\Enums\ReviewStatus;
+use App\Filament\Support\CatalogueInline;
 use App\Filament\Support\SectionForm;
 use App\Models\Page as PageModel;
 use App\Support\Locales;
@@ -145,6 +146,8 @@ abstract class EditPageSections extends Page
                         Notification::make()->danger()->title(__('Translation service unavailable'))->body($e->getMessage())->send();
                     }
                 }),
+            CatalogueInline::statsAction()->visible(fn () => $user?->can('content.publish') && $this->hasSection('trackRecord')),
+            CatalogueInline::testimonialsAction()->visible(fn () => $user?->can('content.publish') && $this->hasSection('testimonials')),
             Action::make('history')->label(__('Version history'))->icon('heroicon-o-clock')->color('gray')
                 ->modalHeading(__('Version history'))->modalSubmitAction(false)->modalCancelActionLabel(__('Close'))->modalWidth('3xl')
                 ->modalContent(fn () => view('filament.page-history', [
@@ -161,6 +164,11 @@ abstract class EditPageSections extends Page
                     Notification::make()->success()->title(__('Changes discarded'))->send();
                 }),
         ];
+    }
+
+    private function hasSection(string $type): bool
+    {
+        return collect($this->data['sections'] ?? [])->contains(fn ($s) => ($s['type'] ?? null) === $type);
     }
 
     /** Validates and stores the draft. Returns false (with a message) if it cannot be saved. */

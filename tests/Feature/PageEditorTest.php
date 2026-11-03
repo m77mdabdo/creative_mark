@@ -9,6 +9,8 @@ use App\Filament\Pages\EditJourney;
 use App\Filament\Support\IconPicker;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\Page;
+use App\Models\Stat;
+use App\Models\Testimonial;
 use App\Models\User;
 use Database\Seeders\ContentSeeder;
 use Database\Seeders\RbacSeeder;
@@ -176,6 +178,34 @@ class PageEditorTest extends TestCase
         foreach (array_keys($icons) as $name) {
             $this->assertStringContainsString($name, $ts);
         }
+    }
+
+    public function test_figures_and_reviews_are_managed_from_the_home_editor(): void
+    {
+        $component = Livewire::actingAs($this->manager())->test(EditHomePage::class);
+        $component->mountAction('manageStats');
+        $items = $component->get('mountedActions.0.data.items');
+        $first = array_key_first($items);
+        $items[$first]['value'] = '1,200+';
+        $last = array_key_last($items);
+        unset($items[$last]); // delete one
+        $items['new'] = ['id' => null, 'value' => '99', 'icon' => 'Rocket', 'group' => 'secondary', 'verified' => true, 'source' => 'Owner', 'label' => ['en' => 'New figure', 'ar' => 'رقم جديد']];
+        $count = Stat::count();
+        $component->set('mountedActions.0.data.items', $items)->callMountedAction()->assertHasNoActionErrors();
+
+        $this->assertSame($count, Stat::count());
+        $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('stats.0.value', '1,200+')
+            ->where('stats', fn ($s) => collect($s)->contains('label', 'رقم جديد')));
+
+        $component->mountAction('manageTestimonials');
+        $reviews = $component->get('mountedActions.0.data.items');
+        $key = array_key_first($reviews);
+        $reviews[$key]['published'] = false;
+        $component->set('mountedActions.0.data.items', $reviews)->callMountedAction();
+        $this->assertSame('draft', Testimonial::orderBy('sort_order')->first()->status);
+
+        $editor = User::factory()->withRole(Role::Editor)->create();
+        Livewire::actingAs($editor)->test(EditHomePage::class)->assertActionHidden('manageStats');
     }
 
     public function test_concurrent_edits_do_not_overwrite_each_other(): void

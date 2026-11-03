@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Faq;
 use App\Models\Service;
+use App\Models\Stat;
 use Database\Seeders\ContentSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
@@ -67,6 +68,8 @@ class BusinessSolutionsTest extends TestCase
 
     public function test_unverified_figures_from_the_presentation_are_not_shown(): void
     {
+        // The rule itself: figures marked unverified never reach the page (D-09 approved the seeded ones).
+        Stat::whereNotIn('key', ['companies-established', 'years-experience'])->update(['verified' => false]);
         $html = $this->get('/en/services/licensing-and-government-approvals')->getContent().$this->get('/en/services')->getContent();
         foreach (['500+', '209', '157', '144', '103', '4.8 trillion'] as $figure) {
             $this->assertStringNotContainsString($figure, $html, $figure);

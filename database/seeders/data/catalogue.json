@@ -1384,8 +1384,8 @@
     "en": "Investment licenses",
     "ar": "ترخيص استثماري"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)",
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
    "icon": "FileCheck2"
   },
   {
@@ -1396,8 +1396,8 @@
     "en": "Municipal licenses",
     "ar": "ترخيص بلدي"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)",
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
    "icon": "Landmark"
   },
   {
@@ -1408,8 +1408,8 @@
     "en": "Industrial licenses",
     "ar": "ترخيص صناعي"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)",
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
    "icon": "Shapes"
   },
   {
@@ -1420,8 +1420,8 @@
     "en": "Professional accreditations",
     "ar": "اعتماد مهني"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)",
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
    "icon": "Award"
   },
   {
@@ -1432,8 +1432,9 @@
     "en": "Contractor classification certificates",
     "ar": "شهادة تصنيف مقاولين"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
+   "icon": "HardHat"
   },
   {
    "key": "s7",
@@ -1443,8 +1444,9 @@
     "en": "Customs registration certificates",
     "ar": "شهادة تسجيل جمركي"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
+   "icon": "Package"
   },
   {
    "key": "s8",
@@ -1454,8 +1456,9 @@
     "en": "City service provider execution certificates",
     "ar": "شهادة تنفيذ لمقدمي خدمات المدن"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
+   "icon": "Building"
   },
   {
    "key": "s9",
@@ -1465,8 +1468,9 @@
     "en": "Environmental compliance certificates",
     "ar": "شهادة امتثال بيئي"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
+   "icon": "Leaf"
   },
   {
    "key": "s10",
@@ -1476,8 +1480,9 @@
     "en": "Advertising licenses",
     "ar": "ترخيص إعلاني"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
+   "icon": "MessageCircle"
   },
   {
    "key": "s11",
@@ -1487,8 +1492,9 @@
     "en": "Travel & tourism service licenses",
     "ar": "ترخيص خدمات سفر وسياحة"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
+   "icon": "Plane"
   },
   {
    "key": "s12",
@@ -1498,8 +1504,9 @@
     "en": "Fire alarm system installation permits",
     "ar": "تصريح تركيب أنظمة إنذار الحريق"
    },
-   "verified": false,
-   "source": "Presentation p6/p29 (unverified, Q-01)"
+   "verified": true,
+   "source": "Approved by the owner in the project thread, 2026-11-03 (D-09)",
+   "icon": "ShieldCheck"
   }
  ],
  "faqs": [

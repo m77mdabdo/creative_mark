@@ -4,6 +4,7 @@ namespace Tests\Feature\Admin;
 
 use App\Enums\Role;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
+use App\Models\CaseStudy;
 use App\Models\Country;
 use App\Models\Faq;
 use App\Models\NewsArticle;
@@ -39,6 +40,7 @@ class CatalogueResourcesTest extends TestCase
             'testimonials' => ['testimonials', Testimonial::class],
             'countries' => ['countries', Country::class],
             'news' => ['news-articles', NewsArticle::class],
+            'case studies' => ['case-studies', CaseStudy::class],
         ];
     }
 

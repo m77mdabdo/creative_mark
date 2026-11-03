@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Content\PublishPage;
 use App\Enums\ReviewStatus;
+use App\Models\CaseStudy;
 use App\Models\Country;
 use App\Models\Faq;
 use App\Models\NewsArticle;
@@ -77,8 +78,22 @@ class ContentSeeder extends Seeder
         }
 
         $this->news();
+        $this->caseStudies();
         $this->settings($c);
         $this->pages();
+    }
+
+    /** Case studies (data/case-studies-items.json). The seeded ones are illustrative examples, labelled as such on the site. */
+    private function caseStudies(): void
+    {
+        foreach (json_decode(file_get_contents(__DIR__.'/data/case-studies-items.json'), true, flags: JSON_THROW_ON_ERROR) as $c) {
+            $m = CaseStudy::updateOrCreate(['slug' => $c['slug']], array_intersect_key($c, array_flip(['sector', 'origin', 'region', 'media', 'services', 'illustrative', 'sort_order', 'status'])));
+            $fields = [];
+            foreach (['title', 'client', 'entity', 'summary', 'challenge', 'step_titles', 'step_texts', 'delivered', 'outcome'] as $field) {
+                $fields[$field] = ['en' => $c['translations']['en'][$field], 'ar' => $c['translations']['ar'][$field]];
+            }
+            $this->translate($m, $fields);
+        }
     }
 
     /** Newsroom: summaries of published reports, each linking to its source (data/news-articles.json). */
@@ -97,7 +112,7 @@ class ContentSeeder extends Seeder
     /** Pages are seeded from data/{key}.json and published once. */
     private function pages(): void
     {
-        foreach (['home', 'about', 'services', 'our-edge', 'regions', 'investor-guide', 'news'] as $key) {
+        foreach (['home', 'about', 'services', 'our-edge', 'regions', 'investor-guide', 'news', 'case-studies'] as $key) {
             $this->page($key);
         }
     }

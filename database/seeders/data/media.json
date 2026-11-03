@@ -1306,5 +1306,95 @@
    1920,
    2560
   ]
+ },
+ "case-factory": {
+  "alt": {
+   "en": "Industrial robots on an automated production line",
+   "ar": "روبوتات صناعية على خط إنتاج آلي"
+  },
+  "credit": "Simon Kadula / Unsplash",
+  "source": "https://unsplash.com/photos/8gr6bObQLOI",
+  "folder": "cases",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "case-tech-team": {
+  "alt": {
+   "en": "Team discussing a project around a laptop",
+   "ar": "فريق يناقش مشروعًا حول حاسوب محمول"
+  },
+  "credit": "Vitaly Gariev / Unsplash",
+  "source": "https://unsplash.com/photos/yd_RKGH_RH4",
+  "folder": "cases",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "case-chef": {
+  "alt": {
+   "en": "Chef preparing food in a restaurant kitchen",
+   "ar": "طاهٍ يحضّر الطعام في مطبخ مطعم"
+  },
+  "credit": "Pylyp Sukhenko / Unsplash",
+  "source": "https://unsplash.com/photos/y-XZf_TNRms",
+  "folder": "cases",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "case-dubai": {
+  "alt": {
+   "en": "Aerial view of Business Bay, Dubai",
+   "ar": "منظر جوي للخليج التجاري في دبي"
+  },
+  "credit": "Nelemson Guevarra / Unsplash",
+  "source": "https://unsplash.com/photos/cxtmm36ItkQ",
+  "folder": "cases",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "case-warehouse": {
+  "alt": {
+   "en": "Forklift moving through a warehouse of stacked pallets",
+   "ar": "رافعة شوكية تتحرك في مستودع مليء بالمنصات"
+  },
+  "credit": "Bernd Dittrich / Unsplash",
+  "source": "https://unsplash.com/photos/F2C_mSrb6iM",
+  "folder": "cases",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "case-blueprint": {
+  "alt": {
+   "en": "Architectural plans with drafting tools",
+   "ar": "مخططات معمارية وأدوات رسم"
+  },
+  "credit": "Lucas Kepner / Unsplash",
+  "source": "https://unsplash.com/photos/Yn8D5B8C-eY",
+  "folder": "cases",
+  "widths": [
+   800,
+   1280,
+   1920,
+   2560
+  ]
  }
 }

@@ -92,5 +92,21 @@
     "liveNewsroom": "Rédaction",
     "riyadhTime": "Riyad",
     "topStories": "À la une",
-    "showStory": "Afficher l’article"
+    "showStory": "Afficher l’article",
+    "illustrative": "Exemple illustratif",
+    "illustrativeNote": "Construit à partir de notre accompagnement type pour ce genre d’entreprise. Il ne décrit pas un client en particulier.",
+    "startingPoint": "Le point de départ",
+    "ourSteps": "Nos étapes",
+    "whatDelivered": "Ce qui a été livré",
+    "whereItLeads": "Où cela mène",
+    "atAGlance": "En bref",
+    "sector": "Secteur",
+    "clientFrom": "Client originaire de",
+    "regionLabel": "Région",
+    "legalForm": "Forme juridique",
+    "servicesUsed": "Services mobilisés",
+    "readCase": "Lire le cas",
+    "moreCases": "Autres cas",
+    "step": "Étape",
+    "filterCases": "Filtrer les cas par secteur"
 }

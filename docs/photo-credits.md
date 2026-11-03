@@ -94,6 +94,19 @@ Illustrative photography chosen for each topic; the photos are not from the repo
 | news-payment | Card payment at a point-of-sale terminal | Towfiqu barbhuiya | https://unsplash.com/photos/HNPrWOH2Z8U |
 | news-corniche | Waves along the Jeddah corniche with the city skyline | Asim Alghamdi | https://unsplash.com/photos/635VLTHmmdI |
 
+## Case studies (`public/media/cases`, WebP at 800 / 1280 / 1920 / 2560 px)
+
+Illustrative photography; the people and places shown are not clients.
+
+| File key | Subject | Photographer | Source |
+| --- | --- | --- | --- |
+| case-factory | Industrial robots on an automated production line | Simon Kadula | https://unsplash.com/photos/8gr6bObQLOI |
+| case-tech-team | Team discussing a project around a laptop | Vitaly Gariev | https://unsplash.com/photos/yd_RKGH_RH4 |
+| case-chef | Chef preparing food in a restaurant kitchen | Pylyp Sukhenko | https://unsplash.com/photos/y-XZf_TNRms |
+| case-dubai | Aerial view of Business Bay, Dubai | Nelemson Guevarra | https://unsplash.com/photos/cxtmm36ItkQ |
+| case-warehouse | Forklift moving through a warehouse of stacked pallets | Bernd Dittrich | https://unsplash.com/photos/F2C_mSrb6iM |
+| case-blueprint | Architectural plans with drafting tools | Lucas Kepner | https://unsplash.com/photos/Yn8D5B8C-eY |
+
 ## Other sections (`public/media/placeholders`)
 
 Prototype placeholders (Unsplash); the list with alt text is in `database/seeders/data/media.json`.

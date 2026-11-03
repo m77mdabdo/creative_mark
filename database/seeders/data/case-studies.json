@@ -1,0 +1,222 @@
+{
+ "key": "case-studies",
+ "sections": [
+  {
+   "id": "cases-hero",
+   "type": "hero",
+   "label": "Hero",
+   "eyebrow": {
+    "en": "Case studies",
+    "ar": "دراسات الحالة"
+   },
+   "title": {
+    "en": "From the first question to a working business",
+    "ar": "من السؤال الأول إلى عمل قائم"
+   },
+   "highlight": {
+    "en": "a working business",
+    "ar": "عمل قائم"
+   },
+   "subtitle": {
+    "en": "Every engagement starts with a question. See how we take a company from that first question to a business that operates in Saudi Arabia, step by step.",
+    "ar": "كل مشروع يبدأ بسؤال. شاهد كيف ننقل الشركة من هذا السؤال الأول إلى عمل قائم في السعودية، خطوة بخطوة."
+   },
+   "media": "case-blueprint",
+   "buttons": [
+    {
+     "label": {
+      "en": "Explore the cases",
+      "ar": "استعرض الحالات"
+     },
+     "href": "#cases-grid",
+     "style": "gold"
+    },
+    {
+     "label": {
+      "en": "Discuss your case",
+      "ar": "ناقش حالتك"
+     },
+     "href": "/consultation",
+     "style": "outline"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 62,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "cases-method",
+   "type": "cards",
+   "label": "How to read a case",
+   "eyebrow": {
+    "en": "How to read a case",
+    "ar": "كيف تقرأ الحالة"
+   },
+   "title": {
+    "en": "Four questions behind every case",
+    "ar": "أربعة أسئلة وراء كل حالة"
+   },
+   "subtitle": {
+    "en": "Each case follows the same thread, so you can see where your own situation fits.",
+    "ar": "كل حالة تسير على الخيط نفسه، لترى أين يقع وضعك أنت."
+   },
+   "buttons": [],
+   "slides": [],
+   "cards": [
+    {
+     "id": "m1",
+     "icon": "Compass",
+     "title": {
+      "en": "The starting point",
+      "ar": "نقطة البداية"
+     },
+     "text": {
+      "en": "What the investor wanted and what stood in the way.",
+      "ar": "ما أراده المستثمر وما كان يعترض طريقه."
+     }
+    },
+    {
+     "id": "m2",
+     "icon": "Workflow",
+     "title": {
+      "en": "Our steps",
+      "ar": "خطواتنا"
+     },
+     "text": {
+      "en": "The route we took, in the order it happened.",
+      "ar": "المسار الذي سلكناه، بالترتيب الذي حدث به."
+     }
+    },
+    {
+     "id": "m3",
+     "icon": "FileCheck2",
+     "title": {
+      "en": "What was delivered",
+      "ar": "ما تم تسليمه"
+     },
+     "text": {
+      "en": "The concrete results of each stage.",
+      "ar": "النتائج الملموسة لكل مرحلة."
+     }
+    },
+    {
+     "id": "m4",
+     "icon": "Target",
+     "title": {
+      "en": "Where it leads",
+      "ar": "إلى أين يقود"
+     },
+     "text": {
+      "en": "What the client can do now that they could not do before.",
+      "ar": "ما يستطيع العميل فعله الآن ولم يكن يستطيعه من قبل."
+     }
+    }
+   ],
+   "style": {
+    "theme": "charcoal",
+    "overlay": 0,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "cases-grid",
+   "type": "caseGrid",
+   "label": "Cases",
+   "eyebrow": {
+    "en": "The cases",
+    "ar": "الحالات"
+   },
+   "title": {
+    "en": "Find a case like yours",
+    "ar": "اعثر على حالة تشبه حالتك"
+   },
+   "subtitle": {
+    "en": "Filter by sector. Each case opens into the full story: the starting point, every step and what was delivered.",
+    "ar": "صفِّ حسب القطاع. كل حالة تفتح على القصة كاملة: نقطة البداية، وكل خطوة، وما تم تسليمه."
+   },
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 0,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "cases-cta",
+   "type": "cta",
+   "label": "Consultation",
+   "title": {
+    "en": "Your case could be the next one",
+    "ar": "حالتك قد تكون التالية"
+   },
+   "highlight": {
+    "en": "the next one",
+    "ar": "التالية"
+   },
+   "body": {
+    "en": "Tell us where you are starting from. We will map the steps, the approvals and the realistic timeline for your business.",
+    "ar": "أخبرنا من أين تبدأ، وسنرسم لك الخطوات والموافقات والجدول الزمني الواقعي لعملك."
+   },
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 74,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "case-dubai"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Case studies",
+   "seo_title": "Case studies | How companies set up in Saudi Arabia | Creative Mark",
+   "seo_description": "How Creative Mark takes companies from their first question to a business operating in Saudi Arabia: the starting point, each step, what was delivered and where it leads."
+  },
+  "ar": {
+   "title": "دراسات الحالة",
+   "seo_title": "دراسات الحالة | كيف تؤسس الشركات أعمالها في السعودية | كرييتف مارك",
+   "seo_description": "كيف تنقل كرييتف مارك الشركات من سؤالها الأول إلى عمل قائم في السعودية: نقطة البداية، وكل خطوة، وما تم تسليمه، وإلى أين يقود."
+  }
+ }
+}

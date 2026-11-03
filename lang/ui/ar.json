@@ -92,5 +92,21 @@
     "liveNewsroom": "غرفة الأخبار",
     "riyadhTime": "الرياض",
     "topStories": "أبرز الأخبار",
-    "showStory": "اعرض الخبر"
+    "showStory": "اعرض الخبر",
+    "illustrative": "مثال توضيحي",
+    "illustrativeNote": "مبني على طريقة عملنا المعتادة مع هذا النوع من الشركات، ولا يصف عميلًا بعينه.",
+    "startingPoint": "نقطة البداية",
+    "ourSteps": "خطواتنا",
+    "whatDelivered": "ما تم تسليمه",
+    "whereItLeads": "إلى أين يقود",
+    "atAGlance": "لمحة سريعة",
+    "sector": "القطاع",
+    "clientFrom": "العميل من",
+    "regionLabel": "المنطقة",
+    "legalForm": "الشكل القانوني",
+    "servicesUsed": "الخدمات المقدمة",
+    "readCase": "اقرأ الحالة",
+    "moreCases": "حالات أخرى",
+    "step": "الخطوة",
+    "filterCases": "تصفية الحالات حسب القطاع"
 }

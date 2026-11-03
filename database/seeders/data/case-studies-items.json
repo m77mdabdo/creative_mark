@@ -1,0 +1,391 @@
+[
+ {
+  "slug": "manufacturer-special-economic-zone",
+  "sector": "industry",
+  "origin": "tr",
+  "region": "makkah",
+  "media": "case-factory",
+  "services": [
+   "feasibility-studies",
+   "company-formation",
+   "licensing-and-government-approvals",
+   "hr-and-auditing",
+   "tax-and-budgeting"
+  ],
+  "illustrative": true,
+  "sort_order": 1,
+  "status": "published",
+  "translations": {
+   "en": {
+    "title": "Building a production plant in a special economic zone",
+    "client": "An industrial manufacturer from Türkiye",
+    "entity": "Limited liability company licensed in a special economic zone",
+    "summary": "A manufacturer wants to produce for the Saudi and regional market and asks whether a special economic zone or a standard industrial city makes more sense.",
+    "challenge": "The company already exports to the Gulf and wants a plant close to its customers. The owners have heard about the 5% tax rate in the special economic zones but do not know whether their activity qualifies, what the zone expects in return, or how long set-up will take.\n\nThey also need to know how many Saudi nationals they must hire and what the plant will cost to run before the board approves the budget.",
+    "step_titles": [
+     "Assessment",
+     "Feasibility",
+     "Structure",
+     "Registration and licences",
+     "Operational set-up"
+    ],
+    "step_texts": [
+     "We map the products against the activities each zone targets and compare a zone with a standard industrial city on tax, customs, land, staffing and logistics.",
+     "A feasibility study models investment, operating costs, Saudization requirements and the economic substance a zone expects: premises, full-time staff on site and management run from the zone.",
+     "Together with the owners we choose the shareholding and legal form, then prepare the authenticated parent-company documents.",
+     "Investor registration with the Ministry of Investment, commercial registration, zone licence and the industrial and environmental approvals for the plant.",
+     "Bank account, ZATCA registration, Qiwa and GOSI accounts, a hiring plan that meets Saudization targets, and a tax and budgeting calendar."
+    ],
+    "delivered": [
+     "Zone or industrial city comparison",
+     "Feasibility study with operating cost model",
+     "Company and zone licences",
+     "Industrial and environmental approvals coordinated",
+     "Hiring and Saudization plan",
+     "Tax registration and compliance calendar"
+    ],
+    "outcome": "The board decides on facts rather than headlines: it knows whether the zone's lower tax rate outweighs its substance requirements, and the plant opens with its licences, team and tax obligations in place from the first day."
+   },
+   "ar": {
+    "title": "إنشاء مصنع في منطقة اقتصادية خاصة",
+    "client": "شركة صناعية من تركيا",
+    "entity": "شركة ذات مسؤولية محدودة مرخّصة في منطقة اقتصادية خاصة",
+    "summary": "مصنّع يريد الإنتاج للسوق السعودي والإقليمي، ويسأل: هل المنطقة الاقتصادية الخاصة أنسب أم المدينة الصناعية التقليدية؟",
+    "challenge": "تصدّر الشركة إلى الخليج بالفعل، وتريد مصنعًا قريبًا من عملائها. سمع الملّاك عن نسبة الضريبة 5% في المناطق الاقتصادية الخاصة، لكنهم لا يعرفون هل نشاطهم مؤهل، وما الذي تطلبه المنطقة في المقابل، وكم سيستغرق التأسيس.\n\nكما يحتاجون إلى معرفة عدد المواطنين السعوديين الذين يجب توظيفهم، وتكلفة تشغيل المصنع، قبل أن يعتمد مجلس الإدارة الميزانية.",
+    "step_titles": [
+     "التقييم",
+     "دراسة الجدوى",
+     "الهيكلة",
+     "التسجيل والتراخيص",
+     "التجهيز التشغيلي"
+    ],
+    "step_texts": [
+     "نطابق المنتجات مع الأنشطة التي تستهدفها كل منطقة، ونقارن بين المنطقة الاقتصادية والمدينة الصناعية من حيث الضريبة والجمارك والأرض والتوظيف والخدمات اللوجستية.",
+     "دراسة جدوى تحسب الاستثمار وتكاليف التشغيل ومتطلبات التوطين، والجوهر الاقتصادي الذي تطلبه المنطقة: مقر وموظفون متفرغون في الموقع وإدارة من داخل المنطقة.",
+     "نختار مع الملّاك هيكل الملكية والشكل القانوني، ثم نجهّز مستندات الشركة الأم المصدّقة.",
+     "تسجيل المستثمر لدى وزارة الاستثمار، والسجل التجاري، وترخيص المنطقة، والموافقات الصناعية والبيئية للمصنع.",
+     "الحساب البنكي، والتسجيل لدى هيئة الزكاة والضريبة والجمارك، وحسابات قوى والتأمينات، وخطة توظيف تحقق نسب التوطين، وتقويم للضرائب والميزانية."
+    ],
+    "delivered": [
+     "مقارنة بين المنطقة الاقتصادية والمدينة الصناعية",
+     "دراسة جدوى مع نموذج لتكاليف التشغيل",
+     "تراخيص الشركة والمنطقة",
+     "تنسيق الموافقات الصناعية والبيئية",
+     "خطة التوظيف والتوطين",
+     "التسجيل الضريبي وتقويم الالتزامات"
+    ],
+    "outcome": "يتخذ مجلس الإدارة قراره بناءً على حقائق لا عناوين: يعرف هل تعوّض الضريبة المنخفضة في المنطقة متطلبات الجوهر الاقتصادي، ويبدأ المصنع عمله وتراخيصه وفريقه والتزاماته الضريبية جاهزة من اليوم الأول."
+   }
+  }
+ },
+ {
+  "slug": "technology-company-riyadh-office",
+  "sector": "technology",
+  "origin": "us",
+  "region": "riyadh",
+  "media": "case-tech-team",
+  "services": [
+   "business-consulting",
+   "company-formation",
+   "office-solutions",
+   "hr-and-auditing",
+   "licensing-and-government-approvals"
+  ],
+  "illustrative": true,
+  "sort_order": 2,
+  "status": "published",
+  "translations": {
+   "en": {
+    "title": "Opening a technology company's Riyadh office",
+    "client": "A software company from the United States",
+    "entity": "Limited liability company, with a regional headquarters licence assessed",
+    "summary": "A software company with clients in the Gulf wants a team on the ground in Riyadh and asks whether it should open a regional headquarters.",
+    "challenge": "Most of the company's Gulf clients are in Saudi Arabia, and several government-related tenders expect a local entity. Management wants a sales and delivery team in Riyadh within the year.\n\nThe open questions are practical: which structure to use, whether the regional headquarters programme and its incentives apply to them, how to hire both Saudi and international staff, and where to put the office.",
+    "step_titles": [
+     "Discovery",
+     "Structure",
+     "Office",
+     "People",
+     "Compliance"
+    ],
+    "step_texts": [
+     "We review the business model, client base and growth plan, and test the company against the regional headquarters requirements before recommending a route.",
+     "Investor registration and a limited liability company sized for the first phase, with the option to add a regional headquarters licence later.",
+     "Shortlisting offices that meet licensing and national address requirements, from serviced space to a long-term lease.",
+     "Qiwa and GOSI set-up, work visas for transferred staff and a Saudization plan for local hires.",
+     "VAT and e-invoicing registration, contracts and the internal calendar for renewals and filings."
+    ],
+    "delivered": [
+     "Route recommendation, including the regional headquarters question",
+     "Investor registration and company formation",
+     "Office secured with national address",
+     "Visas and local hiring plan",
+     "VAT, e-invoicing and renewal calendar"
+    ],
+    "outcome": "The company starts selling from Riyadh with the right structure for today and a clear path to a regional headquarters if the business grows into one."
+   },
+   "ar": {
+    "title": "افتتاح مكتب لشركة تقنية في الرياض",
+    "client": "شركة برمجيات من الولايات المتحدة",
+    "entity": "شركة ذات مسؤولية محدودة، مع دراسة ترخيص المقر الإقليمي",
+    "summary": "شركة برمجيات لها عملاء في الخليج تريد فريقًا على الأرض في الرياض، وتسأل: هل تفتح مقرًا إقليميًا؟",
+    "challenge": "معظم عملاء الشركة في الخليج موجودون في السعودية، وكثير من المنافسات ذات الصلة بالجهات الحكومية تتطلب كيانًا محليًا. وتريد الإدارة فريق مبيعات وتنفيذ في الرياض خلال العام.\n\nوالأسئلة المفتوحة عملية: أي كيان تستخدم، وهل ينطبق عليها برنامج المقرات الإقليمية وحوافزه، وكيف توظف كفاءات سعودية ودولية، وأين يكون المكتب.",
+    "step_titles": [
+     "الاستكشاف",
+     "الهيكلة",
+     "المكتب",
+     "الفريق",
+     "الالتزام"
+    ],
+    "step_texts": [
+     "نراجع نموذج العمل وقاعدة العملاء وخطة النمو، ونختبر وضع الشركة مقابل متطلبات المقر الإقليمي قبل التوصية بالمسار.",
+     "تسجيل المستثمر وشركة ذات مسؤولية محدودة بحجم يناسب المرحلة الأولى، مع إمكانية إضافة ترخيص المقر الإقليمي لاحقًا.",
+     "اختيار مكاتب تستوفي متطلبات الترخيص والعنوان الوطني، من المساحات المجهزة إلى الإيجار طويل الأجل.",
+     "تجهيز حسابات قوى والتأمينات، وتأشيرات العمل للموظفين المنقولين، وخطة توطين للتعيينات المحلية.",
+     "التسجيل في ضريبة القيمة المضافة والفوترة الإلكترونية، والعقود، والتقويم الداخلي للتجديدات والإقرارات."
+    ],
+    "delivered": [
+     "توصية بالمسار، بما في ذلك مسألة المقر الإقليمي",
+     "تسجيل المستثمر وتأسيس الشركة",
+     "مكتب جاهز بعنوان وطني",
+     "التأشيرات وخطة التوظيف المحلي",
+     "ضريبة القيمة المضافة والفوترة الإلكترونية وتقويم التجديدات"
+    ],
+    "outcome": "تبدأ الشركة البيع من الرياض بالكيان المناسب لمرحلتها الحالية، مع طريق واضح نحو المقر الإقليمي إذا نما العمل إلى هذا الحجم."
+   }
+  }
+ },
+ {
+  "slug": "restaurant-brand-jeddah",
+  "sector": "food",
+  "origin": "eg",
+  "region": "makkah",
+  "media": "case-chef",
+  "services": [
+   "feasibility-studies",
+   "company-formation",
+   "licensing-and-government-approvals",
+   "quality-certificates",
+   "office-solutions"
+  ],
+  "illustrative": true,
+  "sort_order": 3,
+  "status": "published",
+  "translations": {
+   "en": {
+    "title": "Bringing a restaurant brand to Jeddah",
+    "client": "A restaurant group from Egypt",
+    "entity": "Limited liability company with food establishment licences",
+    "summary": "A successful restaurant brand wants its first branch in Jeddah and needs to know which licences, standards and locations make that possible.",
+    "challenge": "The brand is well known at home and has a loyal following among Egyptians living in Saudi Arabia. The founders have chosen Jeddah, but they have never opened outside their own country.\n\nThey need a realistic budget, the right location for their concept, and a clear list of the municipal, food-safety and staffing requirements before they sign a lease.",
+    "step_titles": [
+     "Market check",
+     "Company",
+     "Site and licences",
+     "Standards",
+     "Opening"
+    ],
+    "step_texts": [
+     "A feasibility study tests demand, competition, rent levels and margins in the districts that fit the concept.",
+     "Investor registration and company formation, with the brand's trademarks protected in the Kingdom.",
+     "Site selection against municipal rules, then the commercial, municipal and food establishment licences in the right order.",
+     "Food safety and hygiene systems prepared to the required standards, with staff health certification.",
+     "Hiring with Saudization in mind, point-of-sale and e-invoicing set up, and the opening checklist."
+    ],
+    "delivered": [
+     "Feasibility study by district",
+     "Company formation and trademark filing",
+     "Location assessed against municipal rules",
+     "Commercial, municipal and food licences",
+     "Food safety system and staff certification",
+     "E-invoicing-ready point of sale"
+    ],
+    "outcome": "The founders sign a lease knowing the full cost and timeline, and the branch opens with every licence and inspection requirement already met."
+   },
+   "ar": {
+    "title": "نقل علامة مطاعم إلى جدة",
+    "client": "مجموعة مطاعم من مصر",
+    "entity": "شركة ذات مسؤولية محدودة مع تراخيص المنشآت الغذائية",
+    "summary": "علامة مطاعم ناجحة تريد فرعها الأول في جدة، وتحتاج إلى معرفة التراخيص والمعايير والمواقع التي تجعل ذلك ممكنًا.",
+    "challenge": "العلامة معروفة في بلدها ولها جمهور وفيّ بين المصريين المقيمين في السعودية. اختار المؤسسون جدة، لكنهم لم يفتتحوا فرعًا خارج بلدهم من قبل.\n\nويحتاجون إلى ميزانية واقعية، وموقع يناسب مفهوم المطعم، وقائمة واضحة بالمتطلبات البلدية ومتطلبات سلامة الغذاء والتوظيف قبل توقيع عقد الإيجار.",
+    "step_titles": [
+     "فحص السوق",
+     "الشركة",
+     "الموقع والتراخيص",
+     "المعايير",
+     "الافتتاح"
+    ],
+    "step_texts": [
+     "دراسة جدوى تختبر الطلب والمنافسة ومستويات الإيجار وهوامش الربح في الأحياء المناسبة لمفهوم المطعم.",
+     "تسجيل المستثمر وتأسيس الشركة، مع حماية العلامات التجارية في المملكة.",
+     "اختيار الموقع وفق الاشتراطات البلدية، ثم التراخيص التجارية والبلدية وتراخيص المنشأة الغذائية بالترتيب الصحيح.",
+     "تجهيز أنظمة سلامة الغذاء والنظافة وفق المعايير المطلوبة، مع الشهادات الصحية للعاملين.",
+     "التوظيف مع مراعاة التوطين، وتجهيز نقاط البيع والفوترة الإلكترونية، وقائمة مراجعة الافتتاح."
+    ],
+    "delivered": [
+     "دراسة جدوى حسب الحي",
+     "تأسيس الشركة وتسجيل العلامة التجارية",
+     "تقييم الموقع وفق الاشتراطات البلدية",
+     "التراخيص التجارية والبلدية والغذائية",
+     "نظام سلامة الغذاء وشهادات العاملين",
+     "نقاط بيع جاهزة للفوترة الإلكترونية"
+    ],
+    "outcome": "يوقّع المؤسسون عقد الإيجار وهم يعرفون التكلفة الكاملة والجدول الزمني، ويُفتتح الفرع وقد استوفى كل الترخيصات ومتطلبات التفتيش مسبقًا."
+   }
+  }
+ },
+ {
+  "slug": "saudi-trading-company-uae",
+  "sector": "b2b",
+  "origin": "sa",
+  "region": "riyadh",
+  "media": "case-dubai",
+  "services": [
+   "saudi-companies-in-the-uae",
+   "business-consulting",
+   "tax-and-budgeting"
+  ],
+  "illustrative": true,
+  "sort_order": 4,
+  "status": "published",
+  "translations": {
+   "en": {
+    "title": "Taking a Saudi trading company into the UAE",
+    "client": "A trading company from Riyadh",
+    "entity": "UAE company, with the mainland and free zone options compared",
+    "summary": "A Saudi distributor wants to serve customers in the UAE directly and asks whether to set up on the mainland or in a free zone.",
+    "challenge": "The company has grown steadily in the Kingdom and now receives regular orders from UAE customers, which it serves through an agent. Margins are thin and delivery times are long.\n\nThe owners want their own entity in the UAE, but they are unsure about the difference between mainland and free zone companies, banking, UAE corporate tax, and how to run both companies without duplicating costs.",
+    "step_titles": [
+     "Options",
+     "Set-up",
+     "Banking",
+     "Tax",
+     "Operations"
+    ],
+    "step_texts": [
+     "We compare mainland and free zone structures against the company's customers, warehousing needs and the activities each allows.",
+     "Company formation, trade licence and office or warehouse arrangements in the chosen emirate.",
+     "Corporate bank account opening and the documents banks expect from a Saudi parent.",
+     "UAE corporate tax and VAT registration, and transfer pricing between the Saudi and UAE companies.",
+     "Budgeting and reporting across both companies so management sees one picture."
+    ],
+    "delivered": [
+     "Mainland or free zone recommendation",
+     "UAE company and trade licence",
+     "Corporate bank account",
+     "UAE tax registrations and intercompany pricing",
+     "Group budget and reporting"
+    ],
+    "outcome": "The company sells to UAE customers directly, with a structure that fits its trade and a group view of costs and taxes across both countries."
+   },
+   "ar": {
+    "title": "توسيع شركة تجارية سعودية إلى الإمارات",
+    "client": "شركة تجارية من الرياض",
+    "entity": "شركة إماراتية، مع مقارنة خياري البر الرئيسي والمنطقة الحرة",
+    "summary": "موزّع سعودي يريد خدمة عملائه في الإمارات مباشرة، ويسأل: هل يؤسس في البر الرئيسي أم في منطقة حرة؟",
+    "challenge": "نمت الشركة بثبات في المملكة، وتتلقى الآن طلبات منتظمة من عملاء في الإمارات تخدمهم عبر وكيل، فالهوامش ضيقة ومدد التوريد طويلة.\n\nيريد الملّاك كيانًا خاصًا بهم في الإمارات، لكنهم غير متأكدين من الفرق بين شركات البر الرئيسي والمناطق الحرة، والتعامل البنكي، وضريبة الشركات الإماراتية، وكيف يديرون الشركتين دون تكرار التكاليف.",
+    "step_titles": [
+     "الخيارات",
+     "التأسيس",
+     "البنوك",
+     "الضرائب",
+     "التشغيل"
+    ],
+    "step_texts": [
+     "نقارن بين هيكلي البر الرئيسي والمنطقة الحرة في ضوء عملاء الشركة واحتياجات التخزين والأنشطة المسموحة في كل منهما.",
+     "تأسيس الشركة، والرخصة التجارية، وترتيبات المكتب أو المستودع في الإمارة المختارة.",
+     "فتح الحساب البنكي للشركة والمستندات التي تطلبها البنوك من شركة أم سعودية.",
+     "التسجيل في ضريبة الشركات وضريبة القيمة المضافة في الإمارات، وتسعير المعاملات بين الشركتين السعودية والإماراتية.",
+     "الميزانيات والتقارير عبر الشركتين لتحصل الإدارة على صورة واحدة."
+    ],
+    "delivered": [
+     "توصية بالبر الرئيسي أو المنطقة الحرة",
+     "الشركة الإماراتية والرخصة التجارية",
+     "الحساب البنكي للشركة",
+     "التسجيلات الضريبية الإماراتية وتسعير المعاملات البينية",
+     "ميزانية وتقارير المجموعة"
+    ],
+    "outcome": "تبيع الشركة لعملائها في الإمارات مباشرة، بهيكل يناسب تجارتها، ورؤية موحدة للتكاليف والضرائب في البلدين."
+   }
+  }
+ },
+ {
+  "slug": "logistics-group-acquisition",
+  "sector": "logistics",
+  "origin": "my",
+  "region": "eastern",
+  "media": "case-warehouse",
+  "services": [
+   "international-acquisition",
+   "feasibility-studies",
+   "licensing-and-government-approvals",
+   "hr-and-auditing",
+   "tax-and-budgeting"
+  ],
+  "illustrative": true,
+  "sort_order": 5,
+  "status": "published",
+  "translations": {
+   "en": {
+    "title": "Entering through an acquisition in the Eastern Province",
+    "client": "A logistics group from Malaysia",
+    "entity": "Acquisition of shares in an existing Saudi limited liability company",
+    "summary": "A logistics group wants to buy an established Saudi company rather than start from zero, and needs to know what it is really buying.",
+    "challenge": "The group has found a warehousing and distribution company in the Eastern Province with customers, staff and licences already in place. Buying it promises a faster start than building a new company.\n\nBut the group needs confidence that the licences, contracts, tax position, employees and Saudization status are what the seller says they are, and that the transfer to a foreign shareholder will be approved.",
+    "step_titles": [
+     "Target review",
+     "Due diligence",
+     "Deal structure",
+     "Approvals",
+     "Integration"
+    ],
+    "step_texts": [
+     "A first assessment of the company's activity, licences and market position against the group's strategy.",
+     "Legal, tax, labour and licensing review: commercial registration, zakat and tax filings, GOSI and Qiwa records, Saudization band and key contracts.",
+     "Recommendations on what to fix before closing and how the purchase should be structured.",
+     "Investor registration for the foreign shareholder, share transfer, amended articles and an updated commercial registration.",
+     "Moving from zakat to income tax on the foreign-owned share, HR and payroll continuity, and reporting to the group."
+    ],
+    "delivered": [
+     "Target assessment",
+     "Due diligence report with risks ranked",
+     "Pre-closing action list",
+     "Investor registration and share transfer",
+     "Updated commercial registration and licences",
+     "Tax and HR integration plan"
+    ],
+    "outcome": "The group buys with its eyes open: issues are found and priced before signing, and the company keeps operating without interruption under its new owners."
+   },
+   "ar": {
+    "title": "الدخول عبر استحواذ في المنطقة الشرقية",
+    "client": "مجموعة لوجستية من ماليزيا",
+    "entity": "استحواذ على حصص في شركة سعودية قائمة ذات مسؤولية محدودة",
+    "summary": "مجموعة لوجستية تريد شراء شركة سعودية قائمة بدلًا من البدء من الصفر، وتحتاج إلى معرفة ما الذي تشتريه فعلًا.",
+    "challenge": "وجدت المجموعة شركة للتخزين والتوزيع في المنطقة الشرقية لديها عملاء وموظفون وتراخيص قائمة، وشراؤها يعد بانطلاقة أسرع من تأسيس شركة جديدة.\n\nلكن المجموعة تحتاج إلى الاطمئنان إلى أن التراخيص والعقود والوضع الضريبي والموظفين ونطاق التوطين كما يقول البائع، وأن نقل الملكية إلى شريك أجنبي ستتم الموافقة عليه.",
+    "step_titles": [
+     "دراسة الشركة المستهدفة",
+     "الفحص النافي للجهالة",
+     "هيكلة الصفقة",
+     "الموافقات",
+     "الدمج"
+    ],
+    "step_texts": [
+     "تقييم أولي لنشاط الشركة وتراخيصها وموقعها في السوق مقارنة باستراتيجية المجموعة.",
+     "مراجعة قانونية وضريبية وعمالية ونظامية: السجل التجاري، وإقرارات الزكاة والضريبة، وسجلات التأمينات وقوى، ونطاق التوطين، والعقود الرئيسية.",
+     "توصيات بما يجب إصلاحه قبل الإتمام وكيف تُهيكل عملية الشراء.",
+     "تسجيل الشريك الأجنبي كمستثمر، ونقل الحصص، وتعديل عقد التأسيس، وتحديث السجل التجاري.",
+     "الانتقال من الزكاة إلى ضريبة الدخل على الحصة الأجنبية، واستمرارية الموارد البشرية والرواتب، والتقارير للمجموعة."
+    ],
+    "delivered": [
+     "تقييم الشركة المستهدفة",
+     "تقرير فحص نافٍ للجهالة مع ترتيب المخاطر",
+     "قائمة إجراءات ما قبل الإتمام",
+     "تسجيل المستثمر ونقل الحصص",
+     "تحديث السجل التجاري والتراخيص",
+     "خطة دمج ضريبية وإدارية"
+    ],
+    "outcome": "تشتري المجموعة وهي على بيّنة: تُكتشف المشكلات وتُسعَّر قبل التوقيع، وتواصل الشركة عملها دون انقطاع تحت ملكيتها الجديدة."
+   }
+  }
+ }
+]

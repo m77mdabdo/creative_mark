@@ -92,5 +92,21 @@
     "liveNewsroom": "新闻中心",
     "riyadhTime": "利雅得",
     "topStories": "头条新闻",
-    "showStory": "显示报道"
+    "showStory": "显示报道",
+    "illustrative": "示例案例",
+    "illustrativeNote": "基于我们为此类公司提供的标准服务流程编写，并非描述某一具体客户。",
+    "startingPoint": "起点",
+    "ourSteps": "我们的步骤",
+    "whatDelivered": "交付成果",
+    "whereItLeads": "最终成效",
+    "atAGlance": "概览",
+    "sector": "行业",
+    "clientFrom": "客户来自",
+    "regionLabel": "地区",
+    "legalForm": "法律形式",
+    "servicesUsed": "所用服务",
+    "readCase": "阅读案例",
+    "moreCases": "更多案例",
+    "step": "步骤",
+    "filterCases": "按行业筛选案例"
 }

@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Content\PublishPage;
+use App\Models\CaseStudy;
 use App\Models\Country;
 use App\Models\Faq;
 use App\Models\NewsArticle;
@@ -26,7 +27,7 @@ use Illuminate\Console\Command;
 #[Description('Machine translate missing languages of CMS content, settings and interface labels')]
 class TranslateContent extends Command
 {
-    private const MODELS = [Service::class, Region::class, Faq::class, Stat::class, Testimonial::class, Country::class, NewsArticle::class];
+    private const MODELS = [Service::class, Region::class, Faq::class, Stat::class, Testimonial::class, Country::class, NewsArticle::class, CaseStudy::class];
 
     public function handle(ContentTranslator $translator): int
     {

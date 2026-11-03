@@ -3,6 +3,7 @@
 namespace App\Content;
 
 use App\Enums\ReviewStatus;
+use App\Models\CaseStudy;
 use App\Models\Country;
 use App\Models\Faq;
 use App\Models\NewsArticle;
@@ -41,6 +42,9 @@ final class PageData
         $catalogue = $this->catalogue($locale, $faqLimit);
         if (collect($sections)->contains(fn ($s) => str_starts_with($s['type'], 'news'))) {
             $catalogue['articles'] = $this->articles(NewsArticle::query()->live()->withLocale($locale)->get(), $locale);
+        }
+        if (collect($sections)->contains(fn ($s) => $s['type'] === 'caseGrid')) {
+            $catalogue['cases'] = $this->cases(CaseStudy::query()->live()->withLocale($locale)->get(), $locale);
         }
         $sections = array_values(array_filter($sections, fn ($s) => match ($s['type']) {
             'trackRecord' => $catalogue['stats'] !== [],
@@ -168,6 +172,68 @@ final class PageData
     }
 
     /**
+     * A case study with its region, services (from the catalogue) and two more cases.
+     *
+     * @return array<string, mixed>
+     */
+    public function forCaseStudy(string $slug, string $locale): array
+    {
+        $all = CaseStudy::query()->live()->withLocale($locale)->get();
+        $case = $all->firstWhere('slug', $slug);
+        abort_unless($case, 404);
+        $catalogue = $this->catalogue($locale, 0);
+        [$item] = $this->cases(collect([$case]), $locale, withStory: true);
+        $services = collect($catalogue['services'])->keyBy('slug');
+        $related = collect($case->services ?? [])->map(fn ($s) => $services[$s] ?? null)->filter()->values()->all();
+        $others = $this->cases($all->reject(fn ($c) => $c->is($case))->take(2), $locale);
+        $page = Page::query()->where('key', 'case-studies')->withLocale($locale)->first();
+
+        return [
+            'pageKey' => 'case',
+            'title' => $item['title'],
+            'casesTitle' => $page?->t('title', $locale) ?? 'Case studies',
+            'seo' => ['title' => "{$item['title']} | Creative Mark", 'description' => $item['summary']],
+            'reviewStatus' => ($case->translation($locale)?->review_status ?? ReviewStatus::Missing)->value,
+            'caseStudy' => $item,
+            'region' => collect($catalogue['regions'])->firstWhere('slug', $case->region),
+            'regions' => $catalogue['regions'],
+            'industries' => $catalogue['industries'],
+            'countries' => $catalogue['countries'],
+            'related' => $related,
+            'otherCases' => $others,
+            'media' => $this->mediaFor([$case->media, ...array_column($related, 'media'), ...array_column($others, 'media'), 'case-dubai'], $locale),
+        ];
+    }
+
+    /**
+     * @param  iterable<CaseStudy>  $cases
+     * @return list<array<string, mixed>>
+     */
+    private function cases(iterable $cases, string $locale, bool $withStory = false): array
+    {
+        $out = [];
+        foreach ($cases as $c) {
+            $t = $c->translation($locale);
+            $titles = $t?->step_titles ?? [];
+            $texts = $t?->step_texts ?? [];
+            $out[] = [
+                'slug' => $c->slug, 'sector' => $c->sector, 'origin' => $c->origin, 'region' => $c->region, 'media' => $c->media,
+                'services' => $c->services ?? [], 'illustrative' => $c->illustrative,
+                'title' => $c->t('title', $locale), 'summary' => $c->t('summary', $locale),
+                // RULE-02: a real client is named only with recorded consent; otherwise the neutral description is used.
+                'client' => $c->t('client', $locale),
+                ...($withStory ? [
+                    'entity' => $c->t('entity', $locale), 'challenge' => $c->t('challenge', $locale), 'outcome' => $c->t('outcome', $locale),
+                    'steps' => count($titles) === count($texts) ? array_map(fn ($a, $b) => ['title' => $a, 'text' => $b], $titles, $texts) : [],
+                    'delivered' => $t?->delivered ?? [],
+                ] : []),
+            ];
+        }
+
+        return $out;
+    }
+
+    /**
      * @param  iterable<NewsArticle>  $articles
      * @return list<array<string, mixed>>
      */
@@ -279,7 +345,7 @@ final class PageData
             array_push($ids, $s['media'] ?? null, $s['media2'] ?? null, $s['style']['bgMedia'] ?? null,
                 ...array_column($s['cards'], 'media'), ...array_column($s['slides'], 'media'));
         }
-        array_push($ids, ...array_column($catalogue['services'], 'media'), ...array_column($catalogue['regions'], 'media'), ...array_column($catalogue['articles'] ?? [], 'media'));
+        array_push($ids, ...array_column($catalogue['services'], 'media'), ...array_column($catalogue['regions'], 'media'), ...array_column($catalogue['articles'] ?? [], 'media'), ...array_column($catalogue['cases'] ?? [], 'media'));
         // Section backgrounds may name any library image, not only those referenced by content.
 
         return $this->mediaFor($ids, $locale);

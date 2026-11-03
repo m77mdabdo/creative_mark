@@ -14,7 +14,7 @@ export type SectionType =
   | 'hero' | 'whyInvest' | 'journey' | 'countries' | 'sectors' | 'trackRecord'
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
   | 'statement' | 'imageText' | 'cards' | 'serviceGroups' | 'processSteps' | 'comparison' | 'regionGrid'
-  | 'guideNav' | 'guideChapter' | 'checklist' | 'sourceList' | 'newsLead' | 'newsGrid'
+  | 'guideNav' | 'guideChapter' | 'checklist' | 'sourceList' | 'newsLead' | 'newsGrid' | 'caseGrid'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
 export type Slide = {
@@ -74,6 +74,17 @@ export type NewsItem = {
 
 export type NewsArticle = NewsItem & { body: string; takeaway: string | null; facts: { value: string; label: string }[] }
 
+/** A case study card (App\Content\PageData::cases). `illustrative` cases always show a label. */
+export type CaseItem = {
+  slug: string; sector: string; origin: string; region: string; media: string; services: string[]
+  illustrative: boolean; title: string; summary: string; client: string
+}
+
+export type CaseStory = CaseItem & {
+  entity: string | null; challenge: string; outcome: string
+  steps: { title: string; text: string }[]; delivered: string[]
+}
+
 export type StatItem = { key: string; value: string; label: string; icon: string | null }
 export type CountryItem = { code: string; name: string }
 export type FaqItem = { id: number; question: string; answer: string }
@@ -91,6 +102,8 @@ export type PageProps = {
   regions: RegionItem[]
   /** Present on pages with newsroom sections. */
   articles?: NewsItem[]
+  /** Present on pages with a case grid. */
+  cases?: CaseItem[]
   industries: Record<string, string>
   serviceGroups: Record<ServiceGroup, string>
   journey: JourneyStep[]
@@ -143,5 +156,22 @@ export type NewsArticlePageProps = {
   article: NewsArticle
   related: NewsItem[]
   latest: { slug: string; title: string }[]
+  media: Record<string, MediaItem>
+}
+
+/** Props of a case study page (App\Content\PageData::forCaseStudy). */
+export type CaseStudyPageProps = {
+  pageKey: 'case'
+  title: string
+  casesTitle: string
+  seo: { title: string; description: string }
+  reviewStatus: ReviewStatus
+  caseStudy: CaseStory
+  region: RegionItem | null
+  regions: RegionItem[]
+  industries: Record<string, string>
+  countries: CountryItem[]
+  related: ServiceItem[]
+  otherCases: CaseItem[]
   media: Record<string, MediaItem>
 }

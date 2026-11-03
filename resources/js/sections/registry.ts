@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import type { SectionType } from '@/types'
+import CaseGrid from './CaseGrid'
 import Comparison from './Comparison'
 import ConsultationCta from './ConsultationCta'
 import Countries from './Countries'
@@ -54,4 +55,5 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   sourceList: SourceList,
   newsLead: NewsLead,
   newsGrid: NewsGrid,
+  caseGrid: CaseGrid,
 }

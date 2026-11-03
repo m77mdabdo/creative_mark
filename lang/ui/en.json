@@ -92,5 +92,21 @@
     "liveNewsroom": "Newsroom",
     "riyadhTime": "Riyadh",
     "topStories": "Top stories",
-    "showStory": "Show story"
+    "showStory": "Show story",
+    "illustrative": "Illustrative example",
+    "illustrativeNote": "Built from our standard engagement for this type of company. It does not describe a specific client.",
+    "startingPoint": "The starting point",
+    "ourSteps": "Our steps",
+    "whatDelivered": "What was delivered",
+    "whereItLeads": "Where it leads",
+    "atAGlance": "At a glance",
+    "sector": "Sector",
+    "clientFrom": "Client from",
+    "regionLabel": "Region",
+    "legalForm": "Legal form",
+    "servicesUsed": "Services used",
+    "readCase": "Read the case",
+    "moreCases": "More cases",
+    "step": "Step",
+    "filterCases": "Filter cases by sector"
 }

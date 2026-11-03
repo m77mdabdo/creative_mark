@@ -3,8 +3,10 @@
 namespace App\Filament\Pages;
 
 use App\Content\ServicePageBuilder;
+use App\Models\Page;
 use App\Models\Service;
 use Filament\Navigation\NavigationItem;
+use Illuminate\Contracts\Support\Htmlable;
 use Livewire\Attributes\Locked;
 
 /**
@@ -26,6 +28,16 @@ class EditServicePage extends EditPageSections
         $this->service = $record->slug;
         ServicePageBuilder::ensure($record);
         parent::mount();
+    }
+
+    protected function afterPublish(Page $page): void
+    {
+        ServicePageBuilder::syncToService($page);
+    }
+
+    public function getSubheading(): string|Htmlable|null
+    {
+        return parent::getSubheading().' · '.__('Publishing also updates this solution’s card, menu entry and booking form.');
     }
 
     protected function pageKey(): string

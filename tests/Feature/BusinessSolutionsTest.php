@@ -48,7 +48,7 @@ class BusinessSolutionsTest extends TestCase
         $this->get('/en/services/company-formation')->assertInertia(fn (Assert $page) => $page
             ->component('ContentPage')
             ->where('pageKey', 'service-company-formation')
-            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'serviceOverview', 'processSteps', 'faq', 'relatedServices', 'cta'])
+            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'serviceOverview', 'processSteps', 'faq', 'caseGrid', 'relatedServices', 'cta'])
             ->where('sections.0.title', 'Company Formation')
             ->has('sections.1.cards', 11)
             ->where('sections.1.note', fn ($n) => str_contains($n, '1,000'))
@@ -76,6 +76,7 @@ class BusinessSolutionsTest extends TestCase
     {
         // The rule itself: figures marked unverified never reach the page (D-09 approved the seeded ones).
         Stat::whereNotIn('key', ['companies-established', 'years-experience'])->update(['verified' => false]);
+        Service::where('slug', 'business-consulting')->update(['needs_review' => true]);
         $html = $this->get('/en/services/licensing-and-government-approvals')->getContent().$this->get('/en/services')->getContent();
         foreach (['500+', '209', '157', '144', '103', '4.8 trillion'] as $figure) {
             $this->assertStringNotContainsString($figure, $html, $figure);

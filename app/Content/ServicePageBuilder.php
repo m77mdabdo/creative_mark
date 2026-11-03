@@ -42,6 +42,49 @@ final class ServicePageBuilder
         return $page;
     }
 
+    /** Case studies that used this solution (hidden automatically when there are none). */
+    public static function casesSection(): array
+    {
+        return ['id' => 'service-cases', 'type' => 'caseGrid', 'label' => 'Case studies', 'limit' => 2,
+            'eyebrow' => ['en' => 'Case studies', 'ar' => 'دراسات الحالة', 'fr' => 'Études de cas', 'hi' => 'केस स्टडी', 'ur' => 'کیس اسٹڈیز', 'zh' => '案例研究'],
+            'title' => ['en' => 'Where this solution made the difference', 'ar' => 'حيث صنعت هذه الخدمة الفرق', 'fr' => 'Là où cette solution a fait la différence', 'hi' => 'जहाँ इस समाधान ने फ़र्क पैदा किया', 'ur' => 'جہاں اس حل نے فرق پیدا کیا', 'zh' => '这项服务发挥作用的案例'],
+            'highlight' => ['en' => 'made the difference', 'ar' => 'صنعت هذه الخدمة الفرق', 'fr' => 'a fait la différence', 'hi' => 'फ़र्क पैदा किया', 'ur' => 'فرق پیدا کیا', 'zh' => '发挥作用'],
+            'buttons' => [['label' => ['en' => 'All case studies', 'ar' => 'كل دراسات الحالة', 'fr' => 'Toutes les études de cas', 'hi' => 'सभी केस स्टडी', 'ur' => 'تمام کیس اسٹڈیز', 'zh' => '全部案例'], 'href' => '/case-studies', 'style' => 'outline']],
+            'cards' => [], 'slides' => [], 'style' => ['theme' => 'charcoal', 'overlay' => 55, 'padding' => 'lg', 'align' => 'start'],
+            'motion' => ['preset' => 'stagger-cards', 'intensity' => 100, 'delay' => 0]];
+    }
+
+    /**
+     * Copies the page's hero and overview back to the service record, so cards, menus and the booking form
+     * show the same title, tagline, text and button as the published page.
+     */
+    public static function syncToService(Page $page): void
+    {
+        $service = Service::query()->where('slug', substr($page->key, 8))->with('translations')->first();
+        $sections = collect($page->publishedRevision?->sections ?? []);
+        $hero = $sections->firstWhere('type', 'hero');
+        $overview = $sections->firstWhere('type', 'serviceOverview');
+        if (! $service || ! $hero) {
+            return;
+        }
+        foreach (Locales::codes() as $locale) {
+            $values = array_filter([
+                'title' => $hero['title'][$locale] ?? null,
+                'tagline' => $hero['subtitle'][$locale] ?? null,
+                'cta' => $hero['buttons'][0]['label'][$locale] ?? null,
+                'overview' => $overview['body'][$locale] ?? null,
+                'note' => $overview['note'][$locale] ?? null,
+            ], 'filled');
+            if ($overview && ($scope = array_values(array_filter(array_map(fn ($c) => $c['title'][$locale] ?? null, $overview['cards'] ?? []), 'filled')))) {
+                $values['scope'] = $scope;
+            }
+            $translation = $service->translations->firstWhere('locale', $locale);
+            if ($translation && $values) {
+                $translation->fill($values)->save();
+            }
+        }
+    }
+
     /** @return list<array<string, mixed>> */
     public static function sections(Service $service): array
     {
@@ -77,6 +120,7 @@ final class ServicePageBuilder
         }
         $sections[] = ['id' => 'service-faq', 'type' => 'faq', 'label' => 'Questions', 'eyebrow' => $ui('questions'), 'title' => $ui('serviceQuestions'),
             'limit' => 10, 'buttons' => [], 'cards' => [], 'slides' => [], 'style' => $style('charcoal'), 'motion' => $motion('fade-up')];
+        $sections[] = self::casesSection();
         $sections[] = ['id' => 'service-related', 'type' => 'relatedServices', 'label' => 'Related solutions', 'eyebrow' => $ui('allServices'), 'title' => $ui('relatedServices'),
             'limit' => 3, 'buttons' => [], 'cards' => [], 'slides' => [], 'style' => $style('dark'), 'motion' => $motion('stagger-cards')];
         $sections[] = ['id' => 'service-cta', 'type' => 'cta', 'label' => 'Call to action', 'title' => $ui('ctaTitle'), 'body' => $ui('ctaBody'),

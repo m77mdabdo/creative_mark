@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Content\PublishPage;
 use App\Models\Faq;
 use App\Models\Page;
+use App\Models\Service;
 use App\Models\Stat;
 use App\Models\Testimonial;
 use Database\Seeders\ContentSeeder;
@@ -142,6 +143,7 @@ class HomePageTest extends TestCase
     {
         // The rule itself: figures marked unverified never reach the page (D-09 approved the seeded ones).
         Stat::whereNotIn('key', ['companies-established', 'years-experience'])->update(['verified' => false]);
+        Service::where('slug', 'business-consulting')->update(['needs_review' => true]);
         $home = Page::where('key', 'home')->first();
         $home->forceFill(['draft_sections' => array_map(fn ($s) => $s['type'] === 'whyInvest'
             ? [...$s, 'cards' => array_map(fn ($c) => [...$c, 'verified' => ! in_array($c['id'], ['whyInvest-1', 'whyInvest-3', 'whyInvest-4'], true)], $s['cards'])] : $s, $home->draft_sections)])->save();

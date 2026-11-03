@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-348_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-349_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -265,6 +265,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-03
+- Business solutions completed (D-11): two questions for each solution that had none, Business Consulting summary
+  shown, each solution page lists the case studies that used it, and publishing a solution page updates its card,
+  menu entry and booking form.
 - Business solutions in the page editor: the overview page and each solution's own page (built from the service
   record, same layout, six languages) with every editor tool; menu group lists every solution; new section types
   "Overview and what is included" and "Related solutions"; long Google descriptions no longer block saving.

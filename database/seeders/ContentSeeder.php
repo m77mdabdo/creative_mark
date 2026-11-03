@@ -33,7 +33,8 @@ class ContentSeeder extends Seeder
         $services = [];
         foreach ($c['services'] as $s) {
             $m = Service::updateOrCreate(['slug' => $s['slug']], ['icon' => $s['icon'], 'media' => $s['media'], 'sort_order' => $s['order'], 'status' => 'published',
-                'group' => $s['group'], 'related' => $s['related'], 'needs_review' => (bool) preg_match('/\d/', $s['summary']['en'])]);
+                // D-11 (2026-11-03): the owner approved the figures quoted in service summaries.
+                'group' => $s['group'], 'related' => $s['related'], 'needs_review' => false]);
             $this->translate($m, [
                 'title' => $s['title'], 'tagline' => $s['tagline'], 'summary' => $s['summary'], 'cta' => $s['cta'],
                 'overview' => $s['overview'], 'note' => $s['note'],
@@ -64,7 +65,7 @@ class ContentSeeder extends Seeder
         Faq::query()->delete();
         $faqIds = [];
         foreach ($c['faqs'] as $f) {
-            $m = Faq::create(['category' => $f['category'], 'sort_order' => $f['order'], 'status' => 'published', 'needs_review' => $f['needs_review'], 'show_on_home' => ! $f['needs_review']]);
+            $m = Faq::create(['category' => $f['category'], 'sort_order' => $f['order'], 'status' => 'published', 'needs_review' => $f['needs_review'], 'show_on_home' => $f['show_on_home'] ?? ! $f['needs_review']]);
             $this->translate($m, ['question' => $f['question'], 'answer' => $f['answer']]);
             $faqIds[$f['key']] = $m->id;
         }

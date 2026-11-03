@@ -61,6 +61,10 @@ final class PageData
                 $catalogue['faqs'] = $service->faqs->map(fn (Faq $f) => ['id' => $f->id, 'question' => $f->t('question', $locale), 'answer' => $f->t('answer', $locale)])->all();
                 $extra['related'] = collect($service->related ?? [])->map(fn ($s) => $bySlug[$s] ?? null)->filter()->values()->all();
                 $extra['serviceSlug'] = $service->slug;
+                // Case studies on a solution's page are the ones that used it.
+                if (isset($catalogue['cases'])) {
+                    $catalogue['cases'] = array_values(array_filter($catalogue['cases'], fn ($c) => in_array($service->slug, $c['services'] ?? [], true)));
+                }
                 $solutions = collect(Setting::group('navigation')['header'] ?? [])->firstWhere('href', '/services')['label'] ?? [];
                 $extra['breadcrumbs'] = [
                     ['label' => $solutions[$locale] ?? $solutions[Locales::FALLBACK] ?? UiStrings::forLocale($locale)['allServices'], 'href' => '/services'],
@@ -73,6 +77,7 @@ final class PageData
             'testimonials' => $catalogue['testimonials'] !== [],
             'faq' => $catalogue['faqs'] !== [],
             'relatedServices' => ($extra['related'] ?? []) !== [],
+            'caseGrid' => ($catalogue['cases'] ?? []) !== [],
             default => true,
         }));
 

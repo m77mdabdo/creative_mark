@@ -136,6 +136,7 @@ abstract class EditPageSections extends Page
                         return;
                     }
                     (new PublishPage)($this->record(), auth()->id(), 'Published from the page editor');
+                    $this->afterPublish($this->record());
                     Notification::make()->success()->title(__('Published. The website now shows your changes.'))->send();
                 }),
             Action::make('translate')->label(__('Translate missing languages'))->icon('heroicon-o-language')->color('gray')
@@ -177,6 +178,9 @@ abstract class EditPageSections extends Page
     {
         return collect($this->data['sections'] ?? [])->contains(fn ($s) => ($s['type'] ?? null) === $type);
     }
+
+    /** Hook for pages tied to a record (a business solution copies its texts back to the service). */
+    protected function afterPublish(PageModel $page): void {}
 
     /** Validates and stores the draft. Returns false (with a message) if it cannot be saved. */
     public function save(bool $notify = true): bool

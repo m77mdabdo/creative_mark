@@ -276,6 +276,27 @@ class PageEditorTest extends TestCase
         }
     }
 
+    public function test_solution_pages_show_their_cases_and_sync_back_to_the_service(): void
+    {
+        // Case studies on a solution's page are only those that used it
+        $this->get('/en/services/international-acquisition')->assertInertia(fn (Assert $p) => $p
+            ->has('cases', 1)->where('cases.0.slug', 'logistics-group-acquisition'));
+        $this->get('/en/services/investment-tours')->assertInertia(fn (Assert $p) => $p
+            ->where('sections', fn ($s) => ! collect($s)->contains('type', 'caseGrid')));
+        // Every solution now has its own questions
+        $this->get('/en/services/feasibility-studies')->assertInertia(fn (Assert $p) => $p->has('faqs', 2));
+
+        // Publishing a solution page updates its card and menu entry
+        $component = Livewire::actingAs($this->manager())->test(EditServicePage::class, ['service' => 'office-solutions']);
+        $sections = $component->get('data.sections');
+        $hero = array_key_first($sections);
+        $sections[$hero]['title']['en'] = 'Offices ready for business';
+        $sections[$hero]['subtitle']['ar'] = 'مكاتب جاهزة للعمل';
+        $component->set('data.sections', $sections)->call('save')->callAction('publish');
+        $this->get('/en/services')->assertInertia(fn (Assert $p) => $p->where('services', fn ($all) => collect($all)->contains('title', 'Offices ready for business')));
+        $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('site.megaServices', fn ($m) => collect($m)->contains('tagline', 'مكاتب جاهزة للعمل')));
+    }
+
     public function test_concurrent_edits_do_not_overwrite_each_other(): void
     {
         $first = Livewire::actingAs($this->manager())->test(EditHomePage::class);

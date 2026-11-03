@@ -186,7 +186,10 @@
     "investment-tours",
     "company-formation"
    ],
-   "faqs": [],
+   "faqs": [
+    "svc-feasibility-studies-1",
+    "svc-feasibility-studies-2"
+   ],
    "overview": {
     "en": "Reduce uncertainty before investing. Our feasibility studies provide structured market, commercial, operational and financial analysis to support more informed investment decisions.",
     "ar": "قلّل عدم اليقين قبل الاستثمار. تقدم دراسات الجدوى لدينا تحليلاً منظماً للسوق والجوانب التجارية والتشغيلية والمالية لدعم قرارات استثمارية أكثر وعياً."
@@ -262,7 +265,10 @@
     "business-consulting",
     "company-formation"
    ],
-   "faqs": [],
+   "faqs": [
+    "svc-saudi-companies-in-the-uae-1",
+    "svc-saudi-companies-in-the-uae-2"
+   ],
    "overview": {
     "en": "Growth does not have to stop at the Saudi border.\n\nCreative Mark supports Saudi companies establishing or expanding their presence in the United Arab Emirates, helping them understand the setup process, requirements and operational considerations as part of their wider GCC expansion strategy.",
     "ar": "النمو لا يتوقف بالضرورة عند الحدود السعودية.\n\nتدعم كرييتف مارك الشركات السعودية التي تؤسس حضورها أو توسّعه في الإمارات العربية المتحدة، وتساعدها على فهم إجراءات التأسيس والمتطلبات والاعتبارات التشغيلية ضمن استراتيجية توسع أشمل في دول الخليج."
@@ -311,7 +317,10 @@
     "hr-and-auditing",
     "company-formation"
    ],
-   "faqs": [],
+   "faqs": [
+    "svc-quality-certificates-1",
+    "svc-quality-certificates-2"
+   ],
    "overview": {
     "en": "We support businesses in obtaining the professional certificates, classifications and approvals required for their activities.\n\nCreative Mark’s experience includes supporting a wide range of approvals, certifications and professional requirements for companies operating across different activities.",
     "ar": "ندعم الشركات في الحصول على الشهادات المهنية والتصنيفات والموافقات المطلوبة لأنشطتها.\n\nتشمل خبرة كرييتف مارك دعم مجموعة واسعة من الموافقات والشهادات والمتطلبات المهنية لشركات تعمل في أنشطة مختلفة."
@@ -364,7 +373,10 @@
     "business-consulting",
     "quality-certificates"
    ],
-   "faqs": [],
+   "faqs": [
+    "svc-hr-and-auditing-1",
+    "svc-hr-and-auditing-2"
+   ],
    "overview": {
     "en": "Create a stronger internal business structure through HR support, operational reviews, auditing and organizational development solutions.\n\nWe help companies improve efficiency and internal structure through focused reviews and practical support.",
     "ar": "ابنِ هيكلاً داخلياً أقوى لعملك من خلال دعم الموارد البشرية والمراجعات التشغيلية والتدقيق وحلول التطوير المؤسسي.\n\nنساعد الشركات على رفع الكفاءة وتحسين هيكلها الداخلي من خلال مراجعات مركّزة ودعم عملي."
@@ -491,7 +503,10 @@
     "business-consulting",
     "company-formation"
    ],
-   "faqs": [],
+   "faqs": [
+    "svc-investment-tours-1",
+    "svc-investment-tours-2"
+   ],
    "overview": {
     "en": "Numbers tell part of the story. Seeing the market provides another perspective.\n\nOur investment tours help investors explore potential business locations, projects, commercial environments and investment opportunities directly on the ground.",
     "ar": "الأرقام تروي جزءاً من القصة، ورؤية السوق بعينك تمنحك منظوراً آخر.\n\nتساعد جولاتنا الاستثمارية المستثمرين على استكشاف مواقع الأعمال المحتملة والمشاريع والبيئات التجارية والفرص الاستثمارية على أرض الواقع."
@@ -610,7 +625,10 @@
     "business-consulting",
     "feasibility-studies"
    ],
-   "faqs": [],
+   "faqs": [
+    "svc-international-acquisition-1",
+    "svc-international-acquisition-2"
+   ],
    "overview": {
     "en": "Explore international expansion through the acquisition of existing companies and business entities, with professional support throughout the process.\n\nCreative Mark supports investors exploring the acquisition of existing companies and business entities in international markets. We help evaluate the opportunity, business structure and implications of the acquisition before moving forward.",
     "ar": "استكشف التوسع الدولي من خلال الاستحواذ على شركات وكيانات تجارية قائمة، مع دعم مهني طوال العملية.\n\nتدعم كرييتف مارك المستثمرين الذين يدرسون الاستحواذ على شركات وكيانات تجارية قائمة في الأسواق الدولية، ونساعد على تقييم الفرصة وهيكل العمل وانعكاسات الاستحواذ قبل المضي قدماً."
@@ -1732,6 +1750,186 @@
    "answer": {
     "en": "Company formation is only the beginning. Creative Mark can continue supporting your business through tax and budgeting, HR and auditing, office solutions, certifications, consulting and other operational requirements.",
     "ar": "التأسيس مجرد البداية. يمكن لكرييتف مارك مواصلة دعم عملك في الضرائب والميزانيات والموارد البشرية والتدقيق وحلول المكاتب والشهادات والاستشارات والمتطلبات التشغيلية الأخرى."
+   }
+  },
+  {
+   "key": "svc-feasibility-studies-1",
+   "category": "setup",
+   "order": 17,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "What does a feasibility study cover?",
+    "ar": "ماذا تغطي دراسة الجدوى؟"
+   },
+   "answer": {
+    "en": "It looks at market demand, target customers, competition, pricing and market size, together with the investment required, operational needs, risks and the best route into the market.",
+    "ar": "تتناول الطلب في السوق، والعملاء المستهدفين، والمنافسة، والتسعير، وحجم السوق، إلى جانب الاستثمار المطلوب، والاحتياجات التشغيلية، والمخاطر، وأنسب طريقة لدخول السوق."
+   }
+  },
+  {
+   "key": "svc-feasibility-studies-2",
+   "category": "setup",
+   "order": 18,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "When should I do a feasibility study?",
+    "ar": "متى أحتاج إلى دراسة جدوى؟"
+   },
+   "answer": {
+    "en": "Before you commit capital. A study is most useful while you are still choosing the activity, location and size of the investment, so that the decision rests on analysis rather than assumptions.",
+    "ar": "قبل أن تلتزم برأس المال. تكون الدراسة أكثر فائدة وأنت لا تزال تختار النشاط والموقع وحجم الاستثمار، ليقوم قرارك على التحليل لا على الافتراضات."
+   }
+  },
+  {
+   "key": "svc-saudi-companies-in-the-uae-1",
+   "category": "after",
+   "order": 19,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "Do you help Saudi companies expand into the UAE?",
+    "ar": "هل تساعدون الشركات السعودية على التوسع في الإمارات؟"
+   },
+   "answer": {
+    "en": "Yes. We support Saudi businesses establishing or expanding their presence in the United Arab Emirates as part of a wider GCC expansion strategy.",
+    "ar": "نعم. ندعم الشركات السعودية في تأسيس حضورها في الإمارات العربية المتحدة أو توسيعه، ضمن استراتيجية أوسع للتوسع في دول الخليج."
+   }
+  },
+  {
+   "key": "svc-saudi-companies-in-the-uae-2",
+   "category": "after",
+   "order": 20,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "What does UAE expansion support include?",
+    "ar": "ماذا يشمل دعم التوسع في الإمارات؟"
+   },
+   "answer": {
+    "en": "We help you understand the setup process, the requirements that apply to your activity and the operational considerations of running a business there, before and during the move.",
+    "ar": "نساعدك على فهم إجراءات التأسيس، والمتطلبات التي تنطبق على نشاطك، والاعتبارات التشغيلية لإدارة العمل هناك، قبل الانتقال وخلاله."
+   }
+  },
+  {
+   "key": "svc-quality-certificates-1",
+   "category": "after",
+   "order": 21,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "Which certificates can you help with?",
+    "ar": "ما الشهادات التي يمكنكم المساعدة فيها؟"
+   },
+   "answer": {
+    "en": "We support professional accreditations, contractor classification certificates, customs registration certificates and city service provider execution certificates, among other approvals an activity may require.",
+    "ar": "ندعم الاعتمادات المهنية، وشهادات تصنيف المقاولين، وشهادات التسجيل الجمركي، وشهادات تنفيذ مقدمي خدمات المدن، إلى جانب موافقات أخرى قد يتطلبها النشاط."
+   }
+  },
+  {
+   "key": "svc-quality-certificates-2",
+   "category": "after",
+   "order": 22,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "Why do certificates matter for my business?",
+    "ar": "لماذا تهم الشهادات لعملي؟"
+   },
+   "answer": {
+    "en": "Many activities need specific certificates, classifications or approvals before they can operate or bid for work. Holding them also builds credibility with clients and partners.",
+    "ar": "تحتاج أنشطة كثيرة إلى شهادات أو تصنيفات أو موافقات محددة قبل أن تبدأ العمل أو تتقدم للمنافسات، كما أن الحصول عليها يعزز الثقة لدى العملاء والشركاء."
+   }
+  },
+  {
+   "key": "svc-hr-and-auditing-1",
+   "category": "after",
+   "order": 23,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "What does the HR and auditing service include?",
+    "ar": "ماذا تشمل خدمة الموارد البشرية والتدقيق؟"
+   },
+   "answer": {
+    "en": "HR reviews, organizational support, process reviews, operational auditing, business structure assessment and management support.",
+    "ar": "مراجعات الموارد البشرية، والدعم التنظيمي، ومراجعة الإجراءات، والتدقيق التشغيلي، وتقييم هيكل الأعمال، ودعم الإدارة."
+   }
+  },
+  {
+   "key": "svc-hr-and-auditing-2",
+   "category": "after",
+   "order": 24,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "Is this service only for new companies?",
+    "ar": "هل هذه الخدمة للشركات الجديدة فقط؟"
+   },
+   "answer": {
+    "en": "No. It is designed for companies that are already operating and want a stronger internal structure, clearer processes and better efficiency as they grow.",
+    "ar": "لا. صُممت للشركات العاملة بالفعل التي تريد هيكلًا داخليًا أقوى، وإجراءات أوضح، وكفاءة أعلى مع نموها."
+   }
+  },
+  {
+   "key": "svc-investment-tours-1",
+   "category": "market",
+   "order": 25,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "What is an investment tour?",
+    "ar": "ما هي الجولة الاستثمارية؟"
+   },
+   "answer": {
+    "en": "A visit that lets you see the market for yourself: potential business locations, projects, commercial environments and investment opportunities on the ground.",
+    "ar": "زيارة تتيح لك رؤية السوق بنفسك: مواقع الأعمال المحتملة، والمشاريع، والبيئات التجارية، وفرص الاستثمار على أرض الواقع."
+   }
+  },
+  {
+   "key": "svc-investment-tours-2",
+   "category": "market",
+   "order": 26,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "Can a tour be tailored to my sector?",
+    "ar": "هل يمكن تصميم الجولة حسب قطاعي؟"
+   },
+   "answer": {
+    "en": "Yes. Tell us your activity and the regions you are considering, and we plan the visit around the locations and opportunities that matter to your business.",
+    "ar": "نعم. أخبرنا بنشاطك والمناطق التي تفكر فيها، وسنخطط الزيارة حول المواقع والفرص التي تهم عملك."
+   }
+  },
+  {
+   "key": "svc-international-acquisition-1",
+   "category": "ownership",
+   "order": 27,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "Do you help with acquiring companies abroad?",
+    "ar": "هل تساعدون في الاستحواذ على شركات في الخارج؟"
+   },
+   "answer": {
+    "en": "Yes. We support investors exploring the acquisition of existing companies and business entities in international markets, with professional support throughout the process.",
+    "ar": "نعم. ندعم المستثمرين الراغبين في الاستحواذ على شركات وكيانات قائمة في الأسواق الدولية، مع دعم مهني طوال مراحل العملية."
+   }
+  },
+  {
+   "key": "svc-international-acquisition-2",
+   "category": "ownership",
+   "order": 28,
+   "needs_review": false,
+   "show_on_home": false,
+   "question": {
+    "en": "What do you review before an acquisition?",
+    "ar": "ما الذي تراجعونه قبل الاستحواذ؟"
+   },
+   "answer": {
+    "en": "We evaluate the opportunity, review the business structure of the company and look at the implications of the acquisition before you move forward.",
+    "ar": "نقيّم الفرصة، ونراجع الهيكل التنظيمي للشركة، وندرس آثار الاستحواذ قبل أن تمضي قدمًا."
    }
   }
  ],

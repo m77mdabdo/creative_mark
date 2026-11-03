@@ -5,12 +5,11 @@ namespace App\Filament\Pages;
 use App\Content\ServicePageBuilder;
 use App\Models\Service;
 use Filament\Navigation\NavigationItem;
-use Filament\Support\Icons\Heroicon;
 use Livewire\Attributes\Locked;
 
 /**
- * One business solution's own page in the page editor (Business solutions › each solution). The menu lists every
- * solution under the Business solutions group; the page is created from the service record if it has none yet.
+ * One business solution's own page in the page editor (Pages › Business solutions › each solution). The menu lists
+ * every solution beneath Business solutions; the page is created from the service record if it has none yet.
  */
 class EditServicePage extends EditPageSections
 {
@@ -46,16 +45,16 @@ class EditServicePage extends EditPageSections
         return [EditServicesPage::getUrl() => __('Business solutions'), $this->getTitle()];
     }
 
-    /** One menu entry per business solution, in catalogue order. @return list<NavigationItem> */
+    /** One menu entry per business solution under Pages › Business solutions, in catalogue order. @return list<NavigationItem> */
     public static function navigationItems(): array
     {
         $locale = app()->getLocale();
 
         return Service::query()->orderBy('sort_order')->withLocale($locale)->get()->map(fn (Service $s) => NavigationItem::make('service-'.$s->slug)
             ->label($s->t('title', $locale) ?? $s->slug)
-            ->group(__('Business solutions'))
-            ->icon(Heroicon::OutlinedDocumentText)
-            ->sort(10 + $s->sort_order)
+            ->group(__('Pages'))
+            ->parentItem(__('Business solutions'))
+            ->sort($s->sort_order)
             ->url(fn () => static::getUrl(['service' => $s->slug]))
             ->isActiveWhen(fn () => request()->routeIs(static::getRouteName()) && request()->route('service') === $s->slug)
             ->visible(fn () => static::canAccess()))->all();

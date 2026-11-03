@@ -247,7 +247,10 @@ class PageEditorTest extends TestCase
         $user = $this->manager();
         $this->actingAs($user)->get('/admin/pages/services')->assertOk();
         $this->actingAs($user)->get('/admin/pages/services/tax-and-budgeting')->assertOk()->assertSee('الضرائب والميزانيات');
-        $this->actingAs($user)->get('/admin')->assertSee('/admin/pages/services/office-solutions', false); // menu lists every solution
+        // Pages › Business solutions opens a sub-menu with every solution
+        $this->actingAs($user)->get('/admin/pages/services')->assertSee('/admin/pages/services/office-solutions', false);
+        $this->actingAs($user)->get('/admin/pages/services/tax-and-budgeting')->assertSee('/admin/pages/services/office-solutions', false);
+        $this->actingAs($user)->get('/admin')->assertDontSee('/admin/pages/services/office-solutions', false);
         $this->actingAs($user)->get('/admin/pages/services/unknown')->assertNotFound();
 
         $component = Livewire::actingAs($user)->test(EditServicePage::class, ['service' => 'tax-and-budgeting']);

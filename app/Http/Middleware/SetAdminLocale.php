@@ -17,8 +17,8 @@ class SetAdminLocale
         app()->setLocale(in_array($locale, ['ar', 'en'], true) ? $locale : 'ar');
         // Menu groups in a fixed order, labelled in the language just chosen.
         $panel = Filament::getCurrentPanel();
-        $panel?->navigationGroups([__('Pages'), __('Business solutions'), __('Clients'), __('Content'), __('Settings')]);
-        // Every business solution has its own entry under Business solutions.
+        $panel?->navigationGroups([__('Pages'), __('Clients'), __('Content'), __('Settings')]);
+        // Every business solution has its own entry under Pages › Business solutions.
         if ($request->user()) {
             $panel?->navigationItems(EditServicePage::navigationItems());
         }

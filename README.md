@@ -107,8 +107,8 @@ public website and the dashboard its team uses to run it.
   source name and https link; lead-story flag; draft and publish.
 - Dashboard in Arabic and English (switch in the top bar, remembered per staff member; a test fails if any Arabic
   dashboard string is untranslated), bright ivory-and-gold theme with optional dark mode, Arabic typography.
-- Page editor (Pages › Home page, About us; Business solutions › the solutions page and each of the eleven
-  solutions, listed in the menu): move sections up and down or drag them, hide, add, duplicate or delete them;
+- Page editor (Pages › Home page, About us, Business solutions; opening Business solutions shows a sub-menu with
+  each of the eleven solutions): move sections up and down or drag them, hide, add, duplicate or delete them;
   edit every text in six languages, images (with upload: re-encoded to WebP), buttons, cards, hero slides,
   background, spacing and animation. Save a draft, preview it in any language, publish (Content Managers),
   translate missing languages or discard unpublished changes. Two people saving at once never overwrite each other.

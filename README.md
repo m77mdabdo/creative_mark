@@ -74,7 +74,7 @@ public website and the dashboard its team uses to run it.
   overview, floating reading progress, an interactive twelve-step checklist saved in the browser and a library of
   29 official and advisory sources.
 - Newsroom: real market news summarised by the team, each story with what it means for investors, key figures and a
-  link to the original report; masthead with a scrolling "Latest" ticker, cinematic lead story, topic filter and a page
+  link to the original report; full-screen broadcast opening that plays the top stories, live Riyadh time, scrolling "Latest" ticker, topic filter and a page
   per story with related stories.
 - Interactive map of the 13 regions: keyboard operable, sector filter, list alternative, screen-reader announcements.
 - Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
@@ -213,6 +213,10 @@ role × permission combination, dashboard access, two-factor enforcement and the
 - [Photo credits](docs/photo-credits.md)
 
 ## Changelog
+
+### 2026-11-03
+- Newsroom opening redesigned as a full-screen broadcast: top stories play one after another with a photo wipe and
+  slow pull-back, newsroom bar with live Riyadh time, top-stories playlist with progress, pause control.
 
 ### 2026-11-02
 - Newsroom in six languages: nine real 2026 stories (foreign investment, hospitality projects, US investment licences,

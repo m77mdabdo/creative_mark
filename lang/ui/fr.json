@@ -183,5 +183,8 @@
     "notFoundText": "Le lien est peut-être obsolète ou la page a été déplacée. Ces pages vous aideront à poursuivre.",
     "serverErrorTitle": "Une erreur s’est produite",
     "serverErrorText": "Veuillez réessayer dans un instant. Si le problème persiste, réservez une consultation et nous vous contacterons.",
-    "previewBanner": "Aperçu : les visiteurs ne voient pas encore ces modifications"
+    "previewBanner": "Aperçu : les visiteurs ne voient pas encore ces modifications",
+    "whatsappLabel": "Discutez avec nous sur WhatsApp",
+    "whatsappHint": "Une question sur votre implantation en Arabie saoudite ? Écrivez-nous sur WhatsApp.",
+    "whatsappGreeting": "Bonjour Creative Mark, je souhaite me renseigner sur vos services."
 }

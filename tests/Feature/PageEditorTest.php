@@ -208,6 +208,20 @@ class PageEditorTest extends TestCase
         Livewire::actingAs($editor)->test(EditHomePage::class)->assertActionHidden('manageStats');
     }
 
+    public function test_contact_details_drive_the_whatsapp_button(): void
+    {
+        $admin = User::factory()->withRole(Role::SuperAdmin)->create();
+        Livewire::actingAs($admin)->test(\App\Filament\Pages\EditContactSettings::class)
+            ->set('data.whatsapp', '+966 55 123 4567')->set('data.email', 'info@example.org')->call('save')->assertHasNoErrors();
+        $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('site.whatsapp', '+966 55 123 4567')->where('site.email', 'info@example.org'));
+
+        Livewire::actingAs($admin)->test(\App\Filament\Pages\EditContactSettings::class)
+            ->set('data.whatsapp', '0551234567')->call('save')->assertHasErrors(['data.whatsapp']);
+        Livewire::actingAs($admin)->test(\App\Filament\Pages\EditContactSettings::class)
+            ->set('data.social.instagram', 'javascript:alert(1)')->call('save')->assertHasErrors(['data.social.instagram']);
+        $this->actingAs(User::factory()->withRole(Role::Editor)->create())->get('/admin/settings/contact')->assertForbidden();
+    }
+
     public function test_concurrent_edits_do_not_overwrite_each_other(): void
     {
         $first = Livewire::actingAs($this->manager())->test(EditHomePage::class);

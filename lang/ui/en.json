@@ -183,5 +183,8 @@
     "notFoundText": "The link may be out of date, or the page may have moved. These pages can help you continue.",
     "serverErrorTitle": "Something went wrong",
     "serverErrorText": "Please try again in a moment. If the problem continues, book a consultation and we will contact you.",
-    "previewBanner": "Preview: visitors will not see these changes until they are published"
+    "previewBanner": "Preview: visitors will not see these changes until they are published",
+    "whatsappLabel": "Chat with us on WhatsApp",
+    "whatsappHint": "Questions about setting up in Saudi Arabia? Message us on WhatsApp.",
+    "whatsappGreeting": "Hello Creative Mark, I would like to ask about your services."
 }

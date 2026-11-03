@@ -59,7 +59,7 @@ class HomePageTest extends TestCase
             ->component('ContentPage')
             ->where('sections.0.type', 'hero')
             ->where('sections.0.title', 'One place, endless solutions')
-            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'whyInvest', 'journey', 'countries', 'sectors', 'trackRecord', 'services', 'map', 'faq', 'cta', 'testimonials'])
+            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'whyInvest', 'journey', 'countries', 'sectors', 'trackRecord', 'services', 'map', 'faq', 'caseGrid', 'newsGrid', 'cta', 'testimonials'])
             ->where('reviewStatus', 'approved')
             ->has('services', 11)
             ->has('regions', 13)
@@ -142,6 +142,10 @@ class HomePageTest extends TestCase
     {
         // The rule itself: figures marked unverified never reach the page (D-09 approved the seeded ones).
         Stat::whereNotIn('key', ['companies-established', 'years-experience'])->update(['verified' => false]);
+        $home = Page::where('key', 'home')->first();
+        $home->forceFill(['draft_sections' => array_map(fn ($s) => $s['type'] === 'whyInvest'
+            ? [...$s, 'cards' => array_map(fn ($c) => [...$c, 'verified' => ! in_array($c['id'], ['whyInvest-1', 'whyInvest-3', 'whyInvest-4'], true)], $s['cards'])] : $s, $home->draft_sections)])->save();
+        (new PublishPage)($home);
         $html = $this->get('/en')->getContent();
         $this->assertStringContainsString('1,000+', $html);
         foreach (['500+', '64.7%', '4.8 trillion', '157', '209'] as $figure) {

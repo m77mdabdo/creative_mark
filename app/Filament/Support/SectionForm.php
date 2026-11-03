@@ -31,7 +31,7 @@ final class SectionForm
     /** Section types with editable cards / slides / a number limit. */
     private const WITH_CARDS = ['whyInvest', 'sectors', 'cards', 'checklist', 'guideChapter'];
 
-    private const WITH_LIMIT = ['services', 'faq', 'newsGrid'];
+    private const WITH_LIMIT = ['services', 'faq', 'newsGrid', 'caseGrid'];
 
     public static function typeLabel(?string $type): string
     {

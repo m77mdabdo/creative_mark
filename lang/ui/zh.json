@@ -183,5 +183,8 @@
     "notFoundText": "链接可能已过期，或页面已移动。以下页面可帮助您继续浏览。",
     "serverErrorTitle": "出了点问题",
     "serverErrorText": "请稍后再试。如果问题仍然存在，请预约咨询，我们会与您联系。",
-    "previewBanner": "预览：发布前访客看不到这些更改"
+    "previewBanner": "预览：发布前访客看不到这些更改",
+    "whatsappLabel": "通过 WhatsApp 与我们沟通",
+    "whatsappHint": "对在沙特设立公司有疑问？欢迎通过 WhatsApp 联系我们。",
+    "whatsappGreeting": "您好 Creative Mark，我想咨询一下贵公司的服务。"
 }

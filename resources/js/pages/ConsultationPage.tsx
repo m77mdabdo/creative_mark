@@ -139,7 +139,7 @@ export default function ConsultationPage(props: Props) {
   const Error = ({ field }: { field: keyof Form }) => err(field) ? <p id={`${field}-error`} role="alert" className="mt-2 text-sm text-red-300">{err(field)}</p> : null
   const a11y = (field: keyof Form) => ({ 'aria-invalid': Boolean(err(field)), 'aria-describedby': err(field) ? `${field}-error` : undefined })
 
-  return <SiteLayout>
+  return <SiteLayout hideWhatsApp>
     <Head>
       <title>{props.seo.title}</title>
       <meta name="description" content={props.seo.description} />

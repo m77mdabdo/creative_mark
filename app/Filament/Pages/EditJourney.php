@@ -27,7 +27,7 @@ class EditJourney extends Page
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMap;
 
-    protected static ?int $navigationSort = -9;
+    protected static ?int $navigationSort = 50;
 
     protected string $view = 'filament-panels::pages.page';
 
@@ -41,7 +41,7 @@ class EditJourney extends Page
 
     public static function getNavigationGroup(): ?string
     {
-        return __('Content');
+        return __('Pages');
     }
 
     public static function getNavigationLabel(): string

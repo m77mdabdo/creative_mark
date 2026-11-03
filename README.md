@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-345_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-346_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -107,7 +107,7 @@ public website and the dashboard its team uses to run it.
   source name and https link; lead-story flag; draft and publish.
 - Dashboard in Arabic and English (switch in the top bar, remembered per staff member; a test fails if any Arabic
   dashboard string is untranslated), bright ivory-and-gold theme with optional dark mode, Arabic typography.
-- Page editor (Content › Home page): move sections up and down or drag them, hide, add, duplicate or delete them;
+- Page editor (Pages › Home page, About us): move sections up and down or drag them, hide, add, duplicate or delete them;
   edit every text in six languages, images (with upload: re-encoded to WebP), buttons, cards, hero slides,
   background, spacing and animation. Save a draft, preview it in any language, publish (Content Managers),
   translate missing languages or discard unpublished changes. Two people saving at once never overwrite each other.
@@ -264,6 +264,8 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-03
+- About us in the page editor (same tools as the home page); client reviews added to About; page editors grouped
+  under "Pages" at the top of the dashboard menu.
 - Home: "Why invest" figures approved (D-10), latest news and case studies added, floating WhatsApp button with a
   temporary number; Settings › Contact details for WhatsApp, phone, email and social links.
 - Owner approved the presentation figures and client reviews (D-09): all figures now on the site, redesigned as

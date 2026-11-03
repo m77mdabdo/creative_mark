@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Filament\Facades\Filament;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -13,6 +14,8 @@ class SetAdminLocale
     {
         $locale = $request->user()?->admin_locale;
         app()->setLocale(in_array($locale, ['ar', 'en'], true) ? $locale : 'ar');
+        // Menu groups in a fixed order, labelled in the language just chosen.
+        Filament::getCurrentPanel()?->navigationGroups([__('Pages'), __('Clients'), __('Content'), __('Settings')]);
 
         return $next($request);
     }

@@ -4,6 +4,8 @@ namespace Tests\Feature;
 
 use App\Content\MediaLibrary;
 use App\Enums\Role;
+use App\Filament\Pages\EditAboutPage;
+use App\Filament\Pages\EditContactSettings;
 use App\Filament\Pages\EditHomePage;
 use App\Filament\Pages\EditJourney;
 use App\Filament\Support\IconPicker;
@@ -211,15 +213,31 @@ class PageEditorTest extends TestCase
     public function test_contact_details_drive_the_whatsapp_button(): void
     {
         $admin = User::factory()->withRole(Role::SuperAdmin)->create();
-        Livewire::actingAs($admin)->test(\App\Filament\Pages\EditContactSettings::class)
+        Livewire::actingAs($admin)->test(EditContactSettings::class)
             ->set('data.whatsapp', '+966 55 123 4567')->set('data.email', 'info@example.org')->call('save')->assertHasNoErrors();
         $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('site.whatsapp', '+966 55 123 4567')->where('site.email', 'info@example.org'));
 
-        Livewire::actingAs($admin)->test(\App\Filament\Pages\EditContactSettings::class)
+        Livewire::actingAs($admin)->test(EditContactSettings::class)
             ->set('data.whatsapp', '0551234567')->call('save')->assertHasErrors(['data.whatsapp']);
-        Livewire::actingAs($admin)->test(\App\Filament\Pages\EditContactSettings::class)
+        Livewire::actingAs($admin)->test(EditContactSettings::class)
             ->set('data.social.instagram', 'javascript:alert(1)')->call('save')->assertHasErrors(['data.social.instagram']);
         $this->actingAs(User::factory()->withRole(Role::Editor)->create())->get('/admin/settings/contact')->assertForbidden();
+    }
+
+    public function test_about_page_is_edited_like_the_home_page(): void
+    {
+        $user = $this->manager();
+        $this->actingAs($user)->get('/admin/pages/about')->assertOk();
+        $component = Livewire::actingAs($user)->test(EditAboutPage::class)->assertActionVisible('manageStats');
+        $sections = $component->get('data.sections');
+        $keys = array_keys($sections);
+        $last = $keys[count($keys) - 1];
+        $sections[$last]['title']['ar'] = 'عنوان جديد لمن نحن';
+        $moved = [$last => $sections[$last]] + $sections; // move the last section to the top
+        $component->set('data.sections', $moved)->call('save')->callAction('publish');
+
+        $this->get('/ar/about')->assertInertia(fn (Assert $p) => $p->where('sections.0.type', 'cta')->where('sections.0.title', 'عنوان جديد لمن نحن'));
+        $this->assertSame('hero', Page::where('key', 'home')->first()->publishedRevision->sections[0]['type']); // other pages untouched
     }
 
     public function test_concurrent_edits_do_not_overwrite_each_other(): void

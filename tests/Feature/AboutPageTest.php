@@ -27,7 +27,7 @@ class AboutPageTest extends TestCase
             ->component('ContentPage')
             ->where('pageKey', 'about')
             ->where('title', 'About')
-            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'statement', 'imageText', 'imageText', 'imageText', 'cards', 'trackRecord', 'cta'])
+            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'statement', 'imageText', 'imageText', 'imageText', 'cards', 'trackRecord', 'testimonials', 'cta'])
             ->where('sections.0.title', 'More than company formation')
             ->where('sections.1.title', 'We do not stop at registration. We build the structure behind the business.')
             ->has('sections.5.cards', 6)

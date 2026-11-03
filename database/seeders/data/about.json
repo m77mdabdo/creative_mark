@@ -1,411 +1,436 @@
 {
- "key": "about",
- "sections": [
-  {
-   "id": "about-hero",
-   "type": "hero",
-   "label": "Hero",
-   "eyebrow": {
-    "en": "About Creative Mark",
-    "ar": "عن كرييتف مارك"
-   },
-   "title": {
-    "en": "More than company formation",
-    "ar": "أكثر من مجرد تأسيس شركات"
-   },
-   "highlight": {
-    "en": "company formation",
-    "ar": "تأسيس شركات"
-   },
-   "subtitle": {
-    "en": "A business-entry and expansion partner helping entrepreneurs, investors and companies establish, operate and grow in Saudi Arabia with the right legal, financial, operational and strategic foundation.",
-    "ar": "شريك لدخول السوق والتوسع، يساعد رواد الأعمال والمستثمرين والشركات على التأسيس والتشغيل والنمو في المملكة العربية السعودية على أساس قانوني ومالي وتشغيلي واستراتيجي سليم."
-   },
-   "media": "about-riyadh-skyline",
-   "buttons": [
-    {
-     "label": {
-      "en": "Talk to our consultants",
-      "ar": "تحدث مع مستشارينا"
-     },
-     "href": "/consultation",
-     "style": "gold"
-    },
-    {
-     "label": {
-      "en": "Start your Saudi journey",
-      "ar": "ابدأ رحلتك السعودية"
-     },
-     "href": "/investor-guide",
-     "style": "outline"
+    "key": "about",
+    "sections": [
+        {
+            "id": "about-hero",
+            "type": "hero",
+            "label": "Hero",
+            "eyebrow": {
+                "en": "About Creative Mark",
+                "ar": "عن كرييتف مارك"
+            },
+            "title": {
+                "en": "More than company formation",
+                "ar": "أكثر من مجرد تأسيس شركات"
+            },
+            "highlight": {
+                "en": "company formation",
+                "ar": "تأسيس شركات"
+            },
+            "subtitle": {
+                "en": "A business-entry and expansion partner helping entrepreneurs, investors and companies establish, operate and grow in Saudi Arabia with the right legal, financial, operational and strategic foundation.",
+                "ar": "شريك لدخول السوق والتوسع، يساعد رواد الأعمال والمستثمرين والشركات على التأسيس والتشغيل والنمو في المملكة العربية السعودية على أساس قانوني ومالي وتشغيلي واستراتيجي سليم."
+            },
+            "media": "about-riyadh-skyline",
+            "buttons": [
+                {
+                    "label": {
+                        "en": "Talk to our consultants",
+                        "ar": "تحدث مع مستشارينا"
+                    },
+                    "href": "/consultation",
+                    "style": "gold"
+                },
+                {
+                    "label": {
+                        "en": "Start your Saudi journey",
+                        "ar": "ابدأ رحلتك السعودية"
+                    },
+                    "href": "/investor-guide",
+                    "style": "outline"
+                }
+            ],
+            "cards": [],
+            "slides": [],
+            "style": {
+                "theme": "dark",
+                "overlay": 50,
+                "padding": "md",
+                "align": "start"
+            },
+            "motion": {
+                "preset": "zoom-in",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "positioning",
+            "type": "statement",
+            "label": "Positioning",
+            "eyebrow": {
+                "en": "Our positioning",
+                "ar": "تموضعنا"
+            },
+            "subtitle": {
+                "en": "Creative Mark is not just a company formation provider. Our positioning is built on one principle:",
+                "ar": "كرييتف مارك ليست مجرد جهة لتأسيس الشركات. يقوم تموضعنا على مبدأ واحد:"
+            },
+            "title": {
+                "en": "We do not stop at registration. We build the structure behind the business.",
+                "ar": "لا نتوقف عند التسجيل. نبني الهيكل الذي يقوم عليه العمل."
+            },
+            "highlight": {
+                "en": "We build the structure behind the business.",
+                "ar": "نبني الهيكل الذي يقوم عليه العمل."
+            },
+            "buttons": [],
+            "cards": [],
+            "slides": [],
+            "style": {
+                "theme": "charcoal",
+                "overlay": 55,
+                "padding": "lg",
+                "align": "center"
+            },
+            "motion": {
+                "preset": "reveal-mask",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "experience",
+            "type": "imageText",
+            "label": "Market experience",
+            "layout": "split",
+            "eyebrow": {
+                "en": "Built on real market experience",
+                "ar": "مبنيون على خبرة حقيقية في السوق"
+            },
+            "title": {
+                "en": "Experience that goes beyond paperwork",
+                "ar": "خبرة تتجاوز الأوراق والإجراءات"
+            },
+            "body": {
+                "en": "Years of hands-on experience in the Saudi business environment have given our team practical knowledge of the challenges investors face before, during and after establishment.\n\nFrom choosing the right activity and obtaining approvals to operational setup, compliance, financial structure and expansion, our role is to make the entire journey clearer and more manageable.",
+                "ar": "منحت سنوات من الخبرة العملية في بيئة الأعمال السعودية فريقنا معرفة تطبيقية بالتحديات التي يواجهها المستثمرون قبل التأسيس وأثناءه وبعده.\n\nمن اختيار النشاط المناسب والحصول على الموافقات إلى التجهيز التشغيلي والامتثال والهيكل المالي والتوسع، دورنا أن نجعل الرحلة كلها أوضح وأسهل في الإدارة."
+            },
+            "media": "about-handshake",
+            "buttons": [],
+            "cards": [],
+            "slides": [],
+            "style": {
+                "theme": "dark",
+                "overlay": 55,
+                "padding": "lg",
+                "align": "start"
+            },
+            "motion": {
+                "preset": "parallax-slow",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "global",
+            "type": "imageText",
+            "label": "Local expertise",
+            "layout": "split-reverse",
+            "eyebrow": {
+                "en": "Local expertise. International mindset.",
+                "ar": "خبرة محلية. فكر عالمي."
+            },
+            "title": {
+                "en": "Saudi knowledge with a global perspective",
+                "ar": "معرفة سعودية برؤية عالمية"
+            },
+            "subtitle": {
+                "en": "Successful market entry requires more than understanding regulations. It requires understanding how business actually works.",
+                "ar": "الدخول الناجح إلى السوق يتطلب أكثر من فهم الأنظمة؛ يتطلب فهم كيف تسير الأعمال فعلاً."
+            },
+            "body": {
+                "en": "Our team combines local Saudi market expertise with experience supporting investors from different countries, business cultures and corporate structures.\n\nCreative Mark currently supports investors and businesses connected to markets across the GCC, Europe, North America, Asia and the Middle East, helping bridge the gap between global ambition and local execution.",
+                "ar": "يجمع فريقنا بين الخبرة في السوق السعودي وتجربة دعم مستثمرين من دول وثقافات أعمال وهياكل مؤسسية مختلفة.\n\nتدعم كرييتف مارك حالياً مستثمرين وشركات مرتبطة بأسواق في دول الخليج وأوروبا وأمريكا الشمالية وآسيا والشرق الأوسط، لتسدّ الفجوة بين الطموح العالمي والتنفيذ المحلي."
+            },
+            "media": "about-ushaiqer",
+            "buttons": [],
+            "cards": [],
+            "slides": [],
+            "style": {
+                "theme": "charcoal",
+                "overlay": 55,
+                "padding": "lg",
+                "align": "start"
+            },
+            "motion": {
+                "preset": "parallax-slow",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "after-formation",
+            "type": "imageText",
+            "label": "After formation",
+            "layout": "split",
+            "eyebrow": {
+                "en": "After formation",
+                "ar": "بعد التأسيس"
+            },
+            "title": {
+                "en": "Support that continues after formation",
+                "ar": "دعم يستمر بعد التأسيس"
+            },
+            "subtitle": {
+                "en": "Our goal is not simply to help you enter Saudi Arabia. Our goal is to help you build a business that can operate and grow there.",
+                "ar": "هدفنا ليس مجرد مساعدتك على دخول المملكة العربية السعودية، بل مساعدتك على بناء عمل قادر على التشغيل والنمو فيها."
+            },
+            "body": {
+                "en": "Receiving a Commercial Registration does not mean the business is ready to operate successfully. Creative Mark continues supporting clients with the requirements that come next — from tax, compliance, banking, office solutions, operational structuring and certifications to consulting and expansion.",
+                "ar": "الحصول على السجل التجاري لا يعني أن العمل أصبح جاهزاً للتشغيل بنجاح. تواصل كرييتف مارك دعم عملائها في المتطلبات التالية — من الضرائب والامتثال والخدمات المصرفية وحلول المكاتب والهيكلة التشغيلية والشهادات، إلى الاستشارات والتوسع."
+            },
+            "media": "about-signing",
+            "buttons": [
+                {
+                    "label": {
+                        "en": "Explore business solutions",
+                        "ar": "استكشف حلول الأعمال"
+                    },
+                    "href": "/services",
+                    "style": "link"
+                }
+            ],
+            "cards": [],
+            "slides": [],
+            "style": {
+                "theme": "dark",
+                "overlay": 55,
+                "padding": "lg",
+                "align": "start"
+            },
+            "motion": {
+                "preset": "parallax-slow",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "why-us",
+            "type": "cards",
+            "label": "Why choose us",
+            "eyebrow": {
+                "en": "Our edge",
+                "ar": "ميزتنا"
+            },
+            "title": {
+                "en": "Why businesses choose Creative Mark",
+                "ar": "لماذا تختار الشركات كرييتف مارك"
+            },
+            "buttons": [],
+            "slides": [],
+            "cards": [
+                {
+                    "id": "why-1",
+                    "icon": "Award",
+                    "title": {
+                        "en": "Proven track record",
+                        "ar": "سجل حافل بالإنجازات"
+                    },
+                    "text": {
+                        "en": "Hundreds of companies, licenses, certifications and approvals successfully supported.",
+                        "ar": "مئات الشركات والتراخيص والشهادات والموافقات التي دعمناها بنجاح."
+                    },
+                    "verified": true
+                },
+                {
+                    "id": "why-2",
+                    "icon": "Workflow",
+                    "title": {
+                        "en": "End-to-end solutions",
+                        "ar": "حلول متكاملة من البداية للنهاية"
+                    },
+                    "text": {
+                        "en": "From investment decision to establishment, operation and expansion.",
+                        "ar": "من قرار الاستثمار إلى التأسيس والتشغيل والتوسع."
+                    },
+                    "verified": true
+                },
+                {
+                    "id": "why-3",
+                    "icon": "MapPinned",
+                    "title": {
+                        "en": "Saudi market expertise",
+                        "ar": "خبرة في السوق السعودي"
+                    },
+                    "text": {
+                        "en": "Practical knowledge of local procedures, requirements and business realities.",
+                        "ar": "معرفة عملية بالإجراءات والمتطلبات المحلية وواقع الأعمال."
+                    },
+                    "verified": true
+                },
+                {
+                    "id": "why-4",
+                    "icon": "Target",
+                    "title": {
+                        "en": "Strategic approach",
+                        "ar": "نهج استراتيجي"
+                    },
+                    "text": {
+                        "en": "We evaluate the business before we execute the paperwork.",
+                        "ar": "نقيّم العمل قبل أن ننفذ الإجراءات."
+                    },
+                    "verified": true
+                },
+                {
+                    "id": "why-5",
+                    "icon": "Globe2",
+                    "title": {
+                        "en": "International investor experience",
+                        "ar": "خبرة مع المستثمرين الدوليين"
+                    },
+                    "text": {
+                        "en": "Supporting entrepreneurs and companies from multiple global markets.",
+                        "ar": "ندعم رواد الأعمال والشركات من أسواق عالمية متعددة."
+                    },
+                    "verified": true
+                },
+                {
+                    "id": "why-6",
+                    "icon": "BadgeCheck",
+                    "title": {
+                        "en": "Post-formation support",
+                        "ar": "دعم ما بعد التأسيس"
+                    },
+                    "text": {
+                        "en": "Our relationship does not end when your company is registered.",
+                        "ar": "علاقتنا لا تنتهي بتسجيل شركتك."
+                    },
+                    "verified": true
+                }
+            ],
+            "style": {
+                "theme": "dark",
+                "overlay": 55,
+                "padding": "lg",
+                "align": "start"
+            },
+            "motion": {
+                "preset": "stagger-cards",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "about-track-record",
+            "type": "trackRecord",
+            "label": "Track record",
+            "eyebrow": {
+                "en": "Our track record",
+                "ar": "سجلنا"
+            },
+            "title": {
+                "en": "Numbers that build trust",
+                "ar": "أرقام تبني الثقة"
+            },
+            "highlight": {
+                "en": "build trust",
+                "ar": "تبني الثقة"
+            },
+            "subtitle": {
+                "en": "Behind every number is a business we helped build, a dream we helped launch, and a partnership we value.",
+                "ar": "خلف كل رقم عمل ساعدنا في بنائه وحلم ساعدنا في إطلاقه وشراكة نعتز بها."
+            },
+            "buttons": [],
+            "cards": [],
+            "slides": [],
+            "style": {
+                "theme": "charcoal",
+                "overlay": 55,
+                "padding": "lg",
+                "align": "center"
+            },
+            "motion": {
+                "preset": "counter",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "about-testimonials",
+            "type": "testimonials",
+            "label": "Testimonials",
+            "eyebrow": {
+                "en": "What our clients say",
+                "ar": "ماذا يقول عملاؤنا"
+            },
+            "title": {
+                "en": "Experience you can measure",
+                "ar": "خبرة يمكن قياسها"
+            },
+            "style": {
+                "theme": "charcoal",
+                "overlay": 90,
+                "padding": "lg",
+                "align": "center",
+                "bgMedia": "riyadh-aerial"
+            },
+            "motion": {
+                "preset": "stagger-cards",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "difference",
+            "type": "cta",
+            "label": "The Creative Mark difference",
+            "title": {
+                "en": "We don’t just open companies. We build market entry.",
+                "ar": "لا نفتح شركات فقط. نبني دخول السوق."
+            },
+            "highlight": {
+                "en": "We build market entry.",
+                "ar": "نبني دخول السوق."
+            },
+            "body": {
+                "en": "A company can be registered in days. Building the right business foundation takes experience. Creative Mark combines market knowledge, regulatory expertise, business consulting and operational support to give investors one integrated partner for their Saudi journey.\n\nFrom opportunity to operation. From establishment to expansion.",
+                "ar": "يمكن تسجيل شركة في أيام، لكن بناء الأساس الصحيح للعمل يحتاج إلى خبرة. تجمع كرييتف مارك بين معرفة السوق والخبرة التنظيمية والاستشارات التجارية والدعم التشغيلي لتمنح المستثمرين شريكاً متكاملاً واحداً لرحلتهم في المملكة.\n\nمن الفرصة إلى التشغيل. ومن التأسيس إلى التوسع."
+            },
+            "buttons": [
+                {
+                    "label": {
+                        "en": "Talk to our consultants",
+                        "ar": "تحدث مع مستشارينا"
+                    },
+                    "href": "/consultation",
+                    "style": "gold"
+                },
+                {
+                    "label": {
+                        "en": "Start your Saudi journey",
+                        "ar": "ابدأ رحلتك السعودية"
+                    },
+                    "href": "/investor-guide",
+                    "style": "outline"
+                }
+            ],
+            "cards": [],
+            "slides": [],
+            "style": {
+                "theme": "dark",
+                "overlay": 74,
+                "padding": "lg",
+                "align": "center",
+                "bgMedia": "about-kingdom-centre"
+            },
+            "motion": {
+                "preset": "reveal-mask",
+                "intensity": 100,
+                "delay": 0
+            }
+        }
+    ],
+    "translations": {
+        "en": {
+            "title": "About",
+            "seo_title": "About Creative Mark | More than company formation",
+            "seo_description": "Creative Mark is a business-entry and expansion partner helping investors establish, operate and grow in Saudi Arabia."
+        },
+        "ar": {
+            "title": "من نحن",
+            "seo_title": "عن كرييتف مارك | أكثر من مجرد تأسيس شركات",
+            "seo_description": "كرييتف مارك شريك لدخول السوق والتوسع، يساعد المستثمرين على التأسيس والتشغيل والنمو في المملكة العربية السعودية."
+        }
     }
-   ],
-   "cards": [],
-   "slides": [],
-   "style": {
-    "theme": "dark",
-    "overlay": 50,
-    "padding": "md",
-    "align": "start"
-   },
-   "motion": {
-    "preset": "zoom-in",
-    "intensity": 100,
-    "delay": 0
-   }
-  },
-  {
-   "id": "positioning",
-   "type": "statement",
-   "label": "Positioning",
-   "eyebrow": {
-    "en": "Our positioning",
-    "ar": "تموضعنا"
-   },
-   "subtitle": {
-    "en": "Creative Mark is not just a company formation provider. Our positioning is built on one principle:",
-    "ar": "كرييتف مارك ليست مجرد جهة لتأسيس الشركات. يقوم تموضعنا على مبدأ واحد:"
-   },
-   "title": {
-    "en": "We do not stop at registration. We build the structure behind the business.",
-    "ar": "لا نتوقف عند التسجيل. نبني الهيكل الذي يقوم عليه العمل."
-   },
-   "highlight": {
-    "en": "We build the structure behind the business.",
-    "ar": "نبني الهيكل الذي يقوم عليه العمل."
-   },
-   "buttons": [],
-   "cards": [],
-   "slides": [],
-   "style": {
-    "theme": "charcoal",
-    "overlay": 55,
-    "padding": "lg",
-    "align": "center"
-   },
-   "motion": {
-    "preset": "reveal-mask",
-    "intensity": 100,
-    "delay": 0
-   }
-  },
-  {
-   "id": "experience",
-   "type": "imageText",
-   "label": "Market experience",
-   "layout": "split",
-   "eyebrow": {
-    "en": "Built on real market experience",
-    "ar": "مبنيون على خبرة حقيقية في السوق"
-   },
-   "title": {
-    "en": "Experience that goes beyond paperwork",
-    "ar": "خبرة تتجاوز الأوراق والإجراءات"
-   },
-   "body": {
-    "en": "Years of hands-on experience in the Saudi business environment have given our team practical knowledge of the challenges investors face before, during and after establishment.\n\nFrom choosing the right activity and obtaining approvals to operational setup, compliance, financial structure and expansion, our role is to make the entire journey clearer and more manageable.",
-    "ar": "منحت سنوات من الخبرة العملية في بيئة الأعمال السعودية فريقنا معرفة تطبيقية بالتحديات التي يواجهها المستثمرون قبل التأسيس وأثناءه وبعده.\n\nمن اختيار النشاط المناسب والحصول على الموافقات إلى التجهيز التشغيلي والامتثال والهيكل المالي والتوسع، دورنا أن نجعل الرحلة كلها أوضح وأسهل في الإدارة."
-   },
-   "media": "about-handshake",
-   "buttons": [],
-   "cards": [],
-   "slides": [],
-   "style": {
-    "theme": "dark",
-    "overlay": 55,
-    "padding": "lg",
-    "align": "start"
-   },
-   "motion": {
-    "preset": "parallax-slow",
-    "intensity": 100,
-    "delay": 0
-   }
-  },
-  {
-   "id": "global",
-   "type": "imageText",
-   "label": "Local expertise",
-   "layout": "split-reverse",
-   "eyebrow": {
-    "en": "Local expertise. International mindset.",
-    "ar": "خبرة محلية. فكر عالمي."
-   },
-   "title": {
-    "en": "Saudi knowledge with a global perspective",
-    "ar": "معرفة سعودية برؤية عالمية"
-   },
-   "subtitle": {
-    "en": "Successful market entry requires more than understanding regulations. It requires understanding how business actually works.",
-    "ar": "الدخول الناجح إلى السوق يتطلب أكثر من فهم الأنظمة؛ يتطلب فهم كيف تسير الأعمال فعلاً."
-   },
-   "body": {
-    "en": "Our team combines local Saudi market expertise with experience supporting investors from different countries, business cultures and corporate structures.\n\nCreative Mark currently supports investors and businesses connected to markets across the GCC, Europe, North America, Asia and the Middle East, helping bridge the gap between global ambition and local execution.",
-    "ar": "يجمع فريقنا بين الخبرة في السوق السعودي وتجربة دعم مستثمرين من دول وثقافات أعمال وهياكل مؤسسية مختلفة.\n\nتدعم كرييتف مارك حالياً مستثمرين وشركات مرتبطة بأسواق في دول الخليج وأوروبا وأمريكا الشمالية وآسيا والشرق الأوسط، لتسدّ الفجوة بين الطموح العالمي والتنفيذ المحلي."
-   },
-   "media": "about-ushaiqer",
-   "buttons": [],
-   "cards": [],
-   "slides": [],
-   "style": {
-    "theme": "charcoal",
-    "overlay": 55,
-    "padding": "lg",
-    "align": "start"
-   },
-   "motion": {
-    "preset": "parallax-slow",
-    "intensity": 100,
-    "delay": 0
-   }
-  },
-  {
-   "id": "after-formation",
-   "type": "imageText",
-   "label": "After formation",
-   "layout": "split",
-   "eyebrow": {
-    "en": "After formation",
-    "ar": "بعد التأسيس"
-   },
-   "title": {
-    "en": "Support that continues after formation",
-    "ar": "دعم يستمر بعد التأسيس"
-   },
-   "subtitle": {
-    "en": "Our goal is not simply to help you enter Saudi Arabia. Our goal is to help you build a business that can operate and grow there.",
-    "ar": "هدفنا ليس مجرد مساعدتك على دخول المملكة العربية السعودية، بل مساعدتك على بناء عمل قادر على التشغيل والنمو فيها."
-   },
-   "body": {
-    "en": "Receiving a Commercial Registration does not mean the business is ready to operate successfully. Creative Mark continues supporting clients with the requirements that come next — from tax, compliance, banking, office solutions, operational structuring and certifications to consulting and expansion.",
-    "ar": "الحصول على السجل التجاري لا يعني أن العمل أصبح جاهزاً للتشغيل بنجاح. تواصل كرييتف مارك دعم عملائها في المتطلبات التالية — من الضرائب والامتثال والخدمات المصرفية وحلول المكاتب والهيكلة التشغيلية والشهادات، إلى الاستشارات والتوسع."
-   },
-   "media": "about-signing",
-   "buttons": [
-    {
-     "label": {
-      "en": "Explore business solutions",
-      "ar": "استكشف حلول الأعمال"
-     },
-     "href": "/services",
-     "style": "link"
-    }
-   ],
-   "cards": [],
-   "slides": [],
-   "style": {
-    "theme": "dark",
-    "overlay": 55,
-    "padding": "lg",
-    "align": "start"
-   },
-   "motion": {
-    "preset": "parallax-slow",
-    "intensity": 100,
-    "delay": 0
-   }
-  },
-  {
-   "id": "why-us",
-   "type": "cards",
-   "label": "Why choose us",
-   "eyebrow": {
-    "en": "Our edge",
-    "ar": "ميزتنا"
-   },
-   "title": {
-    "en": "Why businesses choose Creative Mark",
-    "ar": "لماذا تختار الشركات كرييتف مارك"
-   },
-   "buttons": [],
-   "slides": [],
-   "cards": [
-    {
-     "id": "why-1",
-     "icon": "Award",
-     "title": {
-      "en": "Proven track record",
-      "ar": "سجل حافل بالإنجازات"
-     },
-     "text": {
-      "en": "Hundreds of companies, licenses, certifications and approvals successfully supported.",
-      "ar": "مئات الشركات والتراخيص والشهادات والموافقات التي دعمناها بنجاح."
-     },
-     "verified": true
-    },
-    {
-     "id": "why-2",
-     "icon": "Workflow",
-     "title": {
-      "en": "End-to-end solutions",
-      "ar": "حلول متكاملة من البداية للنهاية"
-     },
-     "text": {
-      "en": "From investment decision to establishment, operation and expansion.",
-      "ar": "من قرار الاستثمار إلى التأسيس والتشغيل والتوسع."
-     },
-     "verified": true
-    },
-    {
-     "id": "why-3",
-     "icon": "MapPinned",
-     "title": {
-      "en": "Saudi market expertise",
-      "ar": "خبرة في السوق السعودي"
-     },
-     "text": {
-      "en": "Practical knowledge of local procedures, requirements and business realities.",
-      "ar": "معرفة عملية بالإجراءات والمتطلبات المحلية وواقع الأعمال."
-     },
-     "verified": true
-    },
-    {
-     "id": "why-4",
-     "icon": "Target",
-     "title": {
-      "en": "Strategic approach",
-      "ar": "نهج استراتيجي"
-     },
-     "text": {
-      "en": "We evaluate the business before we execute the paperwork.",
-      "ar": "نقيّم العمل قبل أن ننفذ الإجراءات."
-     },
-     "verified": true
-    },
-    {
-     "id": "why-5",
-     "icon": "Globe2",
-     "title": {
-      "en": "International investor experience",
-      "ar": "خبرة مع المستثمرين الدوليين"
-     },
-     "text": {
-      "en": "Supporting entrepreneurs and companies from multiple global markets.",
-      "ar": "ندعم رواد الأعمال والشركات من أسواق عالمية متعددة."
-     },
-     "verified": true
-    },
-    {
-     "id": "why-6",
-     "icon": "BadgeCheck",
-     "title": {
-      "en": "Post-formation support",
-      "ar": "دعم ما بعد التأسيس"
-     },
-     "text": {
-      "en": "Our relationship does not end when your company is registered.",
-      "ar": "علاقتنا لا تنتهي بتسجيل شركتك."
-     },
-     "verified": true
-    }
-   ],
-   "style": {
-    "theme": "dark",
-    "overlay": 55,
-    "padding": "lg",
-    "align": "start"
-   },
-   "motion": {
-    "preset": "stagger-cards",
-    "intensity": 100,
-    "delay": 0
-   }
-  },
-  {
-   "id": "about-track-record",
-   "type": "trackRecord",
-   "label": "Track record",
-   "eyebrow": {
-    "en": "Our track record",
-    "ar": "سجلنا"
-   },
-   "title": {
-    "en": "Numbers that build trust",
-    "ar": "أرقام تبني الثقة"
-   },
-   "highlight": {
-    "en": "build trust",
-    "ar": "تبني الثقة"
-   },
-   "subtitle": {
-    "en": "Behind every number is a business we helped build, a dream we helped launch, and a partnership we value.",
-    "ar": "خلف كل رقم عمل ساعدنا في بنائه وحلم ساعدنا في إطلاقه وشراكة نعتز بها."
-   },
-   "buttons": [],
-   "cards": [],
-   "slides": [],
-   "style": {
-    "theme": "charcoal",
-    "overlay": 55,
-    "padding": "lg",
-    "align": "center"
-   },
-   "motion": {
-    "preset": "counter",
-    "intensity": 100,
-    "delay": 0
-   }
-  },
-  {
-   "id": "difference",
-   "type": "cta",
-   "label": "The Creative Mark difference",
-   "title": {
-    "en": "We don’t just open companies. We build market entry.",
-    "ar": "لا نفتح شركات فقط. نبني دخول السوق."
-   },
-   "highlight": {
-    "en": "We build market entry.",
-    "ar": "نبني دخول السوق."
-   },
-   "body": {
-    "en": "A company can be registered in days. Building the right business foundation takes experience. Creative Mark combines market knowledge, regulatory expertise, business consulting and operational support to give investors one integrated partner for their Saudi journey.\n\nFrom opportunity to operation. From establishment to expansion.",
-    "ar": "يمكن تسجيل شركة في أيام، لكن بناء الأساس الصحيح للعمل يحتاج إلى خبرة. تجمع كرييتف مارك بين معرفة السوق والخبرة التنظيمية والاستشارات التجارية والدعم التشغيلي لتمنح المستثمرين شريكاً متكاملاً واحداً لرحلتهم في المملكة.\n\nمن الفرصة إلى التشغيل. ومن التأسيس إلى التوسع."
-   },
-   "buttons": [
-    {
-     "label": {
-      "en": "Talk to our consultants",
-      "ar": "تحدث مع مستشارينا"
-     },
-     "href": "/consultation",
-     "style": "gold"
-    },
-    {
-     "label": {
-      "en": "Start your Saudi journey",
-      "ar": "ابدأ رحلتك السعودية"
-     },
-     "href": "/investor-guide",
-     "style": "outline"
-    }
-   ],
-   "cards": [],
-   "slides": [],
-   "style": {
-    "theme": "dark",
-    "overlay": 74,
-    "padding": "lg",
-    "align": "center",
-    "bgMedia": "about-kingdom-centre"
-   },
-   "motion": {
-    "preset": "reveal-mask",
-    "intensity": 100,
-    "delay": 0
-   }
-  }
- ],
- "translations": {
-  "en": {
-   "title": "About",
-   "seo_title": "About Creative Mark | More than company formation",
-   "seo_description": "Creative Mark is a business-entry and expansion partner helping investors establish, operate and grow in Saudi Arabia."
-  },
-  "ar": {
-   "title": "من نحن",
-   "seo_title": "عن كرييتف مارك | أكثر من مجرد تأسيس شركات",
-   "seo_description": "كرييتف مارك شريك لدخول السوق والتوسع، يساعد المستثمرين على التأسيس والتشغيل والنمو في المملكة العربية السعودية."
-  }
- }
 }

@@ -49,9 +49,10 @@ abstract class EditPageSections extends Page
         return (bool) auth()->user()?->can('pages.edit');
     }
 
+    /** Every page editor sits under "Pages" at the top of the menu. */
     public static function getNavigationGroup(): ?string
     {
-        return __('Content');
+        return __('Pages');
     }
 
     protected function record(): PageModel

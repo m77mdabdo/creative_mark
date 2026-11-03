@@ -355,7 +355,7 @@ final class PageData
      * @param  array<int, string|null>  $ids
      * @return array<string, array{src: string, srcset: string, alt: string}>
      */
-    private function mediaFor(array $ids, string $locale): array
+    public function mediaFor(array $ids, string $locale): array
     {
         $alts = Setting::group('media')['placeholders'] ?? [];
         $out = [];

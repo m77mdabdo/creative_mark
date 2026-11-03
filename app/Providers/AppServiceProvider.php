@@ -4,15 +4,19 @@ namespace App\Providers;
 
 use App\Enums\Role;
 use App\Models\CaseStudy;
+use App\Models\ConsultationRequest;
 use App\Models\Country;
 use App\Models\Faq;
 use App\Models\NewsArticle;
+use App\Models\NotificationRecipient;
 use App\Models\Region;
 use App\Models\Service;
 use App\Models\Stat;
 use App\Models\Testimonial;
 use App\Models\User;
 use App\Policies\CataloguePolicy;
+use App\Policies\ConsultationPolicy;
+use App\Policies\NotificationRecipientPolicy;
 use App\Translation\Drivers\LibreTranslateDriver;
 use App\Translation\Drivers\MyMemoryDriver;
 use App\Translation\TranslationMemory;
@@ -53,6 +57,9 @@ class AppServiceProvider extends ServiceProvider
         foreach ([Service::class, Region::class, Faq::class, Stat::class, Testimonial::class, Country::class, NewsArticle::class, CaseStudy::class] as $model) {
             Gate::policy($model, CataloguePolicy::class);
         }
+
+        Gate::policy(ConsultationRequest::class, ConsultationPolicy::class);
+        Gate::policy(NotificationRecipient::class, NotificationRecipientPolicy::class);
 
         Password::defaults(fn () => Password::min(12)->mixedCase()->numbers()->uncompromised());
     }

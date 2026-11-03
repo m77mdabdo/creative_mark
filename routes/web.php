@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CaseStudyController;
+use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\LocaleRedirectController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
@@ -24,6 +25,9 @@ Route::prefix('{locale}')
         Route::get('/investor-guide', PageController::class)->defaults('key', 'investor-guide')->name('investor-guide');
         Route::get('/news', PageController::class)->defaults('key', 'news')->name('news');
         Route::get('/news/{slug}', NewsController::class)->where('slug', '[a-z0-9-]+')->name('news.show');
+        Route::get('/consultation', [ConsultationController::class, 'show'])->name('consultation');
+        Route::post('/consultation', [ConsultationController::class, 'store'])->middleware('throttle:20,1')->name('consultation.store');
+        Route::get('/consultation/thank-you', [ConsultationController::class, 'thanks'])->name('consultation.thanks');
         Route::get('/case-studies', PageController::class)->defaults('key', 'case-studies')->name('case-studies');
         Route::get('/case-studies/{slug}', CaseStudyController::class)->where('slug', '[a-z0-9-]+')->name('case-studies.show');
         Route::get('/regions', PageController::class)->defaults('key', 'regions')->name('regions');

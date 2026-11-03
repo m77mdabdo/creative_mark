@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-308_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-319_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -51,6 +51,7 @@ public website and the dashboard its team uses to run it.
 | <img src="docs/screenshots/guide-hero.jpg" alt="Investor guide hero"> | <img src="docs/screenshots/guide-mobile-ar.jpg" alt="Investor guide chapter on mobile, Arabic" width="260"> |
 | <img src="docs/screenshots/guide-chapters.jpg" alt="Investor guide: chapter overview"> | <img src="docs/screenshots/guide-tax.jpg" alt="Investor guide: tax chapter with key figures and reading progress"> |
 | <img src="docs/screenshots/news-masthead.jpg" alt="Newsroom: masthead, latest ticker and lead story"> | <img src="docs/screenshots/news-mobile-ar.jpg" alt="Newsroom on mobile, Arabic" width="260"> |
+| <img src="docs/screenshots/booking-time.jpg" alt="Consultation booking: date and time in Riyadh time"> | <img src="docs/screenshots/booking-thanks.jpg" alt="Booking confirmed with reference number"> |
 | <img src="docs/screenshots/case-hero.jpg" alt="Case study: hero and at-a-glance bar"> | <img src="docs/screenshots/case-mobile-ar.jpg" alt="Case study on mobile, Arabic" width="260"> |
 | <img src="docs/screenshots/case-steps.jpg" alt="Case study: steps on a scroll-driven timeline"> | <img src="docs/screenshots/cases-grid.jpg" alt="Case studies filtered by sector"> |
 | <img src="docs/screenshots/news-article.jpg" alt="News story: summary, what it means for investors, key figures and source"> | <img src="docs/screenshots/news-grid.jpg" alt="Newsroom: stories filtered by topic"> |
@@ -81,6 +82,8 @@ public website and the dashboard its team uses to run it.
 - Case studies: each told in four chapters (starting point, our steps, what was delivered, where it leads) with an
   at-a-glance bar, a sticky chapter index, a timeline that fills as you scroll, the region on the map and the services
   used; sector filter on the overview. Examples built from the standard engagement are labelled "Illustrative example".
+- Consultation booking in four steps (needs, contact details, date and time, review): working days Sunday to Thursday,
+  fixed slots in Riyadh time, a slot can be held by only one booking, reference number and confirmation page.
 - Interactive map of the 13 regions: keyboard operable, sector filter, list alternative, screen-reader announcements.
 - Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
 - Localized URLs (`/ar`, `/en`, `/fr`, `/hi`, `/ur`, `/zh`), Arabic by default, per-script typography
@@ -93,10 +96,19 @@ public website and the dashboard its team uses to run it.
 - Content modules with one tab per language and a review status per language.
 - News module: headline, summary, article, investor takeaway and key figures per language; topic, photo, report date,
   source name and https link; lead-story flag; draft and publish.
+- Consultations: every booking with status, assignment, internal notes, email delivery status and reply history;
+  "Reply by email" sends a branded email to the client from the dashboard; sales agents and consultants see only
+  bookings assigned to them. Booking email recipients are managed in the dashboard (add, disable, send a test).
+  New bookings raise a bell notification for managers.
 - Case studies module: story per language (client description, legal form, starting point, steps, deliverables,
   outcome); sector, client country, region, services, photo; illustrative flag and client consent date (RULE-02).
 - Draft and publish workflow: editors save drafts, content managers publish.
 - "Translate missing languages" action and automatic filling of empty languages after saving.
+
+### Notifications
+- Each new booking emails every active recipient separately (replying reaches the client), sends the client a
+  confirmation in their language, and notifies managers in the dashboard. Emails are designed in black and gold,
+  right-to-left for Arabic and Urdu. A failed email never loses the booking: the error is recorded and can be resent.
 
 ### Translation
 - Professional translations of every site string in French, Hindi, Urdu and Chinese (translation memory).
@@ -211,6 +223,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 - Deny-by-default authorization checked in policies for every dashboard action.
 - Two-factor secrets and recovery codes encrypted at rest; strong password rules.
 - Page content is structured data validated on the server; text is never rendered as HTML and links are allow-listed.
+- Booking form: strict validation against fixed lists, no HTML, honeypot and minimum fill time against bots, rate
+  limits per device and per email, slot locking against double booking, IP stored only as a keyed hash, explicit
+  consent recorded. Mail credentials live only in `.env`.
 
 ## Documentation
 
@@ -222,6 +237,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-03
+- Consultation booking and notifications: four-step booking form in six languages with Riyadh-time slots and no double
+  booking; branded emails to every recipient and to the client; dashboard bell; consultations module with status,
+  assignment, notes, email replies and resend; recipients managed in the dashboard; anti-spam and rate limits.
 - Case studies in six languages: case module in the dashboard, overview with sector filter and a page per case with a
   scroll-driven timeline; five illustrative examples clearly labelled until real client stories are supplied; six new
   photographs.

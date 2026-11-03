@@ -114,7 +114,7 @@ final class SectionForm
                 ->schema([
                     Hidden::make('id'),
                     Grid::make(['default' => 1, 'md' => 3])->schema([
-                        TextInput::make('icon')->label(__('Icon'))->maxLength(40)->helperText(__('Icon name, e.g. Building2')),
+                        IconPicker::make('icon'),
                         self::mediaSelect('media', __('Image')),
                         Toggle::make('verified')->label(__('Figure verified'))->default(true)->inline(false)
                             ->helperText(__('Cards with an unverified figure are hidden (RULE-01).')),

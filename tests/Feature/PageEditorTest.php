@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\Content\MediaLibrary;
 use App\Enums\Role;
 use App\Filament\Pages\EditHomePage;
+use App\Filament\Pages\EditJourney;
+use App\Filament\Support\IconPicker;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\Page;
 use App\Models\User;
@@ -127,6 +129,52 @@ class PageEditorTest extends TestCase
             $this->assertTrue(true);
         } finally {
             array_map('unlink', glob(public_path("media/uploads/{$key}-*.webp")));
+        }
+    }
+
+    public function test_seo_texts_are_saved_per_language(): void
+    {
+        $component = Livewire::actingAs($this->manager())->test(EditHomePage::class);
+        $component->set('data.seo.ar.seo_title', 'عنوان جوجل الجديد')->set('data.seo.en.seo_description', 'New Google description')->call('save');
+        $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('seo.title', 'عنوان جوجل الجديد'));
+        $this->get('/en')->assertInertia(fn (Assert $p) => $p->where('seo.description', 'New Google description'));
+    }
+
+    public function test_an_earlier_version_can_be_restored(): void
+    {
+        $page = $this->home();
+        $original = $page->publishedRevision;
+        $component = Livewire::actingAs($this->manager())->test(EditHomePage::class);
+        $sections = $component->get('data.sections');
+        $sections[array_key_first($sections)]['title']['en'] = 'Changed headline';
+        $component->set('data.sections', $sections)->call('save');
+        $this->assertSame('Changed headline', $this->home()->draft_sections[0]['title']['en']);
+
+        $component->call('restoreRevision', $original->id);
+        $this->assertSame($original->sections, $this->home()->draft_sections);
+        $component->mountAction('history')->assertSee('#'.$original->id);
+    }
+
+    public function test_journey_steps_are_edited_in_every_language(): void
+    {
+        Livewire::actingAs($this->manager())->test(EditJourney::class)
+            ->set('data.steps', [
+                ['title' => ['en' => 'Talk', 'ar' => 'حديث'], 'text' => ['en' => 'We listen <b>first</b>', 'ar' => 'نستمع أولًا']],
+                ['title' => ['en' => 'Build', 'ar' => 'بناء'], 'text' => ['en' => 'We set it up', 'ar' => 'نؤسس']],
+            ])->call('save')->assertHasNoErrors();
+        $this->get('/ar/services')->assertInertia(fn (Assert $p) => $p->where('journey.0.title', 'حديث')->where('journey.1.text', 'نؤسس'));
+        $this->get('/en/services')->assertInertia(fn (Assert $p) => $p->where('journey.0.text', 'We listen first'));
+        $this->actingAs(User::factory()->withRole(Role::SalesAgent)->create())->get('/admin/pages/journey')->assertForbidden();
+    }
+
+    public function test_icons_come_from_the_site_set_only(): void
+    {
+        $icons = IconPicker::icons();
+        $this->assertArrayHasKey('Building2', $icons);
+        $this->assertStringStartsWith('<svg', $icons['Handshake']);
+        $ts = file_get_contents(resource_path('js/components/cmsIcons.ts'));
+        foreach (array_keys($icons) as $name) {
+            $this->assertStringContainsString($name, $ts);
         }
     }
 

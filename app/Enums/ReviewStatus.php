@@ -9,4 +9,14 @@ enum ReviewStatus: string
     case Machine = 'machine';
     case Review = 'review';
     case Approved = 'approved';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::Missing => __('Missing'),
+            self::Machine => __('Machine translation'),
+            self::Review => __('Needs review'),
+            self::Approved => __('Approved'),
+        };
+    }
 }

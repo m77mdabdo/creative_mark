@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminLocaleController;
 use App\Http\Controllers\CaseStudyController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\LocaleRedirectController;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', LocaleRedirectController::class);
 Route::get('/sitemap.xml', [SitemapController::class, 'sitemap'])->name('sitemap');
 Route::get('/robots.txt', [SitemapController::class, 'robots']);
+Route::post('/'.trim(config('admin.path'), '/').'/locale', AdminLocaleController::class)->middleware(['auth', 'throttle:30,1'])->name('admin.locale');
 
 Route::prefix('{locale}')
     ->where(['locale' => implode('|', Locales::codes())])

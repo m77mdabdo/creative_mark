@@ -37,7 +37,7 @@ final class TranslatableTabs
                     Select::make('review_status')
                         ->statePath("translations.{$code}.review_status")
                         ->label(__('Translation status'))
-                        ->options(collect(ReviewStatus::cases())->mapWithKeys(fn ($s) => [$s->value => ucfirst($s->value)]))
+                        ->options(collect(ReviewStatus::cases())->mapWithKeys(fn ($s) => [$s->value => $s->label()]))
                         ->default(ReviewStatus::Missing->value)
                         ->disabled(fn () => ! auth()->user()?->can('translations.approve'))
                         ->dehydrated(fn () => (bool) auth()->user()?->can('translations.approve'))

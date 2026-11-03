@@ -1,0 +1,81 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/latin-600.css";
+@import "@fontsource/manrope/latin-700.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-400.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-500.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-600.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-700.css";
+@import "@fontsource/cormorant-garamond/latin-500.css";
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+/*
+ * Creative Mark dashboard: warm ivory surfaces, gold accents and soft colour in light mode (the default);
+ * the brand's black and gold in dark mode. Everything else is Filament's own design system.
+ */
+:root {
+  --cm-gold: #ebbd6c;
+  --cm-gold-deep: #b8862f;
+  --cm-ivory: #faf7f0;
+  --cm-ink: #141414;
+}
+/* Filament sets --font-family inline; the brand fonts win here (Arabic first in right-to-left). */
+.fi-body, .fi-body input, .fi-body button, .fi-body select, .fi-body textarea { font-family: "Manrope", "IBM Plex Sans Arabic", system-ui, sans-serif !important; }
+html[dir="rtl"] .fi-body, html[dir="rtl"] .fi-body :is(input, button, select, textarea) { font-family: "IBM Plex Sans Arabic", "Manrope", system-ui, sans-serif !important; }
+
+/* Light: ivory canvas with a gentle gold glow */
+html:not(.dark) .fi-body {
+  background:
+    radial-gradient(1200px 500px at 100% -10%, rgba(235, 189, 108, .20), transparent 60%),
+    radial-gradient(900px 400px at -10% 110%, rgba(56, 189, 248, .10), transparent 60%),
+    var(--cm-ivory);
+  background-attachment: fixed;
+}
+html:not(.dark) .fi-sidebar { background: linear-gradient(180deg, #ffffff 0%, #fbf6ea 100%) fixed; border-inline-end: 1px solid rgba(184, 134, 47, .15); }
+html:not(.dark) .fi-topbar > nav, html:not(.dark) .fi-topbar { background: rgba(255, 255, 255, .85); backdrop-filter: blur(12px); }
+html:not(.dark) .fi-section, html:not(.dark) .fi-ta-ctn, html:not(.dark) .fi-wi-stats-overview-stat {
+  box-shadow: 0 1px 2px rgba(20, 20, 20, .04), 0 8px 24px -12px rgba(184, 134, 47, .25);
+}
+
+/* Dark: the brand's black and gold */
+html.dark .fi-body { background: radial-gradient(1000px 500px at 100% -10%, rgba(235, 189, 108, .10), transparent 60%), #0b0b0c; background-attachment: fixed; }
+html.dark .fi-sidebar { background: #0f0f10; }
+
+/* Active navigation item: a gold pill */
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn,
+.fi-sidebar-item-active > a {
+  background: linear-gradient(90deg, rgba(235, 189, 108, .28), rgba(235, 189, 108, .10));
+  box-shadow: inset 3px 0 0 var(--cm-gold);
+}
+html[dir="rtl"] .fi-sidebar-item.fi-active > .fi-sidebar-item-btn { box-shadow: inset -3px 0 0 var(--cm-gold); }
+
+.fi-header-heading { font-weight: 700; letter-spacing: -.01em; }
+.fi-wi-stats-overview-stat { border-radius: 1rem; overflow: hidden; position: relative; }
+.fi-wi-stats-overview-stat::before {
+  content: ""; position: absolute; inset-inline: 0; top: 0; height: 3px;
+  background: linear-gradient(90deg, var(--cm-gold), #f59e0b, #38bdf8);
+}
+.fi-wi-stats-overview-stat-value { font-size: 2rem; }
+
+/* Dashboard welcome and quick actions (resources/views/filament/widgets) */
+.cm-hero {
+  position: relative; overflow: hidden; border-radius: 1.25rem; padding: 1.75rem;
+  color: #fff; background: linear-gradient(120deg, #141414 0%, #2a2116 55%, #7a5a22 100%);
+}
+.cm-hero::after {
+  content: ""; position: absolute; inset-block: -40%; inset-inline-end: -10%; width: 55%;
+  background: radial-gradient(circle, rgba(235, 189, 108, .45), transparent 65%); pointer-events: none;
+}
+.cm-hero h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; }
+html[dir="ltr"] .cm-hero h2 { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 500; }
+.cm-chip { display: inline-flex; align-items: center; gap: .4rem; border-radius: 999px; padding: .35rem .8rem; font-size: .8rem; background: rgba(255, 255, 255, .12); }
+.cm-action {
+  display: flex; align-items: center; gap: .75rem; border-radius: 1rem; padding: 1rem; min-height: 4.5rem;
+  background: #fff; border: 1px solid rgba(20, 20, 20, .06); transition: transform .2s, box-shadow .2s;
+}
+.cm-action:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -14px rgba(20, 20, 20, .35); }
+html.dark .cm-action { background: rgba(255, 255, 255, .04); border-color: rgba(255, 255, 255, .08); }
+.cm-action-icon { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: .9rem; flex-shrink: 0; }

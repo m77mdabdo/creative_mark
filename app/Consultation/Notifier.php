@@ -88,7 +88,7 @@ final class Notifier
 
         Notification::make()
             ->title(__('New consultation booking').' '.$booking->reference)
-            ->body($booking->name.' · '.BookingPresenter::when($booking, 'en'))
+            ->body($booking->name.' · '.BookingPresenter::when($booking, config('consultation.staff_locale')))
             ->icon('heroicon-o-calendar-days')
             ->iconColor('warning')
             ->actions([Action::make('open')->label(__('Open'))->url(ConsultationRequestResource::getUrl('view', ['record' => $booking]))])

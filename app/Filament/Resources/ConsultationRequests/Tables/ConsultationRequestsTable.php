@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ConsultationRequests\Tables;
 
+use App\Consultation\MailStrings;
 use App\Enums\ConsultationStatus;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -22,8 +23,8 @@ class ConsultationRequestsTable
                 TextColumn::make('reference')->label(__('Reference'))->searchable()->fontFamily('mono')->copyable(),
                 TextColumn::make('name')->label(__('Client'))->searchable()->description(fn ($record) => $record->email),
                 TextColumn::make('preferred_date')->label(__('Preferred time'))->date()->sortable()
-                    ->description(fn ($record) => $record->preferred_slot.' (Riyadh)'),
-                TextColumn::make('meeting_mode')->label(__('Meeting'))->badge()->color('gray'),
+                    ->description(fn ($record) => $record->preferred_slot.' · '.__('Riyadh time')),
+                TextColumn::make('meeting_mode')->label(__('Meeting'))->badge()->color('gray')->formatStateUsing(fn ($state) => MailStrings::get(app()->getLocale(), "mode_{$state}")),
                 TextColumn::make('status')->label(__('Status'))->badge()
                     ->formatStateUsing(fn ($state) => $state->label())->color(fn ($state) => $state->color()),
                 TextColumn::make('assignee.name')->label(__('Assigned to'))->placeholder('—'),

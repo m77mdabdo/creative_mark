@@ -10,13 +10,15 @@ use Illuminate\Database\Eloquent\Model;
 /** Table columns shared by catalogue resources. Expects `translations` to be eager-loaded. */
 final class Columns
 {
-    /** The English value (content master), with the Arabic one underneath. */
+    /** The value in the dashboard's language (Arabic or English), with the other one underneath. */
     public static function translated(string $field, string $label): TextColumn
     {
+        $other = fn () => app()->getLocale() === 'ar' ? Locales::FALLBACK : 'ar';
+
         return TextColumn::make("translated_{$field}")
             ->label($label)
-            ->state(fn (Model $record) => $record->t($field, Locales::FALLBACK))
-            ->description(fn (Model $record) => $record->translations->firstWhere('locale', 'ar')?->{$field})
+            ->state(fn (Model $record) => $record->translations->firstWhere('locale', app()->getLocale())?->{$field} ?: $record->t($field, Locales::FALLBACK))
+            ->description(fn (Model $record) => $record->translations->firstWhere('locale', $other())?->{$field})
             ->extraAttributes(['dir' => 'auto'])
             ->wrap();
     }
@@ -34,11 +36,11 @@ final class Columns
             ->state(fn (Model $record) => collect(Locales::codes())->map(function (string $code) use ($record) {
                 $status = $record->translations->firstWhere('locale', $code)?->review_status ?? ReviewStatus::Missing;
 
-                return strtoupper($code).' · '.$status->value;
+                return strtoupper($code).' · '.$status->label();
             })->all())
             ->color(fn (string $state) => match (true) {
-                str_ends_with($state, 'approved') => 'success',
-                str_ends_with($state, 'missing') => 'gray',
+                str_ends_with($state, ReviewStatus::Approved->label()) => 'success',
+                str_ends_with($state, ReviewStatus::Missing->label()) => 'gray',
                 default => 'warning',
             });
     }

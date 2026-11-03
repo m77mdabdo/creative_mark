@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-327_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-332_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -51,6 +51,7 @@ public website and the dashboard its team uses to run it.
 | <img src="docs/screenshots/guide-hero.jpg" alt="Investor guide hero"> | <img src="docs/screenshots/guide-mobile-ar.jpg" alt="Investor guide chapter on mobile, Arabic" width="260"> |
 | <img src="docs/screenshots/guide-chapters.jpg" alt="Investor guide: chapter overview"> | <img src="docs/screenshots/guide-tax.jpg" alt="Investor guide: tax chapter with key figures and reading progress"> |
 | <img src="docs/screenshots/news-masthead.jpg" alt="Newsroom: masthead, latest ticker and lead story"> | <img src="docs/screenshots/news-mobile-ar.jpg" alt="Newsroom on mobile, Arabic" width="260"> |
+| <img src="docs/screenshots/admin-dashboard.jpg" alt="Dashboard home in Arabic"> | <img src="docs/screenshots/admin-mobile.jpg" alt="Dashboard on a phone" width="260"> |
 | <img src="docs/screenshots/start-company.jpg" alt="Start your company"> | <img src="docs/screenshots/faq.jpg" alt="FAQ with topics and search"> |
 | <img src="docs/screenshots/contact.jpg" alt="Contact: Riyadh and Cairo offices"> | <img src="docs/screenshots/privacy.jpg" alt="Privacy policy"> |
 | <img src="docs/screenshots/booking-time.jpg" alt="Consultation booking: date and time in Riyadh time"> | <img src="docs/screenshots/booking-thanks.jpg" alt="Booking confirmed with reference number"> |
@@ -103,6 +104,11 @@ public website and the dashboard its team uses to run it.
 - Content modules with one tab per language and a review status per language.
 - News module: headline, summary, article, investor takeaway and key figures per language; topic, photo, report date,
   source name and https link; lead-story flag; draft and publish.
+- Dashboard in Arabic and English (switch in the top bar, remembered per staff member; a test fails if any Arabic
+  dashboard string is untranslated), bright ivory-and-gold theme with optional dark mode, Arabic typography.
+- Dashboard home: greeting with today's figures, quick actions per permission, booking statistics with trends,
+  bookings per day, by status, by service and by client country, the next consultations and content health.
+  Sales agents see only their own bookings; content staff see content figures only.
 - Consultations: every booking with status, assignment, internal notes, email delivery status and reply history;
   "Reply by email" sends a branded email to the client from the dashboard; sales agents and consultants see only
   bookings assigned to them. Booking email recipients are managed in the dashboard (add, disable, send a test).
@@ -244,6 +250,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-03
+- Dashboard: full Arabic and English translation with a language switch, new light theme, home page with booking
+  statistics and charts, upcoming consultations, quick actions and content health; content tables show the
+  dashboard's language first; booking details show service, region and country names.
 - Site completion: start your company, FAQ, contact, privacy policy and terms pages in six languages (all links on the
   site now resolve), footer links, sitemap.xml, robots.txt and branded error pages; cards fill incomplete rows.
 - Consultation booking and notifications: four-step booking form in six languages with Riyadh-time slots and no double

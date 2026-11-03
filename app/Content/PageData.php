@@ -43,6 +43,9 @@ final class PageData
         if (collect($sections)->contains(fn ($s) => str_starts_with($s['type'], 'news'))) {
             $catalogue['articles'] = $this->articles(NewsArticle::query()->live()->withLocale($locale)->get(), $locale);
         }
+        if (collect($sections)->contains(fn ($s) => $s['type'] === 'faqLibrary')) {
+            $catalogue['faqLibrary'] = $this->faqLibrary($locale);
+        }
         if (collect($sections)->contains(fn ($s) => $s['type'] === 'caseGrid')) {
             $catalogue['cases'] = $this->cases(CaseStudy::query()->live()->withLocale($locale)->get(), $locale);
         }
@@ -283,6 +286,25 @@ final class PageData
         unset($s['label']);
 
         return $s;
+    }
+
+    /**
+     * Every published, reviewed question with its category, for the FAQ page.
+     *
+     * @return array{categories: list<array{key: string, label: string}>, items: list<array<string, mixed>>}
+     */
+    private function faqLibrary(string $locale): array
+    {
+        $labels = Setting::group('catalogue')['faq_categories'] ?? [];
+        $items = Faq::query()->where('status', 'published')->where('needs_review', false)->orderBy('sort_order')->withLocale($locale)->get()
+            ->map(fn (Faq $m) => ['id' => $m->id, 'category' => $m->category, 'question' => $m->t('question', $locale), 'answer' => $m->t('answer', $locale)])->all();
+        $used = array_unique(array_column($items, 'category'));
+
+        return [
+            'categories' => array_values(array_map(fn ($key) => ['key' => $key, 'label' => $labels[$key][$locale] ?? $labels[$key][Locales::FALLBACK] ?? $key],
+                array_values(array_filter(array_keys($labels), fn ($k) => in_array($k, $used, true))))),
+            'items' => $items,
+        ];
     }
 
     /** @return array<string, mixed> */

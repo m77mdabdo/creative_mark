@@ -4,12 +4,18 @@ import { groupMotion } from './motionAttributes'
 
 const columns = (count: number) => (count === 4 ? 'lg:grid-cols-4' : count === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3')
 
+/** Classes that stretch the last card over the empty cells of an incomplete last row (two and three columns). */
+const lastSpan = (count: number) => {
+  const lg = count === 4 || count === 2 ? 0 : count % 3
+  return `${count % 2 === 1 ? 'md:last:col-span-2' : ''} ${lg === 1 ? 'lg:last:col-span-3' : lg === 2 ? 'lg:last:col-span-2' : 'lg:last:col-span-1'}`
+}
+
 /** Numbered icon cards joined by hairlines; a swipe row with a visible next card on phones. */
 export default function FeatureCardGrid({ section }: { section: Section }) {
   return <div {...groupMotion(section)}
     className={`swipe hair border bg-[color-mix(in_srgb,currentColor_10%,transparent)] md:grid md:grid-flow-row md:grid-cols-2 md:gap-px md:overflow-visible ${columns(section.cards.length)}`}>
     {section.cards.map((card, i) => <article key={card.id}
-      className={`th-${section.style.theme} group relative p-8 transition-colors duration-500 hover:bg-[color-mix(in_srgb,var(--cm-gold)_6%,transparent)] md:p-9`}>
+      className={`th-${section.style.theme} ${lastSpan(section.cards.length)} group relative p-8 transition-colors duration-500 hover:bg-[color-mix(in_srgb,var(--cm-gold)_6%,transparent)] md:p-9`}>
       <div className="mb-10 flex items-start justify-between">
         {card.icon ? <Icon name={card.icon} className="accent" size={30} stroke={1.2} /> : <span />}
         <span className="font-display accent text-2xl opacity-60" aria-hidden>{String(i + 1).padStart(2, '0')}</span>

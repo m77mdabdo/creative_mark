@@ -15,6 +15,7 @@ final class SectionSchema
         'services', 'map', 'faq', 'cta', 'testimonials',
         'statement', 'imageText', 'cards', 'serviceGroups', 'processSteps', 'comparison', 'regionGrid',
         'guideNav', 'guideChapter', 'checklist', 'sourceList', 'newsLead', 'newsGrid', 'caseGrid',
+        'faqLibrary', 'contactInfo', 'legalText',
     ];
 
     public const LAYOUTS = ['split', 'split-reverse'];
@@ -71,7 +72,9 @@ final class SectionSchema
         }
         foreach (self::TEXT as $k) {
             if (isset($s[$k])) {
-                array_push($e, ...self::localeMap($s[$k], $k));
+                // Legal pages carry one long body of plain text with "## " headings.
+                $max = ($s['type'] ?? null) === 'legalText' && $k === 'body' ? 12000 : 2000;
+                array_push($e, ...self::localeMap($s[$k], $k, $max));
             }
         }
         foreach (['media', 'media2'] as $k) {
@@ -161,7 +164,7 @@ final class SectionSchema
     }
 
     /** @return list<string> */
-    private static function localeMap(mixed $v, string $field): array
+    private static function localeMap(mixed $v, string $field, int $max = 2000): array
     {
         if ($v === null) {
             return [];
@@ -171,8 +174,8 @@ final class SectionSchema
         }
         $e = [];
         foreach ($v as $locale => $text) {
-            if (! is_string($text) || mb_strlen($text) > 2000) {
-                $e[] = "$field [$locale] must be text up to 2000 characters.";
+            if (! is_string($text) || mb_strlen($text) > $max) {
+                $e[] = "$field [$locale] must be text up to $max characters.";
             } elseif ($text !== strip_tags($text)) {
                 $e[] = "$field [$locale] must not contain HTML.";
             }

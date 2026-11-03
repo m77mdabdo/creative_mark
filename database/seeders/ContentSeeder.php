@@ -112,7 +112,7 @@ class ContentSeeder extends Seeder
     /** Pages are seeded from data/{key}.json and published once. */
     private function pages(): void
     {
-        foreach (['home', 'about', 'services', 'our-edge', 'regions', 'investor-guide', 'news', 'case-studies'] as $key) {
+        foreach (['home', 'about', 'services', 'our-edge', 'regions', 'investor-guide', 'news', 'case-studies', 'start-your-company', 'faq', 'contact', 'privacy', 'terms'] as $key) {
             $this->page($key);
         }
     }

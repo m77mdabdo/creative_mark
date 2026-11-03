@@ -1,0 +1,122 @@
+{
+ "key": "faq",
+ "sections": [
+  {
+   "id": "faq-hero",
+   "type": "hero",
+   "label": "Hero",
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "media": "cm-boardroom",
+   "eyebrow": {
+    "en": "FAQs",
+    "ar": "الأسئلة الشائعة"
+   },
+   "title": {
+    "en": "Questions investors ask us",
+    "ar": "أسئلة يطرحها علينا المستثمرون"
+   },
+   "highlight": {
+    "en": "investors ask us",
+    "ar": "يطرحها علينا المستثمرون"
+   },
+   "subtitle": {
+    "en": "Clear answers on the Saudi market, company setup, ownership and what happens after formation.",
+    "ar": "إجابات واضحة عن السوق السعودي، وتأسيس الشركة، والملكية، وما يحدث بعد التأسيس."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 60,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "faq-library",
+   "type": "faqLibrary",
+   "label": "All questions",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "faq-cta",
+   "type": "cta",
+   "label": "Call to action",
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "title": {
+    "en": "Did not find your answer?",
+    "ar": "لم تجد إجابتك؟"
+   },
+   "highlight": {
+    "en": "your answer",
+    "ar": "إجابتك"
+   },
+   "body": {
+    "en": "A consultant will look at your case and answer you directly.",
+    "ar": "سيدرس أحد مستشارينا حالتك ويجيبك مباشرة."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 74,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "cm-riyadh-tower"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Frequently asked questions",
+   "seo_title": "Frequently asked questions about doing business in Saudi Arabia | Creative Mark",
+   "seo_description": "Answers to common questions on company formation, ownership, licences and life after formation in Saudi Arabia."
+  },
+  "ar": {
+   "title": "الأسئلة الشائعة",
+   "seo_title": "الأسئلة الشائعة حول ممارسة الأعمال في السعودية | كرييتف مارك",
+   "seo_description": "إجابات عن الأسئلة الشائعة حول تأسيس الشركات والملكية والتراخيص وما بعد التأسيس في المملكة العربية السعودية."
+  }
+ }
+}

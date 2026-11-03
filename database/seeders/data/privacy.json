@@ -1,0 +1,76 @@
+{
+ "key": "privacy",
+ "sections": [
+  {
+   "id": "privacy-hero",
+   "type": "hero",
+   "label": "Hero",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "media": "cm-laptop",
+   "eyebrow": {
+    "en": "Creative Mark",
+    "ar": "كرييتف مارك"
+   },
+   "title": {
+    "en": "Privacy policy",
+    "ar": "سياسة الخصوصية"
+   },
+   "subtitle": {
+    "en": "How Creative Mark collects and uses your information on this website.",
+    "ar": "كيف تجمع كرييتف مارك معلوماتك وتستخدمها عبر هذا الموقع."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 70,
+    "padding": "sm",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "privacy-text",
+   "type": "legalText",
+   "label": "Text",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "body": {
+    "en": "## Who we are\nThis website is operated by Creative Mark, with offices in Riyadh, Saudi Arabia, and Cairo, Egypt. This policy explains what information we collect through the website and how we use it.\n\n## What we collect\nWhen you book a consultation we collect the details you enter: your name, email address, phone number, company, the country you are based in, the service and region you are interested in, your stage, your preferred date, time and meeting method, your message and the language you used.\nWe also record when you gave your consent, a one-way coded version of your internet address (not the address itself) and the type of browser you used. These help us protect the form against abuse.\n\n## Cookies\nThe website uses only the cookies it needs to work: a session cookie, a security token that protects forms, and your language choice. We do not use advertising or tracking cookies.\n\n## How we use your information\nWe use your details only to arrange your consultation, to contact you about it and to follow up on your request. Emails about your booking are sent from our company mailbox.\n\n## Who can see it\nYour request is visible only to authorised members of the Creative Mark team who handle consultations. Email is delivered through our email service provider. We do not sell or rent your information.\n\n## How long we keep it\nWe keep booking details for as long as they are needed to follow up on your request and our business relationship, and then delete them unless we must keep them longer by law.\n\n## Your choices\nYou can ask us at any time to see, correct or delete the information we hold about you, or withdraw your consent, by replying to any email you have received from us.\n\n## Security\nThe dashboard is available only to named staff accounts with role-based access, and accounts that can see client data must use two-step verification.\n\n## Changes\nWe may update this policy when the website changes. The date below shows the latest version.",
+    "ar": "## من نحن\nيُدار هذا الموقع من قِبل كرييتف مارك، ولها مكاتب في الرياض بالمملكة العربية السعودية والقاهرة بجمهورية مصر العربية. توضح هذه السياسة المعلومات التي نجمعها عبر الموقع وكيف نستخدمها.\n\n## ما الذي نجمعه\nعند حجز استشارة نجمع البيانات التي تُدخلها: اسمك، وبريدك الإلكتروني، ورقم جوالك، وشركتك، والدولة التي تقيم فيها، والخدمة والمنطقة اللتين تهمانك، والمرحلة التي أنت فيها، وموعدك وطريقة الاجتماع المفضلين، ورسالتك، واللغة التي استخدمتها.\nكما نسجّل وقت موافقتك، ونسخة مشفّرة باتجاه واحد من عنوان الإنترنت الخاص بك (وليس العنوان نفسه)، ونوع المتصفح الذي استخدمته. يساعدنا ذلك على حماية النموذج من إساءة الاستخدام.\n\n## ملفات تعريف الارتباط\nيستخدم الموقع ملفات تعريف الارتباط الضرورية لعمله فقط: ملف الجلسة، ورمز أمان يحمي النماذج، واختيارك للغة. ولا نستخدم ملفات تعريف ارتباط إعلانية أو للتتبع.\n\n## كيف نستخدم معلوماتك\nنستخدم بياناتك فقط لترتيب استشارتك، والتواصل معك بشأنها، ومتابعة طلبك. وتُرسل رسائل الحجز من البريد الرسمي للشركة.\n\n## من يمكنه الاطلاع عليها\nلا يطّلع على طلبك إلا أعضاء فريق كرييتف مارك المخوَّلون بمتابعة الاستشارات. ويتم توصيل البريد الإلكتروني عبر مزوّد خدمة البريد لدينا. ولا نبيع معلوماتك أو نؤجرها.\n\n## مدة الاحتفاظ بها\nنحتفظ ببيانات الحجز طوال المدة اللازمة لمتابعة طلبك وعلاقتنا التجارية، ثم نحذفها ما لم يُلزمنا النظام بالاحتفاظ بها مدة أطول.\n\n## خياراتك\nيمكنك في أي وقت أن تطلب منا الاطلاع على المعلومات التي نحتفظ بها عنك أو تصحيحها أو حذفها، أو سحب موافقتك، بالرد على أي رسالة وصلتك منا.\n\n## الأمان\nلوحة التحكم متاحة فقط لحسابات موظفين محددة بصلاحيات حسب الدور، والحسابات التي تطّلع على بيانات العملاء ملزمة باستخدام التحقق بخطوتين.\n\n## التغييرات\nقد نحدّث هذه السياسة عند تغيّر الموقع، ويوضح التاريخ أدناه أحدث نسخة."
+   },
+   "note": {
+    "en": "Last updated: 3 November 2026",
+    "ar": "آخر تحديث: 3 نوفمبر 2026"
+   },
+   "style": {
+    "theme": "ivory",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Privacy policy",
+   "seo_title": "Privacy policy | Creative Mark",
+   "seo_description": "How Creative Mark collects and uses your information on this website."
+  },
+  "ar": {
+   "title": "سياسة الخصوصية",
+   "seo_title": "سياسة الخصوصية | كرييتف مارك",
+   "seo_description": "كيف تجمع كرييتف مارك معلوماتك وتستخدمها عبر هذا الموقع."
+  }
+ }
+}

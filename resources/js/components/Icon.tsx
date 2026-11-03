@@ -1,12 +1,12 @@
-import { Award, BadgeCheck, Briefcase, Building2, CalendarCheck, Calculator, Compass, FileCheck2, Globe2, Landmark, LineChart, Map, MapPinned, Plane, Shapes, Sparkles, Target, TrendingUp, Users, Workflow, type LucideIcon } from 'lucide-react'
+import { Award, BadgeCheck, Briefcase, Building2, CalendarCheck, Calculator, Compass, Factory, FileCheck2, FileText, Globe2, Landmark, LineChart, Map, MapPin, MapPinned, MonitorCheck, Plane, Receipt, Shapes, Sparkles, Target, TrendingUp, Users, Wallet, Workflow, type LucideIcon } from 'lucide-react'
 
 /**
  * Icons the CMS may reference by name. Keeping an explicit list keeps the bundle small;
  * add an import and an entry here to make a new icon available to editors.
  */
 const ICONS: Record<string, LucideIcon> = {
-  Award, BadgeCheck, Briefcase, Building2, CalendarCheck, Calculator, Compass, FileCheck2, Globe2,
-  Landmark, LineChart, Map, MapPinned, Plane, Shapes, Target, TrendingUp, Users, Workflow,
+  Award, BadgeCheck, Briefcase, Building2, CalendarCheck, Calculator, Compass, Factory, FileCheck2, FileText, Globe2,
+  Landmark, LineChart, Map, MapPin, MapPinned, MonitorCheck, Plane, Receipt, Shapes, Target, TrendingUp, Users, Wallet, Workflow,
 }
 
 type Props = { name?: string | null; size?: number; stroke?: number; className?: string }

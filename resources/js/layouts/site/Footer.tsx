@@ -27,7 +27,11 @@ export default function Footer() {
 
         <div>
           <p className="eyebrow mb-5">{t('company')}</p>
-          <ul className="space-y-1 text-sm">{site.nav.filter(item => !item.mega).map(item => <li key={item.href}><SmartLink href={item.href} className={linkClass}>{item.label}</SmartLink></li>)}</ul>
+          <ul className="space-y-1 text-sm">
+            {site.nav.filter(item => !item.mega).map(item => <li key={item.href}><SmartLink href={item.href} className={linkClass}>{item.label}</SmartLink></li>)}
+            <li><SmartLink href="/faq" className={linkClass}>{t('faqLink')}</SmartLink></li>
+            <li><SmartLink href="/contact" className={linkClass}>{t('contactLink')}</SmartLink></li>
+          </ul>
         </div>
 
         <div>
@@ -50,6 +54,10 @@ export default function Footer() {
 
       <div className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-white/[.06] pt-8 text-xs text-white/45">
         <p>© {new Date().getFullYear()} Creative Mark. {t('rights')}</p>
+        <nav className="flex flex-wrap gap-x-6" aria-label={t('privacyLink')}>
+          <SmartLink href="/privacy" className="inline-flex min-h-11 items-center hover:text-gold">{t('privacyLink')}</SmartLink>
+          <SmartLink href="/terms" className="inline-flex min-h-11 items-center hover:text-gold">{t('termsLink')}</SmartLink>
+        </nav>
         <p className="max-w-md">{t('mapCredit')} · {t('photoNote')}</p>
         <p lang="en" dir="ltr">Creating The Future</p>
       </div>

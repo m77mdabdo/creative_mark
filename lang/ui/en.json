@@ -167,5 +167,20 @@
     "nextTitle": "What happens next",
     "next1": "A consultant reviews your request.",
     "next2": "We contact you to confirm the time or suggest another one.",
-    "next3": "You receive the meeting details by email."
+    "next3": "You receive the meeting details by email.",
+    "searchFaq": "Search the questions",
+    "faqTopics": "Topics",
+    "allTopics": "All topics",
+    "noFaqResults": "No question matches your search. Try other words or book a consultation.",
+    "openInMaps": "Open in Maps",
+    "bookOnline": "Book online",
+    "bookOnlineText": "Choose a time that suits you",
+    "privacyLink": "Privacy policy",
+    "termsLink": "Terms of use",
+    "contactLink": "Contact us",
+    "faqLink": "FAQs",
+    "notFoundTitle": "This page could not be found",
+    "notFoundText": "The link may be out of date, or the page may have moved. These pages can help you continue.",
+    "serverErrorTitle": "Something went wrong",
+    "serverErrorText": "Please try again in a moment. If the problem continues, book a consultation and we will contact you."
 }

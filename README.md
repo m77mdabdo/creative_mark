@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-319_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-327_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -51,6 +51,8 @@ public website and the dashboard its team uses to run it.
 | <img src="docs/screenshots/guide-hero.jpg" alt="Investor guide hero"> | <img src="docs/screenshots/guide-mobile-ar.jpg" alt="Investor guide chapter on mobile, Arabic" width="260"> |
 | <img src="docs/screenshots/guide-chapters.jpg" alt="Investor guide: chapter overview"> | <img src="docs/screenshots/guide-tax.jpg" alt="Investor guide: tax chapter with key figures and reading progress"> |
 | <img src="docs/screenshots/news-masthead.jpg" alt="Newsroom: masthead, latest ticker and lead story"> | <img src="docs/screenshots/news-mobile-ar.jpg" alt="Newsroom on mobile, Arabic" width="260"> |
+| <img src="docs/screenshots/start-company.jpg" alt="Start your company"> | <img src="docs/screenshots/faq.jpg" alt="FAQ with topics and search"> |
+| <img src="docs/screenshots/contact.jpg" alt="Contact: Riyadh and Cairo offices"> | <img src="docs/screenshots/privacy.jpg" alt="Privacy policy"> |
 | <img src="docs/screenshots/booking-time.jpg" alt="Consultation booking: date and time in Riyadh time"> | <img src="docs/screenshots/booking-thanks.jpg" alt="Booking confirmed with reference number"> |
 | <img src="docs/screenshots/case-hero.jpg" alt="Case study: hero and at-a-glance bar"> | <img src="docs/screenshots/case-mobile-ar.jpg" alt="Case study on mobile, Arabic" width="260"> |
 | <img src="docs/screenshots/case-steps.jpg" alt="Case study: steps on a scroll-driven timeline"> | <img src="docs/screenshots/cases-grid.jpg" alt="Case studies filtered by sector"> |
@@ -82,6 +84,11 @@ public website and the dashboard its team uses to run it.
 - Case studies: each told in four chapters (starting point, our steps, what was delivered, where it leads) with an
   at-a-glance bar, a sticky chapter index, a timeline that fills as you scroll, the region on the map and the services
   used; sector filter on the overview. Examples built from the standard engagement are labelled "Illustrative example".
+- Start your company: the formation journey, investor registration, legal structures and licences (with sources),
+  everything the team handles, questions and a booking link that pre-selects company formation.
+- FAQ with topic filters and search; contact page with both offices, maps links and every published channel;
+  privacy policy and terms of use describing what the site actually does; designed 404 and error pages in six
+  languages; `sitemap.xml` with hreflang alternates and a `robots.txt` that blocks indexing outside production.
 - Consultation booking in four steps (needs, contact details, date and time, review): working days Sunday to Thursday,
   fixed slots in Riyadh time, a slot can be held by only one booking, reference number and confirmation page.
 - Interactive map of the 13 regions: keyboard operable, sector filter, list alternative, screen-reader announcements.
@@ -237,6 +244,8 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-03
+- Site completion: start your company, FAQ, contact, privacy policy and terms pages in six languages (all links on the
+  site now resolve), footer links, sitemap.xml, robots.txt and branded error pages; cards fill incomplete rows.
 - Consultation booking and notifications: four-step booking form in six languages with Riyadh-time slots and no double
   booking; branded emails to every recipient and to the client; dashboard bell; consultations module with status,
   assignment, notes, email replies and resend; recipients managed in the dashboard; anti-spam and rate limits.

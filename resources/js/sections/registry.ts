@@ -2,8 +2,10 @@ import type { ComponentType } from 'react'
 import type { SectionType } from '@/types'
 import CaseGrid from './CaseGrid'
 import Comparison from './Comparison'
+import ContactInfo from './ContactInfo'
 import ConsultationCta from './ConsultationCta'
 import Countries from './Countries'
+import FaqLibrary from './FaqLibrary'
 import FaqPreview from './FaqPreview'
 import Checklist from './guide/Checklist'
 import GuideChapter from './guide/GuideChapter'
@@ -14,6 +16,7 @@ import NewsGrid from './news/NewsGrid'
 import NewsLead from './news/NewsLead'
 import ImageText from './ImageText'
 import Journey from './Journey'
+import LegalText from './LegalText'
 import RegionGrid from './RegionGrid'
 import RegionsMapSection from './RegionsMap/RegionsMapSection'
 import Sectors from './Sectors'
@@ -42,6 +45,9 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   faq: FaqPreview,
   cta: ConsultationCta,
   testimonials: Testimonials,
+  faqLibrary: FaqLibrary,
+  contactInfo: ContactInfo,
+  legalText: LegalText,
   statement: Statement,
   imageText: ImageText,
   cards: WhyInvest,

@@ -167,5 +167,20 @@
     "nextTitle": "接下来",
     "next1": "顾问审阅您的申请。",
     "next2": "我们会联系您确认时间或另行建议时间。",
-    "next3": "您将通过电子邮件收到会面详情。"
+    "next3": "您将通过电子邮件收到会面详情。",
+    "searchFaq": "搜索问题",
+    "faqTopics": "主题",
+    "allTopics": "全部主题",
+    "noFaqResults": "没有符合搜索的问题，请换个关键词或预约咨询。",
+    "openInMaps": "在地图中打开",
+    "bookOnline": "在线预约",
+    "bookOnlineText": "选择适合您的时间",
+    "privacyLink": "隐私政策",
+    "termsLink": "使用条款",
+    "contactLink": "联系我们",
+    "faqLink": "常见问题",
+    "notFoundTitle": "找不到该页面",
+    "notFoundText": "链接可能已过期，或页面已移动。以下页面可帮助您继续浏览。",
+    "serverErrorTitle": "出了点问题",
+    "serverErrorText": "请稍后再试。如果问题仍然存在，请预约咨询，我们会与您联系。"
 }

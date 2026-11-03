@@ -1,0 +1,76 @@
+{
+ "key": "terms",
+ "sections": [
+  {
+   "id": "terms-hero",
+   "type": "hero",
+   "label": "Hero",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "media": "cm-docs",
+   "eyebrow": {
+    "en": "Creative Mark",
+    "ar": "كرييتف مارك"
+   },
+   "title": {
+    "en": "Terms of use",
+    "ar": "شروط الاستخدام"
+   },
+   "subtitle": {
+    "en": "The terms that apply when you use the Creative Mark website.",
+    "ar": "الشروط التي تنطبق عند استخدامك موقع كرييتف مارك."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 70,
+    "padding": "sm",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "terms-text",
+   "type": "legalText",
+   "label": "Text",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "body": {
+    "en": "## About this website\nThis website is operated by Creative Mark to present our services and to let visitors book consultations. By using it you accept these terms.\n\n## Information, not advice\nThe articles, guides and news on this website are general information. They are not legal, tax or financial advice for your situation. Rules and fees change, so always confirm the current requirements with the relevant authority or with one of our consultants before you act.\n\n## Sources and links\nWhere we summarise official or third-party information we name the source and link to it. We are not responsible for the content of external websites, which may change after we link to them.\n\n## Bookings\nA booking made on the website is a request for a consultation. It is confirmed when a member of our team contacts you. We may suggest another time if the one you chose is not available.\n\n## Case studies and photographs\nCase studies marked as illustrative examples describe how a typical engagement works; they are not stories of named clients. Photographs are used for illustration and do not show our staff or clients unless stated.\n\n## Intellectual property\nThe text, design and brand of this website belong to Creative Mark. You may share links to our pages, but you may not copy or republish our content without permission.\n\n## Acceptable use\nDo not misuse the website, for example by submitting false bookings, attempting to access the dashboard without authorisation or interfering with its security.\n\n## Liability\nWe take care to keep the website accurate and available, but we cannot guarantee that it is always complete, current or uninterrupted. To the extent permitted by law, we are not liable for decisions made only on the basis of the information on this website.\n\n## Changes\nWe may update these terms from time to time. The date below shows the latest version.",
+    "ar": "## عن هذا الموقع\nتدير كرييتف مارك هذا الموقع لعرض خدماتها وإتاحة حجز الاستشارات للزوار. وباستخدامك الموقع فإنك تقبل هذه الشروط.\n\n## معلومات وليست استشارة\nالمقالات والأدلة والأخبار المنشورة في هذا الموقع معلومات عامة، وليست استشارة قانونية أو ضريبية أو مالية لحالتك. تتغير الأنظمة والرسوم، لذا تأكد دائمًا من المتطلبات الحالية لدى الجهة المختصة أو مع أحد مستشارينا قبل اتخاذ أي إجراء.\n\n## المصادر والروابط\nعندما نلخّص معلومات رسمية أو من جهات أخرى، نذكر المصدر ونضع رابطه. ولسنا مسؤولين عن محتوى المواقع الخارجية، الذي قد يتغير بعد ربطنا به.\n\n## الحجوزات\nالحجز عبر الموقع هو طلب استشارة، ويُعد مؤكدًا عندما يتواصل معك أحد أعضاء فريقنا. وقد نقترح موعدًا آخر إذا لم يكن الموعد الذي اخترته متاحًا.\n\n## دراسات الحالة والصور\nدراسات الحالة الموسومة بأنها أمثلة توضيحية تشرح سير الارتباط المعتاد، وليست قصصًا لعملاء بأسمائهم. والصور مستخدمة للتوضيح، ولا تُظهر موظفينا أو عملاءنا ما لم يُذكر ذلك.\n\n## الملكية الفكرية\nالنصوص والتصميم والعلامة التجارية لهذا الموقع مملوكة لكرييتف مارك. يمكنك مشاركة روابط صفحاتنا، لكن لا يجوز نسخ محتوانا أو إعادة نشره دون إذن.\n\n## الاستخدام المقبول\nلا تُسئ استخدام الموقع، مثل تقديم حجوزات غير حقيقية، أو محاولة الدخول إلى لوحة التحكم دون تصريح، أو التأثير على أمانه.\n\n## المسؤولية\nنحرص على أن يكون الموقع دقيقًا ومتاحًا، لكننا لا نضمن أن يكون كاملًا أو محدّثًا أو متاحًا دون انقطاع في جميع الأوقات. وفي الحدود التي يسمح بها النظام، لسنا مسؤولين عن القرارات المتخذة استنادًا إلى معلومات هذا الموقع وحدها.\n\n## التغييرات\nقد نحدّث هذه الشروط من وقت لآخر، ويوضح التاريخ أدناه أحدث نسخة."
+   },
+   "note": {
+    "en": "Last updated: 3 November 2026",
+    "ar": "آخر تحديث: 3 نوفمبر 2026"
+   },
+   "style": {
+    "theme": "ivory",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Terms of use",
+   "seo_title": "Terms of use | Creative Mark",
+   "seo_description": "The terms that apply when you use the Creative Mark website."
+  },
+  "ar": {
+   "title": "شروط الاستخدام",
+   "seo_title": "شروط الاستخدام | كرييتف مارك",
+   "seo_description": "الشروط التي تنطبق عند استخدامك موقع كرييتف مارك."
+  }
+ }
+}

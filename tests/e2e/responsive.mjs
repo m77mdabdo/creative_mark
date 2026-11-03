@@ -10,7 +10,7 @@ for (const locale of locales) {
     const page = await browser.newPage({ viewport: { width, height: width < 768 ? 844 : 900 }, reducedMotion: 'reduce' })
     const errors = []
     page.on('pageerror', e => errors.push(e.message))
-    await page.goto(`http://127.0.0.1:8000/${locale}${path}`, { waitUntil: 'networkidle' })
+    await page.goto(`${process.env.BASE ?? "http://127.0.0.1:8000"}/${locale}${path}`, { waitUntil: 'networkidle' })
     const m = await page.evaluate(() => {
       const wide = [...document.querySelectorAll('main *')].filter(el => el.getBoundingClientRect().right > window.innerWidth + 1 && getComputedStyle(el).position !== 'fixed' && !el.closest('.swipe'))
       const small = [...document.querySelectorAll('main a, main button')].filter(el => { const r = el.getBoundingClientRect(); return r.width > 0 && (r.height < 24 || r.width < 24) })

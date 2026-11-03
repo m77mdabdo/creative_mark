@@ -1,0 +1,132 @@
+{
+ "key": "contact",
+ "sections": [
+  {
+   "id": "contact-hero",
+   "type": "hero",
+   "label": "Hero",
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "media": "cm-riyadh-aerial2",
+   "eyebrow": {
+    "en": "Contact",
+    "ar": "تواصل معنا"
+   },
+   "title": {
+    "en": "Let’s talk about your plans",
+    "ar": "لنتحدث عن خططك"
+   },
+   "highlight": {
+    "en": "your plans",
+    "ar": "خططك"
+   },
+   "subtitle": {
+    "en": "Book a consultation, visit one of our offices or reach us on social media.",
+    "ar": "احجز استشارة، أو زر أحد مكاتبنا، أو تواصل معنا عبر وسائل التواصل الاجتماعي."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 60,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "contact-info",
+   "type": "contactInfo",
+   "label": "Offices and channels",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "eyebrow": {
+    "en": "Our offices",
+    "ar": "مكاتبنا"
+   },
+   "title": {
+    "en": "Riyadh and Cairo",
+    "ar": "الرياض والقاهرة"
+   },
+   "media": "hero-riyadh-kafd",
+   "media2": "cm-office",
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "contact-cta",
+   "type": "cta",
+   "label": "Call to action",
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation",
+     "style": "gold"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "title": {
+    "en": "The fastest way to reach a consultant",
+    "ar": "أسرع طريقة للوصول إلى مستشار"
+   },
+   "highlight": {
+    "en": "reach a consultant",
+    "ar": "للوصول إلى مستشار"
+   },
+   "body": {
+    "en": "Choose a time that suits you. We confirm every booking by email.",
+    "ar": "اختر الموعد الذي يناسبك، ونؤكد كل حجز عبر البريد الإلكتروني."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 74,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "cm-handshake"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Contact us",
+   "seo_title": "Contact Creative Mark | Riyadh and Cairo offices",
+   "seo_description": "Visit our offices in Riyadh and Cairo, follow us, or book a consultation with our team."
+  },
+  "ar": {
+   "title": "تواصل معنا",
+   "seo_title": "تواصل مع كرييتف مارك | مكتبا الرياض والقاهرة",
+   "seo_description": "زر مكاتبنا في الرياض والقاهرة، وتابعنا، أو احجز استشارة مع فريقنا."
+  }
+ }
+}

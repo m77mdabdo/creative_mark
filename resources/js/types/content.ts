@@ -15,6 +15,7 @@ export type SectionType =
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
   | 'statement' | 'imageText' | 'cards' | 'serviceGroups' | 'processSteps' | 'comparison' | 'regionGrid'
   | 'guideNav' | 'guideChapter' | 'checklist' | 'sourceList' | 'newsLead' | 'newsGrid' | 'caseGrid'
+  | 'faqLibrary' | 'contactInfo' | 'legalText'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
 export type Slide = {
@@ -104,6 +105,8 @@ export type PageProps = {
   articles?: NewsItem[]
   /** Present on pages with a case grid. */
   cases?: CaseItem[]
+  /** Present on the FAQ page: every published question with its category. */
+  faqLibrary?: { categories: { key: string; label: string }[]; items: (FaqItem & { category: string })[] }
   industries: Record<string, string>
   serviceGroups: Record<ServiceGroup, string>
   journey: JourneyStep[]

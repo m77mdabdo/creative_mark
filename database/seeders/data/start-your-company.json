@@ -1,0 +1,674 @@
+{
+ "key": "start-your-company",
+ "sections": [
+  {
+   "id": "start-hero",
+   "type": "hero",
+   "label": "Hero",
+   "buttons": [
+    {
+     "label": {
+      "en": "Plan my company",
+      "ar": "خطّط لشركتي"
+     },
+     "href": "/consultation?service=company-formation",
+     "style": "gold"
+    },
+    {
+     "label": {
+      "en": "See the steps",
+      "ar": "شاهد الخطوات"
+     },
+     "href": "#start-journey",
+     "style": "outline"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "media": "svc-company-formation",
+   "eyebrow": {
+    "en": "Company formation",
+    "ar": "تأسيس الشركات"
+   },
+   "title": {
+    "en": "Your company in Saudi Arabia, set up right",
+    "ar": "شركتك في السعودية، على الأساس الصحيح"
+   },
+   "highlight": {
+    "en": "set up right",
+    "ar": "على الأساس الصحيح"
+   },
+   "subtitle": {
+    "en": "From the first conversation to an operating company: activity, structure, investor registration, commercial registration and everything that follows, in one coordinated journey.",
+    "ar": "من أول حديث حتى شركة تعمل فعليًا: النشاط، والكيان، وتسجيل المستثمر، والسجل التجاري، وكل ما يليها، في رحلة واحدة منسقة."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 58,
+    "padding": "md",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "zoom-in",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "start-statement",
+   "type": "statement",
+   "label": "Approach",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "eyebrow": {
+    "en": "Why it matters",
+    "ar": "لماذا يهم ذلك"
+   },
+   "title": {
+    "en": "Registration takes days. The right foundation takes experience.",
+    "ar": "التسجيل يستغرق أيامًا، أما الأساس الصحيح فيحتاج إلى خبرة."
+   },
+   "highlight": {
+    "en": "The right foundation takes experience.",
+    "ar": "أما الأساس الصحيح فيحتاج إلى خبرة."
+   },
+   "subtitle": {
+    "en": "We evaluate the business before we execute the paperwork.",
+    "ar": "نقيّم العمل قبل أن ننفذ الإجراءات."
+   },
+   "style": {
+    "theme": "charcoal",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "center"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "start-journey",
+   "type": "processSteps",
+   "label": "Journey",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "eyebrow": {
+    "en": "The journey",
+    "ar": "الرحلة"
+   },
+   "title": {
+    "en": "One journey, one team",
+    "ar": "رحلة واحدة، وفريق واحد"
+   },
+   "highlight": {
+    "en": "one team",
+    "ar": "وفريق واحد"
+   },
+   "subtitle": {
+    "en": "Each stage unlocks the next. We map the sequence for your activity before anything is filed.",
+    "ar": "كل مرحلة تفتح الطريق لما بعدها، لذلك نرسم التسلسل الخاص بنشاطك قبل تقديم أي طلب."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "start-register",
+   "type": "guideChapter",
+   "label": "Register",
+   "eyebrow": {
+    "en": "Register",
+    "ar": "التسجيل"
+   },
+   "title": {
+    "en": "Step one: register as an investor",
+    "ar": "الخطوة الأولى: سجّل كمستثمر"
+   },
+   "subtitle": {
+    "en": "Under the Investment Law that took effect in February 2025, foreign investors no longer apply for an investment licence. They register with the Ministry of Investment before they invest.",
+    "ar": "بموجب نظام الاستثمار الذي دخل حيز التنفيذ في فبراير 2025، لم يعد المستثمر الأجنبي يتقدم بطلب ترخيص استثماري، بل يسجّل لدى وزارة الاستثمار قبل أن يبدأ استثماره."
+   },
+   "body": {
+    "en": "Registration is done online through the Invest Saudi platform, with no visit to the ministry required. Once registration is confirmed, the investor can obtain a commercial registration and the licences required by the authority that regulates the activity.\n\nThe law also sets out what investors can expect in return: equal treatment of local and foreign investors in similar circumstances, the freedom to transfer funds into and out of the Kingdom, protection from confiscation except by a final court ruling, and the option to settle disputes through arbitration, mediation or conciliation.",
+    "ar": "يتم التسجيل إلكترونيًا عبر منصة «استثمر في السعودية» دون الحاجة إلى زيارة الوزارة. وبعد تأكيد التسجيل يستطيع المستثمر استخراج السجل التجاري والتراخيص التي تتطلبها الجهة المنظِّمة لنشاطه.\n\nكما يحدد النظام ما يحصل عليه المستثمر في المقابل: المساواة في المعاملة بين المستثمر المحلي والأجنبي في الظروف المماثلة، وحرية تحويل الأموال من المملكة وإليها، والحماية من المصادرة إلا بحكم قضائي نهائي، وإمكانية تسوية النزاعات بالتحكيم أو الوساطة أو التوفيق."
+   },
+   "media": "guide-door",
+   "layout": "split",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "reg-days",
+     "title": {
+      "en": "10 days",
+      "ar": "10 أيام"
+     },
+     "text": {
+      "en": "Maximum review period for a registration application",
+      "ar": "الحد الأقصى لمدة دراسة طلب التسجيل"
+     }
+    },
+    {
+     "id": "reg-online",
+     "title": {
+      "en": "Online",
+      "ar": "إلكترونيًا"
+     },
+     "text": {
+      "en": "No visit to the ministry is required",
+      "ar": "دون الحاجة إلى زيارة الوزارة"
+     }
+    },
+    {
+     "id": "reg-equal",
+     "title": {
+      "en": "Equal",
+      "ar": "المساواة"
+     },
+     "text": {
+      "en": "Treatment of local and foreign investors in similar circumstances",
+      "ar": "في معاملة المستثمر المحلي والأجنبي في الظروف المماثلة"
+     }
+    }
+   ],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "points": {
+    "en": "Commercial registration of the parent company, authenticated by the Saudi embassy\nFinancial statements for the last financial year, authenticated\nA clear description of the activity you plan to carry out\nPremium Residency holders are exempt from the commercial registration and financial statements",
+    "ar": "السجل التجاري للشركة الأم مصدّقًا من السفارة السعودية\nالقوائم المالية لآخر سنة مالية مصدّقة\nوصف واضح للنشاط الذي تنوي ممارسته\nحاملو الإقامة المميزة معفون من تقديم السجل التجاري والقوائم المالية"
+   },
+   "note": {
+    "en": "Investor registration is not the same as a commercial registration. It confirms your status as a foreign investor; the company itself is registered afterwards with the Ministry of Commerce.",
+    "ar": "تسجيل المستثمر ليس هو السجل التجاري. فهو يثبت صفتك كمستثمر أجنبي، أما الشركة نفسها فتُسجَّل بعد ذلك لدى وزارة التجارة."
+   },
+   "sources": [
+    {
+     "id": "misa-law",
+     "label": {
+      "en": "Updated Investment Law",
+      "ar": "نظام الاستثمار المحدّث"
+     },
+     "publisher": {
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
+     },
+     "href": "https://misa.gov.sa/activities/laws-regulations-copy/",
+     "date": "2025"
+    },
+    {
+     "id": "misa-faq",
+     "label": {
+      "en": "Frequently asked questions on investor registration",
+      "ar": "الأسئلة الشائعة حول تسجيل المستثمر"
+     },
+     "publisher": {
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
+     },
+     "href": "https://misa.gov.sa/frequently-asked-questions/"
+    },
+    {
+     "id": "wc-law",
+     "label": {
+      "en": "Saudi Arabia: New Investment Law",
+      "ar": "السعودية: نظام الاستثمار الجديد"
+     },
+     "publisher": {
+      "en": "White & Case",
+      "ar": "وايت آند كيس"
+     },
+     "href": "https://www.whitecase.com/insight-alert/saudi-arabia-new-investment-law",
+     "date": "2024"
+    },
+    {
+     "id": "spa-law",
+     "label": {
+      "en": "Investment Minister on the updated Investment Law",
+      "ar": "وزير الاستثمار عن نظام الاستثمار المحدّث"
+     },
+     "publisher": {
+      "en": "Saudi Press Agency",
+      "ar": "وكالة الأنباء السعودية"
+     },
+     "href": "https://www.spa.gov.sa/en/N2151998"
+    }
+   ]
+  },
+  {
+   "id": "start-structure",
+   "type": "guideChapter",
+   "label": "Structure",
+   "eyebrow": {
+    "en": "Structure",
+    "ar": "الكيان القانوني"
+   },
+   "title": {
+    "en": "Step two: choose the right structure",
+    "ar": "الخطوة الثانية: اختر الكيان المناسب"
+   },
+   "subtitle": {
+    "en": "The Companies Law in force since 19 January 2023 simplified company forms and made it possible for a single person to own a company.",
+    "ar": "بسّط نظام الشركات النافذ منذ 19 يناير 2023 أشكال الشركات، وأتاح لشخص واحد أن يمتلك شركة."
+   },
+   "body": {
+    "en": "Most foreign investors choose between a limited liability company, a simplified joint stock company, a joint stock company or a branch of their foreign company. The right choice depends on who will own it, how you plan to raise capital, how much liability you are prepared to carry and what the regulator of your activity requires.\n\nMinimum capital can depend on the activity and its regulator, so confirm it for your activity before you settle on a structure.",
+    "ar": "يختار معظم المستثمرين الأجانب بين الشركة ذات المسؤولية المحدودة، وشركة المساهمة المبسطة، وشركة المساهمة، وفرع الشركة الأجنبية. ويتوقف الاختيار الصحيح على من سيملك الشركة، وكيف تخطط لزيادة رأس المال، وحجم المسؤولية التي تقبل تحمّلها، ومتطلبات الجهة المنظِّمة لنشاطك.\n\nقد يتوقف الحد الأدنى لرأس المال على النشاط والجهة المنظِّمة له، فتأكد منه لنشاطك قبل أن تستقر على الكيان."
+   },
+   "media": "guide-structure",
+   "layout": "split-reverse",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "st-date",
+     "title": {
+      "en": "19 Jan 2023",
+      "ar": "19 يناير 2023"
+     },
+     "text": {
+      "en": "The current Companies Law came into force",
+      "ar": "دخول نظام الشركات الحالي حيز التنفيذ"
+     }
+    },
+    {
+     "id": "st-one",
+     "title": {
+      "en": "1",
+      "ar": "1"
+     },
+     "text": {
+      "en": "Shareholder is enough to own a limited liability company",
+      "ar": "مساهم واحد يكفي لتملّك شركة ذات مسؤولية محدودة"
+     }
+    }
+   ],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "points": {
+    "en": "Limited liability company: the most common choice, and it can be owned by one person\nSimplified joint stock company: a newer form that a single shareholder can set up without a board of directors\nJoint stock company: suited to larger capital and a future listing\nBranch of a foreign company: operates under the parent company’s name and liability\nRegional headquarters: for groups that manage their regional business from Saudi Arabia (chapter 7)",
+    "ar": "الشركة ذات المسؤولية المحدودة: الخيار الأكثر شيوعًا، ويمكن أن يملكها شخص واحد\nشركة المساهمة المبسطة: شكل أحدث يستطيع مساهم واحد تأسيسه دون مجلس إدارة\nشركة المساهمة: تناسب رؤوس الأموال الأكبر والإدراج مستقبلًا\nفرع الشركة الأجنبية: يعمل باسم الشركة الأم وتحت مسؤوليتها\nالمقر الإقليمي: للمجموعات التي تدير أعمالها الإقليمية من السعودية (الفصل 7)"
+   },
+   "note": {
+    "en": "Shareholder resolutions, articles of association and powers of attorney prepared abroad usually need authentication and an Arabic translation. Build that time into your plan.",
+    "ar": "قرارات الشركاء وعقود التأسيس والوكالات المعدّة خارج المملكة تحتاج عادةً إلى تصديق وترجمة عربية، فاحسب هذا الوقت ضمن خطتك."
+   },
+   "sources": [
+    {
+     "id": "clyde-co",
+     "label": {
+      "en": "Recent updates on the New Companies Law in Saudi Arabia",
+      "ar": "آخر المستجدات في نظام الشركات الجديد بالسعودية"
+     },
+     "publisher": {
+      "en": "Clyde & Co",
+      "ar": "كلايد آند كو"
+     },
+     "href": "https://www.clydeco.com/en/insights/2024/06/recent-updates-on-the-new-companies-law-in-ksa",
+     "date": "2024-06"
+    },
+    {
+     "id": "mc-law",
+     "label": {
+      "en": "New Companies Law offers facilities to small businesses and entrepreneurs",
+      "ar": "نظام الشركات الجديد يقدم تسهيلات للمنشآت الصغيرة ورواد الأعمال"
+     },
+     "publisher": {
+      "en": "Ministry of Commerce",
+      "ar": "وزارة التجارة"
+     },
+     "href": "https://mc.gov.sa/en/mediacenter/News/Pages/29-01-23-01.aspx",
+     "date": "2023-01"
+    },
+    {
+     "id": "pwc-doing",
+     "label": {
+      "en": "Doing business in the Kingdom of Saudi Arabia 2025",
+      "ar": "ممارسة الأعمال في المملكة العربية السعودية 2025"
+     },
+     "publisher": {
+      "en": "PwC Middle East",
+      "ar": "بي دبليو سي الشرق الأوسط"
+     },
+     "href": "https://www.pwc.com/m1/en/tax/documents/doing-business-guides/dbisa.pdf",
+     "date": "2025"
+    }
+   ]
+  },
+  {
+   "id": "start-licences",
+   "type": "guideChapter",
+   "label": "Licences",
+   "eyebrow": {
+    "en": "Licences",
+    "ar": "التراخيص"
+   },
+   "title": {
+    "en": "Step three: commercial registration and licences",
+    "ar": "الخطوة الثالثة: السجل التجاري والتراخيص"
+   },
+   "subtitle": {
+    "en": "With your investor registration confirmed, the company is registered with the Ministry of Commerce and then licensed for its activity.",
+    "ar": "بعد تأكيد تسجيلك كمستثمر، تُسجَّل الشركة لدى وزارة التجارة، ثم تُرخَّص لممارسة نشاطها."
+   },
+   "body": {
+    "en": "The commercial registration gives the company its legal existence. From there, the authorities you deal with depend on what you do: a municipal licence for your premises, sector licences for regulated activities such as healthcare, education, financial services or industry, and registrations with the tax and labour authorities.\n\nMost of these services are now digital and many start from the Saudi Business Center, which brings government business services together in one place.",
+    "ar": "يمنح السجل التجاري الشركة وجودها النظامي. وبعده تتحدد الجهات التي ستتعامل معها بحسب نشاطك: رخصة بلدية لمقرك، وتراخيص قطاعية للأنشطة المنظَّمة مثل الصحة والتعليم والخدمات المالية والصناعة، والتسجيل لدى الجهات الضريبية وجهات العمل.\n\nأصبحت معظم هذه الخدمات رقمية، ويبدأ كثير منها من المركز السعودي للأعمال الذي يجمع خدمات الأعمال الحكومية في مكان واحد."
+   },
+   "media": "guide-towers",
+   "layout": "split",
+   "buttons": [],
+   "cards": [],
+   "slides": [],
+   "style": {
+    "theme": "dark",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   },
+   "points": {
+    "en": "Reserve the trade name and register the company with the Ministry of Commerce\nApprove and publish the articles of association\nObtain the licences of the authority that regulates your activity\nSecure premises, the municipal licence and the national address\nOpen the corporate bank account and deposit the capital\nRegister with ZATCA, GOSI and the labour platforms",
+    "ar": "حجز الاسم التجاري وتسجيل الشركة لدى وزارة التجارة\nاعتماد عقد التأسيس ونشره\nاستخراج تراخيص الجهة المنظِّمة لنشاطك\nتجهيز المقر والرخصة البلدية والعنوان الوطني\nفتح الحساب البنكي للشركة وإيداع رأس المال\nالتسجيل لدى هيئة الزكاة والضريبة والجمارك والتأمينات الاجتماعية ومنصات العمل"
+   },
+   "note": {
+    "en": "Order matters. Several steps unlock the next one, so a missing document early on can delay everything that follows. Mapping the sequence for your activity before you start is the fastest route.",
+    "ar": "الترتيب مهم. كثير من الخطوات يفتح الطريق لما بعدها، فمستند ناقص في البداية قد يؤخر كل ما يليه. ورسم التسلسل الخاص بنشاطك قبل البدء هو أسرع طريق."
+   },
+   "sources": [
+    {
+     "id": "sbc",
+     "label": {
+      "en": "Saudi Business Center",
+      "ar": "المركز السعودي للأعمال"
+     },
+     "publisher": {
+      "en": "Saudi Business Center",
+      "ar": "المركز السعودي للأعمال"
+     },
+     "href": "https://business.sa"
+    },
+    {
+     "id": "mc",
+     "label": {
+      "en": "Commercial registration services",
+      "ar": "خدمات السجل التجاري"
+     },
+     "publisher": {
+      "en": "Ministry of Commerce",
+      "ar": "وزارة التجارة"
+     },
+     "href": "https://mc.gov.sa/en"
+    },
+    {
+     "id": "balady",
+     "label": {
+      "en": "Municipal licences",
+      "ar": "الرخص البلدية"
+     },
+     "publisher": {
+      "en": "Balady",
+      "ar": "بلدي"
+     },
+     "href": "https://balady.gov.sa"
+    }
+   ]
+  },
+  {
+   "id": "start-scope",
+   "type": "cards",
+   "label": "What we handle",
+   "buttons": [],
+   "cards": [
+    {
+     "id": "scope-1",
+     "icon": "Compass",
+     "title": {
+      "en": "Business activity assessment",
+      "ar": "تقييم النشاط التجاري"
+     }
+    },
+    {
+     "id": "scope-2",
+     "icon": "BadgeCheck",
+     "title": {
+      "en": "Investment licensing support",
+      "ar": "دعم الترخيص الاستثماري"
+     }
+    },
+    {
+     "id": "scope-3",
+     "icon": "Building2",
+     "title": {
+      "en": "Company incorporation procedures",
+      "ar": "إجراءات تأسيس الشركة"
+     }
+    },
+    {
+     "id": "scope-4",
+     "icon": "FileText",
+     "title": {
+      "en": "Commercial Registration support",
+      "ar": "دعم استخراج السجل التجاري"
+     }
+    },
+    {
+     "id": "scope-5",
+     "icon": "MonitorCheck",
+     "title": {
+      "en": "Government file activation",
+      "ar": "تفعيل الملفات الحكومية"
+     }
+    },
+    {
+     "id": "scope-6",
+     "icon": "Landmark",
+     "title": {
+      "en": "Municipal licensing support",
+      "ar": "دعم التراخيص البلدية"
+     }
+    },
+    {
+     "id": "scope-7",
+     "icon": "Factory",
+     "title": {
+      "en": "Industrial licensing support where applicable",
+      "ar": "دعم التراخيص الصناعية عند الحاجة"
+     }
+    },
+    {
+     "id": "scope-8",
+     "icon": "Plane",
+     "title": {
+      "en": "Investor and General Manager visa support",
+      "ar": "دعم تأشيرات المستثمر والمدير العام"
+     }
+    },
+    {
+     "id": "scope-9",
+     "icon": "MapPin",
+     "title": {
+      "en": "Business address and office solutions",
+      "ar": "العنوان التجاري وحلول المكاتب"
+     }
+    },
+    {
+     "id": "scope-10",
+     "icon": "Wallet",
+     "title": {
+      "en": "Corporate banking guidance",
+      "ar": "الإرشاد في الخدمات المصرفية للشركات"
+     }
+    },
+    {
+     "id": "scope-11",
+     "icon": "Receipt",
+     "title": {
+      "en": "Tax registration support",
+      "ar": "دعم التسجيل الضريبي"
+     }
+    }
+   ],
+   "slides": [],
+   "eyebrow": {
+    "en": "What we handle",
+    "ar": "ما نتولاه عنك"
+   },
+   "title": {
+    "en": "Everything your company needs to open its doors",
+    "ar": "كل ما تحتاجه شركتك لتبدأ العمل"
+   },
+   "highlight": {
+    "en": "to open its doors",
+    "ar": "لتبدأ العمل"
+   },
+   "body": {
+    "en": "Creative Mark supports local and foreign investors throughout the company establishment process in Saudi Arabia.",
+    "ar": "تدعم كرييتف مارك المستثمرين المحليين والأجانب طوال مراحل تأسيس الشركات في المملكة العربية السعودية."
+   },
+   "style": {
+    "theme": "charcoal",
+    "overlay": 55,
+    "padding": "lg",
+    "align": "start"
+   },
+   "motion": {
+    "preset": "stagger-cards",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "start-faq",
+   "type": "faq",
+   "label": "FAQs",
+   "buttons": [
+    {
+     "label": {
+      "en": "All questions",
+      "ar": "كل الأسئلة"
+     },
+     "href": "/faq",
+     "style": "link"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "limit": 6,
+   "eyebrow": {
+    "en": "FAQs",
+    "ar": "الأسئلة الشائعة"
+   },
+   "title": {
+    "en": "Before you start",
+    "ar": "قبل أن تبدأ"
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 90,
+    "padding": "lg",
+    "align": "start",
+    "bgMedia": "cm-docs"
+   },
+   "motion": {
+    "preset": "fade-up",
+    "intensity": 100,
+    "delay": 0
+   }
+  },
+  {
+   "id": "start-cta",
+   "type": "cta",
+   "label": "Call to action",
+   "buttons": [
+    {
+     "label": {
+      "en": "Book a consultation",
+      "ar": "احجز استشارة"
+     },
+     "href": "/consultation?service=company-formation",
+     "style": "gold"
+    },
+    {
+     "label": {
+      "en": "Read the investor guide",
+      "ar": "اقرأ دليل المستثمر"
+     },
+     "href": "/investor-guide",
+     "style": "outline"
+    }
+   ],
+   "cards": [],
+   "slides": [],
+   "title": {
+    "en": "Ready to start your company?",
+    "ar": "هل أنت مستعد لتأسيس شركتك؟"
+   },
+   "highlight": {
+    "en": "start your company",
+    "ar": "تأسيس شركتك"
+   },
+   "body": {
+    "en": "Tell us your activity and where you want to operate. A consultant will map your route, documents and timeline.",
+    "ar": "أخبرنا بنشاطك والمكان الذي تريد العمل فيه، وسيرسم لك أحد مستشارينا المسار والمستندات والجدول الزمني."
+   },
+   "style": {
+    "theme": "dark",
+    "overlay": 74,
+    "padding": "lg",
+    "align": "center",
+    "bgMedia": "cm-sign"
+   },
+   "motion": {
+    "preset": "reveal-mask",
+    "intensity": 100,
+    "delay": 0
+   }
+  }
+ ],
+ "translations": {
+  "en": {
+   "title": "Start your company",
+   "seo_title": "Start your company in Saudi Arabia | Formation, licences and registration | Creative Mark",
+   "seo_description": "Set up your company in Saudi Arabia with one coordinated team: activity assessment, investor registration, legal structure, commercial registration, licences, visas and banking."
+  },
+  "ar": {
+   "title": "ابدأ شركتك",
+   "seo_title": "أسّس شركتك في السعودية | التأسيس والتراخيص والسجل التجاري | كرييتف مارك",
+   "seo_description": "أسّس شركتك في المملكة العربية السعودية مع فريق واحد منسق: تقييم النشاط، وتسجيل المستثمر، والكيان القانوني، والسجل التجاري، والتراخيص، والتأشيرات، والخدمات المصرفية."
+  }
+ }
+}

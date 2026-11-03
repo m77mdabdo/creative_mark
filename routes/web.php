@@ -7,11 +7,14 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Middleware\SetLocale;
 use App\Support\Locales;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', LocaleRedirectController::class);
+Route::get('/sitemap.xml', [SitemapController::class, 'sitemap'])->name('sitemap');
+Route::get('/robots.txt', [SitemapController::class, 'robots']);
 
 Route::prefix('{locale}')
     ->where(['locale' => implode('|', Locales::codes())])
@@ -25,6 +28,11 @@ Route::prefix('{locale}')
         Route::get('/investor-guide', PageController::class)->defaults('key', 'investor-guide')->name('investor-guide');
         Route::get('/news', PageController::class)->defaults('key', 'news')->name('news');
         Route::get('/news/{slug}', NewsController::class)->where('slug', '[a-z0-9-]+')->name('news.show');
+        Route::get('/start-your-company', PageController::class)->defaults('key', 'start-your-company')->name('start-your-company');
+        Route::get('/faq', PageController::class)->defaults('key', 'faq')->name('faq');
+        Route::get('/contact', PageController::class)->defaults('key', 'contact')->name('contact');
+        Route::get('/privacy', PageController::class)->defaults('key', 'privacy')->name('privacy');
+        Route::get('/terms', PageController::class)->defaults('key', 'terms')->name('terms');
         Route::get('/consultation', [ConsultationController::class, 'show'])->name('consultation');
         Route::post('/consultation', [ConsultationController::class, 'store'])->middleware('throttle:20,1')->name('consultation.store');
         Route::get('/consultation/thank-you', [ConsultationController::class, 'thanks'])->name('consultation.thanks');

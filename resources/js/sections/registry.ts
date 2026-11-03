@@ -18,10 +18,12 @@ import ImageText from './ImageText'
 import Journey from './Journey'
 import LegalText from './LegalText'
 import RegionGrid from './RegionGrid'
+import RelatedServices from './RelatedServices'
 import RegionsMapSection from './RegionsMap/RegionsMapSection'
 import Sectors from './Sectors'
 import ProcessSteps from './ProcessSteps'
 import ServiceGroups from './ServiceGroups'
+import ServiceOverview from './ServiceOverview'
 import Services from './Services'
 import Statement from './Statement'
 import type { SectionProps } from './shared/types'
@@ -48,6 +50,8 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   faqLibrary: FaqLibrary,
   contactInfo: ContactInfo,
   legalText: LegalText,
+  serviceOverview: ServiceOverview,
+  relatedServices: RelatedServices,
   statement: Statement,
   imageText: ImageText,
   cards: WhyInvest,

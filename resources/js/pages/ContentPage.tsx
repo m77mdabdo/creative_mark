@@ -27,7 +27,7 @@ export default function ContentPage(page: PageProps & { preview?: boolean }) {
         const Component = SECTION_COMPONENTS[section.type]
         return <div key={section.id} className="contents">
           <Component section={section} page={page} />
-          {!isHome && i === 0 && <Breadcrumbs trail={[{ label: page.title }]} />}
+          {!isHome && i === 0 && <Breadcrumbs trail={page.breadcrumbs ?? [{ label: page.title }]} />}
         </div>
       })}
     </div>

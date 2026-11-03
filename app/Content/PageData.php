@@ -14,6 +14,7 @@ use App\Models\Setting;
 use App\Models\Stat;
 use App\Models\Testimonial;
 use App\Support\Locales;
+use App\Translation\UiStrings;
 
 /**
  * Builds the props of a CMS page (home, about…) from its published revision and the catalogue.
@@ -50,10 +51,28 @@ final class PageData
         if (collect($sections)->contains(fn ($s) => $s['type'] === 'caseGrid')) {
             $catalogue['cases'] = $this->cases(CaseStudy::query()->live()->withLocale($locale)->get(), $locale);
         }
+        // A business solution's own page: its questions, related solutions and a breadcrumb under Business solutions.
+        $extra = [];
+        if (str_starts_with($key, 'service-')) {
+            $service = Service::query()->where('slug', substr($key, 8))->withLocale($locale)
+                ->with(['faqs' => fn ($q) => $q->where('status', 'published')->where('needs_review', false)->orderBy('sort_order')->withLocale($locale)])->first();
+            if ($service) {
+                $bySlug = collect($catalogue['services'])->keyBy('slug');
+                $catalogue['faqs'] = $service->faqs->map(fn (Faq $f) => ['id' => $f->id, 'question' => $f->t('question', $locale), 'answer' => $f->t('answer', $locale)])->all();
+                $extra['related'] = collect($service->related ?? [])->map(fn ($s) => $bySlug[$s] ?? null)->filter()->values()->all();
+                $extra['serviceSlug'] = $service->slug;
+                $solutions = collect(Setting::group('navigation')['header'] ?? [])->firstWhere('href', '/services')['label'] ?? [];
+                $extra['breadcrumbs'] = [
+                    ['label' => $solutions[$locale] ?? $solutions[Locales::FALLBACK] ?? UiStrings::forLocale($locale)['allServices'], 'href' => '/services'],
+                    ['label' => $service->t('title', $locale)],
+                ];
+            }
+        }
         $sections = array_values(array_filter($sections, fn ($s) => match ($s['type']) {
             'trackRecord' => $catalogue['stats'] !== [],
             'testimonials' => $catalogue['testimonials'] !== [],
             'faq' => $catalogue['faqs'] !== [],
+            'relatedServices' => ($extra['related'] ?? []) !== [],
             default => true,
         }));
 
@@ -69,6 +88,7 @@ final class PageData
             'reviewStatus' => ($translation?->review_status ?? ReviewStatus::Missing)->value,
             'sections' => $sections,
             ...$catalogue,
+            ...$extra,
             'media' => $this->media($sections, $catalogue, $locale),
         ];
     }

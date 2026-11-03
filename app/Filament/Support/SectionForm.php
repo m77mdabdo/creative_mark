@@ -29,9 +29,9 @@ use Illuminate\Support\Str;
 final class SectionForm
 {
     /** Section types with editable cards / slides / a number limit. */
-    private const WITH_CARDS = ['whyInvest', 'sectors', 'cards', 'checklist', 'guideChapter'];
+    private const WITH_CARDS = ['whyInvest', 'sectors', 'cards', 'checklist', 'guideChapter', 'serviceOverview'];
 
-    private const WITH_LIMIT = ['services', 'faq', 'newsGrid', 'caseGrid'];
+    private const WITH_LIMIT = ['services', 'faq', 'newsGrid', 'caseGrid', 'relatedServices'];
 
     public static function typeLabel(?string $type): string
     {
@@ -45,6 +45,7 @@ final class SectionForm
             'guideChapter' => __('Guide chapter'), 'checklist' => __('Checklist'), 'sourceList' => __('Sources'),
             'newsLead' => __('Lead story'), 'newsGrid' => __('News grid'), 'caseGrid' => __('Case studies grid'),
             'faqLibrary' => __('All questions'), 'contactInfo' => __('Offices and contacts'), 'legalText' => __('Legal text'),
+            'serviceOverview' => __('Overview and what is included'), 'relatedServices' => __('Related solutions'),
             default => (string) $type,
         };
     }
@@ -150,13 +151,14 @@ final class SectionForm
                 ->addActionLabel(__('Add a button')),
 
             Placeholder::make('catalogue_hint')->hiddenLabel()
-                ->visible($is(['trackRecord', 'testimonials', 'services', 'countries', 'map', 'faq']))
+                ->visible($is(['trackRecord', 'testimonials', 'services', 'countries', 'map', 'faq', 'relatedServices']))
                 ->content(fn (Get $get) => new HtmlString('<div style="padding:.75rem 1rem;border-radius:.75rem;background:rgba(235,189,108,.15);font-size:.875rem">'.e(match ($get('type')) {
                     'trackRecord' => __('The figures come from Content › Statistics, or the “Figures” button at the top of this page.'),
                     'testimonials' => __('The reviews come from Content › Testimonials, or the “Client reviews” button at the top of this page.'),
                     'services' => __('The solutions come from Content › Services.'),
                     'countries' => __('The countries come from Content › Countries.'),
                     'map' => __('The regions come from Content › Regions.'),
+                    'relatedServices' => __('The related solutions are chosen on the service in Content › Services.'),
                     default => __('The questions come from Content › FAQs.'),
                 }).'</div>')),
             TextInput::make('limit')->label(__('How many items to show'))->numeric()->minValue(1)->maxValue(50)->visible($is(self::WITH_LIMIT)),

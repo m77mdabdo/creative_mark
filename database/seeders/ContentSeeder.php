@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Content\PublishPage;
+use App\Content\ServicePageBuilder;
 use App\Enums\ReviewStatus;
 use App\Models\CaseStudy;
 use App\Models\Country;
@@ -82,6 +83,8 @@ class ContentSeeder extends Seeder
         $this->caseStudies();
         $this->settings($c);
         $this->pages();
+        // Each business solution's own editable page, built from the service record.
+        Service::query()->with('translations')->get()->each(fn (Service $service) => ServicePageBuilder::ensure($service));
     }
 
     /** Case studies (data/case-studies-items.json). The seeded ones are illustrative examples, labelled as such on the site. */

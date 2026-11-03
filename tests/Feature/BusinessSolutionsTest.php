@@ -44,26 +44,32 @@ class BusinessSolutionsTest extends TestCase
 
     public function test_service_page_shows_overview_scope_related_and_faqs(): void
     {
+        // Each solution is an editable page built from its service record, with the original layout.
         $this->get('/en/services/company-formation')->assertInertia(fn (Assert $page) => $page
-            ->component('ServicePage')
-            ->where('service.title', 'Company Formation')
-            ->has('service.scope', 11)
-            ->where('service.note', fn ($n) => str_contains($n, '1,000'))
+            ->component('ContentPage')
+            ->where('pageKey', 'service-company-formation')
+            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'serviceOverview', 'processSteps', 'faq', 'relatedServices', 'cta'])
+            ->where('sections.0.title', 'Company Formation')
+            ->has('sections.1.cards', 11)
+            ->where('sections.1.note', fn ($n) => str_contains($n, '1,000'))
+            ->where('sections.0.buttons.0.href', '/consultation?service=company-formation')
             ->has('related', 3)
             ->has('journey', 7)
-            ->where('serviceFaqs', fn ($f) => count($f) >= 1)
+            ->where('faqs', fn ($f) => count($f) >= 1)
+            ->where('breadcrumbs.1.label', 'Company Formation')
             ->where('media.svc-company-formation.srcset', fn ($s) => str_contains($s, '/media/services/svc-company-formation-2560.webp')));
 
         $this->get('/ar/services/tax-and-budgeting')->assertInertia(fn (Assert $page) => $page
-            ->where('service.title', 'الضرائب والميزانيات')
-            ->where('service.scope.0', 'التسجيل الضريبي')
-            ->has('journey', 0));
+            ->where('sections.0.title', 'الضرائب والميزانيات')
+            ->where('sections.1.cards.0.title', 'التسجيل الضريبي')
+            ->where('sections', fn ($s) => ! collect($s)->contains('type', 'processSteps')));
     }
 
     public function test_service_faqs_never_include_items_needing_review(): void
     {
         Faq::query()->update(['needs_review' => true]);
-        $this->get('/en/services/company-formation')->assertInertia(fn (Assert $page) => $page->has('serviceFaqs', 0));
+        $this->get('/en/services/company-formation')->assertInertia(fn (Assert $page) => $page
+            ->has('faqs', 0)->where('sections', fn ($s) => ! collect($s)->contains('type', 'faq')));
     }
 
     public function test_unverified_figures_from_the_presentation_are_not_shown(): void

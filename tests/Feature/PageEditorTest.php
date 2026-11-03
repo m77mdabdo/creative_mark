@@ -8,6 +8,8 @@ use App\Filament\Pages\EditAboutPage;
 use App\Filament\Pages\EditContactSettings;
 use App\Filament\Pages\EditHomePage;
 use App\Filament\Pages\EditJourney;
+use App\Filament\Pages\EditServicePage;
+use App\Filament\Pages\EditServicesPage;
 use App\Filament\Support\IconPicker;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\Page;
@@ -238,6 +240,37 @@ class PageEditorTest extends TestCase
 
         $this->get('/ar/about')->assertInertia(fn (Assert $p) => $p->where('sections.0.type', 'cta')->where('sections.0.title', 'عنوان جديد لمن نحن'));
         $this->assertSame('hero', Page::where('key', 'home')->first()->publishedRevision->sections[0]['type']); // other pages untouched
+    }
+
+    public function test_each_business_solution_is_edited_on_its_own_page(): void
+    {
+        $user = $this->manager();
+        $this->actingAs($user)->get('/admin/pages/services')->assertOk();
+        $this->actingAs($user)->get('/admin/pages/services/tax-and-budgeting')->assertOk()->assertSee('الضرائب والميزانيات');
+        $this->actingAs($user)->get('/admin')->assertSee('/admin/pages/services/office-solutions', false); // menu lists every solution
+        $this->actingAs($user)->get('/admin/pages/services/unknown')->assertNotFound();
+
+        $component = Livewire::actingAs($user)->test(EditServicePage::class, ['service' => 'tax-and-budgeting']);
+        $sections = $component->get('data.sections');
+        $hero = array_key_first($sections);
+        $sections[$hero]['title']['ar'] = 'الضرائب بطريقة أبسط';
+        $component->set('data.sections', array_reverse($sections, true))->call('save')->assertHasNoErrors();
+        $component->callAction('publish');
+
+        $this->get('/ar/services/tax-and-budgeting')->assertInertia(fn (Assert $p) => $p
+            ->where('sections.0.type', 'cta')->where('sections', fn ($s) => collect($s)->contains('title', 'الضرائب بطريقة أبسط')));
+        $this->get('/ar/services/company-formation')->assertInertia(fn (Assert $p) => $p->where('sections.0.type', 'hero')); // others untouched
+        $this->assertStringNotContainsString('/service-', $this->get('/sitemap.xml')->getContent());
+    }
+
+    public function test_every_page_editor_saves_its_current_content_unchanged(): void
+    {
+        // Existing texts (e.g. long Google descriptions) must never block saving a page.
+        $user = $this->manager();
+        foreach ([EditHomePage::class => [], EditAboutPage::class => [], EditServicesPage::class => [],
+            EditServicePage::class => ['service' => 'company-formation']] as $class => $params) {
+            Livewire::actingAs($user)->test($class, $params)->call('save')->assertHasNoErrors();
+        }
     }
 
     public function test_concurrent_edits_do_not_overwrite_each_other(): void

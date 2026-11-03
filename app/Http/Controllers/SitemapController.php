@@ -15,7 +15,7 @@ class SitemapController
 {
     public function sitemap(): Response
     {
-        $paths = Page::query()->whereNotNull('published_revision_id')->pluck('key')
+        $paths = Page::query()->whereNotNull('published_revision_id')->where('key', 'not like', 'service-%')->pluck('key')
             ->map(fn ($key) => $key === 'home' ? '' : "/{$key}")
             ->merge(Service::query()->where('status', 'published')->pluck('slug')->map(fn ($s) => "/services/{$s}"))
             ->merge(Region::query()->where('status', 'published')->pluck('slug')->map(fn ($s) => "/regions/{$s}"))

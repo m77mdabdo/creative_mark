@@ -35,7 +35,7 @@ use Throwable;
 abstract class EditPageSections extends Page
 {
     /** Key of the page in the pages table, e.g. "home". */
-    protected static string $pageKey;
+    protected static string $pageKey = '';
 
     /** @var array<string, mixed> */
     public ?array $data = [];
@@ -55,9 +55,15 @@ abstract class EditPageSections extends Page
         return __('Pages');
     }
 
+    /** The page being edited; pages for a record (a business solution) override this. */
+    protected function pageKey(): string
+    {
+        return static::$pageKey;
+    }
+
     protected function record(): PageModel
     {
-        return PageModel::query()->where('key', static::$pageKey)->with(['publishedRevision', 'translations'])->firstOrFail();
+        return PageModel::query()->where('key', $this->pageKey())->with(['publishedRevision', 'translations'])->firstOrFail();
     }
 
     public function mount(): void
@@ -82,9 +88,9 @@ abstract class EditPageSections extends Page
             ->description(__('How the page appears in Google and in the browser tab. Saved with the draft and shown on the website straight away.'))
             ->schema([SectionForm::localeTabs(fn (string $l, bool $en) => [
                 TextInput::make("seo.{$l}.title")->label(__('Page name'))->maxLength(120)->required($en),
-                TextInput::make("seo.{$l}.seo_title")->label(__('Title in Google'))->maxLength(70)->live(onBlur: true)
+                TextInput::make("seo.{$l}.seo_title")->label(__('Title in Google'))->maxLength(160)->live(onBlur: true)
                     ->helperText(fn ($state) => __(':count of 60 recommended characters', ['count' => mb_strlen((string) $state)])),
-                Textarea::make("seo.{$l}.seo_description")->label(__('Description in Google'))->rows(2)->maxLength(170)->live(onBlur: true)
+                Textarea::make("seo.{$l}.seo_description")->label(__('Description in Google'))->rows(3)->maxLength(400)->live(onBlur: true)
                     ->helperText(fn ($state) => __(':count of 155 recommended characters', ['count' => mb_strlen((string) $state)])),
                 Placeholder::make("serp_{$l}")->label(__('Preview in Google'))->content(fn (Get $get) => new HtmlString(
                     '<div dir="'.Locales::ALL[$l]['dir'].'" style="max-width:600px;font-family:Arial,sans-serif;padding:.75rem 1rem;border:1px solid rgba(0,0,0,.08);border-radius:.75rem;background:#fff">'
@@ -119,7 +125,7 @@ abstract class EditPageSections extends Page
             Action::make('preview')->label(__('Preview'))->icon('heroicon-o-eye')->color('gray')
                 ->action(function () {
                     if ($this->save(notify: false)) {
-                        $this->js('window.open('.json_encode(route('admin.pages.preview', ['key' => static::$pageKey, 'locale' => app()->getLocale()])).', "_blank")');
+                        $this->js('window.open('.json_encode(route('admin.pages.preview', ['key' => $this->pageKey(), 'locale' => app()->getLocale()])).', "_blank")');
                     }
                 }),
             Action::make('publish')->label(__('Publish'))->icon('heroicon-o-rocket-launch')->color('primary')

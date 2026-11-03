@@ -32,7 +32,7 @@ class AdminTranslationTest extends TestCase
             'locale' => 'ar', 'consent_at' => now(), 'stage' => 'ready',
         ]);
 
-        $urls = ['/admin', '/admin/profile'];
+        $urls = ['/admin', '/admin/profile', '/admin/pages/home'];
         foreach (Filament::getPanel('admin')->getResources() as $resource) {
             foreach (['index', 'create', 'view', 'edit'] as $page) {
                 if (! $resource::hasPage($page)) {

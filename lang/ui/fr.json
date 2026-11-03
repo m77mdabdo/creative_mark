@@ -182,5 +182,6 @@
     "notFoundTitle": "Cette page est introuvable",
     "notFoundText": "Le lien est peut-être obsolète ou la page a été déplacée. Ces pages vous aideront à poursuivre.",
     "serverErrorTitle": "Une erreur s’est produite",
-    "serverErrorText": "Veuillez réessayer dans un instant. Si le problème persiste, réservez une consultation et nous vous contacterons."
+    "serverErrorText": "Veuillez réessayer dans un instant. Si le problème persiste, réservez une consultation et nous vous contacterons.",
+    "previewBanner": "Aperçu : les visiteurs ne voient pas encore ces modifications"
 }

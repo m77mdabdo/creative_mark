@@ -22,14 +22,15 @@ use App\Support\Locales;
 final class PageData
 {
     /** @return array<string, mixed> */
-    public function forPage(string $key, string $locale): array
+    /** @param bool $draft true renders the unpublished draft (dashboard preview only) */
+    public function forPage(string $key, string $locale, bool $draft = false): array
     {
         $page = Page::query()->where('key', $key)->withLocale($locale)->with('publishedRevision')->firstOrFail();
-        abort_unless($page->publishedRevision, 404);
+        abort_unless($draft || $page->publishedRevision, 404);
 
         $faqLimit = 6;
         $sections = [];
-        foreach ($page->publishedRevision->sections as $s) {
+        foreach ($draft ? $page->draft_sections : $page->publishedRevision->sections as $s) {
             if (! empty($s['hidden'])) {
                 continue; // FR-021: hidden sections are absent from the HTML
             }

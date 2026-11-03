@@ -6,6 +6,7 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\LocaleRedirectController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PagePreviewController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SitemapController;
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', LocaleRedirectController::class);
 Route::get('/sitemap.xml', [SitemapController::class, 'sitemap'])->name('sitemap');
 Route::get('/robots.txt', [SitemapController::class, 'robots']);
+Route::get('/preview/{key}/{locale}', PagePreviewController::class)->where('key', '[a-z0-9-]+')
+    ->middleware(['auth', 'can:pages.edit'])->name('admin.pages.preview');
 Route::post('/'.trim(config('admin.path'), '/').'/locale', AdminLocaleController::class)->middleware(['auth', 'throttle:30,1'])->name('admin.locale');
 
 Route::prefix('{locale}')

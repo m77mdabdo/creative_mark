@@ -29,3 +29,4 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 /storage/qa
+/public/media/uploads

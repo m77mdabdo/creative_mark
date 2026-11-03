@@ -182,5 +182,6 @@
     "notFoundTitle": "This page could not be found",
     "notFoundText": "The link may be out of date, or the page may have moved. These pages can help you continue.",
     "serverErrorTitle": "Something went wrong",
-    "serverErrorText": "Please try again in a moment. If the problem continues, book a consultation and we will contact you."
+    "serverErrorText": "Please try again in a moment. If the problem continues, book a consultation and we will contact you.",
+    "previewBanner": "Preview: visitors will not see these changes until they are published"
 }

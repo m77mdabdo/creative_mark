@@ -1532,7 +1532,7 @@
    "key": "faq1",
    "category": "market",
    "order": 1,
-   "needs_review": true,
+   "needs_review": false,
    "question": {
     "en": "Is Saudi Arabia a growing market for investors?",
     "ar": "هل السعودية سوق متنامٍ للمستثمرين؟"
@@ -1540,13 +1540,14 @@
    "answer": {
     "en": "Yes. Saudi Arabia’s GDP reached approximately SAR 4.79 trillion in 2025, while real GDP grew by approximately 4.5% during the year. The continued growth of non-oil sectors and private investment is creating new opportunities across multiple activities.",
     "ar": "نعم. بلغ الناتج المحلي الإجمالي للمملكة نحو 4.79 تريليون ريال في 2025، ونما الناتج الحقيقي بنحو 4.5% خلال العام. ويخلق النمو المستمر للقطاعات غير النفطية والاستثمار الخاص فرصاً جديدة في أنشطة متعددة."
-   }
+   },
+   "show_on_home": false
   },
   {
    "key": "faq2",
    "category": "market",
    "order": 2,
-   "needs_review": true,
+   "needs_review": false,
    "question": {
     "en": "Is foreign investment growing in Saudi Arabia?",
     "ar": "هل الاستثمار الأجنبي في نمو بالسعودية؟"
@@ -1554,13 +1555,14 @@
    "answer": {
     "en": "Yes. Foreign direct investment inflows increased by approximately 64.7% year-on-year in Q2 2025, reflecting continued international investor interest in the Kingdom.",
     "ar": "نعم. ارتفعت تدفقات الاستثمار الأجنبي المباشر بنحو 64.7% على أساس سنوي في الربع الثاني من 2025، ما يعكس اهتماماً دولياً مستمراً بالمملكة."
-   }
+   },
+   "show_on_home": false
   },
   {
    "key": "faq3",
    "category": "setup",
    "order": 3,
-   "needs_review": true,
+   "needs_review": false,
    "question": {
     "en": "How long does it take to establish a company in Saudi Arabia?",
     "ar": "كم يستغرق تأسيس شركة في السعودية؟"
@@ -1568,21 +1570,23 @@
    "answer": {
     "en": "A standard establishment journey may take approximately 7–15 working days once the required documents and approvals are available. Timelines vary according to the business activity, licensing requirements, investor structure and government approvals.",
     "ar": "قد تستغرق رحلة التأسيس المعتادة نحو 7–15 يوم عمل بعد توفر المستندات والموافقات المطلوبة. وتختلف المدة حسب النشاط ومتطلبات الترخيص وهيكل المستثمر والموافقات الحكومية."
-   }
+   },
+   "show_on_home": false
   },
   {
    "key": "faq4",
    "category": "setup",
    "order": 4,
-   "needs_review": true,
+   "needs_review": false,
    "question": {
     "en": "How experienced is Creative Mark in company formation?",
     "ar": "ما مدى خبرة كرييتف مارك في تأسيس الشركات؟"
    },
    "answer": {
-    "en": "Creative Mark’s track record includes 500+ companies established, 500+ investment licenses, 209 professional accreditations, 157 contractor classification certificates, 103 municipal licenses and 64 industrial licenses.",
-    "ar": "يشمل سجل كرييتف مارك أكثر من 500 شركة مؤسسة وأكثر من 500 ترخيص استثماري و209 اعتمادات مهنية و157 شهادة تصنيف مقاولين و103 تراخيص بلدية و64 ترخيصاً صناعياً."
-   }
+    "en": "Creative Mark’s track record includes 1,000+ companies established, 500+ investment licenses, 209 professional accreditations, 157 contractor classification certificates, 103 municipal licenses and 64 industrial licenses.",
+    "ar": "يشمل سجل كرييتف مارك أكثر من 1000 شركة مؤسسة وأكثر من 500 ترخيص استثماري و209 اعتمادات مهنية و157 شهادة تصنيف مقاولين و103 تراخيص بلدية و64 ترخيصاً صناعياً."
+   },
+   "show_on_home": false
   },
   {
    "key": "faq5",
@@ -1602,7 +1606,7 @@
    "key": "faq6",
    "category": "ownership",
    "order": 6,
-   "needs_review": true,
+   "needs_review": false,
    "question": {
     "en": "Can foreigners own 100% of a company in Saudi Arabia?",
     "ar": "هل يمكن للأجانب تملك 100% من شركة في السعودية؟"
@@ -1610,13 +1614,14 @@
    "answer": {
     "en": "Foreign investors may establish companies with 100% foreign ownership in eligible activities, subject to the applicable investment regulations, registration requirements and sector-specific conditions.",
     "ar": "يمكن للمستثمرين الأجانب تأسيس شركات بملكية أجنبية كاملة في الأنشطة المؤهلة، وفقاً لأنظمة الاستثمار ومتطلبات التسجيل والاشتراطات الخاصة بكل قطاع."
-   }
+   },
+   "show_on_home": false
   },
   {
    "key": "faq7",
    "category": "ownership",
    "order": 7,
-   "needs_review": true,
+   "needs_review": false,
    "question": {
     "en": "Do I need a Saudi partner to establish my company?",
     "ar": "هل أحتاج شريكاً سعودياً لتأسيس شركتي؟"
@@ -1624,7 +1629,8 @@
    "answer": {
     "en": "Not necessarily. For many eligible foreign investment activities, companies can be established without a Saudi shareholder. The required structure depends on the activity, investor profile and applicable regulations.",
     "ar": "ليس بالضرورة. في كثير من أنشطة الاستثمار الأجنبي المؤهلة يمكن التأسيس دون شريك سعودي. ويعتمد الهيكل المطلوب على النشاط وملف المستثمر والأنظمة المعمول بها."
-   }
+   },
+   "show_on_home": false
   },
   {
    "key": "faq8",
@@ -1644,7 +1650,7 @@
    "key": "faq9",
    "category": "setup",
    "order": 9,
-   "needs_review": true,
+   "needs_review": false,
    "question": {
     "en": "Can Creative Mark assist with investment licensing?",
     "ar": "هل تساعد كرييتف مارك في الترخيص الاستثماري؟"
@@ -1652,7 +1658,8 @@
    "answer": {
     "en": "Yes. Creative Mark has supported 500+ investment licenses, giving our team extensive practical experience with investor establishment procedures.",
     "ar": "نعم. دعمت كرييتف مارك أكثر من 500 ترخيص استثماري، ما منح فريقنا خبرة عملية واسعة في إجراءات تأسيس المستثمرين."
-   }
+   },
+   "show_on_home": false
   },
   {
    "key": "faq10",
@@ -1686,7 +1693,7 @@
    "key": "faq12",
    "category": "setup",
    "order": 12,
-   "needs_review": true,
+   "needs_review": false,
    "question": {
     "en": "Do I need an office to establish my business?",
     "ar": "هل أحتاج مكتباً لتأسيس عملي؟"
@@ -1694,7 +1701,8 @@
    "answer": {
     "en": "A registered business address is generally required, while specific office requirements vary according to activity and regulatory conditions. Creative Mark provides office solutions designed to support both registration and operational needs.",
     "ar": "يُشترط عادة عنوان تجاري مسجل، بينما تختلف متطلبات المكتب حسب النشاط والاشتراطات النظامية. وتقدم كرييتف مارك حلولاً مكتبية تدعم التسجيل والاحتياجات التشغيلية."
-   }
+   },
+   "show_on_home": false
   },
   {
    "key": "faq13",

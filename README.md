@@ -265,6 +265,8 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-04
+- All questions shown (D-12), the track record answer aligned to 1,000+ companies, and translations marked approved
+  after an automated check for missing languages, leftover English and mismatched figures.
 - Investor guide in the page editor: chapters, points, key figures, notes, checklist and every source with its link.
 - Page editor is now a light list of sections; each section's fields open in a side panel (a long page went from
   23 MB of HTML to under 1 MB). Fixed: saving no longer hides cards without a verified flag, and duplicates get

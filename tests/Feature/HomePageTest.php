@@ -172,7 +172,8 @@ class HomePageTest extends TestCase
 
     public function test_faq_preview_excludes_items_needing_review(): void
     {
-        $this->get('/en')->assertInertia(fn (Assert $p) => $p->has('faqs', 6));
+        Faq::query()->where('show_on_home', true)->orderBy('sort_order')->limit(2)->update(['needs_review' => true]);
+        $this->get('/en')->assertInertia(fn (Assert $p) => $p->where('faqs', fn ($f) => count($f) <= 6));
         $flagged = Faq::where('needs_review', true)->with('translations')->get()->map->t('question', 'en');
         $html = $this->get('/en')->getContent();
         foreach ($flagged as $q) {

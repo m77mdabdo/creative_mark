@@ -32,7 +32,7 @@ final class Columns
     /** One chip per locale: approved / machine / review / missing (FR-125). */
     public static function localeStatus(): TextColumn
     {
-        return TextColumn::make('locale_status')->label(__('Languages'))->badge()
+        return TextColumn::make('locale_status')->label(__('Languages'))->badge()->toggleable(isToggledHiddenByDefault: true)
             ->state(fn (Model $record) => collect(Locales::codes())->map(function (string $code) use ($record) {
                 $status = $record->translations->firstWhere('locale', $code)?->review_status ?? ReviewStatus::Missing;
 

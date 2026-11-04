@@ -18,4 +18,13 @@ class PagePreviewController
         return Inertia::render('ContentPage', [...$data->forPage($key, $locale, draft: true), 'preview' => true])
             ->withViewData(['noindex' => true]);
     }
+
+    /** A news story as it will look, even while it is a draft. */
+    public function article(PageData $data, string $slug, string $locale): Response
+    {
+        abort_unless(in_array($locale, Locales::codes(), true), 404);
+        app()->setLocale($locale);
+
+        return Inertia::render('NewsArticlePage', [...$data->forArticle($slug, $locale, draft: true), 'preview' => true]);
+    }
 }

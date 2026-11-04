@@ -9,12 +9,15 @@ use App\Filament\Pages\EditContactSettings;
 use App\Filament\Pages\EditHomePage;
 use App\Filament\Pages\EditInvestorGuidePage;
 use App\Filament\Pages\EditJourney;
+use App\Filament\Pages\EditNewsPage;
 use App\Filament\Pages\EditOurEdgePage;
 use App\Filament\Pages\EditRegionPage;
 use App\Filament\Pages\EditServicePage;
 use App\Filament\Pages\EditServicesPage;
+use App\Filament\Resources\NewsArticles\Pages\EditNewsArticle;
 use App\Filament\Support\IconPicker;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
+use App\Models\NewsArticle;
 use App\Models\Page;
 use App\Models\Region;
 use App\Models\Setting;
@@ -425,6 +428,40 @@ class PageEditorTest extends TestCase
         $component->set('data.sections', $sections)->call('save')->assertHasNoErrors();
         $ids = array_column($this->home()->draft_sections, 'id');
         $this->assertSame(count($ids), count(array_unique($ids)));
+    }
+
+    public function test_newsroom_page_menu_stories_and_preview(): void
+    {
+        $user = $this->manager();
+        // Menu: stories open beneath Pages › Newsroom and appear nowhere else
+        $this->actingAs($user)->get('/admin/pages/news')->assertOk()->assertSee('/admin/news-articles/create', false);
+        $this->actingAs($user)->get('/admin')->assertDontSee('/admin/news-articles/create"', false);
+        $story = NewsArticle::query()->orderByDesc('published_on')->first();
+        $this->actingAs($user)->get("/admin/news-articles/{$story->id}/edit")->assertOk()->assertSee('/admin/pages/news', false);
+
+        // The overview page is edited like the others
+        $component = Livewire::actingAs($user)->test(EditNewsPage::class);
+        $sections = $component->get('data.sections');
+        $key = collect($sections)->search(fn ($s) => $s['type'] === 'newsGrid');
+        $sections[$key]['title']['ar'] = 'عنوان جديد للأخبار';
+        $component->set('data.sections', $sections)->call('save')->assertHasNoErrors()->callAction('publish');
+        $this->get('/ar/news')->assertInertia(fn (Assert $p) => $p->where('sections', fn ($s) => collect($s)->contains('title', 'عنوان جديد للأخبار')));
+
+        // A draft can be previewed by staff only, and stays off the site
+        $story->update(['status' => 'draft']);
+        $this->get("/en/news/{$story->slug}")->assertNotFound();
+        $this->actingAs($user)->get("/preview/news/{$story->slug}/ar")->assertOk()->assertInertia(fn (Assert $p) => $p->component('NewsArticlePage')->where('preview', true));
+        auth()->logout();
+        $this->get("/preview/news/{$story->slug}/ar")->assertRedirect();
+    }
+
+    public function test_key_figures_need_matching_labels(): void
+    {
+        $user = $this->manager();
+        $story = NewsArticle::query()->first();
+        Livewire::actingAs($user)->test(EditNewsArticle::class, ['record' => $story->getRouteKey()])
+            ->set('data.translations.en.fact_values', ['1', '2'])->set('data.translations.en.fact_labels', ['only one'])
+            ->call('save')->assertHasErrors();
     }
 
     public function test_saving_a_page_unchanged_loses_nothing(): void

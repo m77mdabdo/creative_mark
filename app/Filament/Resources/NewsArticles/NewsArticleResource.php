@@ -22,6 +22,9 @@ class NewsArticleResource extends Resource
 
     protected static ?int $navigationSort = 5;
 
+    /** Stories are reached from the menu under Pages › Newsroom (EditNewsPage::navigationItems). */
+    protected static bool $shouldRegisterNavigation = false;
+
     public static function getNavigationGroup(): ?string
     {
         return __('Content');

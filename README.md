@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-357_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-359_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -107,7 +107,7 @@ public website and the dashboard its team uses to run it.
   source name and https link; lead-story flag; draft and publish.
 - Dashboard in Arabic and English (switch in the top bar, remembered per staff member; a test fails if any Arabic
   dashboard string is untranslated), bright ivory-and-gold theme with optional dark mode, Arabic typography.
-- Page editor (Pages › Home page, About us, Our edge, Saudi regions and each region, Investor guide, Business solutions; opening Business solutions shows a sub-menu with
+- Page editor (Pages › Home page, About us, Our edge, Saudi regions and each region, Investor guide, Newsroom, Business solutions; opening Business solutions shows a sub-menu with
   each of the eleven solutions): move sections up and down or drag them, hide, add, duplicate or delete them;
   edit every text in six languages, images (with upload: re-encoded to WebP), buttons, cards, hero slides,
   background, spacing and animation. Save a draft, preview it in any language, publish (Content Managers),
@@ -265,6 +265,8 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-04
+- Newsroom in the page editor, with stories in a sub-menu (all stories, add a story, the latest six); story preview
+  before publishing, translated categories, filters and delete; key figures must match their labels.
 - All questions shown (D-12), the track record answer aligned to 1,000+ companies, and translations marked approved
   after an automated check for missing languages, leftover English and mismatched figures.
 - Investor guide in the page editor: chapters, points, key figures, notes, checklist and every source with its link.

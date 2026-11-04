@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', LocaleRedirectController::class);
 Route::get('/sitemap.xml', [SitemapController::class, 'sitemap'])->name('sitemap');
 Route::get('/robots.txt', [SitemapController::class, 'robots']);
+Route::get('/preview/news/{slug}/{locale}', [PagePreviewController::class, 'article'])->where('slug', '[a-z0-9-]+')
+    ->middleware(['auth', 'can:content.edit'])->name('admin.news.preview');
 Route::get('/preview/{key}/{locale}', PagePreviewController::class)->where('key', '[a-z0-9-]+')
     ->middleware(['auth', 'can:pages.edit'])->name('admin.pages.preview');
 Route::post('/'.trim(config('admin.path'), '/').'/locale', AdminLocaleController::class)->middleware(['auth', 'throttle:30,1'])->name('admin.locale');

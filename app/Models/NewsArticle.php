@@ -13,6 +13,15 @@ class NewsArticle extends Model
     /** Newsroom sections; labels live in lang/ui (newsCat_*). */
     public const CATEGORIES = ['economy', 'regulation', 'real-estate', 'tourism', 'tax', 'zones'];
 
+    /** @return array<string, string> category => name in the dashboard's language */
+    public static function categoryLabels(): array
+    {
+        return [
+            'economy' => __('Economy'), 'regulation' => __('Regulation'), 'real-estate' => __('Real estate'),
+            'tourism' => __('Tourism'), 'tax' => __('Tax'), 'zones' => __('Economic zones'),
+        ];
+    }
+
     protected $fillable = ['slug', 'category', 'media', 'published_on', 'source_name', 'source_url', 'featured', 'status'];
 
     protected $attributes = ['featured' => false, 'status' => 'draft'];

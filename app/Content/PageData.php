@@ -198,10 +198,11 @@ final class PageData
      *
      * @return array<string, mixed>
      */
-    public function forArticle(string $slug, string $locale): array
+    /** @param bool $draft true also finds an unpublished story (dashboard preview only) */
+    public function forArticle(string $slug, string $locale, bool $draft = false): array
     {
         $all = NewsArticle::query()->live()->withLocale($locale)->get();
-        $article = $all->firstWhere('slug', $slug);
+        $article = $all->firstWhere('slug', $slug) ?? ($draft ? NewsArticle::query()->where('slug', $slug)->withLocale($locale)->first() : null);
         abort_unless($article, 404);
         $others = $all->reject(fn ($a) => $a->is($article));
         $related = $others->where('category', $article->category)->merge($others->where('category', '!=', $article->category))->take(3);

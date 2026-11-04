@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Filament\Pages\EditNewsPage;
 use App\Filament\Pages\EditRegionPage;
 use App\Filament\Pages\EditServicePage;
 use Closure;
@@ -21,7 +22,7 @@ class SetAdminLocale
         $panel?->navigationGroups([__('Pages'), __('Clients'), __('Content'), __('Settings')]);
         // Every business solution and region has its own entry under Pages.
         if ($request->user()) {
-            $panel?->navigationItems([...EditServicePage::navigationItems(), ...EditRegionPage::navigationItems()]);
+            $panel?->navigationItems([...EditServicePage::navigationItems(), ...EditRegionPage::navigationItems(), ...EditNewsPage::navigationItems()]);
         }
 
         return $next($request);

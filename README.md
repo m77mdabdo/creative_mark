@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-353_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-357_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -107,7 +107,7 @@ public website and the dashboard its team uses to run it.
   source name and https link; lead-story flag; draft and publish.
 - Dashboard in Arabic and English (switch in the top bar, remembered per staff member; a test fails if any Arabic
   dashboard string is untranslated), bright ivory-and-gold theme with optional dark mode, Arabic typography.
-- Page editor (Pages › Home page, About us, Our edge, Saudi regions and each region, Business solutions; opening Business solutions shows a sub-menu with
+- Page editor (Pages › Home page, About us, Our edge, Saudi regions and each region, Investor guide, Business solutions; opening Business solutions shows a sub-menu with
   each of the eleven solutions): move sections up and down or drag them, hide, add, duplicate or delete them;
   edit every text in six languages, images (with upload: re-encoded to WebP), buttons, cards, hero slides,
   background, spacing and animation. Save a draft, preview it in any language, publish (Content Managers),
@@ -265,6 +265,10 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-04
+- Investor guide in the page editor: chapters, points, key figures, notes, checklist and every source with its link.
+- Page editor is now a light list of sections; each section's fields open in a side panel (a long page went from
+  23 MB of HTML to under 1 MB). Fixed: saving no longer hides cards without a verified flag, and duplicates get
+  their own id.
 - Regions completed: each region page lists the case studies set there and links to all regions; publishing also
   updates the capital; the region form picks sectors and solutions from named lists and links to the page editor.
 - Regions in the page editor: the overview page and each of the 13 regions as an editable page (same layout, six

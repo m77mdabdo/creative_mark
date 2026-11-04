@@ -7,6 +7,7 @@ use App\Enums\Role;
 use App\Filament\Pages\EditAboutPage;
 use App\Filament\Pages\EditContactSettings;
 use App\Filament\Pages\EditHomePage;
+use App\Filament\Pages\EditInvestorGuidePage;
 use App\Filament\Pages\EditJourney;
 use App\Filament\Pages\EditOurEdgePage;
 use App\Filament\Pages\EditRegionPage;
@@ -359,6 +360,71 @@ class PageEditorTest extends TestCase
             $this->assertSame([], array_diff($region->industries ?? [], $known), $region->slug);
         }
         $this->actingAs($this->manager())->get('/admin/regions/'.Region::first()->id.'/edit')->assertOk();
+    }
+
+    public function test_guide_chapters_points_notes_and_sources_are_editable(): void
+    {
+        $user = $this->manager();
+        $this->actingAs($user)->get('/admin/pages/investor-guide')->assertOk();
+        $component = Livewire::actingAs($user)->test(EditInvestorGuidePage::class);
+        $sections = $component->get('data.sections');
+        $key = collect($sections)->search(fn ($s) => $s['id'] === 'guide-register');
+        $sections[$key]['points']['ar'] = "نقطة أولى\nنقطة ثانية";
+        $sections[$key]['note']['ar'] = 'ملاحظة جديدة';
+        $source = array_key_first($sections[$key]['sources']);
+        $sections[$key]['sources'][$source]['href'] = 'https://example.org/new-law';
+        $sections[$key]['sources'][$source]['label']['ar'] = 'مرجع جديد';
+        $component->set('data.sections', $sections)->call('save')->assertHasNoErrors()->callAction('publish');
+
+        $this->get('/ar/investor-guide')->assertInertia(fn (Assert $p) => $p->where('sections', function ($all) {
+            $chapter = collect($all)->firstWhere('id', 'guide-register');
+
+            return $chapter['points'] === "نقطة أولى\nنقطة ثانية" && $chapter['note'] === 'ملاحظة جديدة'
+                && $chapter['sources'][0]['href'] === 'https://example.org/new-law' && $chapter['sources'][0]['label'] === 'مرجع جديد';
+        }));
+
+        // Insecure source links are refused
+        $sections[$key]['sources'][$source]['href'] = 'http://example.org/insecure';
+        $before = $this->home()->newQuery()->where('key', 'investor-guide')->first()->draft_sections;
+        $component->set('data.sections', $sections)->call('save');
+        $this->assertSame($before, Page::where('key', 'investor-guide')->first()->draft_sections);
+    }
+
+    public function test_sections_open_in_a_side_panel_and_keep_everything(): void
+    {
+        $component = Livewire::actingAs($this->manager())->test(EditInvestorGuidePage::class);
+        $sections = $component->get('data.sections');
+        $item = collect($sections)->search(fn ($s) => $s['id'] === 'guide-checklist');
+        $cards = count($sections[$item]['cards']);
+
+        $component->callAction([['name' => 'editSection', 'context' => ['schemaComponent' => 'form.sections'], 'arguments' => ['item' => $item]]], ['label' => 'Checklist renamed'])
+            ->assertHasNoActionErrors();
+        $this->assertSame('Checklist renamed', $component->get('data.sections')[$item]['label']);
+        $component->call('save')->assertHasNoErrors();
+
+        $saved = collect(Page::where('key', 'investor-guide')->first()->draft_sections)->firstWhere('id', 'guide-checklist');
+        $this->assertSame('Checklist renamed', $saved['label']);
+        $this->assertCount($cards, $saved['cards']);
+        foreach ($saved['cards'] as $card) {
+            $this->assertTrue($card['verified'], 'A card without a flag must stay visible');
+        }
+    }
+
+    public function test_rows_name_the_section_type(): void
+    {
+        $this->actingAs($this->manager())->get('/admin/pages/investor-guide')->assertOk()
+            ->assertSee(__('Guide chapter'))->assertSee(__('Checklist'));
+    }
+
+    public function test_a_duplicated_section_gets_its_own_id(): void
+    {
+        $component = Livewire::actingAs($this->manager())->test(EditHomePage::class);
+        $sections = $component->get('data.sections');
+        $first = $sections[array_key_first($sections)];
+        $sections['copy'] = $first;
+        $component->set('data.sections', $sections)->call('save')->assertHasNoErrors();
+        $ids = array_column($this->home()->draft_sections, 'id');
+        $this->assertSame(count($ids), count(array_unique($ids)));
     }
 
     public function test_saving_a_page_unchanged_loses_nothing(): void

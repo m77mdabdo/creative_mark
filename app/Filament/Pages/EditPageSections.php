@@ -185,18 +185,20 @@ abstract class EditPageSections extends Page
     /** Validates and stores the draft. Returns false (with a message) if it cannot be saved. */
     public function save(bool $notify = true): bool
     {
+        // Validates the visible fields (SEO, new section types). The sections themselves are the rows' full state,
+        // edited in the side panel, so nothing a form does not show can be dropped; SectionSchema checks them below.
         $state = $this->form->getState();
-        // Fields this section type does not show in the form are kept, never dropped on save.
-        $previous = collect($this->record()->draft_sections ?? [])->keyBy('id');
-        $sections = array_values(array_map(function (array $s) use ($previous) {
-            foreach (['cards', 'slides', 'sources', 'points', 'note', 'limit', 'layout'] as $key) {
-                if (! array_key_exists($key, $s) && isset($previous[$s['id'] ?? null][$key])) {
-                    $s[$key] = $previous[$s['id']][$key];
-                }
+        $seen = [];
+        $sections = array_values(array_map(function (array $s) use (&$seen) {
+            $s = $this->fromForm($s);
+            // A duplicated section needs an id of its own.
+            if (in_array($s['id'], $seen, true)) {
+                $s['id'] = $s['type'].'-'.Str::lower(Str::random(5));
             }
+            $seen[] = $s['id'];
 
-            return $this->fromForm($s);
-        }, $state['sections'] ?? []));
+            return $s;
+        }, $this->data['sections'] ?? []));
         try {
             SectionSchema::validate($sections);
         } catch (ValidationException $e) {
@@ -265,12 +267,12 @@ abstract class EditPageSections extends Page
         Notification::make()->success()->title(__('Version restored to the draft. Preview it, then publish.'))->send();
     }
 
-    /** Ignores differences that do not change the page (empty lists, hidden = false). */
+    /** Ignores differences that do not change the page (empty lists, hidden = false, verified = true). */
     private static function normalize(array $value): array
     {
         $out = [];
         foreach ($value as $k => $v) {
-            if ($v === [] || $v === null || ($k === 'hidden' && $v === false)) {
+            if ($v === [] || $v === null || ($k === 'hidden' && $v === false) || ($k === 'verified' && $v === true)) {
                 continue;
             }
             $out[$k] = is_array($v) ? self::normalize($v) : $v;
@@ -282,6 +284,9 @@ abstract class EditPageSections extends Page
     /** @param array<string, mixed> $s */
     protected function toForm(array $s): array
     {
+        // A card with no flag counts as verified; the toggle must not turn it into "hidden".
+        $s['cards'] = array_map(fn (array $c) => [...$c, 'verified' => $c['verified'] ?? true], $s['cards'] ?? []);
+
         return [...$s, 'visible' => empty($s['hidden'])];
     }
 
@@ -317,6 +322,14 @@ abstract class EditPageSections extends Page
         $s['buttons'] = array_values(array_map(fn ($b) => ['label' => $map($b['label'] ?? []), 'href' => trim((string) ($b['href'] ?? '')), 'style' => $b['style'] ?? 'gold'], $s['buttons'] ?? []));
         $s['cards'] = array_values(array_map(fn ($c) => $clean([...$c, 'verified' => (bool) ($c['verified'] ?? true)], ['title', 'text']), $s['cards'] ?? []));
         $s['slides'] = array_values(array_map(fn ($c) => $clean($c, ['eyebrow', 'title', 'highlight', 'subtitle']), $s['slides'] ?? []));
+        $s['sources'] = array_values(array_map(function ($src) use ($map) {
+            $src['label'] = $map($src['label'] ?? []);
+            $src['publisher'] = $map($src['publisher'] ?? []);
+            $src['id'] = filled($src['id'] ?? null) ? $src['id'] : Str::lower(Str::random(8));
+            $src['href'] = trim((string) ($src['href'] ?? ''));
+
+            return array_filter($src, fn ($v) => $v !== null && $v !== '' && $v !== []);
+        }, $s['sources'] ?? []));
         foreach (['limit'] as $k) {
             if (isset($s[$k])) {
                 $s[$k] = (int) $s[$k];

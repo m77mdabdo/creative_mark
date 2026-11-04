@@ -5,6 +5,7 @@ namespace App\Filament\Support;
 use App\Content\MediaLibrary;
 use App\Content\SectionSchema;
 use App\Support\Locales;
+use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
@@ -51,12 +52,25 @@ final class SectionForm
         };
     }
 
+    /**
+     * The list of sections: each row can be moved, shown or hidden, duplicated and deleted. Its fields open in a side
+     * panel on demand ("Edit"), so even long pages stay light on phones. Row state holds the whole section.
+     */
     public static function make(): Repeater
     {
         return Repeater::make('sections')
             ->hiddenLabel()
-            ->schema(self::sectionSchema())
-            ->collapsible()->collapsed()
+            ->schema([
+                Hidden::make('id'),
+                Hidden::make('type')->visible(fn (Get $get) => filled($get('id'))),
+                Grid::make(['default' => 1, 'md' => 2])->schema([
+                    Select::make('type')->label(__('Section type'))->required()->native(false)->live()
+                        ->options(collect(SectionSchema::TYPES)->mapWithKeys(fn ($t) => [$t => self::typeLabel($t)]))
+                        ->visible(fn (Get $get) => blank($get('id')))
+                        ->helperText(__('Choose the type, then press Edit to fill it in.')),
+                    Toggle::make('visible')->label(__('Show on the website'))->default(true),
+                ]),
+            ])
             ->reorderable()->reorderableWithButtons()->reorderableWithDragAndDrop()
             ->cloneable()
             ->itemLabel(function (array $state): string {
@@ -65,6 +79,19 @@ final class SectionForm
                 return (($state['visible'] ?? true) ? '' : '🚫 '.__('Hidden').' · ').self::typeLabel($state['type'] ?? null)
                     .(filled($title) ? ' · '.Str::limit($title, 50) : (filled($state['label'] ?? null) ? ' · '.$state['label'] : ''));
             })
+            ->extraItemActions([
+                Action::make('editSection')->label(__('Edit'))->icon('heroicon-o-pencil-square')->color('primary')
+                    ->slideOver()->modalWidth('5xl')
+                    ->modalHeading(fn (array $arguments, Repeater $component) => self::typeLabel($component->getRawState()[$arguments['item']]['type'] ?? null))
+                    ->modalSubmitActionLabel(__('Done'))
+                    ->fillForm(fn (array $arguments, Repeater $component) => $component->getRawState()[$arguments['item']] ?? [])
+                    ->schema(self::sectionSchema())
+                    ->action(function (array $data, array $arguments, Repeater $component) {
+                        $state = $component->getRawState();
+                        $state[$arguments['item']] = [...($state[$arguments['item']] ?? []), ...$data];
+                        $component->rawState($state);
+                    }),
+            ])
             ->addActionLabel(__('Add a section'))
             ->deleteAction(fn ($action) => $action->requiresConfirmation())
             ->columnSpanFull();
@@ -77,13 +104,8 @@ final class SectionForm
 
         return [
             Hidden::make('id'),
-            Grid::make(['default' => 1, 'md' => 3])->schema([
-                Select::make('type')->label(__('Section type'))->required()->native(false)
-                    ->options(collect(SectionSchema::TYPES)->mapWithKeys(fn ($t) => [$t => self::typeLabel($t)]))
-                    ->disabled(fn (Get $get) => filled($get('id')))->dehydrated()->live(),
-                TextInput::make('label')->label(__('Internal name'))->maxLength(80)->helperText(__('Only shown in the dashboard.')),
-                Toggle::make('visible')->label(__('Show on the website'))->default(true)->inline(false),
-            ]),
+            Hidden::make('type'),
+            TextInput::make('label')->label(__('Internal name'))->maxLength(80)->helperText(__('Only shown in the dashboard.')),
 
             self::localeTabs(fn (string $l, bool $en) => [
                 TextInput::make("eyebrow.{$l}")->label(__('Small title above')),
@@ -92,7 +114,7 @@ final class SectionForm
                 Textarea::make("subtitle.{$l}")->label(__('Subtitle'))->rows(2),
                 Textarea::make("body.{$l}")->label(__('Text'))->rows(4)->helperText(__('Leave a blank line between paragraphs.')),
                 Textarea::make("points.{$l}")->label(__('Points'))->rows(4)->helperText(__('One point per line.'))->visible($is(['guideChapter'])),
-                Textarea::make("note.{$l}")->label(__('Highlighted note'))->rows(2)->visible($is(['serviceOverview', 'guideChapter', 'legalText'])),
+                Textarea::make("note.{$l}")->label(__('Highlighted note'))->rows(2)->visible($is(['serviceOverview', 'guideChapter', 'legalText', 'sourceList'])),
             ], __('Texts')),
 
             Grid::make(['default' => 1, 'md' => 2])->schema([
@@ -136,6 +158,27 @@ final class SectionForm
                 ->itemLabel(fn (array $state) => $state['title'][app()->getLocale()] ?? $state['title']['en'] ?? __('Card'))
                 ->addActionLabel(__('Add a card')),
 
+            Repeater::make('sources')->label(__('Sources'))->visible($is(['guideChapter', 'sourceList']))
+                ->schema([
+                    Hidden::make('id'),
+                    Grid::make(['default' => 1, 'md' => 3])->schema([
+                        TextInput::make('href')->label(__('Link'))->required()->url()->maxLength(500)->extraInputAttributes(['dir' => 'ltr'])
+                            ->rule('starts_with:https://')->columnSpan(['md' => 2])->helperText(__('Must start with https://')),
+                        TextInput::make('date')->label(__('Date'))->maxLength(10)->rule('regex:/^\d{4}(-\d{2}){0,2}$/')->extraInputAttributes(['dir' => 'ltr'])
+                            ->helperText(__('Optional: 2026, 2026-07 or 2026-07-15')),
+                    ]),
+                    self::localeTabs(fn (string $l, bool $en) => [
+                        TextInput::make("label.{$l}")->label(__('Publication'))->required($en)->maxLength(200),
+                        TextInput::make("publisher.{$l}")->label(__('Publisher'))->maxLength(120),
+                    ]),
+                ])
+                ->collapsible()->collapsed()->reorderableWithButtons()->maxItems(30)
+                ->itemLabel(fn (array $state) => $state['label'][app()->getLocale()] ?? $state['label']['en'] ?? __('Source'))
+                ->addActionLabel(__('Add a source')),
+
+            Placeholder::make('sources_hint')->hiddenLabel()->visible($is(['sourceList']))
+                ->content(new HtmlString('<div style="padding:.75rem 1rem;border-radius:.75rem;background:rgba(235,189,108,.15);font-size:.875rem">'.e(__('This is the full library at the end of the guide. If you change a source in a chapter, change it here too.')).'</div>')),
+
             Repeater::make('buttons')->label(__('Buttons'))
                 ->schema([
                     Grid::make(['default' => 1, 'md' => 2])->schema([
@@ -156,7 +199,7 @@ final class SectionForm
                 ->addActionLabel(__('Add a button')),
 
             Placeholder::make('catalogue_hint')->hiddenLabel()
-                ->visible($is(['trackRecord', 'testimonials', 'services', 'countries', 'map', 'faq', 'relatedServices', 'processSteps', 'regionOverview', 'regionGrid']))
+                ->visible($is(['trackRecord', 'testimonials', 'services', 'countries', 'map', 'faq', 'relatedServices', 'processSteps', 'regionOverview', 'regionGrid', 'guideNav', 'guideChapter', 'checklist']))
                 ->content(fn (Get $get) => new HtmlString('<div style="padding:.75rem 1rem;border-radius:.75rem;background:rgba(235,189,108,.15);font-size:.875rem">'.e(match ($get('type')) {
                     'trackRecord' => __('The figures come from Content › Statistics, or the “Figures” button at the top of this page.'),
                     'testimonials' => __('The reviews come from Content › Testimonials, or the “Client reviews” button at the top of this page.'),
@@ -166,6 +209,9 @@ final class SectionForm
                     'relatedServices' => __('These solutions are chosen on the service or region in the Content menu.'),
                     'regionOverview' => __('The map follows the region. Its sectors, capital and recommended solutions are set in Content › Regions.'),
                     'regionGrid' => __('The regions come from Content › Regions.'),
+                    'guideNav' => __('The contents list is built from the chapters below, in their order.'),
+                    'guideChapter' => __('Chapters are numbered by their order on the page. In the cards, the title is the figure (such as 10 days) and the text explains it.'),
+                    'checklist' => __('Each card is one step visitors can tick; ticks stay in their own browser.'),
                     'processSteps' => __('The steps come from Pages › Investor journey steps.'),
                     default => __('The questions come from Content › FAQs.'),
                 }).'</div>')),

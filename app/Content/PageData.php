@@ -82,6 +82,10 @@ final class PageData
                 $extra['related'] = collect($region['services'])->map(fn ($s) => $bySlug[$s] ?? null)->filter()->values()->all();
                 $extra['otherRegions'] = collect(range(1, min(12, $regions->count() - 1)))->map(fn ($i) => $regions[($index + $i) % $regions->count()])->all();
                 $extra['region'] = ['slug' => $region['slug'], 'name' => $region['name'], 'industries' => $region['industries']];
+                // Case studies on a region's page are the ones set there.
+                if (isset($catalogue['cases'])) {
+                    $catalogue['cases'] = array_values(array_filter($catalogue['cases'], fn ($c) => ($c['region'] ?? null) === $region['slug']));
+                }
                 $extra['breadcrumbs'] = [
                     ['label' => Page::query()->where('key', 'regions')->withLocale($locale)->first()?->t('title', $locale) ?? 'Regions', 'href' => '/regions'],
                     ['label' => $region['name']],

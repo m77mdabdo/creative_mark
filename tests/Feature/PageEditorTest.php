@@ -15,6 +15,8 @@ use App\Filament\Pages\EditServicesPage;
 use App\Filament\Support\IconPicker;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\Page;
+use App\Models\Region;
+use App\Models\Setting;
 use App\Models\Stat;
 use App\Models\Testimonial;
 use App\Models\User;
@@ -336,6 +338,27 @@ class PageEditorTest extends TestCase
 
         $this->get('/ar/regions')->assertInertia(fn (Assert $p) => $p->where('regions', fn ($r) => collect($r)->contains(fn ($x) => $x['name'] === 'تبوك الجديدة' && $x['bestFor'] === 'مشاريع كبرى')));
         $this->assertStringNotContainsString('/region-', $this->get('/sitemap.xml')->getContent());
+    }
+
+    public function test_region_pages_show_their_cases_and_capital_syncs_back(): void
+    {
+        $this->get('/en/regions/eastern')->assertInertia(fn (Assert $p) => $p->has('cases', 1)->where('cases.0.slug', 'logistics-group-acquisition')
+            ->where('sections', fn ($s) => collect($s)->contains('type', 'caseGrid')));
+        $this->get('/en/regions/tabuk')->assertInertia(fn (Assert $p) => $p->where('sections', fn ($s) => ! collect($s)->contains('type', 'caseGrid')));
+
+        $component = Livewire::actingAs($this->manager())->test(EditRegionPage::class, ['region' => 'eastern']);
+        $sections = $component->get('data.sections');
+        $hero = array_key_first($sections);
+        $sections[$hero]['eyebrow']['en'] = 'Capital: Dammam City';
+        $component->set('data.sections', $sections)->call('save')->assertHasNoErrors()->callAction('publish');
+        $this->get('/en/regions')->assertInertia(fn (Assert $p) => $p->where('regions', fn ($r) => collect($r)->firstWhere('slug', 'eastern')['capital'] === 'Dammam City'));
+
+        // Every sector already set on a region is offered by the form's list
+        $known = array_keys(Setting::group('catalogue')['industries']);
+        foreach (Region::all() as $region) {
+            $this->assertSame([], array_diff($region->industries ?? [], $known), $region->slug);
+        }
+        $this->actingAs($this->manager())->get('/admin/regions/'.Region::first()->id.'/edit')->assertOk();
     }
 
     public function test_saving_a_page_unchanged_loses_nothing(): void

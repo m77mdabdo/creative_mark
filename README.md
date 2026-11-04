@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-352_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-353_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -265,6 +265,8 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-04
+- Regions completed: each region page lists the case studies set there and links to all regions; publishing also
+  updates the capital; the region form picks sectors and solutions from named lists and links to the page editor.
 - Regions in the page editor: the overview page and each of the 13 regions as an editable page (same layout, six
   languages) under Pages › Saudi regions; publishing updates the region's card and map entry.
 - Our edge in the page editor with comparison cards editable and client reviews added. Saving in the page editor no

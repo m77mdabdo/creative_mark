@@ -29,7 +29,7 @@ use Illuminate\Support\Str;
 final class SectionForm
 {
     /** Section types with editable cards / slides / a number limit. */
-    private const WITH_CARDS = ['whyInvest', 'sectors', 'cards', 'checklist', 'guideChapter', 'serviceOverview'];
+    private const WITH_CARDS = ['whyInvest', 'sectors', 'cards', 'checklist', 'guideChapter', 'serviceOverview', 'comparison'];
 
     private const WITH_LIMIT = ['services', 'faq', 'newsGrid', 'caseGrid', 'relatedServices'];
 
@@ -90,6 +90,8 @@ final class SectionForm
                 TextInput::make("highlight.{$l}")->label(__('Gold words'))->helperText(__('Part of the title shown in gold; copy it exactly.')),
                 Textarea::make("subtitle.{$l}")->label(__('Subtitle'))->rows(2),
                 Textarea::make("body.{$l}")->label(__('Text'))->rows(4)->helperText(__('Leave a blank line between paragraphs.')),
+                Textarea::make("points.{$l}")->label(__('Points'))->rows(4)->helperText(__('One point per line.'))->visible($is(['guideChapter'])),
+                Textarea::make("note.{$l}")->label(__('Highlighted note'))->rows(2)->visible($is(['serviceOverview', 'guideChapter', 'legalText'])),
             ], __('Texts')),
 
             Grid::make(['default' => 1, 'md' => 2])->schema([
@@ -113,6 +115,8 @@ final class SectionForm
                 ->itemLabel(fn (array $state) => $state['title'][app()->getLocale()] ?? $state['title']['en'] ?? __('Slide'))
                 ->addActionLabel(__('Add a slide')),
 
+            Placeholder::make('comparison_hint')->hiddenLabel()->visible($is(['comparison']))
+                ->content(new HtmlString('<div style="padding:.75rem 1rem;border-radius:.75rem;background:rgba(235,189,108,.15);font-size:.875rem">'.e(__('Keep two cards: the first is the plain column, the second the gold column. In each card’s text, write one item per line.')).'</div>')),
             Repeater::make('cards')->label(__('Cards'))->visible($is(self::WITH_CARDS))
                 ->schema([
                     Hidden::make('id'),
@@ -151,7 +155,7 @@ final class SectionForm
                 ->addActionLabel(__('Add a button')),
 
             Placeholder::make('catalogue_hint')->hiddenLabel()
-                ->visible($is(['trackRecord', 'testimonials', 'services', 'countries', 'map', 'faq', 'relatedServices']))
+                ->visible($is(['trackRecord', 'testimonials', 'services', 'countries', 'map', 'faq', 'relatedServices', 'processSteps']))
                 ->content(fn (Get $get) => new HtmlString('<div style="padding:.75rem 1rem;border-radius:.75rem;background:rgba(235,189,108,.15);font-size:.875rem">'.e(match ($get('type')) {
                     'trackRecord' => __('The figures come from Content › Statistics, or the “Figures” button at the top of this page.'),
                     'testimonials' => __('The reviews come from Content › Testimonials, or the “Client reviews” button at the top of this page.'),
@@ -159,6 +163,7 @@ final class SectionForm
                     'countries' => __('The countries come from Content › Countries.'),
                     'map' => __('The regions come from Content › Regions.'),
                     'relatedServices' => __('The related solutions are chosen on the service in Content › Services.'),
+                    'processSteps' => __('The steps come from Pages › Investor journey steps.'),
                     default => __('The questions come from Content › FAQs.'),
                 }).'</div>')),
             TextInput::make('limit')->label(__('How many items to show'))->numeric()->minValue(1)->maxValue(50)->visible($is(self::WITH_LIMIT)),

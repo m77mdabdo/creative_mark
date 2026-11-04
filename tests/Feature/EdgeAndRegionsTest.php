@@ -24,7 +24,7 @@ class EdgeAndRegionsTest extends TestCase
         $this->get('/en/our-edge')->assertOk()->assertInertia(fn (Assert $page) => $page
             ->component('ContentPage')
             ->where('pageKey', 'our-edge')
-            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'statement', 'comparison', 'cards', 'countries', 'processSteps', 'trackRecord', 'cta'])
+            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'statement', 'comparison', 'cards', 'countries', 'processSteps', 'trackRecord', 'testimonials', 'cta'])
             ->where('sections.2.cards', fn ($c) => count($c) === 2 && substr_count($c[1]['text'], "\n") === 4)
             ->has('sections.3.cards', 6));
 

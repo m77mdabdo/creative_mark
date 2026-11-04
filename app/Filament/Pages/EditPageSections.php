@@ -186,7 +186,17 @@ abstract class EditPageSections extends Page
     public function save(bool $notify = true): bool
     {
         $state = $this->form->getState();
-        $sections = array_values(array_map([$this, 'fromForm'], $state['sections'] ?? []));
+        // Fields this section type does not show in the form are kept, never dropped on save.
+        $previous = collect($this->record()->draft_sections ?? [])->keyBy('id');
+        $sections = array_values(array_map(function (array $s) use ($previous) {
+            foreach (['cards', 'slides', 'sources', 'points', 'note', 'limit', 'layout'] as $key) {
+                if (! array_key_exists($key, $s) && isset($previous[$s['id'] ?? null][$key])) {
+                    $s[$key] = $previous[$s['id']][$key];
+                }
+            }
+
+            return $this->fromForm($s);
+        }, $state['sections'] ?? []));
         try {
             SectionSchema::validate($sections);
         } catch (ValidationException $e) {

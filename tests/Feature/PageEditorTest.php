@@ -8,6 +8,7 @@ use App\Filament\Pages\EditAboutPage;
 use App\Filament\Pages\EditContactSettings;
 use App\Filament\Pages\EditHomePage;
 use App\Filament\Pages\EditJourney;
+use App\Filament\Pages\EditOurEdgePage;
 use App\Filament\Pages\EditServicePage;
 use App\Filament\Pages\EditServicesPage;
 use App\Filament\Support\IconPicker;
@@ -295,6 +296,46 @@ class PageEditorTest extends TestCase
         $component->set('data.sections', $sections)->call('save')->callAction('publish');
         $this->get('/en/services')->assertInertia(fn (Assert $p) => $p->where('services', fn ($all) => collect($all)->contains('title', 'Offices ready for business')));
         $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('site.megaServices', fn ($m) => collect($m)->contains('tagline', 'مكاتب جاهزة للعمل')));
+    }
+
+    public function test_our_edge_comparison_and_reviews_are_editable(): void
+    {
+        $user = $this->manager();
+        $this->actingAs($user)->get('/admin/pages/our-edge')->assertOk();
+        $component = Livewire::actingAs($user)->test(EditOurEdgePage::class)
+            ->assertActionVisible('manageStats')->assertActionVisible('manageTestimonials');
+        $sections = $component->get('data.sections');
+        $key = collect($sections)->search(fn ($s) => $s['type'] === 'comparison');
+        $card = array_key_last($sections[$key]['cards']);
+        $sections[$key]['cards'][$card]['text']['ar'] = "بند أول\nبند ثان";
+        $component->set('data.sections', $sections)->call('save')->assertHasNoErrors()->callAction('publish');
+
+        $this->get('/ar/our-edge')->assertInertia(fn (Assert $p) => $p
+            ->where('sections', fn ($all) => collect($all)->firstWhere('type', 'comparison')['cards'][1]['text'] === "بند أول\nبند ثان"
+                && collect($all)->contains('type', 'testimonials')));
+    }
+
+    public function test_saving_a_page_unchanged_loses_nothing(): void
+    {
+        $normalize = function (array $v) use (&$normalize) {
+            $out = [];
+            foreach ($v as $k => $x) {
+                if ($x === [] || $x === null || $x === '' || ($k === 'hidden' && $x === false)) {
+                    continue;
+                }
+                $out[$k] = is_array($x) ? $normalize($x) : $x;
+            }
+            ksort($out);
+
+            return $out;
+        };
+        $user = $this->manager();
+        foreach ([[EditHomePage::class, [], 'home'], [EditAboutPage::class, [], 'about'], [EditOurEdgePage::class, [], 'our-edge'],
+            [EditServicesPage::class, [], 'services'], [EditServicePage::class, ['service' => 'company-formation'], 'service-company-formation']] as [$class, $params, $key]) {
+            $before = Page::where('key', $key)->first()->draft_sections;
+            Livewire::actingAs($user)->test($class, $params)->call('save')->assertHasNoErrors();
+            $this->assertEquals($normalize($before), $normalize(Page::where('key', $key)->first()->draft_sections), $key);
+        }
     }
 
     public function test_concurrent_edits_do_not_overwrite_each_other(): void

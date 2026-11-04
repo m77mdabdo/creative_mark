@@ -17,7 +17,9 @@ import NewsLead from './news/NewsLead'
 import ImageText from './ImageText'
 import Journey from './Journey'
 import LegalText from './LegalText'
+import MoreRegions from './MoreRegions'
 import RegionGrid from './RegionGrid'
+import RegionOverview from './RegionOverview'
 import RelatedServices from './RelatedServices'
 import RegionsMapSection from './RegionsMap/RegionsMapSection'
 import Sectors from './Sectors'
@@ -52,6 +54,8 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   legalText: LegalText,
   serviceOverview: ServiceOverview,
   relatedServices: RelatedServices,
+  regionOverview: RegionOverview,
+  moreRegions: MoreRegions,
   statement: Statement,
   imageText: ImageText,
   cards: WhyInvest,

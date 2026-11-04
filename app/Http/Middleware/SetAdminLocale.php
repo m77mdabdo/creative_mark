@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Filament\Pages\EditRegionPage;
 use App\Filament\Pages\EditServicePage;
 use Closure;
 use Filament\Facades\Filament;
@@ -18,9 +19,9 @@ class SetAdminLocale
         // Menu groups in a fixed order, labelled in the language just chosen.
         $panel = Filament::getCurrentPanel();
         $panel?->navigationGroups([__('Pages'), __('Clients'), __('Content'), __('Settings')]);
-        // Every business solution has its own entry under Pages › Business solutions.
+        // Every business solution and region has its own entry under Pages.
         if ($request->user()) {
-            $panel?->navigationItems(EditServicePage::navigationItems());
+            $panel?->navigationItems([...EditServicePage::navigationItems(), ...EditRegionPage::navigationItems()]);
         }
 
         return $next($request);

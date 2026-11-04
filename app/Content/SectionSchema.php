@@ -15,7 +15,7 @@ final class SectionSchema
         'services', 'map', 'faq', 'cta', 'testimonials',
         'statement', 'imageText', 'cards', 'serviceGroups', 'processSteps', 'comparison', 'regionGrid',
         'guideNav', 'guideChapter', 'checklist', 'sourceList', 'newsLead', 'newsGrid', 'caseGrid',
-        'faqLibrary', 'contactInfo', 'legalText', 'serviceOverview', 'relatedServices',
+        'faqLibrary', 'contactInfo', 'legalText', 'serviceOverview', 'relatedServices', 'regionOverview', 'moreRegions',
     ];
 
     public const LAYOUTS = ['split', 'split-reverse'];

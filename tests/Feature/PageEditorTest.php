@@ -9,6 +9,7 @@ use App\Filament\Pages\EditContactSettings;
 use App\Filament\Pages\EditHomePage;
 use App\Filament\Pages\EditJourney;
 use App\Filament\Pages\EditOurEdgePage;
+use App\Filament\Pages\EditRegionPage;
 use App\Filament\Pages\EditServicePage;
 use App\Filament\Pages\EditServicesPage;
 use App\Filament\Support\IconPicker;
@@ -313,6 +314,28 @@ class PageEditorTest extends TestCase
         $this->get('/ar/our-edge')->assertInertia(fn (Assert $p) => $p
             ->where('sections', fn ($all) => collect($all)->firstWhere('type', 'comparison')['cards'][1]['text'] === "بند أول\nبند ثان"
                 && collect($all)->contains('type', 'testimonials')));
+    }
+
+    public function test_each_region_is_edited_on_its_own_page_and_syncs_back(): void
+    {
+        $user = $this->manager();
+        $this->actingAs($user)->get('/admin/pages/regions')->assertOk()->assertSee('/admin/pages/regions/tabuk', false);
+        $this->actingAs($user)->get('/admin/pages/regions/asir')->assertOk()->assertSee('/admin/pages/regions/tabuk', false);
+        $this->actingAs($user)->get('/admin/pages/regions/unknown')->assertNotFound();
+
+        $this->get('/ar/regions/tabuk')->assertInertia(fn (Assert $p) => $p->component('ContentPage')->where('pageKey', 'region-tabuk')
+            ->where('sections', fn ($s) => collect($s)->pluck('type')->all() === ['hero', 'regionOverview', 'relatedServices', 'moreRegions', 'cta'])
+            ->where('region.slug', 'tabuk')->where('breadcrumbs.1.label', fn ($l) => filled($l))->has('otherRegions', 12));
+
+        $component = Livewire::actingAs($user)->test(EditRegionPage::class, ['region' => 'tabuk']);
+        $sections = $component->get('data.sections');
+        $hero = array_key_first($sections);
+        $sections[$hero]['title']['ar'] = 'تبوك الجديدة';
+        $sections[$hero]['subtitle']['ar'] = 'مشاريع كبرى';
+        $component->set('data.sections', $sections)->call('save')->assertHasNoErrors()->callAction('publish');
+
+        $this->get('/ar/regions')->assertInertia(fn (Assert $p) => $p->where('regions', fn ($r) => collect($r)->contains(fn ($x) => $x['name'] === 'تبوك الجديدة' && $x['bestFor'] === 'مشاريع كبرى')));
+        $this->assertStringNotContainsString('/region-', $this->get('/sitemap.xml')->getContent());
     }
 
     public function test_saving_a_page_unchanged_loses_nothing(): void

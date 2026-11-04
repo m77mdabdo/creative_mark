@@ -54,15 +54,16 @@ class EdgeAndRegionsTest extends TestCase
     public function test_region_page_shows_the_region_its_services_and_three_more_regions(): void
     {
         $this->get('/en/regions/hail')->assertInertia(fn (Assert $page) => $page
-            ->component('RegionPage')
+            ->component('ContentPage')
+            ->where('pageKey', 'region-hail')
             ->where('region.slug', 'hail')
-            ->where('region.media', 'reg-hail')
+            ->where('sections.0.media', 'reg-hail')
             ->where('related', fn ($r) => count($r) >= 1)
-            ->has('otherRegions', 3)
+            ->where('sections.3.limit', 3)
             ->where('otherRegions', fn ($r) => ! in_array('hail', array_column(collect($r)->all(), 'slug'), true))
             ->has('media.reg-hail'));
 
-        $this->get('/ar/regions/riyadh')->assertInertia(fn (Assert $page) => $page->where('region.name', 'الرياض'));
+        $this->get('/ar/regions/riyadh')->assertInertia(fn (Assert $page) => $page->where('region.name', 'الرياض')->where('sections.0.title', 'الرياض'));
     }
 
     public function test_draft_or_unknown_regions_are_not_found(): void

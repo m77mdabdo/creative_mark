@@ -72,12 +72,29 @@ final class PageData
                 ];
             }
         }
+        // A region's own page: where it is, its sectors, recommended solutions and more regions.
+        if (str_starts_with($key, 'region-')) {
+            $regions = collect($catalogue['regions']);
+            $index = $regions->search(fn ($r) => $r['slug'] === substr($key, 7));
+            if ($index !== false) {
+                $region = $regions[$index];
+                $bySlug = collect($catalogue['services'])->keyBy('slug');
+                $extra['related'] = collect($region['services'])->map(fn ($s) => $bySlug[$s] ?? null)->filter()->values()->all();
+                $extra['otherRegions'] = collect(range(1, min(12, $regions->count() - 1)))->map(fn ($i) => $regions[($index + $i) % $regions->count()])->all();
+                $extra['region'] = ['slug' => $region['slug'], 'name' => $region['name'], 'industries' => $region['industries']];
+                $extra['breadcrumbs'] = [
+                    ['label' => Page::query()->where('key', 'regions')->withLocale($locale)->first()?->t('title', $locale) ?? 'Regions', 'href' => '/regions'],
+                    ['label' => $region['name']],
+                ];
+            }
+        }
         $sections = array_values(array_filter($sections, fn ($s) => match ($s['type']) {
             'trackRecord' => $catalogue['stats'] !== [],
             'testimonials' => $catalogue['testimonials'] !== [],
             'faq' => $catalogue['faqs'] !== [],
             'relatedServices' => ($extra['related'] ?? []) !== [],
             'caseGrid' => ($catalogue['cases'] ?? []) !== [],
+            'moreRegions' => ($extra['otherRegions'] ?? []) !== [],
             default => true,
         }));
 

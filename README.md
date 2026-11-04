@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-351_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-352_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -107,7 +107,7 @@ public website and the dashboard its team uses to run it.
   source name and https link; lead-story flag; draft and publish.
 - Dashboard in Arabic and English (switch in the top bar, remembered per staff member; a test fails if any Arabic
   dashboard string is untranslated), bright ivory-and-gold theme with optional dark mode, Arabic typography.
-- Page editor (Pages › Home page, About us, Our edge, Business solutions; opening Business solutions shows a sub-menu with
+- Page editor (Pages › Home page, About us, Our edge, Saudi regions and each region, Business solutions; opening Business solutions shows a sub-menu with
   each of the eleven solutions): move sections up and down or drag them, hide, add, duplicate or delete them;
   edit every text in six languages, images (with upload: re-encoded to WebP), buttons, cards, hero slides,
   background, spacing and animation. Save a draft, preview it in any language, publish (Content Managers),
@@ -265,6 +265,8 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-04
+- Regions in the page editor: the overview page and each of the 13 regions as an editable page (same layout, six
+  languages) under Pages › Saudi regions; publishing updates the region's card and map entry.
 - Our edge in the page editor with comparison cards editable and client reviews added. Saving in the page editor no
   longer drops fields a section type does not show; a test now saves every editor unchanged and compares the result.
 

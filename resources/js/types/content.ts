@@ -15,7 +15,7 @@ export type SectionType =
   | 'services' | 'map' | 'faq' | 'cta' | 'testimonials'
   | 'statement' | 'imageText' | 'cards' | 'serviceGroups' | 'processSteps' | 'comparison' | 'regionGrid'
   | 'guideNav' | 'guideChapter' | 'checklist' | 'sourceList' | 'newsLead' | 'newsGrid' | 'caseGrid'
-  | 'faqLibrary' | 'contactInfo' | 'legalText' | 'serviceOverview' | 'relatedServices'
+  | 'faqLibrary' | 'contactInfo' | 'legalText' | 'serviceOverview' | 'relatedServices' | 'regionOverview' | 'moreRegions'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
 export type Slide = {
@@ -108,6 +108,9 @@ export type PageProps = {
   /** Present on a business solution's page. */
   related?: ServiceItem[]
   serviceSlug?: string
+  /** Present on a region's page. */
+  region?: { slug: string; name: string; industries: string[] }
+  otherRegions?: RegionItem[]
   breadcrumbs?: { label: string; href?: string }[]
   /** Present on the FAQ page: every published question with its category. */
   faqLibrary?: { categories: { key: string; label: string }[]; items: (FaqItem & { category: string })[] }

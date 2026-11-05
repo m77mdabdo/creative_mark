@@ -57,7 +57,7 @@ class CatalogueResourcesTest extends TestCase
     }
 
     #[DataProvider('resources')]
-    public function test_roles_without_content_edit_are_refused(string $slug): void
+    public function test_roles_without_content_edit_are_refused(string $slug, string $model): void
     {
         foreach ([Role::Viewer, Role::SalesManager, Role::Consultant] as $role) {
             $this->actingAs(User::factory()->withRole($role)->create());

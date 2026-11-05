@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class NewsArticleTranslation extends Model
 {
-    protected $fillable = ['locale', 'title', 'excerpt', 'body', 'takeaway', 'fact_values', 'fact_labels', 'review_status', 'reviewed_at'];
+    protected $fillable = ['locale', 'title', 'excerpt', 'body', 'takeaway', 'seo_title', 'seo_description', 'fact_values', 'fact_labels', 'review_status', 'reviewed_at'];
 
     protected function casts(): array
     {

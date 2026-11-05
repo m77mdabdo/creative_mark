@@ -164,6 +164,8 @@ export type NewsArticlePageProps = {
   seo: { title: string; description: string }
   reviewStatus: ReviewStatus
   article: NewsArticle
+  /** Wording changed in the dashboard; anything absent uses the standard interface text. */
+  labels?: Record<string, string>
   related: NewsItem[]
   latest: { slug: string; title: string }[]
   media: Record<string, MediaItem>

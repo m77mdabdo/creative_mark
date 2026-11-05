@@ -22,19 +22,33 @@ class NewsArticle extends Model
         ];
     }
 
-    protected $fillable = ['slug', 'category', 'media', 'published_on', 'source_name', 'source_url', 'featured', 'status'];
+    protected $fillable = ['slug', 'category', 'media', 'published_on', 'source_name', 'source_url', 'featured', 'status', 'publish_at'];
 
     protected $attributes = ['featured' => false, 'status' => 'draft'];
 
     protected function casts(): array
     {
-        return ['published_on' => 'date', 'featured' => 'boolean'];
+        return ['published_on' => 'date', 'publish_at' => 'datetime', 'featured' => 'boolean'];
     }
 
     /** Published articles, newest first. */
+    /** Published, but waiting for its publish time. */
+    public function scopeScheduled(Builder $query): Builder
+    {
+        return $query->where('status', 'published')->where('publish_at', '>', now());
+    }
+
+    public function isScheduled(): bool
+    {
+        return $this->status === 'published' && $this->publish_at?->isFuture();
+    }
+
     public function scopeLive(Builder $query): Builder
     {
-        return $query->where('status', 'published')->orderByDesc('published_on')->orderByDesc('id');
+        // A story with a future publish time stays off the site until that moment, with no background job needed.
+        return $query->where('status', 'published')
+            ->where(fn (Builder $q) => $q->whereNull('publish_at')->orWhere('publish_at', '<=', now()))
+            ->orderByRaw('COALESCE(publish_at, published_on) DESC')->orderByDesc('id');
     }
 
     protected function translationModel(): string

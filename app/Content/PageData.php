@@ -213,7 +213,12 @@ final class PageData
             'pageKey' => 'article',
             'title' => $item['title'],
             'newsTitle' => $page?->t('title', $locale) ?? 'News',
-            'seo' => ['title' => "{$item['title']} | Creative Mark", 'description' => $item['excerpt']],
+            'seo' => [
+                'title' => $article->translation($locale)?->seo_title ?: "{$item['title']} | Creative Mark",
+                'description' => $article->translation($locale)?->seo_description ?: $item['excerpt'],
+            ],
+            // Fixed wording edited in Pages › Newsroom › Story page texts (the standard wording otherwise).
+            'labels' => array_filter(array_map(fn ($map) => $map[$locale] ?? null, Setting::group('news')['labels'] ?? [])),
             'reviewStatus' => ($article->translation($locale)?->review_status ?? ReviewStatus::Missing)->value,
             'article' => $item,
             'related' => $this->articles($related, $locale),

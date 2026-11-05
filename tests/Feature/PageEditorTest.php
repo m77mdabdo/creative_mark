@@ -9,12 +9,14 @@ use App\Filament\Pages\EditContactSettings;
 use App\Filament\Pages\EditHomePage;
 use App\Filament\Pages\EditInvestorGuidePage;
 use App\Filament\Pages\EditJourney;
+use App\Filament\Pages\EditNewsLabels;
 use App\Filament\Pages\EditNewsPage;
 use App\Filament\Pages\EditOurEdgePage;
 use App\Filament\Pages\EditRegionPage;
 use App\Filament\Pages\EditServicePage;
 use App\Filament\Pages\EditServicesPage;
 use App\Filament\Resources\NewsArticles\Pages\EditNewsArticle;
+use App\Filament\Resources\NewsArticles\Pages\ListNewsArticles;
 use App\Filament\Support\IconPicker;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\NewsArticle;
@@ -453,6 +455,63 @@ class PageEditorTest extends TestCase
         $this->actingAs($user)->get("/preview/news/{$story->slug}/ar")->assertOk()->assertInertia(fn (Assert $p) => $p->component('NewsArticlePage')->where('preview', true));
         auth()->logout();
         $this->get("/preview/news/{$story->slug}/ar")->assertRedirect();
+    }
+
+    public function test_a_scheduled_story_goes_live_by_itself(): void
+    {
+        $story = NewsArticle::query()->first();
+        $slug = $story->slug;
+        $title = $story->translation('en')->title;
+        $story->update(['status' => 'published', 'publish_at' => now()->addWeek()]);
+
+        // Before the time: nowhere on the site
+        $this->get("/en/news/{$slug}")->assertNotFound();
+        $this->get('/en/news')->assertInertia(fn (Assert $p) => $p->where('articles', fn ($a) => ! collect($a)->contains('slug', $slug)));
+        $this->get('/en')->assertInertia(fn (Assert $p) => $p->where('articles', fn ($a) => ! collect($a)->contains('slug', $slug)));
+        $this->assertStringNotContainsString("/news/{$slug}<", $this->get('/sitemap.xml')->getContent());
+        // Staff can preview it and find it as scheduled
+        $this->assertTrue($story->fresh()->isScheduled());
+        $manager = $this->manager();
+        $this->actingAs($manager)->get("/preview/news/{$slug}/en")->assertOk();
+        Livewire::actingAs($manager)->test(ListNewsArticles::class)->assertSee(__('Scheduled to publish'));
+        auth()->logout();
+
+        // A week later it is live with nobody touching it, and leads the list
+        $this->travel(8)->days();
+        $this->get("/en/news/{$slug}")->assertOk();
+        $this->get('/en/news')->assertInertia(fn (Assert $p) => $p->where('articles.0.slug', $slug));
+        $this->assertSame($title, $story->fresh()->translation('en')->title);
+    }
+
+    public function test_the_schedule_action_sets_status_and_time(): void
+    {
+        $story = NewsArticle::query()->first();
+        $story->update(['status' => 'draft']);
+        $at = now()->addDays(3)->startOfMinute();
+        Livewire::actingAs($this->manager())->test(ListNewsArticles::class)
+            ->callTableAction('schedule', $story, ['publish_at' => $at->copy()->timezone('Asia/Riyadh')->format('Y-m-d H:i:s')])
+            ->assertHasNoTableActionErrors();
+        $story->refresh();
+        $this->assertSame('published', $story->status);
+        $this->assertTrue($story->publish_at->equalTo($at), 'Stored in UTC from a Riyadh-time entry');
+
+        // Editors cannot schedule: only publishers may make a story live
+        Livewire::actingAs(User::factory()->withRole(Role::Editor)->create())
+            ->test(ListNewsArticles::class)->assertTableActionHidden('schedule', $story);
+    }
+
+    public function test_story_google_texts_and_fixed_wording_are_editable(): void
+    {
+        $story = NewsArticle::query()->live()->first();
+        $story->translation('ar')->update(['seo_title' => 'عنوان جوجل للخبر', 'seo_description' => 'وصف جوجل للخبر']);
+        $this->get("/ar/news/{$story->slug}")->assertInertia(fn (Assert $p) => $p->where('seo.title', 'عنوان جوجل للخبر')->where('seo.description', 'وصف جوجل للخبر'));
+        $this->get("/en/news/{$story->slug}")->assertInertia(fn (Assert $p) => $p->where('seo.title', fn ($t) => str_ends_with($t, '| Creative Mark')));
+
+        $component = Livewire::actingAs($this->manager())->test(EditNewsLabels::class);
+        $this->assertSame('أخبار ذات صلة', $component->get('data.labels.relatedNews.ar'));
+        $component->set('data.labels.relatedNews.ar', 'اقرأ أيضًا')->call('save')->assertHasNoErrors();
+        $this->get("/ar/news/{$story->slug}")->assertInertia(fn (Assert $p) => $p->where('labels.relatedNews', 'اقرأ أيضًا')->missing('labels.source'));
+        $this->get("/en/news/{$story->slug}")->assertInertia(fn (Assert $p) => $p->missing('labels.relatedNews'));
     }
 
     public function test_key_figures_need_matching_labels(): void

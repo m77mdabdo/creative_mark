@@ -42,10 +42,16 @@ class EditNewsPage extends EditPageSections
         $base = NewsArticleResource::getRouteBaseName();
         $items = [
             NavigationItem::make('news-all')->label(__('All stories'))->group(__('Pages'))->parentItem(__('Newsroom'))->sort(1)
-                ->url(fn () => NewsArticleResource::getUrl())->isActiveWhen(fn () => request()->routeIs("{$base}.index")),
+                ->url(fn () => NewsArticleResource::getUrl())->isActiveWhen(fn () => request()->routeIs("{$base}.index") && request('filters.schedule.value') !== 'scheduled'),
             NavigationItem::make('news-add')->label(__('Add a story'))->group(__('Pages'))->parentItem(__('Newsroom'))->sort(2)
                 ->url(fn () => NewsArticleResource::getUrl('create'))->isActiveWhen(fn () => request()->routeIs("{$base}.create"))
                 ->visible(fn () => NewsArticleResource::canCreate()),
+            NavigationItem::make('news-scheduled')->label(__('Scheduled to publish'))->group(__('Pages'))->parentItem(__('Newsroom'))->sort(2)
+                ->badge(fn () => NewsArticle::query()->scheduled()->count() ?: null)
+                ->url(fn () => NewsArticleResource::getUrl('index', ['filters' => ['schedule' => ['value' => 'scheduled']]]))
+                ->isActiveWhen(fn () => request()->routeIs("{$base}.index") && request('filters.schedule.value') === 'scheduled'),
+            NavigationItem::make('news-texts')->label(__('Story page texts'))->group(__('Pages'))->parentItem(__('Newsroom'))->sort(50)
+                ->url(fn () => EditNewsLabels::getUrl())->isActiveWhen(fn () => request()->routeIs(EditNewsLabels::getRouteName())),
         ];
         foreach (NewsArticle::query()->orderByDesc('published_on')->orderByDesc('id')->limit(6)->withLocale($locale)->get() as $i => $article) {
             $items[] = NavigationItem::make('news-'.$article->id)->label(str((string) $article->t('title', $locale))->limit(38)->toString())->group(__('Pages'))->parentItem(__('Newsroom'))->sort(3 + $i)

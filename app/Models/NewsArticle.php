@@ -28,10 +28,20 @@ class NewsArticle extends Model
 
     protected function casts(): array
     {
-        return ['published_on' => 'date', 'publish_at' => 'datetime', 'featured' => 'boolean'];
+        return ['published_on' => 'date', 'publish_at' => 'datetime', 'live_notified_at' => 'datetime', 'featured' => 'boolean'];
     }
 
     /** Published articles, newest first. */
+    protected static function booted(): void
+    {
+        // A story moved to a new time is announced again when that time comes.
+        static::saving(function (self $story) {
+            if ($story->isDirty('publish_at')) {
+                $story->live_notified_at = null;
+            }
+        });
+    }
+
     /** Published, but waiting for its publish time. */
     public function scopeScheduled(Builder $query): Builder
     {

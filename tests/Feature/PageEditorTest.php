@@ -19,6 +19,7 @@ use App\Filament\Resources\NewsArticles\Pages\EditNewsArticle;
 use App\Filament\Resources\NewsArticles\Pages\ListNewsArticles;
 use App\Filament\Support\IconPicker;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
+use App\Mail\ScheduledStoryPublished;
 use App\Models\NewsArticle;
 use App\Models\Page;
 use App\Models\Region;
@@ -26,9 +27,12 @@ use App\Models\Setting;
 use App\Models\Stat;
 use App\Models\Testimonial;
 use App\Models\User;
+use App\News\AnnouncePublishedStories;
 use Database\Seeders\ContentSeeder;
 use Database\Seeders\RbacSeeder;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
 use Inertia\Testing\AssertableInertia as Assert;
 use Livewire\Livewire;
 use Tests\TestCase;
@@ -481,6 +485,58 @@ class PageEditorTest extends TestCase
         $this->get("/en/news/{$slug}")->assertOk();
         $this->get('/en/news')->assertInertia(fn (Assert $p) => $p->where('articles.0.slug', $slug));
         $this->assertSame($title, $story->fresh()->translation('en')->title);
+    }
+
+    public function test_publishers_are_told_once_when_a_scheduled_story_goes_live(): void
+    {
+        Mail::fake();
+        $publisher = $this->manager();
+        $publisher->forceFill(['admin_locale' => 'en'])->save();
+        $editor = User::factory()->withRole(Role::Editor)->create();
+        $announce = app(AnnouncePublishedStories::class);
+        $story = NewsArticle::query()->first();
+        $story->update(['status' => 'published', 'publish_at' => now()->addHour()]);
+
+        // Before its time, and for stories published straight away: nothing
+        $this->assertSame(0, $announce());
+        Mail::assertNothingSent();
+
+        $this->travel(2)->hours();
+        $this->assertSame(1, $announce());
+        Mail::assertSent(ScheduledStoryPublished::class, 1);
+        Mail::assertSent(ScheduledStoryPublished::class, fn ($m) => $m->hasTo($publisher->email) && str_contains($m->render(), "/en/news/{$story->slug}"));
+        $this->assertSame(1, $publisher->notifications()->count());
+        $this->assertSame(0, $editor->notifications()->count());
+
+        // Never twice, and a new time announces again
+        $this->assertSame(0, $announce());
+        $story->refresh()->update(['publish_at' => now()->addHour()]);
+        $this->assertNull($story->fresh()->live_notified_at);
+        $this->travel(2)->hours();
+        $this->assertSame(1, $announce());
+
+        // A story taken back to draft before its time is not announced
+        $story->refresh()->update(['status' => 'draft', 'publish_at' => now()->addHour()]);
+        $this->travel(2)->hours();
+        $this->assertSame(0, $announce());
+    }
+
+    public function test_a_mail_failure_keeps_the_story_live_and_the_bell(): void
+    {
+        $publisher = $this->manager();
+        $story = NewsArticle::query()->first();
+        $story->update(['status' => 'published', 'publish_at' => now()->subMinute()]);
+        Mail::shouldReceive('to')->andThrow(new \RuntimeException('SMTP down'));
+        $this->assertSame(1, app(AnnouncePublishedStories::class)());
+        $this->assertSame(1, $publisher->notifications()->count());
+        $this->get("/en/news/{$story->slug}")->assertOk();
+    }
+
+    public function test_the_command_is_scheduled_every_minute(): void
+    {
+        $this->artisan('cm:announce-stories')->assertSuccessful();
+        $events = collect(app(Schedule::class)->events());
+        $this->assertTrue($events->contains(fn ($e) => str_contains((string) $e->command, 'cm:announce-stories') && $e->expression === '* * * * *'));
     }
 
     public function test_the_schedule_action_sets_status_and_time(): void

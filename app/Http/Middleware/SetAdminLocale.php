@@ -5,9 +5,11 @@ namespace App\Http\Middleware;
 use App\Filament\Pages\EditNewsPage;
 use App\Filament\Pages\EditRegionPage;
 use App\Filament\Pages\EditServicePage;
+use App\News\AnnouncePublishedStories;
 use Closure;
 use Filament\Facades\Filament;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Symfony\Component\HttpFoundation\Response;
 
 /** The dashboard speaks the staff member's own language (LR-08), independent of the public site's URL locale. */
@@ -23,6 +25,11 @@ class SetAdminLocale
         // Every business solution and region has its own entry under Pages.
         if ($request->user()) {
             $panel?->navigationItems([...EditServicePage::navigationItems(), ...EditRegionPage::navigationItems(), ...EditNewsPage::navigationItems()]);
+        }
+
+        // Safety net if the scheduler is not running: opening the dashboard also announces stories that went live.
+        if ($request->user() && Cache::add('cm-announce-stories', true, 60)) {
+            dispatch(fn () => app(AnnouncePublishedStories::class)())->afterResponse();
         }
 
         return $next($request);

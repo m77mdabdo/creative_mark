@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-362_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-365_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -265,6 +265,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-05
+- Publishers get a dashboard bell and a branded email when a scheduled story goes live, once per story, in their
+  dashboard language. Needs the Laravel scheduler (`* * * * * php artisan schedule:run`) on the server; opening the
+  dashboard also catches up if it is not running.
 - News scheduling: choose a date and time (Riyadh) and a story goes live by itself, with no background job; a
   Scheduled entry in the menu with a count. Optional Google title and description per story and language. The fixed
   wording on story pages is edited in Pages › Newsroom › Story page texts.

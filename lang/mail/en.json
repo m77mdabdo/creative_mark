@@ -37,5 +37,10 @@
     "language": "Language",
     "open_dashboard": "Open in the dashboard",
     "staff_reply_hint": "Replying to this email goes directly to the client.",
-    "not_provided": "Not provided"
+    "not_provided": "Not provided",
+    "story_subject": "Published: :title",
+    "story_intro": "A scheduled story has just gone live on the website.",
+    "story_kicker": "Newsroom",
+    "story_view": "View on the website",
+    "story_reason": "You received this email because you can publish content on the Creative Mark website."
 }

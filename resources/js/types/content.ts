@@ -179,6 +179,8 @@ export type CaseStudyPageProps = {
   seo: { title: string; description: string }
   reviewStatus: ReviewStatus
   caseStudy: CaseStory
+  /** Wording changed in the dashboard; anything absent uses the standard interface text. */
+  labels?: Record<string, string>
   region: RegionItem | null
   regions: RegionItem[]
   industries: Record<string, string>

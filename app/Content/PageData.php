@@ -232,10 +232,11 @@ final class PageData
      *
      * @return array<string, mixed>
      */
-    public function forCaseStudy(string $slug, string $locale): array
+    /** @param bool $draft true also finds an unpublished case (dashboard preview only) */
+    public function forCaseStudy(string $slug, string $locale, bool $draft = false): array
     {
         $all = CaseStudy::query()->live()->withLocale($locale)->get();
-        $case = $all->firstWhere('slug', $slug);
+        $case = $all->firstWhere('slug', $slug) ?? ($draft ? CaseStudy::query()->where('slug', $slug)->withLocale($locale)->first() : null);
         abort_unless($case, 404);
         $catalogue = $this->catalogue($locale, 0);
         [$item] = $this->cases(collect([$case]), $locale, withStory: true);
@@ -248,7 +249,12 @@ final class PageData
             'pageKey' => 'case',
             'title' => $item['title'],
             'casesTitle' => $page?->t('title', $locale) ?? 'Case studies',
-            'seo' => ['title' => "{$item['title']} | Creative Mark", 'description' => $item['summary']],
+            'seo' => [
+                'title' => $case->translation($locale)?->seo_title ?: "{$item['title']} | Creative Mark",
+                'description' => $case->translation($locale)?->seo_description ?: $item['summary'],
+            ],
+            // Fixed wording edited in Pages › Case studies › Case page texts (the standard wording otherwise).
+            'labels' => array_filter(array_map(fn ($map) => $map[$locale] ?? null, Setting::group('cases')['labels'] ?? [])),
             'reviewStatus' => ($case->translation($locale)?->review_status ?? ReviewStatus::Missing)->value,
             'caseStudy' => $item,
             'region' => collect($catalogue['regions'])->firstWhere('slug', $case->region),

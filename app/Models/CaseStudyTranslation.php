@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CaseStudyTranslation extends Model
 {
-    protected $fillable = ['locale', 'title', 'client', 'entity', 'summary', 'challenge', 'step_titles', 'step_texts', 'delivered', 'outcome', 'review_status', 'reviewed_at'];
+    protected $fillable = ['locale', 'title', 'client', 'entity', 'summary', 'challenge', 'step_titles', 'step_texts', 'delivered', 'outcome', 'seo_title', 'seo_description', 'review_status', 'reviewed_at'];
 
     protected function casts(): array
     {

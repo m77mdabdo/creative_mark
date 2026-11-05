@@ -20,6 +20,9 @@ class CaseStudyResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBriefcase;
 
+    /** Cases are reached from the menu under Pages › Case studies (EditCaseStudiesPage::navigationItems). */
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static ?int $navigationSort = 6;
 
     public static function getNavigationGroup(): ?string

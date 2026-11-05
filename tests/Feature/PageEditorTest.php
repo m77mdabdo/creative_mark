@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Content\MediaLibrary;
 use App\Enums\Role;
 use App\Filament\Pages\EditAboutPage;
+use App\Filament\Pages\EditCaseLabels;
 use App\Filament\Pages\EditContactSettings;
 use App\Filament\Pages\EditHomePage;
 use App\Filament\Pages\EditInvestorGuidePage;
@@ -15,11 +16,13 @@ use App\Filament\Pages\EditOurEdgePage;
 use App\Filament\Pages\EditRegionPage;
 use App\Filament\Pages\EditServicePage;
 use App\Filament\Pages\EditServicesPage;
+use App\Filament\Resources\CaseStudies\Pages\EditCaseStudy;
 use App\Filament\Resources\NewsArticles\Pages\EditNewsArticle;
 use App\Filament\Resources\NewsArticles\Pages\ListNewsArticles;
 use App\Filament\Support\IconPicker;
 use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Mail\ScheduledStoryPublished;
+use App\Models\CaseStudy;
 use App\Models\NewsArticle;
 use App\Models\Page;
 use App\Models\Region;
@@ -568,6 +571,39 @@ class PageEditorTest extends TestCase
         $component->set('data.labels.relatedNews.ar', 'اقرأ أيضًا')->call('save')->assertHasNoErrors();
         $this->get("/ar/news/{$story->slug}")->assertInertia(fn (Assert $p) => $p->where('labels.relatedNews', 'اقرأ أيضًا')->missing('labels.source'));
         $this->get("/en/news/{$story->slug}")->assertInertia(fn (Assert $p) => $p->missing('labels.relatedNews'));
+    }
+
+    public function test_case_studies_page_menu_form_and_preview(): void
+    {
+        $user = $this->manager();
+        $case = CaseStudy::query()->with('translations')->orderBy('sort_order')->first();
+        $this->actingAs($user)->get('/admin/pages/case-studies')->assertOk()->assertSee('/admin/case-studies/create', false)->assertSee('case-texts', false);
+        $this->actingAs($user)->get('/admin')->assertDontSee('/admin/case-studies/create"', false);
+        $this->actingAs($user)->get("/admin/case-studies/{$case->id}/edit")->assertOk();
+
+        // Steps are edited as pairs and stored as the two lists the page reads
+        $component = Livewire::actingAs($user)->test(EditCaseStudy::class, ['record' => $case->getRouteKey()]);
+        $steps = $component->get('data.translations.en.steps');
+        $this->assertCount(count($case->translation('en')->step_titles), $steps);
+        $component->set('data.translations.en.steps', [['title' => 'First', 'text' => 'One'], ['title' => 'Second', 'text' => 'Two']])
+            ->set('data.translations.en.seo_title', 'Case title for Google')->call('save')->assertHasNoErrors();
+        $this->get("/en/case-studies/{$case->slug}")->assertInertia(fn (Assert $p) => $p->component('CaseStudyPage')
+            ->where('seo.title', 'Case title for Google')->where('caseStudy.steps.1.title', 'Second')->where('caseStudy.steps.1.text', 'Two'));
+
+        // A real client needs recorded consent
+        Livewire::actingAs($user)->test(EditCaseStudy::class, ['record' => $case->getRouteKey()])
+            ->set('data.illustrative', false)->set('data.consent_recorded_at', null)->call('save')->assertHasErrors(['data.consent_recorded_at']);
+
+        // Fixed wording
+        Livewire::actingAs($user)->test(EditCaseLabels::class)->set('data.labels.moreCases.ar', 'قصص أخرى')->call('save')->assertHasNoErrors();
+        $this->get("/ar/case-studies/{$case->slug}")->assertInertia(fn (Assert $p) => $p->where('labels.moreCases', 'قصص أخرى'));
+
+        // Draft preview for staff only
+        $case->update(['status' => 'draft']);
+        $this->get("/en/case-studies/{$case->slug}")->assertNotFound();
+        $this->actingAs($user)->get("/preview/case-studies/{$case->slug}/ar")->assertOk()->assertInertia(fn (Assert $p) => $p->where('preview', true));
+        auth()->logout();
+        $this->get("/preview/case-studies/{$case->slug}/ar")->assertRedirect();
     }
 
     public function test_key_figures_need_matching_labels(): void

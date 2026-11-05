@@ -19,6 +19,15 @@ class PagePreviewController
             ->withViewData(['noindex' => true]);
     }
 
+    /** A case study as it will look, even while it is a draft. */
+    public function caseStudy(PageData $data, string $slug, string $locale): Response
+    {
+        abort_unless(in_array($locale, Locales::codes(), true), 404);
+        app()->setLocale($locale);
+
+        return Inertia::render('CaseStudyPage', [...$data->forCaseStudy($slug, $locale, draft: true), 'preview' => true]);
+    }
+
     /** A news story as it will look, even while it is a draft. */
     public function article(PageData $data, string $slug, string $locale): Response
     {

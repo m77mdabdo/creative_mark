@@ -9,6 +9,7 @@ import ServiceCard from '@/components/ServiceCard'
 import SmartLink from '@/components/SmartLink'
 import TextBlock from '@/components/TextBlock'
 import { useSite } from '@/hooks/useSite'
+import type { UiKey } from '@/i18n/uiStrings'
 import SiteLayout from '@/layouts/SiteLayout'
 import { prefersReducedMotion } from '@/motion/gsap'
 import { useMotion } from '@/motion/useMotion'
@@ -60,8 +61,10 @@ function useActiveChapter(ids: readonly string[]) {
  * A case study told as four chapters (starting point, steps, delivered, where it leads) beside a sticky index,
  * with an "at a glance" bar, the region on the map, the services used and more cases.
  */
-export default function CaseStudyPage(props: CaseStudyPageProps) {
+export default function CaseStudyPage(props: CaseStudyPageProps & { preview?: boolean }) {
   const { t, locale } = useSite()
+  // Wording edited in the dashboard wins over the standard interface text.
+  const l = (key: UiKey) => props.labels?.[key] || t(key)
   const scope = useRef<HTMLDivElement>(null)
   useMotion(scope, `case-${props.caseStudy.slug}-${locale.code}`)
   const { caseStudy: c, region } = props
@@ -70,13 +73,13 @@ export default function CaseStudyPage(props: CaseStudyPageProps) {
   const progress = useTimelineProgress(timeline)
   const active = useActiveChapter(CHAPTERS)
   const page = { ...props, services: props.related, testimonials: [], faqs: [], sections: [] } as unknown as PageProps
-  const labels: Record<(typeof CHAPTERS)[number], string> = { start: t('startingPoint'), steps: t('ourSteps'), delivered: t('whatDelivered'), leads: t('whereItLeads') }
+  const labels: Record<(typeof CHAPTERS)[number], string> = { start: l('startingPoint'), steps: l('ourSteps'), delivered: l('whatDelivered'), leads: l('whereItLeads') }
   const [firstParagraph, ...rest] = c.challenge.split(/\n{2,}/)
 
   const cta: Section = {
     id: 'case-cta', type: 'cta', cards: [], slides: [],
-    title: t('ctaTitle'), body: t('ctaBody'),
-    buttons: [{ label: t('bookConsultation'), href: '/consultation', style: 'gold' }],
+    title: l('ctaTitle'), body: l('ctaBody'),
+    buttons: [{ label: l('bookConsultation'), href: '/consultation', style: 'gold' }],
     style: { theme: 'dark', overlay: 74, padding: 'lg', align: 'center', bgMedia: 'case-dubai' },
     motion: { preset: 'reveal-mask', intensity: 100, delay: 0 },
   }
@@ -85,14 +88,16 @@ export default function CaseStudyPage(props: CaseStudyPageProps) {
     <Head>
       <title>{props.seo.title}</title>
       <meta name="description" content={props.seo.description} />
+      {props.preview && <meta name="robots" content="noindex" />}
     </Head>
+    {props.preview && <div role="status" className="fixed inset-x-0 bottom-4 z-[60] mx-auto w-fit max-w-[calc(100%-2rem)] rounded-full bg-gold px-5 py-2.5 text-center text-sm font-semibold text-ink shadow-2xl">{t('previewBanner')}</div>}
     <div ref={scope}>
       <header className="th-dark relative flex min-h-[86svh] items-end overflow-hidden">
         <Media media={props.media[c.media]} eager sizes="100vw" className="absolute inset-0 h-full w-full animate-[cm-kenburns_14s_ease-out_both] motion-reduce:animate-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-black/65 to-black/25" aria-hidden />
         <div className="wrap relative pb-14 pt-36">
           <p className="mb-6 flex flex-wrap items-center gap-3 text-sm text-white/80">
-            {c.illustrative && <span className="rounded-full border border-white/40 bg-black/40 px-3 py-1 text-xs backdrop-blur-sm">{t('illustrative')}</span>}
+            {c.illustrative && <span className="rounded-full border border-white/40 bg-black/40 px-3 py-1 text-xs backdrop-blur-sm">{l('illustrative')}</span>}
             {country && <span className="flex items-center gap-2"><Flag code={country.code} size={22} />{c.client}</span>}
           </p>
           <h1 className="font-display t-display-xl max-w-5xl text-white">{c.title}</h1>
@@ -102,13 +107,13 @@ export default function CaseStudyPage(props: CaseStudyPageProps) {
       <Breadcrumbs trail={[{ label: props.casesTitle, href: '/case-studies' }, { label: c.title }]} />
 
       {/* At a glance */}
-      <section aria-label={t('atAGlance')} className="th-charcoal border-b border-white/10">
+      <section aria-label={l('atAGlance')} className="th-charcoal border-b border-white/10">
         <dl className="wrap grid grid-cols-2 divide-white/10 md:grid-cols-4 md:divide-x rtl:md:divide-x-reverse">
           {[
-            [t('sector'), props.industries[c.sector] ?? c.sector],
-            [t('clientFrom'), country?.name ?? c.origin],
-            [t('regionLabel'), region?.name ?? c.region],
-            [t('legalForm'), c.entity ?? '—'],
+            [l('sector'), props.industries[c.sector] ?? c.sector],
+            [l('clientFrom'), country?.name ?? c.origin],
+            [l('regionLabel'), region?.name ?? c.region],
+            [l('legalForm'), c.entity ?? '—'],
           ].map(([label, value]) => <div key={label} className="flex flex-col-reverse gap-1 py-6 md:px-6 md:first:ps-0">
             <dt className="text-xs uppercase tracking-[.14em] text-white/50">{label}</dt>
             <dd className="text-lg leading-snug">{value}</dd>
@@ -118,7 +123,7 @@ export default function CaseStudyPage(props: CaseStudyPageProps) {
 
       <section className="th-dark pad-lg">
         <div className="wrap grid gap-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-20">
-          <nav aria-label={t('atAGlance')} className="hidden lg:block">
+          <nav aria-label={l('atAGlance')} className="hidden lg:block">
             <ol className="sticky top-28 space-y-1 border-s border-white/10">
               {CHAPTERS.map((id, i) => <li key={id}>
                 <a href={`#case-${id}`} className={`-ms-px block border-s-2 py-2 ps-5 text-sm transition ${active === id ? 'border-gold text-white' : 'border-transparent text-white/50 hover:text-white'}`}>
@@ -129,7 +134,7 @@ export default function CaseStudyPage(props: CaseStudyPageProps) {
           </nav>
 
           <div className="min-w-0 space-y-24">
-            {c.illustrative && <p className="flex gap-3 rounded-[var(--cm-radius)] border border-white/15 bg-white/[.03] p-4 text-sm text-white/70"><Info size={18} className="mt-0.5 shrink-0 text-gold" aria-hidden />{t('illustrativeNote')}</p>}
+            {c.illustrative && <p className="flex gap-3 rounded-[var(--cm-radius)] border border-white/15 bg-white/[.03] p-4 text-sm text-white/70"><Info size={18} className="mt-0.5 shrink-0 text-gold" aria-hidden />{l('illustrativeNote')}</p>}
 
             <article id="case-start" className="scroll-mt-28" aria-labelledby="case-start-title">
               <p className="eyebrow mb-4">01</p>
@@ -148,7 +153,7 @@ export default function CaseStudyPage(props: CaseStudyPageProps) {
                   const reached = progress >= (i + 0.2) / c.steps.length
                   return <li key={s.title} className="relative">
                     <span className={`absolute -start-12 top-0 grid h-8 w-8 place-items-center rounded-full border text-xs font-semibold transition duration-500 md:-start-16 md:h-10 md:w-10 ${reached ? 'border-gold bg-gold text-ink' : 'border-white/25 bg-ink text-white/60'}`} aria-hidden>{i + 1}</span>
-                    <p className="mb-1 text-xs text-gold">{t('step')} {i + 1}</p>
+                    <p className="mb-1 text-xs text-gold">{l('step')} {i + 1}</p>
                     <h3 className="mb-2 text-xl font-medium">{s.title}</h3>
                     <p className="text-white/70 measure">{s.text}</p>
                   </li>
@@ -179,7 +184,7 @@ export default function CaseStudyPage(props: CaseStudyPageProps) {
       <section aria-labelledby="case-context-title" className="th-charcoal pad-lg">
         <div className="wrap grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16">
           {region && <div>
-            <h2 id="case-context-title" className="eyebrow mb-6">{t('regionLabel')}</h2>
+            <h2 id="case-context-title" className="eyebrow mb-6">{l('regionLabel')}</h2>
             <div className="rounded-[var(--cm-radius)] border border-gold/25 p-6">
               <Suspense fallback={<div className="aspect-[1000/816]" />}><RegionLocator slug={region.slug} label={`${region.name}: ${t('regionLocation')}`} /></Suspense>
               <SmartLink href={`/regions/${region.slug}`} className="mt-5 flex items-center gap-2 text-lg hover:text-gold"><MapPin size={16} className="text-gold" aria-hidden />{region.name}</SmartLink>
@@ -187,7 +192,7 @@ export default function CaseStudyPage(props: CaseStudyPageProps) {
             </div>
           </div>}
           {props.related.length > 0 && <div>
-            <h2 className="eyebrow mb-6">{t('servicesUsed')}</h2>
+            <h2 className="eyebrow mb-6">{l('servicesUsed')}</h2>
             <ul className="grid gap-5 sm:grid-cols-2" data-motion="stagger">
               {props.related.slice(0, 4).map(s => <li key={s.slug}><ServiceCard service={s} media={props.media[s.media]} /></li>)}
             </ul>
@@ -197,7 +202,7 @@ export default function CaseStudyPage(props: CaseStudyPageProps) {
 
       {props.otherCases.length > 0 && <section aria-labelledby="more-cases-title" className="th-dark pad-lg">
         <div className="wrap">
-          <h2 id="more-cases-title" className="font-display t-display-l mb-10">{t('moreCases')}</h2>
+          <h2 id="more-cases-title" className="font-display t-display-l mb-10">{l('moreCases')}</h2>
           <ul className="grid gap-6 md:grid-cols-2" data-motion="stagger">
             {props.otherCases.map(o => <li key={o.slug}><CaseCard item={o} media={props.media[o.media]} industries={props.industries} countries={props.countries} regions={props.regions} compact /></li>)}
           </ul>

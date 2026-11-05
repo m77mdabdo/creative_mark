@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-365_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-366_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -107,7 +107,7 @@ public website and the dashboard its team uses to run it.
   source name and https link; lead-story flag; draft and publish.
 - Dashboard in Arabic and English (switch in the top bar, remembered per staff member; a test fails if any Arabic
   dashboard string is untranslated), bright ivory-and-gold theme with optional dark mode, Arabic typography.
-- Page editor (Pages › Home page, About us, Our edge, Saudi regions and each region, Investor guide, Newsroom, Business solutions; opening Business solutions shows a sub-menu with
+- Page editor (Pages › Home page, About us, Our edge, Saudi regions and each region, Investor guide, Newsroom, Case studies, Business solutions; opening Business solutions shows a sub-menu with
   each of the eleven solutions): move sections up and down or drag them, hide, add, duplicate or delete them;
   edit every text in six languages, images (with upload: re-encoded to WebP), buttons, cards, hero slides,
   background, spacing and animation. Save a draft, preview it in any language, publish (Content Managers),
@@ -265,6 +265,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-05
+- Case studies in the page editor, with cases in a sub-menu: draft preview, optional Google texts per case and
+  language, steps edited as title and text together, named sectors and countries, filters and delete, consent
+  required for a real client, and the fixed wording of case pages editable.
 - Publishers get a dashboard bell and a branded email when a scheduled story goes live, once per story, in their
   dashboard language. Needs the Laravel scheduler (`* * * * * php artisan schedule:run`) on the server; opening the
   dashboard also catches up if it is not running.

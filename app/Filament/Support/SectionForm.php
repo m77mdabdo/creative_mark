@@ -211,7 +211,7 @@ final class SectionForm
                     'regionGrid' => __('The regions come from Content › Regions.'),
                     'newsLead' => __('The lead is the newest story marked as lead, from Pages › Newsroom in the menu.'),
                     'newsGrid' => __('The stories come from Pages › Newsroom in the menu. A number below shows only the latest ones, without filters.'),
-                    'caseGrid' => __('The cases come from Content › Case Studies. A number below shows only the first ones, without filters.'),
+                    'caseGrid' => __('The cases come from Pages › Case studies in the menu. A number below shows only the first ones, without filters.'),
                     'guideNav' => __('The contents list is built from the chapters below, in their order.'),
                     'guideChapter' => __('Chapters are numbered by their order on the page. In the cards, the title is the figure (such as 10 days) and the text explains it.'),
                     'checklist' => __('Each card is one step visitors can tick; ticks stay in their own browser.'),

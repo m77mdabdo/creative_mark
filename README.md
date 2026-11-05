@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-366_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-369_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -265,6 +265,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-05
+- Every remaining page in the dashboard: start your company, questions, contact, privacy and terms in the page editor;
+  every word of the booking form and the error page per language; Settings › Menu and footer for the top menu, main
+  button, offices and footer wording. Interface wording changed in the dashboard overrides the standard text.
 - Case studies in the page editor, with cases in a sub-menu: draft preview, optional Google texts per case and
   language, steps edited as title and text together, named sectors and countries, filters and delete, consent
   required for a real client, and the fixed wording of case pages editable.

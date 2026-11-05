@@ -112,7 +112,8 @@ final class SectionForm
                 TextInput::make("title.{$l}")->label(__('Title')),
                 TextInput::make("highlight.{$l}")->label(__('Gold words'))->helperText(__('Part of the title shown in gold; copy it exactly.')),
                 Textarea::make("subtitle.{$l}")->label(__('Subtitle'))->rows(2),
-                Textarea::make("body.{$l}")->label(__('Text'))->rows(4)->helperText(__('Leave a blank line between paragraphs.')),
+                Textarea::make("body.{$l}")->label(__('Text'))->rows(fn (Get $get) => $get('type') === 'legalText' ? 24 : 4)
+                    ->helperText(fn (Get $get) => $get('type') === 'legalText' ? __('A line starting with ## becomes a heading. Every other line is a paragraph.') : __('Leave a blank line between paragraphs.')),
                 Textarea::make("points.{$l}")->label(__('Points'))->rows(4)->helperText(__('One point per line.'))->visible($is(['guideChapter'])),
                 Textarea::make("note.{$l}")->label(__('Highlighted note'))->rows(2)->visible($is(['serviceOverview', 'guideChapter', 'legalText', 'sourceList'])),
             ], __('Texts')),
@@ -199,7 +200,7 @@ final class SectionForm
                 ->addActionLabel(__('Add a button')),
 
             Placeholder::make('catalogue_hint')->hiddenLabel()
-                ->visible($is(['trackRecord', 'testimonials', 'services', 'countries', 'map', 'faq', 'relatedServices', 'processSteps', 'regionOverview', 'regionGrid', 'guideNav', 'guideChapter', 'checklist', 'newsLead', 'newsGrid', 'caseGrid']))
+                ->visible($is(['trackRecord', 'testimonials', 'services', 'countries', 'map', 'faq', 'relatedServices', 'processSteps', 'regionOverview', 'regionGrid', 'guideNav', 'guideChapter', 'checklist', 'newsLead', 'newsGrid', 'caseGrid', 'faqLibrary', 'contactInfo']))
                 ->content(fn (Get $get) => new HtmlString('<div style="padding:.75rem 1rem;border-radius:.75rem;background:rgba(235,189,108,.15);font-size:.875rem">'.e(match ($get('type')) {
                     'trackRecord' => __('The figures come from Content › Statistics, or the “Figures” button at the top of this page.'),
                     'testimonials' => __('The reviews come from Content › Testimonials, or the “Client reviews” button at the top of this page.'),
@@ -212,6 +213,8 @@ final class SectionForm
                     'newsLead' => __('The lead is the newest story marked as lead, from Pages › Newsroom in the menu.'),
                     'newsGrid' => __('The stories come from Pages › Newsroom in the menu. A number below shows only the latest ones, without filters.'),
                     'caseGrid' => __('The cases come from Pages › Case studies in the menu. A number below shows only the first ones, without filters.'),
+                    'faqLibrary' => __('The questions come from Content › FAQs, in their topics.'),
+                    'contactInfo' => __('Offices come from Settings › Menu and footer; phone, email, WhatsApp and social links from Settings › Contact details. The two images belong to the first and second office.'),
                     'guideNav' => __('The contents list is built from the chapters below, in their order.'),
                     'guideChapter' => __('Chapters are numbered by their order on the page. In the cards, the title is the figure (such as 10 days) and the text explains it.'),
                     'checklist' => __('Each card is one step visitors can tick; ticks stay in their own browser.'),

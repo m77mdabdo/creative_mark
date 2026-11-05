@@ -2,6 +2,7 @@
 
 namespace App\Translation;
 
+use App\Models\Setting;
 use App\Support\Locales;
 
 /**
@@ -18,8 +19,16 @@ final class UiStrings
         return is_file($file) ? json_decode(file_get_contents($file), true, flags: JSON_THROW_ON_ERROR) : [];
     }
 
-    /** English first, then the locale on top: a missing key always has a label. */
+    /** English first, then the locale on top (a missing key always has a label), then wording changed in the dashboard. */
     public static function forLocale(string $locale): array
+    {
+        $overrides = array_filter(array_map(fn ($map) => $map[$locale] ?? null, Setting::group('ui')['labels'] ?? []));
+
+        return [...self::standard($locale), ...$overrides];
+    }
+
+    /** The wording shipped with the site, before any change made in the dashboard. */
+    public static function standard(string $locale): array
     {
         return [...self::load(Locales::FALLBACK), ...self::load($locale)];
     }

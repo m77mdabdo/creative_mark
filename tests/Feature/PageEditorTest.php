@@ -5,14 +5,18 @@ namespace Tests\Feature;
 use App\Content\MediaLibrary;
 use App\Enums\Role;
 use App\Filament\Pages\EditAboutPage;
+use App\Filament\Pages\EditBookingTexts;
 use App\Filament\Pages\EditCaseLabels;
 use App\Filament\Pages\EditContactSettings;
+use App\Filament\Pages\EditErrorTexts;
 use App\Filament\Pages\EditHomePage;
 use App\Filament\Pages\EditInvestorGuidePage;
 use App\Filament\Pages\EditJourney;
+use App\Filament\Pages\EditNavigationSettings;
 use App\Filament\Pages\EditNewsLabels;
 use App\Filament\Pages\EditNewsPage;
 use App\Filament\Pages\EditOurEdgePage;
+use App\Filament\Pages\EditPrivacyPage;
 use App\Filament\Pages\EditRegionPage;
 use App\Filament\Pages\EditServicePage;
 use App\Filament\Pages\EditServicesPage;
@@ -31,6 +35,7 @@ use App\Models\Stat;
 use App\Models\Testimonial;
 use App\Models\User;
 use App\News\AnnouncePublishedStories;
+use App\Translation\UiStrings;
 use Database\Seeders\ContentSeeder;
 use Database\Seeders\RbacSeeder;
 use Illuminate\Console\Scheduling\Schedule;
@@ -604,6 +609,56 @@ class PageEditorTest extends TestCase
         $this->actingAs($user)->get("/preview/case-studies/{$case->slug}/ar")->assertOk()->assertInertia(fn (Assert $p) => $p->where('preview', true));
         auth()->logout();
         $this->get("/preview/case-studies/{$case->slug}/ar")->assertRedirect();
+    }
+
+    public function test_legal_pages_keep_their_long_text_and_can_be_changed(): void
+    {
+        $component = Livewire::actingAs($this->manager())->test(EditPrivacyPage::class);
+        $sections = $component->get('data.sections');
+        $key = collect($sections)->search(fn ($s) => $s['type'] === 'legalText');
+        $sections[$key]['body']['ar'] = "## عنوان جديد\nفقرة جديدة";
+        $component->set('data.sections', $sections)->call('save')->assertHasNoErrors()->callAction('publish');
+        $this->get('/ar/privacy')->assertInertia(fn (Assert $p) => $p->where('sections.1.body', "## عنوان جديد\nفقرة جديدة"));
+    }
+
+    public function test_booking_and_error_wording_is_editable_and_pages_do_not_overwrite_each_other(): void
+    {
+        $user = $this->manager();
+        Livewire::actingAs($user)->test(EditBookingTexts::class)->set('data.labels.confirmBooking.ar', 'أكّد موعدي')->call('save')->assertHasNoErrors();
+        Livewire::actingAs($user)->test(EditErrorTexts::class)->set('data.labels.notFoundTitle.ar', 'الصفحة غير موجودة')->call('save')->assertHasNoErrors();
+        auth()->logout();
+
+        $this->get('/ar/consultation')->assertInertia(fn (Assert $p) => $p->where('ui.confirmBooking', 'أكّد موعدي')->where('ui.notFoundTitle', 'الصفحة غير موجودة'));
+        $this->get('/ar/nothing-here')->assertNotFound()->assertInertia(fn (Assert $p) => $p->where('ui.notFoundTitle', 'الصفحة غير موجودة'));
+        $this->get('/en/consultation')->assertInertia(fn (Assert $p) => $p->where('ui.confirmBooking', fn ($t) => $t !== 'أكّد موعدي'));
+
+        // Back to the standard wording: nothing stored for it
+        Livewire::actingAs($user)->test(EditBookingTexts::class)->set('data.labels.confirmBooking.ar', UiStrings::standard('ar')['confirmBooking'])->call('save');
+        $this->assertArrayNotHasKey('confirmBooking', Setting::group('ui')['labels'] ?? []);
+    }
+
+    public function test_menu_button_offices_and_footer_are_editable(): void
+    {
+        $admin = User::factory()->withRole(Role::SuperAdmin)->create();
+        $this->actingAs($admin)->get('/admin/settings/navigation')->assertOk();
+        $component = Livewire::actingAs($admin)->test(EditNavigationSettings::class);
+        $header = $component->get('data.header');
+        $first = array_key_first($header);
+        $header[$first]['label']['ar'] = 'عن الشركة';
+        $offices = $component->get('data.offices');
+        $offices[array_key_first($offices)]['address']['ar'] = 'عنوان جديد';
+        $component->set('data.header', $header)->set('data.offices', $offices)->set('data.cta.label.ar', 'تحدث إلينا')->set('data.footer.tagline.ar', 'شعار جديد')
+            ->call('save')->assertHasNoErrors();
+
+        auth()->logout();
+        $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('site.nav.0.label', 'عن الشركة')->where('site.cta.label', 'تحدث إلينا')
+            ->where('site.offices.0.address', 'عنوان جديد')->where('ui.tagline', 'شعار جديد')
+            ->where('site.nav', fn ($n) => collect($n)->contains('mega', 'services')));
+
+        // Unsafe links are refused, and other roles cannot open it
+        $header[$first]['href'] = 'javascript:alert(1)';
+        Livewire::actingAs($admin)->test(EditNavigationSettings::class)->set('data.header', $header)->call('save')->assertHasErrors();
+        $this->actingAs(User::factory()->withRole(Role::Editor)->create())->get('/admin/settings/navigation')->assertForbidden();
     }
 
     public function test_key_figures_need_matching_labels(): void

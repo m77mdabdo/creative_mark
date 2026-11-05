@@ -40,6 +40,12 @@ abstract class EditFixedTexts extends Page
         return (bool) auth()->user()?->can('content.edit');
     }
 
+    /** @return array<string, array{0: ?string, 1: bool}> key => [dashboard label or null for the standard wording, long text?] */
+    protected static function labels(): array
+    {
+        return static::LABELS;
+    }
+
     /** @return array<string, array<string, string>> key => locale => saved text */
     public static function saved(): array
     {
@@ -50,9 +56,9 @@ abstract class EditFixedTexts extends Page
     {
         $saved = static::saved();
         $labels = [];
-        foreach (array_keys(static::LABELS) as $key) {
+        foreach (array_keys(static::labels()) as $key) {
             foreach (Locales::codes() as $locale) {
-                $labels[$key][$locale] = $saved[$key][$locale] ?? UiStrings::forLocale($locale)[$key] ?? null;
+                $labels[$key][$locale] = $saved[$key][$locale] ?? UiStrings::standard($locale)[$key] ?? null;
             }
         }
         $this->form->fill(['labels' => $labels]);
@@ -60,10 +66,13 @@ abstract class EditFixedTexts extends Page
 
     public function form(Schema $schema): Schema
     {
+        $standard = UiStrings::standard(app()->getLocale());
+
         return $schema->statePath('data')->components([
             SectionForm::localeTabs(fn (string $l) => array_map(
-                fn (string $key, array $meta) => ($meta[1] ? Textarea::make("labels.{$key}.{$l}")->rows(2)->maxLength(400) : TextInput::make("labels.{$key}.{$l}")->maxLength(120))->label(__($meta[0])),
-                array_keys(static::LABELS), static::LABELS,
+                fn (string $key, array $meta) => ($meta[1] ? Textarea::make("labels.{$key}.{$l}")->rows(2)->maxLength(500) : TextInput::make("labels.{$key}.{$l}")->maxLength(160))
+                    ->label($meta[0] ? __($meta[0]) : ($standard[$key] ?? $key)),
+                array_keys(static::labels()), static::labels(),
             )),
         ]);
     }
@@ -80,11 +89,12 @@ abstract class EditFixedTexts extends Page
 
     public function save(): void
     {
-        $labels = [];
+        // Several pages share a group: only this page's keys are replaced.
+        $labels = array_diff_key(static::saved(), static::labels());
         foreach ($this->form->getState()['labels'] ?? [] as $key => $map) {
             foreach ((array) $map as $locale => $text) {
                 $text = trim(strip_tags((string) $text));
-                if ($text !== '' && isset(static::LABELS[$key]) && $text !== (UiStrings::forLocale($locale)[$key] ?? null)) {
+                if ($text !== '' && isset(static::labels()[$key]) && $text !== (UiStrings::standard($locale)[$key] ?? null)) {
                     $labels[$key][$locale] = $text;
                 }
             }

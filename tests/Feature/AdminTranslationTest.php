@@ -32,7 +32,7 @@ class AdminTranslationTest extends TestCase
             'locale' => 'ar', 'consent_at' => now(), 'stage' => 'ready',
         ]);
 
-        $urls = ['/admin', '/admin/profile', '/admin/pages/home', '/admin/pages/start-your-company', '/admin/pages/faq', '/admin/pages/contact', '/admin/pages/privacy', '/admin/pages/terms', '/admin/pages/booking-texts', '/admin/pages/error-texts', '/admin/settings/navigation', '/admin/pages/case-studies', '/admin/pages/case-studies/case-texts', '/admin/pages/news/story-texts', '/admin/pages/news', '/admin/pages/investor-guide', '/admin/pages/regions', '/admin/pages/regions/riyadh', '/admin/pages/our-edge', '/admin/pages/services', '/admin/pages/services/company-formation', '/admin/pages/about', '/admin/pages/journey', '/admin/settings/contact'];
+        $urls = ['/admin', '/admin/profile', '/admin/pages/home', '/admin/media-library', '/admin/users', '/admin/users/create', '/admin/activity-logs', '/admin/pages/start-your-company', '/admin/pages/faq', '/admin/pages/contact', '/admin/pages/privacy', '/admin/pages/terms', '/admin/pages/booking-texts', '/admin/pages/error-texts', '/admin/settings/navigation', '/admin/pages/case-studies', '/admin/pages/case-studies/case-texts', '/admin/pages/news/story-texts', '/admin/pages/news', '/admin/pages/investor-guide', '/admin/pages/regions', '/admin/pages/regions/riyadh', '/admin/pages/our-edge', '/admin/pages/services', '/admin/pages/services/company-formation', '/admin/pages/about', '/admin/pages/journey', '/admin/settings/contact'];
         foreach (Filament::getPanel('admin')->getResources() as $resource) {
             foreach (['index', 'create', 'view', 'edit'] as $page) {
                 if (! $resource::hasPage($page)) {

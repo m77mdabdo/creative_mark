@@ -42,5 +42,14 @@
     "story_intro": "A scheduled story has just gone live on the website.",
     "story_kicker": "Newsroom",
     "story_view": "View on the website",
-    "story_reason": "You received this email because you can publish content on the Creative Mark website."
+    "story_reason": "You received this email because you can publish content on the Creative Mark website.",
+    "staff_kicker": "Your dashboard access",
+    "staff_invite_subject": "Your Creative Mark dashboard account",
+    "staff_link_subject": "Choose a new password for the Creative Mark dashboard",
+    "staff_invite_intro": "An account has been created for you on the Creative Mark dashboard. Choose your password to start.",
+    "staff_link_intro": "Use the button below to choose a new password for the Creative Mark dashboard.",
+    "staff_button": "Choose my password",
+    "staff_expires": "This link works once and expires in :minutes minutes. If it expires, ask an administrator for a new one.",
+    "staff_account": "Your sign-in email: :email",
+    "staff_ignore": "If you did not expect this email, you can ignore it."
 }

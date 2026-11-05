@@ -2,6 +2,11 @@
 
 namespace App\Content;
 
+use App\Models\CaseStudy;
+use App\Models\NewsArticle;
+use App\Models\Page;
+use App\Models\Region;
+use App\Models\Service;
 use App\Models\Setting;
 use App\Support\Locales;
 use Illuminate\Support\HtmlString;
@@ -39,6 +44,79 @@ final class MediaLibrary
         $width ??= $widths[0];
 
         return '/media/'.($item['folder'] ?? 'placeholders')."/{$key}-{$width}.webp";
+    }
+
+    /** Forget this request's copy (after another process changed the registry). */
+    public static function flush(): void
+    {
+        self::$registry = null;
+        self::$options = null;
+    }
+
+    /**
+     * Where each image is used, for the library screen and to protect it from deletion.
+     *
+     * @return array<string, list<string>> key => places
+     */
+    public static function usage(): array
+    {
+        $used = [];
+        $add = function (?string $key, string $place) use (&$used) {
+            if ($key && ! in_array($place, $used[$key] ?? [], true)) {
+                $used[$key][] = $place;
+            }
+        };
+        $walk = function ($value, string $place) use (&$walk, $add) {
+            foreach ((array) $value as $k => $v) {
+                if (is_array($v)) {
+                    $walk($v, $place);
+                } elseif (in_array($k, ['media', 'media2', 'bgMedia'], true) && is_string($v)) {
+                    $add($v, $place);
+                }
+            }
+        };
+        $locale = app()->getLocale();
+        foreach (Page::query()->with(['publishedRevision', 'translations'])->get() as $page) {
+            $place = __('Page').': '.($page->t('title', $locale) ?? $page->key);
+            $walk($page->draft_sections ?? [], $place);
+            $walk($page->publishedRevision?->sections ?? [], $place);
+        }
+        foreach ([[Service::class, 'Service', 'title'], [Region::class, 'Region', 'name'], [NewsArticle::class, 'News article', 'title'], [CaseStudy::class, 'Case study', 'title']] as [$model, $label, $field]) {
+            foreach ($model::query()->with('translations')->get() as $record) {
+                $add($record->getAttributes()['media'] ?? null, __($label).': '.$record->t($field, $locale));
+            }
+        }
+
+        return $used;
+    }
+
+    /** @param array<string, string|null> $alt alt text per language */
+    public static function updateAlt(string $key, array $alt): void
+    {
+        $registry = self::all();
+        abort_unless(isset($registry[$key]), 404);
+        $registry[$key]['alt'] = array_filter(array_map(fn ($t) => is_string($t) ? trim(strip_tags($t)) : null, $alt), 'filled');
+        Setting::updateOrCreate(['group' => 'media', 'key' => 'placeholders'], ['value' => $registry]);
+        self::flush();
+    }
+
+    /** Only uploaded images that nothing uses can be deleted; the photography shipped with the site stays. */
+    public static function canDelete(string $key, ?array $usage = null): bool
+    {
+        return (self::all()[$key]['folder'] ?? null) === 'uploads' && empty(($usage ?? self::usage())[$key]);
+    }
+
+    public static function delete(string $key): void
+    {
+        abort_unless(self::canDelete($key), 403);
+        $item = self::all()[$key];
+        foreach ($item['widths'] ?? [] as $w) {
+            @unlink(public_path("media/uploads/{$key}-{$w}.webp"));
+        }
+        $registry = self::all();
+        unset($registry[$key]);
+        Setting::updateOrCreate(['group' => 'media', 'key' => 'placeholders'], ['value' => $registry]);
+        self::flush();
     }
 
     public static function alt(string $key): string

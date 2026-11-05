@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Audit\Audit;
 use App\Enums\Role;
 use App\Models\CaseStudy;
 use App\Models\ConsultationRequest;
@@ -17,11 +18,16 @@ use App\Models\User;
 use App\Policies\CataloguePolicy;
 use App\Policies\ConsultationPolicy;
 use App\Policies\NotificationRecipientPolicy;
+use App\Policies\UserPolicy;
 use App\Translation\Drivers\LibreTranslateDriver;
 use App\Translation\Drivers\MyMemoryDriver;
 use App\Translation\TranslationMemory;
 use App\Translation\Translator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Events\Failed;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Auth\Events\Logout;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
@@ -60,6 +66,20 @@ class AppServiceProvider extends ServiceProvider
 
         Gate::policy(ConsultationRequest::class, ConsultationPolicy::class);
         Gate::policy(NotificationRecipient::class, NotificationRecipientPolicy::class);
+        Gate::policy(User::class, UserPolicy::class);
+
+        // Activity log: staff changes to any content model, and sign-ins.
+        foreach (['created', 'updated', 'deleted'] as $event) {
+            Event::listen("eloquent.{$event}: App\\Models\\*", fn (string $name, array $data) => Audit::modelEvent($event, $data[0]));
+        }
+        Event::listen(Login::class, function (Login $e) {
+            if ($e->user instanceof User) {
+                $e->user->forceFill(['last_login_at' => now()])->saveQuietly();
+                Audit::record('login', $e->user, user: $e->user);
+            }
+        });
+        Event::listen(Logout::class, fn (Logout $e) => $e->user instanceof User ? Audit::record('logout', $e->user, user: $e->user) : null);
+        Event::listen(Failed::class, fn (Failed $e) => Audit::record('login_failed', null, (string) ($e->credentials['email'] ?? ''), type: 'User'));
 
         Password::defaults(fn () => Password::min(12)->mixedCase()->numbers()->uncompromised());
     }

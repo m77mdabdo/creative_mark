@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-369_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-379_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -265,6 +265,12 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-05
+- Dashboard staff tools. Staff and permissions: invite people by email (they choose their own password), change roles,
+  stop access, send a password link, reset two-step, see every role's permissions; nobody can lock themselves or the
+  last Super Admin out. Activity log: who changed what and when, field names only, kept for one year and read-only.
+  Bookings export: an Excel file by date and status, in the dashboard's language, permission-checked and logged, with
+  every value stored as text. Media library: search all images, see where each is used, upload, edit descriptions in
+  six languages; only unused uploads can be deleted.
 - Every remaining page in the dashboard: start your company, questions, contact, privacy and terms in the page editor;
   every word of the booking form and the error page per language; Settings › Menu and footer for the top menu, main
   button, offices and footer wording. Interface wording changed in the dashboard overrides the standard text.

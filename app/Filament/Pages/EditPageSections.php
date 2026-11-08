@@ -2,10 +2,15 @@
 
 namespace App\Filament\Pages;
 
+use App\Content\PageSeoWriter;
 use App\Content\PublishPage;
 use App\Content\SectionSchema;
-use App\Enums\ReviewStatus;
+use App\Drafts\Draft;
+use App\Drafts\Drafts;
+use App\Drafts\Targets\PageSectionsTarget;
+use App\Drafts\Targets\PageSeoTarget;
 use App\Filament\Support\CatalogueInline;
+use App\Filament\Support\DraftActions;
 use App\Filament\Support\SectionForm;
 use App\Models\Page as PageModel;
 use App\Support\Locales;
@@ -22,6 +27,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -71,7 +77,7 @@ abstract class EditPageSections extends Page
         $page = $this->record();
         $this->lockVersion = (int) $page->lock_version;
         $this->form->fill([
-            'seo' => $page->translations->mapWithKeys(fn ($t) => [$t->locale => ['title' => $t->title, 'seo_title' => $t->seo_title, 'seo_description' => $t->seo_description]])->all(),
+            'seo' => app(Drafts::class)->find($this->seoDraftKey())?->payload['seo'] ?? app(PageSeoWriter::class)->read($page),
             'sections' => array_map([$this, 'toForm'], $page->draft_sections ?? []),
         ]);
     }
@@ -85,7 +91,7 @@ abstract class EditPageSections extends Page
     private static function seoSection(): Section
     {
         return Section::make(__('Google and page title (SEO)'))->icon('heroicon-o-magnifying-glass')->collapsible()->collapsed()
-            ->description(__('How the page appears in Google and in the browser tab. Saved with the draft and shown on the website straight away.'))
+            ->description(__('How the page appears in Google and in the browser tab. Saved with the draft and published with the page.'))
             ->schema([SectionForm::localeTabs(fn (string $l, bool $en) => [
                 TextInput::make("seo.{$l}.title")->label(__('Page name'))->maxLength(120)->required($en),
                 TextInput::make("seo.{$l}.seo_title")->label(__('Title in Google'))->maxLength(160)->live(onBlur: true)
@@ -108,8 +114,8 @@ abstract class EditPageSections extends Page
     public function getSubheading(): string|Htmlable|null
     {
         $page = $this->record();
-        $live = $page->publishedRevision?->sections;
-        $state = $live === null ? __('Not published yet') : (self::normalize($live) == self::normalize($page->draft_sections ?? [])
+        $live = $page->publishedRevision;
+        $state = $live === null ? __('Not published yet') : (! $page->hasUnpublishedChanges() && $this->relatedDraftKeys() === []
             ? __('The website shows this version') : __('There are saved changes that are not published yet'));
 
         return $state.($page->published_at ? ' · '.__('Last published :time', ['time' => $page->published_at->locale(app()->getLocale())->diffForHumans()]) : '');
@@ -122,12 +128,7 @@ abstract class EditPageSections extends Page
         return [
             Action::make('save')->label(__('Save draft'))->icon('heroicon-o-check')->color('gray')
                 ->keyBindings(['mod+s'])->action(fn () => $this->save()),
-            Action::make('preview')->label(__('Preview'))->icon('heroicon-o-eye')->color('gray')
-                ->action(function () {
-                    if ($this->save(notify: false)) {
-                        $this->js('window.open('.json_encode(route('admin.pages.preview', ['key' => $this->pageKey(), 'locale' => app()->getLocale()])).', "_blank")');
-                    }
-                }),
+            DraftActions::preview(fn () => $this->save(notify: false), fn () => $this->record()->sitePath()),
             Action::make('publish')->label(__('Publish'))->icon('heroicon-o-rocket-launch')->color('primary')
                 ->visible(fn () => (bool) $user?->can('pages.publish'))
                 ->requiresConfirmation()->modalHeading(__('Publish this page?'))->modalDescription(__('Visitors will see these changes straight away.'))
@@ -135,8 +136,17 @@ abstract class EditPageSections extends Page
                     if (! $this->save(notify: false)) {
                         return;
                     }
-                    (new PublishPage)($this->record(), auth()->id(), 'Published from the page editor');
-                    $this->afterPublish($this->record());
+                    $page = $this->record();
+                    DB::transaction(function () use ($page) {
+                        (new PublishPage)($page, auth()->id(), 'Published from the page editor');
+                        app(Drafts::class)->discard($this->sectionsDraftKey());
+                        // The page's Google texts and the figures or reviews edited here go live with it.
+                        foreach ($this->relatedDraftKeys() as $key) {
+                            app(Drafts::class)->publish($key);
+                        }
+                    });
+                    $this->afterPublish($page->refresh());
+                    $this->mount();
                     Notification::make()->success()->title(__('Published. The website now shows your changes.'))->send();
                 }),
             Action::make('translate')->label(__('Translate missing languages'))->icon('heroicon-o-language')->color('gray')
@@ -162,16 +172,56 @@ abstract class EditPageSections extends Page
                     'revisions' => $this->record()->revisions()->with('author')->latest('id')->limit(40)->get(),
                     'liveId' => $this->record()->published_revision_id,
                 ])),
-            Action::make('discard')->label(__('Discard unpublished changes'))->icon('heroicon-o-arrow-uturn-left')->color('danger')->link()
-                ->visible(fn () => $this->record()->publishedRevision !== null)
-                ->requiresConfirmation()->modalDescription(__('The draft goes back to the version visitors see now.'))
-                ->action(function () {
-                    $page = $this->record();
+            DraftActions::discard(function () {
+                $page = $this->record();
+                if ($page->publishedRevision) {
                     $page->forceFill(['draft_sections' => $page->publishedRevision->sections, 'lock_version' => $page->lock_version + 1])->save();
-                    $this->mount();
-                    Notification::make()->success()->title(__('Changes discarded'))->send();
-                }),
+                }
+                foreach ([$this->sectionsDraftKey(), ...$this->relatedDraftKeys()] as $key) {
+                    app(Drafts::class)->discard($key);
+                }
+                $this->mount();
+                Notification::make()->success()->title(__('Changes discarded'))->send();
+            }, fn () => $this->record()->publishedRevision !== null || $this->relatedDraftKeys() !== []),
         ];
+    }
+
+    /** This editor's address, for the list of unpublished changes; editors for one record add its parameter. */
+    protected function editorUrl(): string
+    {
+        return static::getUrl();
+    }
+
+    private function sectionsDraftKey(): string
+    {
+        return 'page:'.$this->pageKey();
+    }
+
+    /** Lists the page among the unpublished changes while its sections differ from the live version. */
+    private function markSections(PageModel $page): void
+    {
+        $page->hasUnpublishedChanges()
+            ? app(Drafts::class)->put($this->sectionsDraftKey(), PageSectionsTarget::class, ['page' => $page->key], __('Page').': '.$this->getTitle(), $this->editorUrl())
+            : app(Drafts::class)->discard($this->sectionsDraftKey());
+    }
+
+    private function seoDraftKey(): string
+    {
+        return 'page-seo:'.$this->pageKey();
+    }
+
+    /** Drafts that belong to this screen besides the sections: Google texts, and the figures and reviews it edits. @return list<string> */
+    private function relatedDraftKeys(): array
+    {
+        $keys = [$this->seoDraftKey()];
+        if ($this->hasSection('trackRecord')) {
+            $keys[] = CatalogueInline::draftKey('stats');
+        }
+        if ($this->hasSection('testimonials')) {
+            $keys[] = CatalogueInline::draftKey('testimonials');
+        }
+
+        return Draft::query()->whereIn('key', $keys)->pluck('key')->all();
     }
 
     private function hasSection(string $type): bool
@@ -222,7 +272,8 @@ abstract class EditPageSections extends Page
         $page->forceFill(['draft_sections' => $sections, 'lock_version' => $page->lock_version + 1])->save();
         $this->lockVersion = $page->lock_version;
         $page->revisions()->create(['sections' => $sections, 'kind' => 'draft', 'note' => 'Saved in the page editor', 'created_by' => auth()->id()]);
-        $this->saveSeo($page, $state['seo'] ?? []);
+        $this->markSections($page);
+        $this->keepSeo($page, $state['seo'] ?? []);
 
         if ($notify) {
             Notification::make()->success()->title(__('Draft saved. Publish to show it on the website.'))->send();
@@ -231,27 +282,18 @@ abstract class EditPageSections extends Page
         return true;
     }
 
-    /** Page name and Google texts per language. A changed language goes back to review unless the editor may approve it. */
-    private function saveSeo(PageModel $page, array $seo): void
+    /** The page name and Google texts wait as a draft when they differ from the live ones (App\Drafts\Targets\PageSeoTarget). */
+    private function keepSeo(PageModel $page, array $seo): void
     {
-        $canApprove = (bool) auth()->user()?->can('translations.approve');
-        foreach (Locales::codes() as $locale) {
-            $values = array_map(fn ($v) => filled($v) ? trim((string) $v) : null, array_intersect_key($seo[$locale] ?? [], array_flip(['title', 'seo_title', 'seo_description'])));
-            $translation = $page->translations->firstWhere('locale', $locale);
-            if (! $translation && ! array_filter($values)) {
-                continue;
-            }
-            $translation ??= $page->translations()->make(['locale' => $locale, 'slug' => $page->key === 'home' ? null : $page->key]);
-            $translation->fill($values);
-            if ($translation->isDirty() && $locale !== Locales::FALLBACK && ! $canApprove) {
-                $translation->review_status = ReviewStatus::Review;
-            }
-            $translation->review_status ??= ReviewStatus::Review;
-            if (blank($translation->title)) {
-                $translation->title = $page->t('title', Locales::FALLBACK) ?? $page->key;
-            }
-            $translation->save();
+        $clean = fn (array $all) => collect(Locales::codes())->mapWithKeys(fn ($l) => [$l => array_map(fn ($v) => filled($v) ? trim((string) $v) : null,
+            array_merge(['title' => null, 'seo_title' => null, 'seo_description' => null], array_intersect_key($all[$l] ?? [], array_flip(['title', 'seo_title', 'seo_description']))))])->all();
+        $drafts = app(Drafts::class);
+        if ($clean($seo) == $clean(app(PageSeoWriter::class)->read($page))) {
+            $drafts->discard($this->seoDraftKey());
+
+            return;
         }
+        $drafts->put($this->seoDraftKey(), PageSeoTarget::class, ['page' => $page->key, 'seo' => $clean($seo)], __('Google texts').': '.$this->getTitle(), $this->editorUrl());
     }
 
     /** Puts an earlier version back into the draft (it still has to be published). */
@@ -262,23 +304,10 @@ abstract class EditPageSections extends Page
         $revision = $page->revisions()->findOrFail($id);
         $page->forceFill(['draft_sections' => $revision->sections, 'lock_version' => $page->lock_version + 1])->save();
         $page->revisions()->create(['sections' => $revision->sections, 'kind' => 'draft', 'note' => 'Restored version #'.$revision->id, 'created_by' => auth()->id()]);
+        $this->markSections($page->refresh());
         $this->unmountAction();
         $this->mount();
         Notification::make()->success()->title(__('Version restored to the draft. Preview it, then publish.'))->send();
-    }
-
-    /** Ignores differences that do not change the page (empty lists, hidden = false, verified = true). */
-    private static function normalize(array $value): array
-    {
-        $out = [];
-        foreach ($value as $k => $v) {
-            if ($v === [] || $v === null || ($k === 'hidden' && $v === false) || ($k === 'verified' && $v === true)) {
-                continue;
-            }
-            $out[$k] = is_array($v) ? self::normalize($v) : $v;
-        }
-
-        return $out;
     }
 
     /** @param array<string, mixed> $s */

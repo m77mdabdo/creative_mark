@@ -9,6 +9,7 @@ use App\Enums\ReviewStatus;
 use App\Models\CaseStudy;
 use App\Models\Country;
 use App\Models\Faq;
+use App\Models\MediaAsset;
 use App\Models\NewsArticle;
 use App\Models\Page;
 use App\Models\Region;
@@ -167,7 +168,13 @@ class ContentSeeder extends Seeder
         ]);
         $set('catalogue', 'journey', json_decode(file_get_contents(__DIR__.'/data/journey.json'), true, flags: JSON_THROW_ON_ERROR));
         // RULE-04: prototype stock photos (Unsplash), placeholders until the client supplies or approves photography
-        $set('media', 'placeholders', json_decode(file_get_contents(__DIR__.'/data/media.json'), true, flags: JSON_THROW_ON_ERROR));
+        foreach (json_decode(file_get_contents(__DIR__.'/data/media.json'), true, flags: JSON_THROW_ON_ERROR) as $key => $item) {
+            $asset = MediaAsset::updateOrCreate(['key' => $key], ['folder' => $item['folder'] ?? 'placeholders', 'widths' => $item['widths'] ?? [800, 1600],
+                'credit' => $item['credit'] ?? null, 'source' => $item['source'] ?? null]);
+            foreach ($item['alt'] as $locale => $alt) {
+                $asset->translations()->updateOrCreate(['locale' => $locale], ['alt' => $alt, 'review_status' => ReviewStatus::Approved]);
+            }
+        }
         $set('navigation', 'header', [
             ['label' => ['en' => 'About', 'ar' => 'من نحن'], 'href' => '/about'],
             ['label' => ['en' => 'Business solutions', 'ar' => 'حلول الأعمال'], 'href' => '/services', 'mega' => 'services'],

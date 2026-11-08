@@ -2,6 +2,8 @@
 
 namespace App\Filament\Pages;
 
+use App\Models\NewsArticle;
+
 /** The fixed wording on every story's page ("Related news", "Read the original report", the closing invitation…). */
 class EditNewsLabels extends EditFixedTexts
 {
@@ -31,13 +33,18 @@ class EditNewsLabels extends EditFixedTexts
         return __('Story page texts');
     }
 
-    public function getSubheading(): string
+    protected function screenDescription(): string
     {
-        return __('The fixed wording on every story’s page. Changes appear on the website when you save.');
+        return __('The fixed wording on every story’s page.');
     }
 
     public function getBreadcrumbs(): array
     {
         return [EditNewsPage::getUrl() => __('Newsroom'), $this->getTitle()];
+    }
+
+    protected function previewPath(): string
+    {
+        return NewsArticle::query()->live()->first()?->sitePath() ?? '/news';
     }
 }

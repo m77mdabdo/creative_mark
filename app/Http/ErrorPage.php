@@ -2,7 +2,7 @@
 
 namespace App\Http;
 
-use App\Content\PageData;
+use App\Content\MediaLibrary;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Support\Locales;
 use Illuminate\Http\Request;
@@ -36,7 +36,7 @@ final class ErrorPage
             return Inertia::render('ErrorPage', [
                 'pageKey' => 'error',
                 'status' => $status,
-                'media' => app(PageData::class)->mediaFor(['cm-desert-road'], app()->getLocale()),
+                'media' => MediaLibrary::responsive(['cm-desert-road'], app()->getLocale()),
             ])->toResponse($request)->setStatusCode($status);
         } catch (Throwable) {
             return $response; // never let the error page itself fail

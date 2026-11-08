@@ -110,11 +110,18 @@ class PageEditorTest extends TestCase
         $draft[0]['title']['en'] = 'Draft only headline';
         $page->forceFill(['draft_sections' => $draft])->save();
 
-        $this->get('/preview/home/en')->assertRedirect();
-        $this->actingAs(User::factory()->withRole(Role::SalesAgent)->create())->get('/preview/home/en')->assertForbidden();
-        $this->actingAs($this->manager())->get('/preview/home/en')->assertOk()
+        $this->get('/preview?path=/&locale=en')->assertRedirect(route('filament.admin.auth.login'));
+        $this->actingAs(User::factory()->withRole(Role::SalesAgent)->create())->get('/preview?path=/&locale=en')->assertForbidden();
+        $this->actingAs($this->manager())->get('/preview?path=/&locale=en')->assertRedirect('/en');
+        $this->get('/en')->assertHeader('X-Robots-Tag', 'noindex, nofollow')
             ->assertInertia(fn (Assert $p) => $p->where('preview', true)->where('sections.0.title', 'Draft only headline'));
-        $this->get('/en')->assertInertia(fn (Assert $p) => $p->where('sections.0.title', fn ($t) => $t !== 'Draft only headline'));
+        // An outside address is never followed
+        $this->get('/preview?path=//evil.test')->assertRedirect('/en');
+
+        $this->get('/preview/exit?path=/en')->assertRedirect('/en');
+        $this->get('/en')->assertInertia(fn (Assert $p) => $p->where('preview', false)->where('sections.0.title', fn ($t) => $t !== 'Draft only headline'));
+        auth()->logout();
+        $this->get('/en')->assertInertia(fn (Assert $p) => $p->where('preview', false)->where('sections.0.title', fn ($t) => $t !== 'Draft only headline'));
     }
 
     public function test_invalid_content_is_not_saved(): void
@@ -164,6 +171,10 @@ class PageEditorTest extends TestCase
     {
         $component = Livewire::actingAs($this->manager())->test(EditHomePage::class);
         $component->set('data.seo.ar.seo_title', 'عنوان جوجل الجديد')->set('data.seo.en.seo_description', 'New Google description')->call('save');
+        // Saved as a draft: Google still sees the live texts until the page is published
+        $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('seo.title', fn ($t) => $t !== 'عنوان جوجل الجديد'));
+        $this->assertSame('عنوان جوجل الجديد', Livewire::actingAs($this->manager())->test(EditHomePage::class)->get('data.seo.ar.seo_title'));
+        $component->callAction('publish');
         $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('seo.title', 'عنوان جوجل الجديد'));
         $this->get('/en')->assertInertia(fn (Assert $p) => $p->where('seo.description', 'New Google description'));
     }
@@ -190,6 +201,9 @@ class PageEditorTest extends TestCase
                 ['title' => ['en' => 'Talk', 'ar' => 'حديث'], 'text' => ['en' => 'We listen <b>first</b>', 'ar' => 'نستمع أولًا']],
                 ['title' => ['en' => 'Build', 'ar' => 'بناء'], 'text' => ['en' => 'We set it up', 'ar' => 'نؤسس']],
             ])->call('save')->assertHasNoErrors();
+        $this->get('/ar/services')->assertInertia(fn (Assert $p) => $p->where('journey.0.title', fn ($t) => $t !== 'حديث'));
+        Livewire::actingAs($this->manager())->test(EditJourney::class)->assertSet('data.steps', fn ($steps) => collect($steps)->first()['title']['ar'] === 'حديث')
+            ->callAction('publish')->assertHasNoErrors();
         $this->get('/ar/services')->assertInertia(fn (Assert $p) => $p->where('journey.0.title', 'حديث')->where('journey.1.text', 'نؤسس'));
         $this->get('/en/services')->assertInertia(fn (Assert $p) => $p->where('journey.0.text', 'We listen first'));
         $this->actingAs(User::factory()->withRole(Role::SalesAgent)->create())->get('/admin/pages/journey')->assertForbidden();
@@ -219,6 +233,11 @@ class PageEditorTest extends TestCase
         $count = Stat::count();
         $component->set('mountedActions.0.data.items', $items)->callMountedAction()->assertHasNoActionErrors();
 
+        // A draft until the page is published
+        $this->assertSame($count, Stat::count());
+        $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('stats.0.value', fn ($v) => $v !== '1,200+'));
+        $component->mountAction('manageStats')->assertSet('mountedActions.0.data.items', fn ($i) => collect($i)->first()['value'] === '1,200+')->callMountedAction();
+        $component->callAction('publish');
         $this->assertSame($count, Stat::count());
         $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('stats.0.value', '1,200+')
             ->where('stats', fn ($s) => collect($s)->contains('label', 'رقم جديد')));
@@ -228,6 +247,8 @@ class PageEditorTest extends TestCase
         $key = array_key_first($reviews);
         $reviews[$key]['published'] = false;
         $component->set('mountedActions.0.data.items', $reviews)->callMountedAction();
+        $this->assertSame('published', Testimonial::orderBy('sort_order')->first()->status);
+        $component->callAction('publish');
         $this->assertSame('draft', Testimonial::orderBy('sort_order')->first()->status);
 
         $editor = User::factory()->withRole(Role::Editor)->create();
@@ -238,7 +259,7 @@ class PageEditorTest extends TestCase
     {
         $admin = User::factory()->withRole(Role::SuperAdmin)->create();
         Livewire::actingAs($admin)->test(EditContactSettings::class)
-            ->set('data.whatsapp', '+966 55 123 4567')->set('data.email', 'info@example.org')->call('save')->assertHasNoErrors();
+            ->set('data.whatsapp', '+966 55 123 4567')->set('data.email', 'info@example.org')->callAction('publish')->assertHasNoErrors();
         $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('site.whatsapp', '+966 55 123 4567')->where('site.email', 'info@example.org'));
 
         Livewire::actingAs($admin)->test(EditContactSettings::class)
@@ -464,9 +485,10 @@ class PageEditorTest extends TestCase
         // A draft can be previewed by staff only, and stays off the site
         $story->update(['status' => 'draft']);
         $this->get("/en/news/{$story->slug}")->assertNotFound();
-        $this->actingAs($user)->get("/preview/news/{$story->slug}/ar")->assertOk()->assertInertia(fn (Assert $p) => $p->component('NewsArticlePage')->where('preview', true));
+        $this->actingAs($user)->get("/preview?path=/news/{$story->slug}&locale=ar")->assertRedirect("/ar/news/{$story->slug}");
+        $this->get("/ar/news/{$story->slug}")->assertOk()->assertInertia(fn (Assert $p) => $p->component('NewsArticlePage')->where('preview', true));
         auth()->logout();
-        $this->get("/preview/news/{$story->slug}/ar")->assertRedirect();
+        $this->get("/ar/news/{$story->slug}")->assertNotFound();
     }
 
     public function test_a_scheduled_story_goes_live_by_itself(): void
@@ -484,7 +506,9 @@ class PageEditorTest extends TestCase
         // Staff can preview it and find it as scheduled
         $this->assertTrue($story->fresh()->isScheduled());
         $manager = $this->manager();
-        $this->actingAs($manager)->get("/preview/news/{$slug}/en")->assertOk();
+        $this->actingAs($manager)->get("/preview?path=/news/{$slug}");
+        $this->get("/en/news/{$slug}")->assertOk();
+        $this->get('/preview/exit');
         Livewire::actingAs($manager)->test(ListNewsArticles::class)->assertSee(__('Scheduled to publish'));
         auth()->logout();
 
@@ -574,6 +598,8 @@ class PageEditorTest extends TestCase
         $component = Livewire::actingAs($this->manager())->test(EditNewsLabels::class);
         $this->assertSame('أخبار ذات صلة', $component->get('data.labels.relatedNews.ar'));
         $component->set('data.labels.relatedNews.ar', 'اقرأ أيضًا')->call('save')->assertHasNoErrors();
+        $this->get("/ar/news/{$story->slug}")->assertInertia(fn (Assert $p) => $p->missing('labels.relatedNews'));
+        $component->callAction('publish');
         $this->get("/ar/news/{$story->slug}")->assertInertia(fn (Assert $p) => $p->where('labels.relatedNews', 'اقرأ أيضًا')->missing('labels.source'));
         $this->get("/en/news/{$story->slug}")->assertInertia(fn (Assert $p) => $p->missing('labels.relatedNews'));
     }
@@ -592,6 +618,10 @@ class PageEditorTest extends TestCase
         $this->assertCount(count($case->translation('en')->step_titles), $steps);
         $component->set('data.translations.en.steps', [['title' => 'First', 'text' => 'One'], ['title' => 'Second', 'text' => 'Two']])
             ->set('data.translations.en.seo_title', 'Case title for Google')->call('save')->assertHasNoErrors();
+        // A live case keeps its published text until the changes are published
+        $this->get("/en/case-studies/{$case->slug}")->assertInertia(fn (Assert $p) => $p->where('seo.title', fn ($t) => $t !== 'Case title for Google'));
+        Livewire::actingAs($user)->test(EditCaseStudy::class, ['record' => $case->getRouteKey()])
+            ->assertSet('data.translations.en.steps', fn ($steps) => array_column(array_values($steps), 'title') === ['First', 'Second'])->callAction('publish')->assertHasNoErrors();
         $this->get("/en/case-studies/{$case->slug}")->assertInertia(fn (Assert $p) => $p->component('CaseStudyPage')
             ->where('seo.title', 'Case title for Google')->where('caseStudy.steps.1.title', 'Second')->where('caseStudy.steps.1.text', 'Two'));
 
@@ -600,15 +630,16 @@ class PageEditorTest extends TestCase
             ->set('data.illustrative', false)->set('data.consent_recorded_at', null)->call('save')->assertHasErrors(['data.consent_recorded_at']);
 
         // Fixed wording
-        Livewire::actingAs($user)->test(EditCaseLabels::class)->set('data.labels.moreCases.ar', 'قصص أخرى')->call('save')->assertHasNoErrors();
+        Livewire::actingAs($user)->test(EditCaseLabels::class)->set('data.labels.moreCases.ar', 'قصص أخرى')->callAction('publish')->assertHasNoErrors();
         $this->get("/ar/case-studies/{$case->slug}")->assertInertia(fn (Assert $p) => $p->where('labels.moreCases', 'قصص أخرى'));
 
         // Draft preview for staff only
         $case->update(['status' => 'draft']);
         $this->get("/en/case-studies/{$case->slug}")->assertNotFound();
-        $this->actingAs($user)->get("/preview/case-studies/{$case->slug}/ar")->assertOk()->assertInertia(fn (Assert $p) => $p->where('preview', true));
+        $this->actingAs($user)->get("/preview?path=/case-studies/{$case->slug}&locale=ar");
+        $this->get("/ar/case-studies/{$case->slug}")->assertOk()->assertInertia(fn (Assert $p) => $p->where('preview', true));
         auth()->logout();
-        $this->get("/preview/case-studies/{$case->slug}/ar")->assertRedirect();
+        $this->get("/ar/case-studies/{$case->slug}")->assertNotFound();
     }
 
     public function test_legal_pages_keep_their_long_text_and_can_be_changed(): void
@@ -624,8 +655,11 @@ class PageEditorTest extends TestCase
     public function test_booking_and_error_wording_is_editable_and_pages_do_not_overwrite_each_other(): void
     {
         $user = $this->manager();
+        // Both screens share the interface wording; saving both before publishing either loses nothing
         Livewire::actingAs($user)->test(EditBookingTexts::class)->set('data.labels.confirmBooking.ar', 'أكّد موعدي')->call('save')->assertHasNoErrors();
         Livewire::actingAs($user)->test(EditErrorTexts::class)->set('data.labels.notFoundTitle.ar', 'الصفحة غير موجودة')->call('save')->assertHasNoErrors();
+        Livewire::actingAs($user)->test(EditErrorTexts::class)->callAction('publish');
+        Livewire::actingAs($user)->test(EditBookingTexts::class)->callAction('publish');
         auth()->logout();
 
         $this->get('/ar/consultation')->assertInertia(fn (Assert $p) => $p->where('ui.confirmBooking', 'أكّد موعدي')->where('ui.notFoundTitle', 'الصفحة غير موجودة'));
@@ -633,7 +667,7 @@ class PageEditorTest extends TestCase
         $this->get('/en/consultation')->assertInertia(fn (Assert $p) => $p->where('ui.confirmBooking', fn ($t) => $t !== 'أكّد موعدي'));
 
         // Back to the standard wording: nothing stored for it
-        Livewire::actingAs($user)->test(EditBookingTexts::class)->set('data.labels.confirmBooking.ar', UiStrings::standard('ar')['confirmBooking'])->call('save');
+        Livewire::actingAs($user)->test(EditBookingTexts::class)->set('data.labels.confirmBooking.ar', UiStrings::standard('ar')['confirmBooking'])->callAction('publish');
         $this->assertArrayNotHasKey('confirmBooking', Setting::group('ui')['labels'] ?? []);
     }
 
@@ -648,7 +682,7 @@ class PageEditorTest extends TestCase
         $offices = $component->get('data.offices');
         $offices[array_key_first($offices)]['address']['ar'] = 'عنوان جديد';
         $component->set('data.header', $header)->set('data.offices', $offices)->set('data.cta.label.ar', 'تحدث إلينا')->set('data.footer.tagline.ar', 'شعار جديد')
-            ->call('save')->assertHasNoErrors();
+            ->callAction('publish')->assertHasNoErrors();
 
         auth()->logout();
         $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('site.nav.0.label', 'عن الشركة')->where('site.cta.label', 'تحدث إلينا')

@@ -47,6 +47,12 @@ class ServiceResourceTest extends TestCase
             ->call('save')
             ->assertHasNoFormErrors();
 
+        // The service is on the site: the change waits as a draft
+        $this->assertSame('Company Formation', $this->service->load('translations')->t('title', 'en'));
+        Livewire::test(EditService::class, ['record' => $this->service->getRouteKey()])
+            ->assertSchemaStateSet(['translations.en.title' => 'Company Setup'])
+            ->callAction('publish')->assertHasNoErrors();
+
         $this->service->load('translations');
         $this->assertSame('Company Setup', $this->service->t('title', 'en'));
         $this->assertSame(ReviewStatus::Approved, $this->service->translations->firstWhere('locale', 'ar')->review_status);
@@ -61,10 +67,15 @@ class ServiceResourceTest extends TestCase
         }
     }
 
-    public function test_editor_cannot_change_a_published_service(): void
+    public function test_editor_changes_to_a_published_service_wait_for_a_publisher(): void
     {
         $this->as(Role::Editor);
-        $this->get("/admin/services/{$this->service->id}/edit")->assertForbidden();
+        $this->get("/admin/services/{$this->service->id}/edit")->assertOk();
+        Livewire::test(EditService::class, ['record' => $this->service->getRouteKey()])
+            ->assertActionHidden('publish')->assertActionHidden('delete')
+            ->fillForm(['translations.en.title' => 'Editor title'])->call('save')->assertHasNoFormErrors();
+        $this->assertSame('Company Formation', $this->service->load('translations')->t('title', 'en'));
+        $this->assertSame('published', $this->service->fresh()->status);
     }
 
     public function test_editor_creates_drafts_only_and_their_text_goes_to_review(): void

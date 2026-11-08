@@ -18,7 +18,7 @@ import type { NewsArticlePageProps, PageProps, Section } from '@/types'
  * A newsroom story: cinematic photo header, the team's summary, what it means for investors,
  * key figures, the original report, related stories and a consultation call to action.
  */
-export default function NewsArticlePage(props: NewsArticlePageProps & { preview?: boolean }) {
+export default function NewsArticlePage(props: NewsArticlePageProps) {
   const { t, locale } = useSite()
   // Wording edited in the dashboard wins over the standard interface text.
   const l = (key: UiKey) => props.labels?.[key] || t(key)
@@ -49,9 +49,7 @@ export default function NewsArticlePage(props: NewsArticlePageProps & { preview?
       <title>{props.seo.title}</title>
       <meta name="description" content={props.seo.description} />
       <meta property="og:type" content="article" />
-      {props.preview && <meta name="robots" content="noindex" />}
     </Head>
-    {props.preview && <div role="status" className="fixed inset-x-0 bottom-4 z-[60] mx-auto w-fit max-w-[calc(100%-2rem)] rounded-full bg-gold px-5 py-2.5 text-center text-sm font-semibold text-ink shadow-2xl">{t('previewBanner')}</div>}
     <div ref={scope}>
       <header className="th-dark relative flex min-h-[78svh] items-end overflow-hidden">
         <Media media={props.media[article.media]} eager sizes="100vw" className="absolute inset-0 h-full w-full animate-[cm-kenburns_14s_ease-out_both] motion-reduce:animate-none" />

@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasTranslations;
+use App\Models\Contracts\Publishable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class Faq extends Model
+class Faq extends Model implements Publishable
 {
     use HasTranslations;
 
@@ -19,5 +21,20 @@ class Faq extends Model
     protected function translationModel(): string
     {
         return FaqTranslation::class;
+    }
+
+    public function sitePath(): string
+    {
+        return '/faq';
+    }
+
+    public function isLive(): bool
+    {
+        return $this->status === 'published' && ! $this->needs_review;
+    }
+
+    public function scopeLive(Builder $query): Builder
+    {
+        return $query->where('status', 'published')->where('needs_review', false);
     }
 }

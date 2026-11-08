@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasTranslations;
+use App\Models\Contracts\Publishable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class NewsArticle extends Model
+class NewsArticle extends Model implements Publishable
 {
     use HasTranslations;
 
@@ -64,5 +65,15 @@ class NewsArticle extends Model
     protected function translationModel(): string
     {
         return NewsArticleTranslation::class;
+    }
+
+    public function sitePath(): string
+    {
+        return '/news/'.$this->slug;
+    }
+
+    public function isLive(): bool
+    {
+        return $this->status === 'published' && ! $this->publish_at?->isFuture();
     }
 }

@@ -69,4 +69,9 @@ class EditRegionPage extends EditPageSections
             ->isActiveWhen(fn () => request()->routeIs(static::getRouteName()) && request()->route('region') === $r->slug)
             ->visible(fn () => static::canAccess()))->all();
     }
+
+    protected function editorUrl(): string
+    {
+        return static::getUrl(['region' => $this->region]);
+    }
 }

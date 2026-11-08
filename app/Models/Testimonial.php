@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasTranslations;
+use App\Models\Concerns\PublishedByStatus;
+use App\Models\Contracts\Publishable;
 use Illuminate\Database\Eloquent\Model;
 
-class Testimonial extends Model
+class Testimonial extends Model implements Publishable
 {
-    use HasTranslations;
+    use HasTranslations, PublishedByStatus;
 
     protected $fillable = ['verified', 'consent_recorded_at', 'sort_order', 'status'];
 
@@ -19,5 +21,10 @@ class Testimonial extends Model
     protected function translationModel(): string
     {
         return TestimonialTranslation::class;
+    }
+
+    public function sitePath(): string
+    {
+        return '/';
     }
 }

@@ -45,8 +45,8 @@ class BookConsultationRequest extends FormRequest
         };
 
         return [
-            'service' => ['nullable', 'string', Rule::in(Service::query()->where('status', 'published')->pluck('slug'))],
-            'region' => ['nullable', 'string', Rule::in(Region::query()->where('status', 'published')->pluck('slug'))],
+            'service' => ['nullable', 'string', Rule::in(Service::query()->live()->pluck('slug'))],
+            'region' => ['nullable', 'string', Rule::in(Region::query()->live()->pluck('slug'))],
             'stage' => ['required', Rule::in(config('consultation.stages'))],
             'name' => ['required', 'string', 'min:2', 'max:120', $noHtml, 'not_regex:/https?:|www\./i'],
             'email' => ['required', 'string', 'max:190', 'email:rfc,strict'],

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Drafts\PreviewMode;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Support\Locales;
@@ -32,6 +33,8 @@ class HandleInertiaRequests extends Middleware
             ],
             'site' => fn () => $this->site(app()->getLocale()),
             'ui' => fn () => UiStrings::forLocale(app()->getLocale()),
+            // Staff looking at unpublished changes (App\Drafts\PreviewMode)
+            'preview' => fn () => app(PreviewMode::class)->active($request),
         ];
     }
 
@@ -45,7 +48,7 @@ class HandleInertiaRequests extends Middleware
         return [
             'nav' => array_map(fn ($n) => [...$n, 'label' => $pick($n['label'])], $nav['header'] ?? []),
             'cta' => isset($nav['cta']) ? [...$nav['cta'], 'label' => $pick($nav['cta']['label'])] : null,
-            'megaServices' => Service::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get()
+            'megaServices' => Service::query()->live()->orderBy('sort_order')->withLocale($locale)->get()
                 ->map(fn (Service $s) => ['slug' => $s->slug, 'icon' => $s->icon, 'title' => $s->t('title', $locale), 'tagline' => $s->t('tagline', $locale)])->all(),
             'offices' => array_map(fn ($o) => ['key' => $o['key'], 'country' => $pick($o['country']), 'address' => $pick($o['address'])], $contact['offices'] ?? []),
             'email' => $contact['email'] ?? null,

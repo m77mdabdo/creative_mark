@@ -17,8 +17,8 @@ class SitemapController
     {
         $paths = Page::query()->whereNotNull('published_revision_id')->where('key', 'not like', 'service-%')->where('key', 'not like', 'region-%')->pluck('key')
             ->map(fn ($key) => $key === 'home' ? '' : "/{$key}")
-            ->merge(Service::query()->where('status', 'published')->pluck('slug')->map(fn ($s) => "/services/{$s}"))
-            ->merge(Region::query()->where('status', 'published')->pluck('slug')->map(fn ($s) => "/regions/{$s}"))
+            ->merge(Service::query()->live()->pluck('slug')->map(fn ($s) => "/services/{$s}"))
+            ->merge(Region::query()->live()->pluck('slug')->map(fn ($s) => "/regions/{$s}"))
             ->merge(NewsArticle::query()->live()->pluck('slug')->map(fn ($s) => "/news/{$s}"))
             ->merge(CaseStudy::query()->live()->pluck('slug')->map(fn ($s) => "/case-studies/{$s}"))
             ->push('/consultation');

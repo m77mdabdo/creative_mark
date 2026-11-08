@@ -148,7 +148,8 @@ class HomePageTest extends TestCase
         $home->forceFill(['draft_sections' => array_map(fn ($s) => $s['type'] === 'whyInvest'
             ? [...$s, 'cards' => array_map(fn ($c) => [...$c, 'verified' => ! in_array($c['id'], ['whyInvest-1', 'whyInvest-3', 'whyInvest-4'], true)], $s['cards'])] : $s, $home->draft_sections)])->save();
         (new PublishPage)($home);
-        $html = $this->get('/en')->getContent();
+        // The asset version is a hash and may contain any digits.
+        $html = preg_replace('/"version":"[0-9a-f]+"/', '', $this->get('/en')->getContent());
         $this->assertStringContainsString('1,000+', $html);
         foreach (['500+', '64.7%', '4.8 trillion', '157', '209'] as $figure) {
             $this->assertStringNotContainsString($figure, $html, $figure);

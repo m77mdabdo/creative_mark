@@ -41,8 +41,14 @@ class EditErrorTexts extends EditFixedTexts
         return __('Error page');
     }
 
-    public function getSubheading(): string
+    protected function screenDescription(): string
     {
-        return __('Shown when a link is broken or something goes wrong. Changes appear on the website when you save.');
+        return __('Shown when a link is broken or something goes wrong.');
+    }
+
+    /** Any address that does not exist shows the error page. */
+    protected function previewPath(): string
+    {
+        return '/page-not-found';
     }
 }

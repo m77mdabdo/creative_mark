@@ -14,8 +14,13 @@ class EditRegion extends EditRecord
 
     protected static string $resource = RegionResource::class;
 
+    protected function formRelations(): array
+    {
+        return ['services'];
+    }
+
     protected function getHeaderActions(): array
     {
-        return [TranslateMissingLanguagesAction::make(), DeleteAction::make()];
+        return [...$this->draftActions(), TranslateMissingLanguagesAction::make(), DeleteAction::make()];
     }
 }

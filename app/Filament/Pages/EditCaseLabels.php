@@ -2,6 +2,8 @@
 
 namespace App\Filament\Pages;
 
+use App\Models\CaseStudy;
+
 /** The fixed wording on every case study's page (chapter names, the at-a-glance bar, the closing invitation…). */
 class EditCaseLabels extends EditFixedTexts
 {
@@ -34,13 +36,18 @@ class EditCaseLabels extends EditFixedTexts
         return __('Case page texts');
     }
 
-    public function getSubheading(): string
+    protected function screenDescription(): string
     {
-        return __('The fixed wording on every case study’s page. Changes appear on the website when you save.');
+        return __('The fixed wording on every case study’s page.');
     }
 
     public function getBreadcrumbs(): array
     {
         return [EditCaseStudiesPage::getUrl() => __('Case studies'), $this->getTitle()];
+    }
+
+    protected function previewPath(): string
+    {
+        return CaseStudy::query()->live()->first()?->sitePath() ?? '/case-studies';
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Consultation\BookConsultation;
 use App\Consultation\Calendar;
 use App\Consultation\Notifier;
-use App\Content\PageData;
+use App\Content\MediaLibrary;
 use App\Http\Requests\BookConsultationRequest;
 use App\Models\Country;
 use App\Models\Region;
@@ -21,11 +21,11 @@ use Inertia\Response;
 /** Public consultation booking: form, submission and thank-you page. */
 class ConsultationController
 {
-    public function show(Request $request, Calendar $calendar, PageData $data): Response
+    public function show(Request $request, Calendar $calendar): Response
     {
         $locale = app()->getLocale();
-        $services = Service::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get();
-        $regions = Region::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get();
+        $services = Service::query()->live()->orderBy('sort_order')->withLocale($locale)->get();
+        $regions = Region::query()->live()->orderBy('sort_order')->withLocale($locale)->get();
         $ui = UiStrings::forLocale($locale);
 
         return Inertia::render('ConsultationPage', [
@@ -34,7 +34,7 @@ class ConsultationController
             'seo' => ['title' => $ui['bookTitle'].' | Creative Mark', 'description' => $ui['bookIntro']],
             'services' => $services->map(fn ($s) => ['slug' => $s->slug, 'title' => $s->t('title', $locale), 'icon' => $s->icon])->all(),
             'regions' => $regions->map(fn ($r) => ['slug' => $r->slug, 'name' => $r->t('name', $locale)])->all(),
-            'countries' => Country::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get()
+            'countries' => Country::query()->live()->orderBy('sort_order')->withLocale($locale)->get()
                 ->map(fn ($c) => ['code' => $c->code, 'name' => $c->t('name', $locale)])->all(),
             'dates' => $calendar->dates(),
             'slots' => $calendar->slots(),
@@ -46,7 +46,7 @@ class ConsultationController
                 'region' => $regions->contains('slug', $request->query('region')) ? $request->query('region') : null,
             ],
             'formToken' => encrypt((string) time()),
-            'media' => $data->mediaFor(['guide-towers'], $locale),
+            'media' => MediaLibrary::responsive(['guide-towers'], $locale),
         ]);
     }
 
@@ -78,7 +78,7 @@ class ConsultationController
 
         return Inertia::render('ConsultationThanks', [
             'pageKey' => 'consultation-thanks', 'reference' => $reference,
-            'media' => app(PageData::class)->mediaFor(['guide-boulevard'], app()->getLocale()),
+            'media' => MediaLibrary::responsive(['guide-boulevard'], app()->getLocale()),
         ]);
     }
 

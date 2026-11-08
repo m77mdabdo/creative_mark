@@ -186,5 +186,6 @@
     "previewBanner": "Preview: visitors will not see these changes until they are published",
     "whatsappLabel": "Chat with us on WhatsApp",
     "whatsappHint": "Questions about setting up in Saudi Arabia? Message us on WhatsApp.",
-    "whatsappGreeting": "Hello Creative Mark, I would like to ask about your services."
+    "whatsappGreeting": "Hello Creative Mark, I would like to ask about your services.",
+    "exitPreview": "Exit preview"
 }

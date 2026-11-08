@@ -16,7 +16,7 @@ class RegionController
 {
     public function __invoke(PageData $data, string $slug): Response
     {
-        $region = Region::query()->where('slug', $slug)->where('status', 'published')->with('translations')->firstOrFail();
+        $region = Region::query()->where('slug', $slug)->live()->with('translations')->firstOrFail();
         $page = RegionPageBuilder::ensure($region);
 
         return $page->published_revision_id

@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasTranslations;
+use App\Models\Contracts\Publishable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class CaseStudy extends Model
+class CaseStudy extends Model implements Publishable
 {
     use HasTranslations;
 
@@ -27,5 +28,15 @@ class CaseStudy extends Model
     protected function translationModel(): string
     {
         return CaseStudyTranslation::class;
+    }
+
+    public function sitePath(): string
+    {
+        return '/case-studies/'.$this->slug;
+    }
+
+    public function isLive(): bool
+    {
+        return $this->status === 'published';
     }
 }

@@ -13,7 +13,7 @@
   <img alt="Inertia" src="https://img.shields.io/badge/Inertia.js-3-9553E9">
   <img alt="Filament 5" src="https://img.shields.io/badge/Filament-5-FDAE4B">
   <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-379_passing-2E7D32">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-388_passing-2E7D32">
 </p>
 
 <p align="center">
@@ -263,6 +263,15 @@ role × permission combination, dashboard access, two-factor enforcement and the
 - [Photo credits](docs/photo-credits.md)
 
 ## Changelog
+
+### 2026-11-08
+- Save, preview and publish everywhere: changes to anything visitors can see (figures, reviews, questions, services,
+  regions, countries, news, case studies, fixed wording, contact details, menu and footer, Google texts) wait as a
+  draft until Publish. Preview mode shows the whole site with every draft to staff only, with a bar to leave it.
+  The dashboard home lists every unpublished change with who made it. Editors can now draft changes to live content;
+  publishing stays with content managers.
+- Architecture review (docs/reviews/2026-11-08-architecture-review.md): images get their own tables (no lost uploads),
+  listing indexes, one definition of "on the website", smaller page-data classes, browser protection headers.
 
 ### 2026-11-05
 - Dashboard staff tools. Staff and permissions: invite people by email (they choose their own password), change roles,

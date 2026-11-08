@@ -45,7 +45,7 @@ class NewsArticlesTable
                     ->query(fn ($query, array $data) => match ($data['value'] ?? null) {
                         'draft' => $query->where('status', 'draft'),
                         'scheduled' => $query->where('status', 'published')->where('publish_at', '>', now()),
-                        'live' => $query->where('status', 'published')->where(fn ($q) => $q->whereNull('publish_at')->orWhere('publish_at', '<=', now())),
+                        'live' => $query->live(),
                         default => $query,
                     }),
             ])

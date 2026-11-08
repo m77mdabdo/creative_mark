@@ -61,7 +61,7 @@ function useActiveChapter(ids: readonly string[]) {
  * A case study told as four chapters (starting point, steps, delivered, where it leads) beside a sticky index,
  * with an "at a glance" bar, the region on the map, the services used and more cases.
  */
-export default function CaseStudyPage(props: CaseStudyPageProps & { preview?: boolean }) {
+export default function CaseStudyPage(props: CaseStudyPageProps) {
   const { t, locale } = useSite()
   // Wording edited in the dashboard wins over the standard interface text.
   const l = (key: UiKey) => props.labels?.[key] || t(key)
@@ -88,9 +88,7 @@ export default function CaseStudyPage(props: CaseStudyPageProps & { preview?: bo
     <Head>
       <title>{props.seo.title}</title>
       <meta name="description" content={props.seo.description} />
-      {props.preview && <meta name="robots" content="noindex" />}
     </Head>
-    {props.preview && <div role="status" className="fixed inset-x-0 bottom-4 z-[60] mx-auto w-fit max-w-[calc(100%-2rem)] rounded-full bg-gold px-5 py-2.5 text-center text-sm font-semibold text-ink shadow-2xl">{t('previewBanner')}</div>}
     <div ref={scope}>
       <header className="th-dark relative flex min-h-[86svh] items-end overflow-hidden">
         <Media media={props.media[c.media]} eager sizes="100vw" className="absolute inset-0 h-full w-full animate-[cm-kenburns_14s_ease-out_both] motion-reduce:animate-none" />

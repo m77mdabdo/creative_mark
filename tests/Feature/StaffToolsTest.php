@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Consultation\BookingExport;
 use App\Content\MediaLibrary;
 use App\Enums\Role;
 use App\Filament\Pages\MediaLibraryPage;
@@ -14,9 +15,9 @@ use App\Mail\StaffAccessLink;
 use App\Models\ActivityLog;
 use App\Models\ConsultationRequest;
 use App\Models\Faq;
-use App\Models\Setting;
+use App\Models\MediaAsset;
+use App\Models\Service;
 use App\Models\User;
-use App\Consultation\BookingExport;
 use Database\Seeders\ContentSeeder;
 use Database\Seeders\RbacSeeder;
 use Filament\Facades\Filament;
@@ -220,7 +221,7 @@ class StaffToolsTest extends TestCase
         $this->assertFalse(ActivityLog::where('subject_type', 'Setting')->exists());
 
         // In use: refused even if requested directly
-        $service = \App\Models\Service::query()->first();
+        $service = Service::query()->first();
         $service->update(['media' => $key]);
         MediaLibrary::flush();
         $page->callAction('delete', [], ['key' => $key]);
@@ -236,6 +237,26 @@ class StaffToolsTest extends TestCase
 
         // Editors upload but cannot delete; sales staff cannot open it
         $this->actingAs(User::factory()->withRole(Role::SalesAgent)->create())->get('/admin/media-library')->assertForbidden();
-        $this->assertNotNull(Setting::where('group', 'media')->first());
+        // The shipped photography is untouched
+        $this->assertSame(129, MediaAsset::count());
+    }
+
+    public function test_simultaneous_uploads_do_not_lose_each_other(): void
+    {
+        $files = [];
+        foreach ([1, 2] as $i) {
+            $files[$i] = tempnam(sys_get_temp_dir(), 'img');
+            imagepng(imagecreatetruecolor(900, 600), $files[$i]);
+        }
+        $first = MediaLibrary::store($files[1], 'First');
+        // A second request that read the library before the first upload finished
+        MediaLibrary::flush();
+        $second = MediaLibrary::store($files[2], 'Second');
+        MediaLibrary::flush();
+        $this->assertArrayHasKey($first, MediaLibrary::all());
+        $this->assertArrayHasKey($second, MediaLibrary::all());
+        foreach ([$first, $second] as $key) {
+            array_map('unlink', glob(public_path("media/uploads/{$key}-*.webp")));
+        }
     }
 }

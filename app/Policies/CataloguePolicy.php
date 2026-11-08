@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Catalogue records (services, regions, FAQ, statistics, testimonials, countries).
- * RULE-05: Editors work on drafts; only content.publish (Content Manager, Super Admin) may change
- * a published record, publish one, or delete. Super Admin passes earlier through Gate::before.
+ * RULE-05: Editors work on drafts. Changes to a record on the website are kept as a draft (SavesTranslations),
+ * so editors may make them; only content.publish (Content Manager, Super Admin) publishes or deletes.
+ * Super Admin passes earlier through Gate::before.
  */
 class CataloguePolicy
 {
@@ -29,7 +30,7 @@ class CataloguePolicy
 
     public function update(User $user, Model $record): bool
     {
-        return $user->can('content.publish') || ($user->can('content.edit') && ! $this->isLive($record));
+        return $user->can('content.edit');
     }
 
     public function publish(User $user): bool
@@ -45,11 +46,5 @@ class CataloguePolicy
     public function deleteAny(User $user): bool
     {
         return $user->can('content.publish');
-    }
-
-    private function isLive(Model $record): bool
-    {
-        // Records without a status column (statistics) are always live, so only publishers may edit them.
-        return ($record->getAttributes()['status'] ?? 'published') === 'published';
     }
 }

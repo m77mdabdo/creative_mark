@@ -16,6 +16,6 @@ class EditTestimonial extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [TranslateMissingLanguagesAction::make(), DeleteAction::make()];
+        return [...$this->draftActions(), TranslateMissingLanguagesAction::make(), DeleteAction::make()];
     }
 }

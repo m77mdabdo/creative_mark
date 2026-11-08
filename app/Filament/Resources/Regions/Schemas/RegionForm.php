@@ -39,8 +39,8 @@ class RegionForm
                     ->helperText(__('Matches the region shape on the map; fixed.')),
                 TextInput::make('sort_order')->label(__('Order'))->numeric()->minValue(0)->required(),
                 Fields::media(),
-                Select::make('services')->label(__('Recommended services'))->relationship('services', 'slug', fn ($query) => $query->with('translations'))->multiple()->preload()
-                    ->getOptionLabelFromRecordUsing(fn (Service $s) => $s->t('title', app()->getLocale()) ?? $s->slug),
+                Select::make('services')->label(__('Recommended services'))->multiple()->native(false)
+                    ->options(fn () => Service::query()->with('translations')->orderBy('sort_order')->get()->mapWithKeys(fn (Service $s) => [$s->id => $s->t('title', app()->getLocale()) ?? $s->slug])->all()),
                 Select::make('industries')->label(__('Leading sectors'))->multiple()->searchable()->native(false)
                     ->options(fn () => collect(Setting::group('catalogue')['industries'] ?? [])->map(fn ($l) => $l[app()->getLocale()] ?? $l['en'])->all()),
                 TextInput::make('source')->label(__('Source'))->maxLength(120),

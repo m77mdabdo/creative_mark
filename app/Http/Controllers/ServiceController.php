@@ -16,7 +16,7 @@ class ServiceController
 {
     public function __invoke(PageData $data, string $slug): Response
     {
-        $service = Service::query()->where('slug', $slug)->where('status', 'published')->with('translations')->firstOrFail();
+        $service = Service::query()->where('slug', $slug)->live()->with('translations')->firstOrFail();
         $page = ServicePageBuilder::ensure($service);
 
         return $page->published_revision_id

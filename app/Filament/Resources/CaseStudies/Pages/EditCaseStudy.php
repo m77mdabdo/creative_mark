@@ -5,7 +5,6 @@ namespace App\Filament\Resources\CaseStudies\Pages;
 use App\Filament\Actions\TranslateMissingLanguagesAction;
 use App\Filament\Concerns\SavesTranslations;
 use App\Filament\Resources\CaseStudies\CaseStudyResource;
-use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
@@ -20,8 +19,7 @@ class EditCaseStudy extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Action::make('preview')->label(__('Preview'))->icon('heroicon-o-eye')->color('gray')
-                ->url(fn () => route('admin.cases.preview', ['slug' => $this->getRecord()->slug, 'locale' => app()->getLocale()]), shouldOpenInNewTab: true),
+            ...$this->draftActions(),
             TranslateMissingLanguagesAction::make(),
             DeleteAction::make(),
         ];

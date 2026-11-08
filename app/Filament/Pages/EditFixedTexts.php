@@ -2,14 +2,13 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Concerns\KeepsSettingsAsDraft;
 use App\Filament\Support\SectionForm;
 use App\Models\Setting;
 use App\Support\Locales;
 use App\Translation\UiStrings;
-use Filament\Actions\Action;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\EmbeddedSchema;
 use Filament\Schemas\Components\Form;
@@ -18,10 +17,12 @@ use Filament\Schemas\Schema;
 /**
  * The fixed wording of a template used by many records (every story, every case), per language. Stored in the
  * settings under `labels`; only what differs from the standard wording is kept, so anything left alone keeps
- * following it. Live when saved.
+ * following it. Changes wait as a draft until published.
  */
 abstract class EditFixedTexts extends Page
 {
+    use KeepsSettingsAsDraft;
+
     /** Interface key => [dashboard label, long text?] */
     public const LABELS = [];
 
@@ -52,7 +53,7 @@ abstract class EditFixedTexts extends Page
         return Setting::group(static::GROUP)['labels'] ?? [];
     }
 
-    public function mount(): void
+    protected function fillFromSettings(): void
     {
         $saved = static::saved();
         $labels = [];
@@ -82,16 +83,11 @@ abstract class EditFixedTexts extends Page
         return $schema->components([Form::make([EmbeddedSchema::make('form')])->id('form')->livewireSubmitHandler('save')]);
     }
 
-    protected function getHeaderActions(): array
+    protected function settingWrites(array $state): array
     {
-        return [Action::make('save')->label(__('Save'))->icon('heroicon-o-check')->keyBindings(['mod+s'])->action(fn () => $this->save())];
-    }
-
-    public function save(): void
-    {
-        // Several pages share a group: only this page's keys are replaced.
-        $labels = array_diff_key(static::saved(), static::labels());
-        foreach ($this->form->getState()['labels'] ?? [] as $key => $map) {
+        // Several screens share a group: this one owns only its keys.
+        $labels = [];
+        foreach ($state['labels'] ?? [] as $key => $map) {
             foreach ((array) $map as $locale => $text) {
                 $text = trim(strip_tags((string) $text));
                 if ($text !== '' && isset(static::labels()[$key]) && $text !== (UiStrings::standard($locale)[$key] ?? null)) {
@@ -99,7 +95,7 @@ abstract class EditFixedTexts extends Page
                 }
             }
         }
-        Setting::updateOrCreate(['group' => static::GROUP, 'key' => 'labels'], ['value' => $labels]);
-        Notification::make()->success()->title(__('Saved'))->send();
+
+        return [['group' => static::GROUP, 'key' => 'labels', 'value' => $labels, 'owns' => array_keys(static::labels())]];
     }
 }

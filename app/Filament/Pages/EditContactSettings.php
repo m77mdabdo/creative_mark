@@ -2,11 +2,10 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Concerns\KeepsSettingsAsDraft;
 use App\Models\Setting;
 use BackedEnum;
-use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\EmbeddedSchema;
 use Filament\Schemas\Components\Form;
@@ -17,6 +16,8 @@ use Filament\Support\Icons\Heroicon;
 /** Phone, email, WhatsApp and social links shown in the footer, the contact page and the WhatsApp button. */
 class EditContactSettings extends Page
 {
+    use KeepsSettingsAsDraft;
+
     protected static ?string $slug = 'settings/contact';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhone;
@@ -48,12 +49,12 @@ class EditContactSettings extends Page
         return __('Contact details');
     }
 
-    public function getSubheading(): string
+    protected function screenDescription(): string
     {
-        return __('Shown in the footer, on the contact page and in the WhatsApp button. Changes appear when you save.');
+        return __('Shown in the footer, on the contact page and in the WhatsApp button.');
     }
 
-    public function mount(): void
+    protected function fillFromSettings(): void
     {
         $contact = Setting::group('contact');
         $this->form->fill([
@@ -86,18 +87,23 @@ class EditContactSettings extends Page
         return $schema->components([Form::make([EmbeddedSchema::make('form')])->id('form')->livewireSubmitHandler('save')]);
     }
 
-    protected function getHeaderActions(): array
+    protected function settingWrites(array $state): array
     {
-        return [Action::make('save')->label(__('Save'))->icon('heroicon-o-check')->keyBindings(['mod+s'])->action(fn () => $this->save())];
+        $clean = fn ($v) => filled($v) ? trim((string) $v) : null;
+
+        return [
+            ...array_map(fn ($key) => ['group' => 'contact', 'key' => $key, 'value' => $clean($state[$key] ?? null)], ['phone', 'email', 'whatsapp']),
+            ['group' => 'social', 'key' => 'links', 'value' => array_map($clean, $state['social'] ?? [])],
+        ];
     }
 
-    public function save(): void
+    protected function previewPath(): string
     {
-        $data = $this->form->getState();
-        foreach (['phone', 'email', 'whatsapp'] as $key) {
-            Setting::updateOrCreate(['group' => 'contact', 'key' => $key], ['value' => filled($data[$key] ?? null) ? trim($data[$key]) : null]);
-        }
-        Setting::updateOrCreate(['group' => 'social', 'key' => 'links'], ['value' => array_map(fn ($v) => filled($v) ? trim($v) : null, $data['social'] ?? [])]);
-        Notification::make()->success()->title(__('Saved'))->send();
+        return '/contact';
+    }
+
+    protected function canPublish(): bool
+    {
+        return static::canAccess();
     }
 }

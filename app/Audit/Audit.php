@@ -2,10 +2,12 @@
 
 namespace App\Audit;
 
+use App\Drafts\Draft;
 use App\Models\ActivityLog;
+use App\Models\MediaAsset;
+use App\Models\MediaAssetTranslation;
 use App\Models\Page;
 use App\Models\PageRevision;
-use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -19,8 +21,8 @@ use Throwable;
  */
 final class Audit
 {
-    /** Not worth a line, or written by this class. */
-    private const IGNORED = [ActivityLog::class, PageRevision::class];
+    /** Not worth a line, or recorded in clearer words by the screen that changed them (the media library). */
+    private const IGNORED = [ActivityLog::class, PageRevision::class, MediaAsset::class, MediaAssetTranslation::class, Draft::class];
 
     /** Housekeeping columns that do not count as a change. */
     private const QUIET_FIELDS = ['updated_at', 'created_at', 'lock_version', 'remember_token', 'last_login_at', 'live_notified_at', 'notified_at', 'confirmed_at', 'mail_error', 'last_notified_at', 'reviewed_at'];
@@ -30,7 +32,7 @@ final class Audit
     public static function modelEvent(string $event, Model $model): void
     {
         try {
-            if (! Auth::check() || in_array($model::class, self::IGNORED, true) || ($model instanceof Setting && $model->group === 'media')) {
+            if (! Auth::check() || in_array($model::class, self::IGNORED, true)) {
                 return;
             }
             // A translation row counts as a change to the record it translates.

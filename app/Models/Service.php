@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasTranslations;
+use App\Models\Concerns\PublishedByStatus;
+use App\Models\Contracts\Publishable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Service extends Model
+class Service extends Model implements Publishable
 {
-    use HasTranslations;
+    use HasTranslations, PublishedByStatus;
 
     protected $fillable = ['slug', 'icon', 'media', 'sort_order', 'status', 'needs_review', 'group', 'related'];
 
@@ -25,5 +27,10 @@ class Service extends Model
     public function faqs(): BelongsToMany
     {
         return $this->belongsToMany(Faq::class);
+    }
+
+    public function sitePath(): string
+    {
+        return '/services/'.$this->slug;
     }
 }

@@ -91,7 +91,7 @@ class ContentTranslator
     }
 
     /**
-     * Settings whose values are locale maps (navigation labels, offices, catalogue labels, image alt text).
+     * Settings whose values are locale maps (navigation labels, offices, catalogue labels).
      * Settings are not edited per language in the dashboard yet, so on refresh every language outside
      * the source languages (English, Arabic) is treated as machine text and redone.
      *

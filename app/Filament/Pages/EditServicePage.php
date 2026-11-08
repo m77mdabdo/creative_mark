@@ -71,4 +71,9 @@ class EditServicePage extends EditPageSections
             ->isActiveWhen(fn () => request()->routeIs(static::getRouteName()) && request()->route('service') === $s->slug)
             ->visible(fn () => static::canAccess()))->all();
     }
+
+    protected function editorUrl(): string
+    {
+        return static::getUrl(['service' => $this->service]);
+    }
 }

@@ -2,30 +2,34 @@
 
 namespace App\Content;
 
+use App\Drafts\PreviewMode;
 use App\Enums\ReviewStatus;
 use App\Models\CaseStudy;
-use App\Models\Country;
 use App\Models\Faq;
 use App\Models\NewsArticle;
 use App\Models\Page;
-use App\Models\Region;
 use App\Models\Service;
 use App\Models\Setting;
-use App\Models\Stat;
-use App\Models\Testimonial;
 use App\Support\Locales;
 use App\Translation\UiStrings;
 
 /**
- * Builds the props of a CMS page (home, about…) from its published revision and the catalogue.
- * Everything filtered by a content rule is removed here, so it never reaches the browser.
+ * Builds the props of a CMS page (home, about…) and of the detail pages (service, region, story, case) from the
+ * published revision and the catalogue (App\Content\Catalogue). Everything filtered by a content rule is removed
+ * here or there, so it never reaches the browser.
  */
 final class PageData
 {
-    /** @return array<string, mixed> */
-    /** @param bool $draft true renders the unpublished draft (dashboard preview only) */
-    public function forPage(string $key, string $locale, bool $draft = false): array
+    public function __construct(private readonly PreviewMode $preview, private readonly Catalogue $catalogue) {}
+
+    /**
+     * In preview mode (staff only) a page shows its saved draft sections.
+     *
+     * @return array<string, mixed>
+     */
+    public function forPage(string $key, string $locale): array
     {
+        $draft = $this->preview->active();
         $page = Page::query()->where('key', $key)->withLocale($locale)->with('publishedRevision')->firstOrFail();
         abort_unless($draft || $page->publishedRevision, 404);
 
@@ -41,12 +45,12 @@ final class PageData
             $sections[] = $this->localizeSection($s, $locale);
         }
 
-        $catalogue = $this->catalogue($locale, $faqLimit);
+        $catalogue = $this->catalogue->forLocale($locale, $faqLimit);
         if (collect($sections)->contains(fn ($s) => str_starts_with($s['type'], 'news'))) {
             $catalogue['articles'] = $this->articles(NewsArticle::query()->live()->withLocale($locale)->get(), $locale);
         }
         if (collect($sections)->contains(fn ($s) => $s['type'] === 'faqLibrary')) {
-            $catalogue['faqLibrary'] = $this->faqLibrary($locale);
+            $catalogue['faqLibrary'] = $this->catalogue->faqLibrary($locale);
         }
         if (collect($sections)->contains(fn ($s) => $s['type'] === 'caseGrid')) {
             $catalogue['cases'] = $this->cases(CaseStudy::query()->live()->withLocale($locale)->get(), $locale);
@@ -55,7 +59,7 @@ final class PageData
         $extra = [];
         if (str_starts_with($key, 'service-')) {
             $service = Service::query()->where('slug', substr($key, 8))->withLocale($locale)
-                ->with(['faqs' => fn ($q) => $q->where('status', 'published')->where('needs_review', false)->orderBy('sort_order')->withLocale($locale)])->first();
+                ->with(['faqs' => fn ($q) => $q->live()->orderBy('sort_order')->withLocale($locale)])->first();
             if ($service) {
                 $bySlug = collect($catalogue['services'])->keyBy('slug');
                 $catalogue['faqs'] = $service->faqs->map(fn (Faq $f) => ['id' => $f->id, 'question' => $f->t('question', $locale), 'answer' => $f->t('answer', $locale)])->all();
@@ -127,10 +131,10 @@ final class PageData
      */
     public function forService(string $slug, string $locale): array
     {
-        $service = Service::query()->where('slug', $slug)->where('status', 'published')->withLocale($locale)
-            ->with(['faqs' => fn ($q) => $q->where('status', 'published')->where('needs_review', false)->orderBy('sort_order')->withLocale($locale)])
+        $service = Service::query()->where('slug', $slug)->live()->withLocale($locale)
+            ->with(['faqs' => fn ($q) => $q->live()->orderBy('sort_order')->withLocale($locale)])
             ->firstOrFail();
-        $catalogue = $this->catalogue($locale, 0);
+        $catalogue = $this->catalogue->forLocale($locale, 0);
         $bySlug = collect($catalogue['services'])->keyBy('slug');
         $related = collect($service->related ?? [])->map(fn ($s) => $bySlug[$s] ?? null)->filter()->take(3)->values()->all();
         $translation = $service->translation($locale);
@@ -153,7 +157,7 @@ final class PageData
             'serviceGroups' => $catalogue['serviceGroups'],
             'stats' => $catalogue['stats'],
         ];
-        $props['media'] = $this->mediaFor([$service->media, ...array_column($related, 'media'), 'about-kingdom-centre'], $locale);
+        $props['media'] = MediaLibrary::responsive([$service->media, ...array_column($related, 'media'), 'about-kingdom-centre'], $locale);
 
         return $props;
     }
@@ -166,7 +170,7 @@ final class PageData
      */
     public function forRegion(string $slug, string $locale): array
     {
-        $catalogue = $this->catalogue($locale, 0);
+        $catalogue = $this->catalogue->forLocale($locale, 0);
         $regions = collect($catalogue['regions']);
         $index = $regions->search(fn ($r) => $r['slug'] === $slug);
         abort_if($index === false, 404);
@@ -189,20 +193,20 @@ final class PageData
             'industries' => $catalogue['industries'],
             'related' => $related,
             'otherRegions' => $others,
-            'media' => $this->mediaFor([$region['media'], ...array_column($related, 'media'), ...array_column($others, 'media'), 'about-kingdom-centre'], $locale),
+            'media' => MediaLibrary::responsive([$region['media'], ...array_column($related, 'media'), ...array_column($others, 'media'), 'about-kingdom-centre'], $locale),
         ];
     }
 
     /**
      * One news article with up to three related articles (same category first, then the latest).
+     * In preview mode an unpublished story can be opened too.
      *
      * @return array<string, mixed>
      */
-    /** @param bool $draft true also finds an unpublished story (dashboard preview only) */
-    public function forArticle(string $slug, string $locale, bool $draft = false): array
+    public function forArticle(string $slug, string $locale): array
     {
         $all = NewsArticle::query()->live()->withLocale($locale)->get();
-        $article = $all->firstWhere('slug', $slug) ?? ($draft ? NewsArticle::query()->where('slug', $slug)->withLocale($locale)->first() : null);
+        $article = $all->firstWhere('slug', $slug) ?? ($this->preview->active() ? NewsArticle::query()->where('slug', $slug)->withLocale($locale)->first() : null);
         abort_unless($article, 404);
         $others = $all->reject(fn ($a) => $a->is($article));
         $related = $others->where('category', $article->category)->merge($others->where('category', '!=', $article->category))->take(3);
@@ -223,22 +227,22 @@ final class PageData
             'article' => $item,
             'related' => $this->articles($related, $locale),
             'latest' => array_map(fn ($a) => ['slug' => $a['slug'], 'title' => $a['title']], $this->articles($others->take(6), $locale)),
-            'media' => $this->mediaFor([$article->media, ...$related->pluck('media')->all(), 'news-corniche'], $locale),
+            'media' => MediaLibrary::responsive([$article->media, ...$related->pluck('media')->all(), 'news-corniche'], $locale),
         ];
     }
 
     /**
      * A case study with its region, services (from the catalogue) and two more cases.
+     * In preview mode an unpublished case can be opened too.
      *
      * @return array<string, mixed>
      */
-    /** @param bool $draft true also finds an unpublished case (dashboard preview only) */
-    public function forCaseStudy(string $slug, string $locale, bool $draft = false): array
+    public function forCaseStudy(string $slug, string $locale): array
     {
         $all = CaseStudy::query()->live()->withLocale($locale)->get();
-        $case = $all->firstWhere('slug', $slug) ?? ($draft ? CaseStudy::query()->where('slug', $slug)->withLocale($locale)->first() : null);
+        $case = $all->firstWhere('slug', $slug) ?? ($this->preview->active() ? CaseStudy::query()->where('slug', $slug)->withLocale($locale)->first() : null);
         abort_unless($case, 404);
-        $catalogue = $this->catalogue($locale, 0);
+        $catalogue = $this->catalogue->forLocale($locale, 0);
         [$item] = $this->cases(collect([$case]), $locale, withStory: true);
         $services = collect($catalogue['services'])->keyBy('slug');
         $related = collect($case->services ?? [])->map(fn ($s) => $services[$s] ?? null)->filter()->values()->all();
@@ -263,7 +267,7 @@ final class PageData
             'countries' => $catalogue['countries'],
             'related' => $related,
             'otherCases' => $others,
-            'media' => $this->mediaFor([$case->media, ...array_column($related, 'media'), ...array_column($others, 'media'), 'case-dubai'], $locale),
+            'media' => MediaLibrary::responsive([$case->media, ...array_column($related, 'media'), ...array_column($others, 'media'), 'case-dubai'], $locale),
         ];
     }
 
@@ -348,74 +352,7 @@ final class PageData
     }
 
     /**
-     * Every published, reviewed question with its category, for the FAQ page.
-     *
-     * @return array{categories: list<array{key: string, label: string}>, items: list<array<string, mixed>>}
-     */
-    private function faqLibrary(string $locale): array
-    {
-        $labels = Setting::group('catalogue')['faq_categories'] ?? [];
-        $items = Faq::query()->where('status', 'published')->where('needs_review', false)->orderBy('sort_order')->withLocale($locale)->get()
-            ->map(fn (Faq $m) => ['id' => $m->id, 'category' => $m->category, 'question' => $m->t('question', $locale), 'answer' => $m->t('answer', $locale)])->all();
-        $used = array_unique(array_column($items, 'category'));
-
-        return [
-            'categories' => array_values(array_map(fn ($key) => ['key' => $key, 'label' => $labels[$key][$locale] ?? $labels[$key][Locales::FALLBACK] ?? $key],
-                array_values(array_filter(array_keys($labels), fn ($k) => in_array($k, $used, true))))),
-            'items' => $items,
-        ];
-    }
-
-    /** @return array<string, mixed> */
-    private function catalogue(string $locale, int $faqLimit): array
-    {
-        $services = Service::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get();
-        $slugs = $services->pluck('slug', 'id');
-        $industries = Setting::group('catalogue')['industries'] ?? [];
-
-        return [
-            'services' => $services->map(fn (Service $m) => [
-                'slug' => $m->slug, 'icon' => $m->icon, 'media' => $m->media, 'order' => $m->sort_order, 'group' => $m->group,
-                'title' => $m->t('title', $locale), 'tagline' => $m->t('tagline', $locale),
-                // RULE-01: a summary quoting an unverified figure is replaced by the tagline
-                'summary' => $m->needs_review ? $m->t('tagline', $locale) : $m->t('summary', $locale), 'cta' => $m->t('cta', $locale),
-            ])->all(),
-            'regions' => Region::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->with('services:id')->get()
-                ->map(fn (Region $m) => [
-                    'slug' => $m->slug, 'media' => $m->media,
-                    'name' => $m->t('name', $locale), 'capital' => $m->t('capital', $locale),
-                    'bestFor' => $m->t('best_for', $locale), 'description' => $m->t('description', $locale),
-                    'opportunities' => $m->translation($locale)?->opportunities ?? [],
-                    'industries' => $m->industries ?? [],
-                    'services' => $m->services->map(fn ($s) => $slugs[$s->id] ?? null)->filter()->values()->all(),
-                ])->all(),
-            'industries' => array_map(fn ($l) => $l[$locale] ?? $l[Locales::FALLBACK], $industries),
-            'serviceGroups' => array_map(fn ($l) => $l[$locale] ?? $l[Locales::FALLBACK], Setting::group('catalogue')['service_groups'] ?? []),
-            // The investor journey (presentation p39) used by the process section and the formation page.
-            'journey' => array_map(fn (array $step) => [
-                'title' => $step['title'][$locale] ?? $step['title'][Locales::FALLBACK],
-                'text' => $step['text'][$locale] ?? $step['text'][Locales::FALLBACK],
-            ], Setting::group('catalogue')['journey'] ?? []),
-            // RULE-01: only verified figures are sent
-            'stats' => Stat::query()->where('verified', true)->orderBy('sort_order')->withLocale($locale)->get()
-                ->map(fn (Stat $m) => ['key' => $m->key, 'value' => $m->value, 'icon' => $m->icon, 'group' => $m->group, 'label' => $m->t('label', $locale)])->all(),
-            'countries' => Country::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get()
-                ->map(fn (Country $m) => ['code' => $m->code, 'name' => $m->t('name', $locale)])->all(),
-            'faqs' => Faq::query()->where('status', 'published')->where('show_on_home', true)->where('needs_review', false)
-                ->orderBy('sort_order')->limit($faqLimit)->withLocale($locale)->get()
-                ->map(fn (Faq $m) => ['id' => $m->id, 'question' => $m->t('question', $locale), 'answer' => $m->t('answer', $locale)])->all(),
-            // RULE-02: names only with recorded consent; otherwise the neutral "Client review" label
-            'testimonials' => Testimonial::query()->where('status', 'published')->orderBy('sort_order')->withLocale($locale)->get()
-                ->map(fn (Testimonial $m) => [
-                    'id' => $m->id, 'quote' => $m->t('quote', $locale), 'context' => $m->t('context', $locale),
-                    'author' => $m->consent_recorded_at ? $m->t('author', $locale) : null,
-                    'verified' => $m->verified && $m->consent_recorded_at !== null,
-                ])->all(),
-        ];
-    }
-
-    /**
-     * Placeholder photography until the media library lands (ADR-0006). Only images used on the page are sent.
+     * Only the images used on the page are sent.
      *
      * @return array<string, array{src: string, srcset: string, alt: string}>
      */
@@ -427,33 +364,7 @@ final class PageData
                 ...array_column($s['cards'], 'media'), ...array_column($s['slides'], 'media'));
         }
         array_push($ids, ...array_column($catalogue['services'], 'media'), ...array_column($catalogue['regions'], 'media'), ...array_column($catalogue['articles'] ?? [], 'media'), ...array_column($catalogue['cases'] ?? [], 'media'));
-        // Section backgrounds may name any library image, not only those referenced by content.
 
-        return $this->mediaFor($ids, $locale);
-    }
-
-    /**
-     * @param  array<int, string|null>  $ids
-     * @return array<string, array{src: string, srcset: string, alt: string}>
-     */
-    public function mediaFor(array $ids, string $locale): array
-    {
-        $alts = Setting::group('media')['placeholders'] ?? [];
-        $out = [];
-        foreach (array_unique(array_filter($ids)) as $id) {
-            if (! isset($alts[$id])) {
-                continue;
-            }
-            // Each entry knows its folder and generated widths (hero photography has larger renditions).
-            $base = '/media/'.($alts[$id]['folder'] ?? 'placeholders')."/$id";
-            $widths = $alts[$id]['widths'] ?? [800, 1600];
-            $out[$id] = [
-                'src' => "$base-".$widths[intdiv(count($widths), 2)].'.webp',
-                'srcset' => implode(', ', array_map(fn (int $w) => "$base-$w.webp {$w}w", $widths)),
-                'alt' => $alts[$id]['alt'][$locale] ?? $alts[$id]['alt'][Locales::FALLBACK],
-            ];
-        }
-
-        return $out;
+        return MediaLibrary::responsive($ids, $locale);
     }
 }

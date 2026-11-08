@@ -4,6 +4,7 @@ import { useSmoothScroll } from '@/motion/useSmoothScroll'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import Footer from './site/Footer'
 import Header from './site/Header'
+import PreviewBar from './site/PreviewBar'
 import TranslationNotice from './site/TranslationNotice'
 
 type Props = { children: ReactNode; showTranslationNotice?: boolean; hideWhatsApp?: boolean }
@@ -19,5 +20,6 @@ export default function SiteLayout({ children, showTranslationNotice = false, hi
     <main id="main" tabIndex={-1} className="outline-none">{children}</main>
     <Footer />
     <WhatsAppButton hidden={hideWhatsApp} />
+    <PreviewBar />
   </>
 }

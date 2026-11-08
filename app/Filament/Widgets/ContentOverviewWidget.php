@@ -41,7 +41,7 @@ class ContentOverviewWidget extends StatsOverviewWidget
 
         return [
             Stat::make(__('Published content'), Page::query()->whereNotNull('published_revision_id')->count())
-                ->description(Service::query()->where('status', 'published')->count().' '.__('Services'))->descriptionIcon('heroicon-m-document-text')->color('success'),
+                ->description(Service::query()->live()->count().' '.__('Services'))->descriptionIcon('heroicon-m-document-text')->color('success'),
             Stat::make(__('Published stories'), NewsArticle::query()->live()->count())
                 ->description(CaseStudy::query()->live()->count().' '.__('Case studies live'))->descriptionIcon('heroicon-m-newspaper')->color('info'),
             Stat::make(__('Pages with languages to review'), $pagesToReview)

@@ -2,15 +2,14 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Concerns\KeepsSettingsAsDraft;
 use App\Filament\Support\SectionForm;
 use App\Models\Setting;
 use App\Support\Locales;
 use BackedEnum;
-use Filament\Actions\Action;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\EmbeddedSchema;
 use Filament\Schemas\Components\Form;
@@ -19,10 +18,12 @@ use Filament\Support\Icons\Heroicon;
 
 /**
  * The investor journey steps (presentation p39), shown in the "process" sections of the Services and
- * Start your company pages. Stored in the catalogue settings; changes go live when saved.
+ * Start your company pages. Stored in the catalogue settings.
  */
 class EditJourney extends Page
 {
+    use KeepsSettingsAsDraft;
+
     protected static ?string $slug = 'pages/journey';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMap;
@@ -54,12 +55,12 @@ class EditJourney extends Page
         return __('Investor journey steps');
     }
 
-    public function getSubheading(): string
+    protected function screenDescription(): string
     {
-        return __('Shown on the Services and Start your company pages. Changes appear on the website when you save.');
+        return __('Shown on the Services and Start your company pages.');
     }
 
-    public function mount(): void
+    protected function fillFromSettings(): void
     {
         $this->form->fill(['steps' => Setting::group('catalogue')['journey'] ?? []]);
     }
@@ -83,16 +84,16 @@ class EditJourney extends Page
         return $schema->components([Form::make([EmbeddedSchema::make('form')])->id('form')->livewireSubmitHandler('save')]);
     }
 
-    protected function getHeaderActions(): array
-    {
-        return [Action::make('save')->label(__('Save'))->icon('heroicon-o-check')->keyBindings(['mod+s'])->action(fn () => $this->save())];
-    }
-
-    public function save(): void
+    protected function settingWrites(array $state): array
     {
         $clean = fn (array $map) => array_filter(array_intersect_key(array_map(fn ($v) => is_string($v) ? trim(strip_tags($v)) : null, $map), Locales::ALL), 'filled');
-        $steps = array_values(array_map(fn (array $s) => ['title' => $clean($s['title'] ?? []), 'text' => $clean($s['text'] ?? [])], $this->form->getState()['steps'] ?? []));
-        Setting::updateOrCreate(['group' => 'catalogue', 'key' => 'journey'], ['value' => $steps]);
-        Notification::make()->success()->title(__('Saved. The website shows the new steps.'))->send();
+        $steps = array_values(array_map(fn (array $s) => ['title' => $clean($s['title'] ?? []), 'text' => $clean($s['text'] ?? [])], $state['steps'] ?? []));
+
+        return [['group' => 'catalogue', 'key' => 'journey', 'value' => $steps]];
+    }
+
+    protected function previewPath(): string
+    {
+        return '/start-your-company';
     }
 }

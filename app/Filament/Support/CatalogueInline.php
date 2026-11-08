@@ -2,10 +2,9 @@
 
 namespace App\Filament\Support;
 
-use App\Enums\ReviewStatus;
-use App\Models\Stat;
-use App\Models\Testimonial;
-use App\Support\Locales;
+use App\Content\CatalogueSync;
+use App\Drafts\Drafts;
+use App\Drafts\Targets\CatalogueTarget;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
@@ -15,13 +14,11 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Grid;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
  * Edit the figures and client reviews shown on a page without leaving the page editor. Same records as
- * Content › Statistics and Content › Testimonials; changes are live when saved (like those modules).
+ * Content › Statistics and Content › Testimonials. The edited list waits as a draft and goes live with the page.
  */
 final class CatalogueInline
 {
@@ -29,12 +26,9 @@ final class CatalogueInline
     {
         return Action::make('manageStats')->label(__('Figures'))->icon('heroicon-o-chart-bar')->color('gray')
             ->visible(fn () => (bool) auth()->user()?->can('content.publish'))
-            ->modalHeading(__('Figures shown on the website'))->modalDescription(__('Add, edit, reorder or delete. Only verified figures appear on the site. Saved changes are live immediately.'))
+            ->modalHeading(__('Figures shown on the website'))->modalDescription(__('Add, edit, reorder or delete. Only verified figures appear on the site. They go live when the page is published.'))
             ->modalWidth('5xl')->modalSubmitActionLabel(__('Save'))
-            ->fillForm(fn () => ['items' => Stat::query()->with('translations')->orderBy('sort_order')->get()->map(fn (Stat $s) => [
-                'id' => $s->id, 'value' => $s->value, 'icon' => $s->icon, 'group' => $s->group, 'verified' => $s->verified, 'source' => $s->source,
-                'label' => $s->translations->pluck('label', 'locale')->all(),
-            ])->all()])
+            ->fillForm(fn () => ['items' => self::items('stats')])
             ->schema([
                 Repeater::make('items')->hiddenLabel()->reorderableWithButtons()->collapsible()->collapsed()->cloneable()
                     ->itemLabel(fn (array $state) => trim(($state['value'] ?? '').' · '.($state['label'][app()->getLocale()] ?? $state['label']['en'] ?? '')).(($state['verified'] ?? false) ? '' : ' · 🚫 '.__('Hidden')))
@@ -54,11 +48,8 @@ final class CatalogueInline
                     ]),
             ])
             ->action(function (array $data) {
-                self::sync(Stat::class, $data['items'] ?? [], fn (array $i, int $order) => [
-                    'key' => null, 'value' => $i['value'], 'icon' => $i['icon'] ?? null, 'group' => $i['group'] ?? 'secondary',
-                    'verified' => (bool) ($i['verified'] ?? false), 'source' => $i['source'] ?? null, 'sort_order' => $order,
-                ], fn (array $i) => ['label' => $i['label'] ?? []]);
-                Notification::make()->success()->title(__('Figures saved'))->send();
+                self::keep('stats', $data['items'] ?? [], __('Figures'));
+                Notification::make()->success()->title(__('Figures saved as a draft. Publish the page to show them.'))->send();
             });
     }
 
@@ -66,13 +57,9 @@ final class CatalogueInline
     {
         return Action::make('manageTestimonials')->label(__('Client reviews'))->icon('heroicon-o-chat-bubble-left-right')->color('gray')
             ->visible(fn () => (bool) auth()->user()?->can('content.publish'))
-            ->modalHeading(__('Client reviews'))->modalDescription(__('Names appear only when consent is recorded (RULE-02). Saved changes are live immediately.'))
+            ->modalHeading(__('Client reviews'))->modalDescription(__('Names appear only when consent is recorded (RULE-02). They go live when the page is published.'))
             ->modalWidth('5xl')->modalSubmitActionLabel(__('Save'))
-            ->fillForm(fn () => ['items' => Testimonial::query()->with('translations')->orderBy('sort_order')->get()->map(fn (Testimonial $t) => [
-                'id' => $t->id, 'published' => $t->status === 'published', 'consent' => $t->consent_recorded_at !== null, 'verified' => $t->verified,
-                'quote' => $t->translations->pluck('quote', 'locale')->all(), 'author' => $t->translations->pluck('author', 'locale')->all(),
-                'context' => $t->translations->pluck('context', 'locale')->all(),
-            ])->all()])
+            ->fillForm(fn () => ['items' => self::items('testimonials')])
             ->schema([
                 Repeater::make('items')->hiddenLabel()->reorderableWithButtons()->collapsible()->collapsed()->cloneable()
                     ->itemLabel(fn (array $state) => Str::limit($state['quote'][app()->getLocale()] ?? $state['quote']['en'] ?? __('Review'), 70).(($state['published'] ?? true) ? '' : ' · 🚫 '.__('Hidden')))
@@ -94,57 +81,24 @@ final class CatalogueInline
                     ]),
             ])
             ->action(function (array $data) {
-                self::sync(Testimonial::class, $data['items'] ?? [], fn (array $i, int $order, ?Model $existing) => [
-                    'status' => ($i['published'] ?? true) ? 'published' : 'draft', 'verified' => (bool) ($i['verified'] ?? false), 'sort_order' => $order,
-                    'consent_recorded_at' => ($i['consent'] ?? false) ? ($existing?->consent_recorded_at ?? now()) : null,
-                ], fn (array $i) => ['quote' => $i['quote'] ?? [], 'author' => $i['author'] ?? [], 'context' => $i['context'] ?? []]);
-                Notification::make()->success()->title(__('Reviews saved'))->send();
+                self::keep('testimonials', $data['items'] ?? [], __('Client reviews'));
+                Notification::make()->success()->title(__('Reviews saved as a draft. Publish the page to show them.'))->send();
             });
     }
 
-    /**
-     * Creates, updates, reorders and deletes records to match the repeater, with one translation row per language.
-     *
-     * @param  class-string<Model>  $model
-     */
-    private static function sync(string $model, array $items, \Closure $attributes, \Closure $texts): void
+    public static function draftKey(string $kind): string
     {
-        DB::transaction(function () use ($model, $items, $attributes, $texts) {
-            $keep = [];
-            foreach (array_values($items) as $order => $item) {
-                $existing = filled($item['id'] ?? null) ? $model::query()->find($item['id']) : null;
-                $attrs = $attributes($item, $order + 1, $existing);
-                if ($model === Stat::class) {
-                    $attrs['key'] = $existing?->key ?? 'stat-'.Str::lower(Str::random(6));
-                }
-                $record = $existing ?? new $model;
-                $record->forceFill($attrs)->save();
-                $keep[] = $record->id;
+        return 'catalogue:'.$kind;
+    }
 
-                $byLocale = [];
-                foreach ($texts($item) as $field => $map) {
-                    foreach ($map as $locale => $value) {
-                        if (isset(Locales::ALL[$locale])) {
-                            $byLocale[$locale][$field] = filled($value) ? trim(strip_tags((string) $value)) : null;
-                        }
-                    }
-                }
-                foreach ($byLocale as $locale => $fields) {
-                    // An empty language falls back to English on the site
-                    if (! array_filter($fields) && $locale !== Locales::FALLBACK) {
-                        $record->translations()->where('locale', $locale)->delete();
+    /** The saved draft if there is one, otherwise the records as they are on the site. @return list<array<string, mixed>> */
+    private static function items(string $kind): array
+    {
+        return app(Drafts::class)->find(self::draftKey($kind))?->payload['items'] ?? app(CatalogueSync::class)->items($kind);
+    }
 
-                        continue;
-                    }
-                    $translation = $record->translations()->firstOrNew(['locale' => $locale]);
-                    $translation->fill($fields);
-                    if ($translation->isDirty()) {
-                        $translation->review_status = $locale === Locales::FALLBACK ? ReviewStatus::Approved : ReviewStatus::Review;
-                    }
-                    $translation->save();
-                }
-            }
-            $model::query()->whereNotIn('id', $keep)->get()->each->delete();
-        });
+    private static function keep(string $kind, array $items, string $label): void
+    {
+        app(Drafts::class)->put(self::draftKey($kind), CatalogueTarget::class, ['kind' => $kind, 'items' => array_values($items)], $label, request()->header('referer'));
     }
 }

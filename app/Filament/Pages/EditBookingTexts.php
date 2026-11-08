@@ -98,8 +98,13 @@ class EditBookingTexts extends EditFixedTexts
         return __('Booking form');
     }
 
-    public function getSubheading(): string
+    protected function screenDescription(): string
     {
-        return __('Every word on the booking form and its confirmation page. Changes appear on the website when you save.');
+        return __('Every word on the booking form and its confirmation page.');
+    }
+
+    protected function previewPath(): string
+    {
+        return '/consultation';
     }
 }

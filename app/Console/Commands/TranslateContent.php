@@ -6,6 +6,7 @@ use App\Content\PublishPage;
 use App\Models\CaseStudy;
 use App\Models\Country;
 use App\Models\Faq;
+use App\Models\MediaAsset;
 use App\Models\NewsArticle;
 use App\Models\Page;
 use App\Models\Region;
@@ -27,7 +28,7 @@ use Illuminate\Console\Command;
 #[Description('Machine translate missing languages of CMS content, settings and interface labels')]
 class TranslateContent extends Command
 {
-    private const MODELS = [Service::class, Region::class, Faq::class, Stat::class, Testimonial::class, Country::class, NewsArticle::class, CaseStudy::class];
+    private const MODELS = [Service::class, Region::class, Faq::class, Stat::class, Testimonial::class, Country::class, NewsArticle::class, CaseStudy::class, MediaAsset::class];
 
     public function handle(ContentTranslator $translator): int
     {
@@ -41,7 +42,7 @@ class TranslateContent extends Command
 
         try {
             $this->components->task('Interface labels', fn () => $translator->translateInterface($targets, $refresh) >= 0);
-            $this->components->task('Settings (navigation, offices, labels, image text)', fn () => $translator->translateSettings($targets, $refresh) >= 0);
+            $this->components->task('Settings (navigation, offices, labels)', fn () => $translator->translateSettings($targets, $refresh) >= 0);
 
             foreach (self::MODELS as $model) {
                 $this->components->task(class_basename($model), function () use ($model, $translator, $targets, $refresh) {

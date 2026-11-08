@@ -3,18 +3,17 @@
 namespace App\Filament\Pages;
 
 use App\Content\SectionSchema;
+use App\Filament\Concerns\KeepsSettingsAsDraft;
 use App\Filament\Support\SectionForm;
 use App\Models\Setting;
 use App\Support\Locales;
 use App\Translation\UiStrings;
 use BackedEnum;
-use Filament\Actions\Action;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\EmbeddedSchema;
 use Filament\Schemas\Components\Form;
@@ -22,9 +21,11 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 
-/** The site's top menu, its main button, the offices and the footer wording, per language. Live when saved. */
+/** The site's top menu, its main button, the offices and the footer wording, per language. */
 class EditNavigationSettings extends Page
 {
+    use KeepsSettingsAsDraft;
+
     /** Footer and menu wording stored as interface overrides. */
     private const FOOTER_KEYS = ['tagline', 'follow', 'company', 'solutions', 'allServices', 'offices', 'rights', 'mapCredit', 'photoNote', 'privacyLink', 'termsLink', 'contactLink', 'faqLink', 'startCompany', 'startCompanyText'];
 
@@ -59,12 +60,12 @@ class EditNavigationSettings extends Page
         return __('Menu and footer');
     }
 
-    public function getSubheading(): string
+    protected function screenDescription(): string
     {
-        return __('The top menu, its main button, the offices and the footer. Changes appear on the website when you save.');
+        return __('The top menu, its main button, the offices and the footer.');
     }
 
-    public function mount(): void
+    protected function fillFromSettings(): void
     {
         $nav = Setting::group('navigation');
         $saved = Setting::group('ui')['labels'] ?? [];
@@ -132,25 +133,17 @@ class EditNavigationSettings extends Page
         return $schema->components([Form::make([EmbeddedSchema::make('form')])->id('form')->livewireSubmitHandler('save')]);
     }
 
-    protected function getHeaderActions(): array
+    protected function settingWrites(array $state): array
     {
-        return [Action::make('save')->label(__('Save'))->icon('heroicon-o-check')->keyBindings(['mod+s'])->action(fn () => $this->save())];
-    }
-
-    public function save(): void
-    {
-        $data = $this->form->getState();
         $map = fn ($m) => array_filter(array_map(fn ($t) => is_string($t) ? trim(strip_tags($t)) : null, (array) $m), 'filled');
         // Only one item opens the solutions menu; it keeps its original value.
-        $header = array_values(array_map(fn ($n) => array_filter(['label' => $map($n['label'] ?? []), 'href' => trim((string) $n['href']), 'mega' => ! empty($n['mega']) ? 'services' : null]), $data['header'] ?? []));
-        Setting::updateOrCreate(['group' => 'navigation', 'key' => 'header'], ['value' => $header]);
-        Setting::updateOrCreate(['group' => 'navigation', 'key' => 'cta'], ['value' => ['label' => $map($data['cta']['label'] ?? []), 'href' => trim((string) ($data['cta']['href'] ?? '/consultation'))]]);
-        Setting::updateOrCreate(['group' => 'contact', 'key' => 'offices'], ['value' => array_values(array_map(fn ($o, $i) => [
+        $header = array_values(array_map(fn ($n) => array_filter(['label' => $map($n['label'] ?? []), 'href' => trim((string) $n['href']), 'mega' => ! empty($n['mega']) ? 'services' : null]), $state['header'] ?? []));
+        $offices = array_values(array_map(fn ($o, $i) => [
             'key' => $o['key'] ?? 'office-'.($i + 1), 'country' => $map($o['country'] ?? []), 'address' => $map($o['address'] ?? []),
-        ], $data['offices'] ?? [], array_keys($data['offices'] ?? [])))]);
-
-        $labels = array_diff_key(Setting::group('ui')['labels'] ?? [], array_flip(self::FOOTER_KEYS));
-        foreach ($data['footer'] ?? [] as $key => $texts) {
+        ], $state['offices'] ?? [], array_keys($state['offices'] ?? [])));
+        // Footer wording is stored with the other interface wording; this screen owns only its keys.
+        $labels = [];
+        foreach ($state['footer'] ?? [] as $key => $texts) {
             foreach ((array) $texts as $locale => $text) {
                 $text = trim(strip_tags((string) $text));
                 if ($text !== '' && in_array($key, self::FOOTER_KEYS, true) && $text !== (UiStrings::standard($locale)[$key] ?? null)) {
@@ -158,7 +151,22 @@ class EditNavigationSettings extends Page
                 }
             }
         }
-        Setting::updateOrCreate(['group' => 'ui', 'key' => 'labels'], ['value' => $labels]);
-        Notification::make()->success()->title(__('Saved'))->send();
+
+        return [
+            ['group' => 'navigation', 'key' => 'header', 'value' => $header],
+            ['group' => 'navigation', 'key' => 'cta', 'value' => ['label' => $map($state['cta']['label'] ?? []), 'href' => trim((string) ($state['cta']['href'] ?? '/consultation'))]],
+            ['group' => 'contact', 'key' => 'offices', 'value' => $offices],
+            ['group' => 'ui', 'key' => 'labels', 'value' => $labels, 'owns' => self::FOOTER_KEYS],
+        ];
+    }
+
+    protected function previewPath(): string
+    {
+        return '/';
+    }
+
+    protected function canPublish(): bool
+    {
+        return static::canAccess();
     }
 }

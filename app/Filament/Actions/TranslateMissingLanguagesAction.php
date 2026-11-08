@@ -23,7 +23,10 @@ final class TranslateMissingLanguagesAction
             ->modalDescription(__('Empty languages are filled by machine translation and marked for review. Text a person wrote is never replaced.'))
             ->action(function (Model $record, $livewire) {
                 try {
-                    $count = app(ContentTranslator::class)->translateRecord($record);
+                    // On a live record the new languages go into the draft (see SavesTranslations).
+                    $count = method_exists($livewire, 'translateMissingLanguages')
+                        ? $livewire->translateMissingLanguages()
+                        : app(ContentTranslator::class)->translateRecord($record);
                 } catch (TranslationUnavailable $e) {
                     Notification::make()->danger()->title(__('Translation service unavailable'))->body($e->getMessage())->send();
 
@@ -31,7 +34,7 @@ final class TranslateMissingLanguagesAction
                 }
 
                 Notification::make()->success()->title(__(':count languages translated', ['count' => $count]))->send();
-                $livewire->refreshFormData(['translations']);
+                method_exists($livewire, 'translateMissingLanguages') || $livewire->refreshFormData(['translations']);
             });
     }
 }

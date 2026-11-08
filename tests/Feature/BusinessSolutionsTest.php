@@ -78,6 +78,8 @@ class BusinessSolutionsTest extends TestCase
         Stat::whereNotIn('key', ['companies-established', 'years-experience'])->update(['verified' => false]);
         Service::where('slug', 'business-consulting')->update(['needs_review' => true]);
         $html = $this->get('/en/services/licensing-and-government-approvals')->getContent().$this->get('/en/services')->getContent();
+        // The asset version is a hash and may contain any digits.
+        $html = preg_replace('/"version":"[0-9a-f]+"/', '', $html);
         foreach (['500+', '209', '157', '144', '103', '4.8 trillion'] as $figure) {
             $this->assertStringNotContainsString($figure, $html, $figure);
         }

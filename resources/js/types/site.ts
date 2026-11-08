@@ -8,6 +8,8 @@ import type { UiStrings } from '@/i18n/uiStrings'
 
 export type SharedProps = {
   ui: UiStrings
+  /** Staff looking at unpublished changes (App\Drafts\PreviewMode). */
+  preview: boolean
   locale: LocaleInfo & { available: LocaleInfo[] }
   site: {
     nav: NavItem[]

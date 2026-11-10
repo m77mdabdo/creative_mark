@@ -38,6 +38,12 @@ jobs:
       HAS_DEPLOY_KEY: ${{ secrets.DEPLOY_SSH_KEY != '' }}
     steps:
       - uses: actions/checkout@v4
+      # The dashboard theme is compiled from Filament's stylesheet in vendor/.
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          coverage: none
+      - run: composer install --no-dev --no-scripts --prefer-dist --no-interaction --no-progress
       - uses: actions/setup-node@v4
         with:
           node-version: 22

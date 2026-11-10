@@ -267,7 +267,7 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ### 2026-11-11
 - Live at https://creativemark.anasfareed.com (Hostinger): a separate site with its own database holding a full copy
   of the local content, images and dashboard account. Every push to main is tested on GitHub and, once the deploy
-  secrets are added, deployed with zero downtime (docs/DEPLOYMENT.md).
+  secrets are added, deployed with zero downtime (docs/DEPLOYMENT.md). Fixed a malformed APP_URL in `.env.example`.
 
 ### 2026-11-08
 - Save, preview and publish everywhere: changes to anything visitors can see (figures, reviews, questions, services,

@@ -1,0 +1,65 @@
+# Every push to main is tested; if the tests pass, it is deployed to https://creativemark.anasfareed.com.
+# Secrets (repository settings): DEPLOY_SSH_KEY, DEPLOY_HOST, DEPLOY_PORT, DEPLOY_USER, DEPLOY_KNOWN_HOSTS.
+name: Test and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          extensions: gd, intl, zip, pdo_sqlite, mbstring
+          coverage: none
+      - run: composer install --prefer-dist --no-interaction --no-progress
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: cp .env.example .env && php artisan key:generate
+      - run: php artisan test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    env:
+      HAS_DEPLOY_KEY: ${{ secrets.DEPLOY_SSH_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci && npm run build
+      - name: Package the release (tracked files plus the built assets)
+        run: |
+          git archive --format=tar HEAD > release.tar
+          tar -rf release.tar public/build
+          gzip release.tar
+      - name: Upload and switch
+        # Until the deploy secrets are added, a push is tested but not deployed.
+        if: ${{ env.HAS_DEPLOY_KEY == 'true' }}
+        env:
+          KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          PORT: ${{ secrets.DEPLOY_PORT }}
+          USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          install -m 700 -d ~/.ssh
+          echo "$KEY" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
+          echo "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          scp -i ~/.ssh/deploy -P "$PORT" release.tar.gz deploy/remote-deploy.sh "$USER@$HOST:apps/creativemark/"
+          ssh -i ~/.ssh/deploy -p "$PORT" "$USER@$HOST" "bash apps/creativemark/remote-deploy.sh apps/creativemark/release.tar.gz $GITHUB_SHA"

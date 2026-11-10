@@ -265,6 +265,10 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-11
+- Fact check against official sources (docs/reviews/2026-11-11-fact-check.md): Q2 2025 FDI growth corrected (the
+  home card and FAQ now quote GASTAT's 2025 annual figure), investment registration time corrected to MISA's
+  5 working days, two news stories aligned with what their sources say. Applied in six languages by a data migration,
+  with the seed files and translation memory updated to match.
 - Live at https://creativemark.anasfareed.com (Hostinger): a separate site with its own database holding a full copy
   of the local content, images and dashboard account. Every push to main is tested on GitHub and, once the deploy
   secrets are added, deployed with zero downtime (docs/DEPLOYMENT.md). Fixed a malformed APP_URL in `.env.example`.

@@ -1,0 +1,151 @@
+{
+ "maps": [
+  {
+   "old": "FDI inflows increased by approximately 64.7% year-on-year in Q2 2025 as the investment environment strengthens.",
+   "new": {
+    "en": "FDI inflows rose 33.5% in 2025 to SAR 159.1 billion, led by construction and manufacturing (GASTAT).",
+    "ar": "ارتفعت تدفقات الاستثمار الأجنبي المباشر 33.5% في 2025 لتبلغ 159.1 مليار ريال، بقيادة قطاعي البناء والتصنيع (الهيئة العامة للإحصاء).",
+    "fr": "Les entrées d’IDE ont progressé de 33,5 % en 2025 pour atteindre 159,1 milliards de riyals, portées par la construction et l’industrie manufacturière (GASTAT).",
+    "hi": "2025 में प्रत्यक्ष विदेशी निवेश का प्रवाह 33.5% बढ़कर 159.1 अरब रियाल हो गया, जिसमें निर्माण और विनिर्माण सबसे आगे रहे (GASTAT)।",
+    "ur": "2025 میں براہِ راست غیر ملکی سرمایہ کاری کی آمد 33.5% بڑھ کر 159.1 ارب ریال تک پہنچ گئی، جس میں تعمیرات اور مینوفیکچرنگ سب سے آگے رہے (GASTAT)۔",
+    "zh": "2025年外国直接投资流入增长33.5%，达到1591亿里亚尔，建筑业和制造业领先（沙特统计总局）。"
+   }
+  },
+  {
+   "old": "Yes. Foreign direct investment inflows increased by approximately 64.7% year-on-year in Q2 2025, reflecting continued international investor interest in the Kingdom.",
+   "new": {
+    "en": "Yes. Foreign direct investment inflows rose 33.5% in 2025 to SAR 159.1 billion, according to the General Authority for Statistics, reflecting continued international investor interest in the Kingdom.",
+    "ar": "نعم. ارتفعت تدفقات الاستثمار الأجنبي المباشر 33.5% في 2025 لتبلغ 159.1 مليار ريال وفق الهيئة العامة للإحصاء، ما يعكس اهتماماً دولياً مستمراً بالمملكة.",
+    "fr": "Oui. Les entrées d’investissements directs étrangers ont progressé de 33,5 % en 2025 pour atteindre 159,1 milliards de riyals, selon l’Autorité générale des statistiques, signe de l’intérêt continu des investisseurs internationaux pour le Royaume.",
+    "hi": "हाँ। सामान्य सांख्यिकी प्राधिकरण के अनुसार 2025 में प्रत्यक्ष विदेशी निवेश का प्रवाह 33.5% बढ़कर 159.1 अरब रियाल हो गया, जो राज्य में अंतरराष्ट्रीय निवेशकों की निरंतर रुचि को दर्शाता है।",
+    "ur": "جی ہاں۔ جنرل اتھارٹی فار اسٹیٹسٹکس کے مطابق 2025 میں براہِ راست غیر ملکی سرمایہ کاری کی آمد 33.5% بڑھ کر 159.1 ارب ریال ہو گئی، جو مملکت میں بین الاقوامی سرمایہ کاروں کی مسلسل دلچسپی کی عکاسی کرتی ہے۔",
+    "zh": "是的。据沙特统计总局数据，2025年外国直接投资流入增长33.5%，达到1591亿里亚尔，反映出国际投资者对沙特的持续关注。"
+   }
+  },
+  {
+   "old": "10 days",
+   "new": {
+    "en": "5 working days",
+    "ar": "5 أيام عمل",
+    "fr": "5 jours ouvrés",
+    "hi": "5 कार्यदिवस",
+    "ur": "5 کاری دن",
+    "zh": "5个工作日"
+   }
+  },
+  {
+   "old": "Maximum review period for a registration application",
+   "new": {
+    "en": "Estimated processing time for an investment registration (MISA Investor Guide)",
+    "ar": "المدة التقديرية لمعالجة طلب تسجيل الاستثمار (دليل المستثمر، وزارة الاستثمار)",
+    "fr": "Délai de traitement estimé d’un enregistrement d’investissement (guide de l’investisseur du MISA)",
+    "hi": "निवेश पंजीकरण के लिए अनुमानित प्रसंस्करण समय (निवेश मंत्रालय की निवेशक गाइड)",
+    "ur": "سرمایہ کاری کی رجسٹریشن کا تخمینی پراسیسنگ وقت (وزارتِ سرمایہ کاری کی انویسٹر گائیڈ)",
+    "zh": "投资登记的预计办理时间（投资部投资者指南）"
+   }
+  },
+  {
+   "old": "Apply on the Invest Saudi platform; review takes up to 10 days.",
+   "new": {
+    "en": "Apply on the Invest Saudi platform; the Ministry estimates 5 working days.",
+    "ar": "قدّم عبر منصة «استثمر في السعودية»، والمدة التقديرية لدى الوزارة 5 أيام عمل.",
+    "fr": "Déposez la demande sur la plateforme Invest Saudi ; le ministère estime le délai à 5 jours ouvrés.",
+    "hi": "इन्वेस्ट सऊदी प्लेटफ़ॉर्म पर आवेदन करें; मंत्रालय के अनुसार इसमें अनुमानित 5 कार्यदिवस लगते हैं।",
+    "ur": "انویسٹ سعودی پلیٹ فارم پر درخواست دیں؛ وزارت کے مطابق اس میں تقریباً 5 کاری دن لگتے ہیں۔",
+    "zh": "通过“投资沙特”平台申请；投资部预计办理时间为5个工作日。"
+   }
+  }
+ ],
+ "sources": [
+  {
+   "old_href": "https://www.spa.gov.sa/en/N2151998",
+   "href": "https://misa.gov.sa/app/uploads/2026/09/Investor-Guide_13-03-en.pdf",
+   "label": {
+    "en": "Investor Guide (version 13.03)",
+    "ar": "دليل المستثمر (الإصدار 13.03)",
+    "fr": "Guide de l’investisseur (version 13.03)",
+    "hi": "निवेशक गाइड (संस्करण 13.03)",
+    "ur": "انویسٹر گائیڈ (ورژن 13.03)",
+    "zh": "投资者指南（13.03版）"
+   },
+   "publisher": {
+    "en": "Ministry of Investment",
+    "ar": "وزارة الاستثمار",
+    "fr": "Ministère de l’Investissement",
+    "hi": "निवेश मंत्रालय",
+    "ur": "وزارتِ سرمایہ کاری",
+    "zh": "投资部"
+   }
+  }
+ ],
+ "news": {
+  "sez-implementing-regulations": {
+   "excerpt": {
+    "en": "The regulations for the four zones were published in January 2026 and took effect in April, setting out how customs duty and VAT apply to licensed companies.",
+    "ar": "نُشرت لوائح المناطق الأربع في يناير 2026 ودخلت حيز التنفيذ في أبريل، وتحدد كيفية تطبيق الرسوم الجمركية وضريبة القيمة المضافة على الشركات المرخصة.",
+    "fr": "Publiés en janvier 2026 et entrés en vigueur en avril, les règlements des quatre zones précisent l’application des droits de douane et de la TVA aux entreprises agréées.",
+    "hi": "चारों क्षेत्रों के नियम जनवरी 2026 में प्रकाशित हुए और अप्रैल में लागू हुए; ये बताते हैं कि लाइसेंस प्राप्त कंपनियों पर सीमा शुल्क और वैट कैसे लागू होंगे।",
+    "ur": "چاروں زونز کے ضوابط جنوری 2026 میں شائع ہوئے اور اپریل میں نافذ ہوئے؛ یہ بتاتے ہیں کہ لائسنس یافتہ کمپنیوں پر کسٹمز ڈیوٹی اور ویلیو ایڈڈ ٹیکس کیسے لاگو ہوں گے۔",
+    "zh": "四个特区的条例于2026年1月公布、4月生效，明确了关税和增值税如何适用于获许可企业。"
+   },
+   "body": {
+    "en": "Saudi Arabia has issued the implementing regulations for its four special economic zones: King Abdullah Economic City, Ras Al-Khair, Jazan and the cloud computing zone. According to EY, they were published in the Official Gazette on 16 January 2026 and took effect 90 days later, in mid-April.\n\nFor goods linked to a licensed activity and placed under customs suspension, customs duties are suspended, supplies from elsewhere in the Kingdom are zero-rated for VAT and imports are outside the scope of VAT. When the zones were announced in 2023, the government said qualifying activities would benefit from a 5% corporate income tax rate for up to 20 years.",
+    "ar": "أصدرت المملكة اللوائح التنفيذية لمناطقها الاقتصادية الخاصة الأربع: مدينة الملك عبدالله الاقتصادية، ورأس الخير، وجازان، ومنطقة الحوسبة السحابية. وبحسب إرنست ويونغ، نُشرت في الجريدة الرسمية في 16 يناير 2026 ودخلت حيز التنفيذ بعد 90 يومًا، في منتصف أبريل.\n\nوبالنسبة للسلع المرتبطة بالنشاط المرخص والخاضعة لنظام التعليق الجمركي، تُعلَّق الرسوم الجمركية، وتخضع التوريدات من داخل المملكة لضريبة القيمة المضافة بنسبة صفر، وتُعد الواردات خارج نطاق الضريبة. وعند الإعلان عن المناطق في 2023، أعلنت الحكومة أن الأنشطة المؤهلة ستستفيد من ضريبة دخل بنسبة 5% لمدة تصل إلى 20 عامًا.",
+    "fr": "L’Arabie saoudite a publié les règlements d’application de ses quatre zones économiques spéciales : King Abdullah Economic City, Ras Al-Khair, Jazan et la zone dédiée au cloud computing. Selon EY, ils ont été publiés au Journal officiel le 16 janvier 2026 et sont entrés en vigueur 90 jours plus tard, à la mi-avril.\n\nPour les biens liés à une activité agréée et placés sous un régime de suspension douanière, les droits de douane sont suspendus, les livraisons depuis le reste du Royaume sont soumises à la TVA au taux zéro et les importations sont hors du champ de la TVA. Lors de l’annonce des zones en 2023, le gouvernement a indiqué que les activités éligibles bénéficieraient d’un taux d’impôt sur les sociétés de 5 % pendant une durée pouvant atteindre 20 ans.",
+    "hi": "सऊदी अरब ने अपने चार विशेष आर्थिक क्षेत्रों के कार्यान्वयन नियम जारी किए हैं: किंग अब्दुल्ला इकोनॉमिक सिटी, रास अल-ख़ैर, जाज़ान और क्लाउड कंप्यूटिंग क्षेत्र। EY के अनुसार, ये 16 जनवरी 2026 को आधिकारिक राजपत्र में प्रकाशित हुए और 90 दिन बाद, अप्रैल के मध्य में लागू हुए।\n\nलाइसेंस प्राप्त गतिविधि से जुड़ी और सीमा शुल्क निलंबन के तहत रखी गई वस्तुओं पर सीमा शुल्क निलंबित रहता है, राज्य के अन्य हिस्सों से होने वाली आपूर्ति पर शून्य दर से वैट लगता है और आयात वैट के दायरे से बाहर रहते हैं। 2023 में इन क्षेत्रों की घोषणा के समय सरकार ने कहा था कि योग्य गतिविधियों को 20 वर्षों तक 5% कॉर्पोरेट आयकर दर का लाभ मिलेगा।",
+    "ur": "سعودی عرب نے اپنے چار خصوصی اقتصادی زونز کے نفاذی ضوابط جاری کیے ہیں: کنگ عبداللہ اکنامک سٹی، راس الخیر، جازان اور کلاؤڈ کمپیوٹنگ زون۔ EY کے مطابق یہ 16 جنوری 2026 کو سرکاری گزٹ میں شائع ہوئے اور 90 دن بعد، اپریل کے وسط میں نافذ ہوئے۔\n\nلائسنس یافتہ سرگرمی سے متعلق اور کسٹمز معطلی کے نظام میں رکھی گئی اشیا پر کسٹمز ڈیوٹی معطل رہتی ہے، مملکت کے دیگر حصوں سے فراہمی پر صفر شرح سے ویلیو ایڈڈ ٹیکس لگتا ہے اور درآمدات ویلیو ایڈڈ ٹیکس کے دائرے سے باہر رہتی ہیں۔ 2023 میں زونز کے اعلان کے وقت حکومت نے کہا تھا کہ اہل سرگرمیوں کو 20 سال تک 5% کارپوریٹ انکم ٹیکس کی شرح کا فائدہ ملے گا۔",
+    "zh": "沙特发布了四个经济特区的实施条例：阿卜杜拉国王经济城、拉斯海尔、吉赞和云计算特区。据安永报道，条例于2026年1月16日在官方公报公布，90天后即4月中旬生效。\n\n对于与许可业务相关并处于海关暂缓征税制度下的货物，暂缓征收关税，来自沙特境内其他地区的供应适用增值税零税率，进口则不属于增值税征税范围。在2023年宣布设立特区时，政府表示合格业务可享受最长20年的5%企业所得税税率。"
+   },
+   "fact_values": {
+    "en": [
+     "5%",
+     "Up to 20 years",
+     "4"
+    ],
+    "ar": [
+     "5%",
+     "حتى 20 عامًا",
+     "4"
+    ],
+    "fr": [
+     "5 %",
+     "Jusqu’à 20 ans",
+     "4"
+    ],
+    "hi": [
+     "5%",
+     "20 वर्षों तक",
+     "4"
+    ],
+    "ur": [
+     "5%",
+     "20 سال تک",
+     "4"
+    ],
+    "zh": [
+     "5%",
+     "最长20年",
+     "4"
+    ]
+   }
+  },
+  "sez-economic-substance-rules": {
+   "first_paragraph": {
+    "en": "Saudi Arabia's Economic Substance Requirements Regulations for special economic zones were published in the Official Gazette on 7 August 2026, according to KPMG. They apply from the first financial year in which a licensed entity carries out qualifying activities.",
+    "ar": "نُشرت لائحة متطلبات الجوهر الاقتصادي للمناطق الاقتصادية الخاصة في الجريدة الرسمية في 7 أغسطس 2026، بحسب كي بي إم جي، وتُطبَّق اعتبارًا من أول سنة مالية تمارس فيها المنشأة المرخصة أنشطتها المؤهلة.",
+    "fr": "Le règlement saoudien sur les exigences de substance économique dans les zones économiques spéciales a été publié au Journal officiel le 7 août 2026, selon KPMG. Il s’applique à partir du premier exercice au cours duquel une entité agréée exerce des activités éligibles.",
+    "hi": "KPMG के अनुसार, विशेष आर्थिक क्षेत्रों के लिए सऊदी अरब के आर्थिक सार आवश्यकता नियम 7 अगस्त 2026 को आधिकारिक राजपत्र में प्रकाशित हुए। ये उस पहले वित्तीय वर्ष से लागू होते हैं जिसमें लाइसेंस प्राप्त संस्था योग्य गतिविधियाँ करती है।",
+    "ur": "KPMG کے مطابق، خصوصی اقتصادی زونز کے لیے سعودی عرب کے اقتصادی جوہر کے تقاضوں کے ضوابط 7 اگست 2026 کو سرکاری گزٹ میں شائع ہوئے۔ یہ اس پہلے مالی سال سے لاگو ہوتے ہیں جس میں لائسنس یافتہ ادارہ اہل سرگرمیاں انجام دیتا ہے۔",
+    "zh": "据毕马威报道，沙特《经济特区经济实质要求条例》于2026年8月7日在官方公报公布，自获许可实体开展合格业务的首个财政年度起适用。"
+   },
+   "fact_label_0": {
+    "en": "Published",
+    "ar": "تاريخ النشر",
+    "fr": "Publication",
+    "hi": "प्रकाशन",
+    "ur": "اشاعت",
+    "zh": "公布日期"
+   }
+  }
+ }
+}

@@ -251,12 +251,12 @@
     {
      "id": "reg-days",
      "title": {
-      "en": "10 days",
-      "ar": "10 أيام"
+      "en": "5 working days",
+      "ar": "5 أيام عمل"
      },
      "text": {
-      "en": "Maximum review period for a registration application",
-      "ar": "الحد الأقصى لمدة دراسة طلب التسجيل"
+      "en": "Estimated processing time for an investment registration (MISA Investor Guide)",
+      "ar": "المدة التقديرية لمعالجة طلب تسجيل الاستثمار (دليل المستثمر، وزارة الاستثمار)"
      }
     },
     {
@@ -344,14 +344,14 @@
     {
      "id": "spa-law",
      "label": {
-      "en": "Investment Minister on the updated Investment Law",
-      "ar": "وزير الاستثمار عن نظام الاستثمار المحدّث"
+      "en": "Investor Guide (version 13.03)",
+      "ar": "دليل المستثمر (الإصدار 13.03)"
      },
      "publisher": {
-      "en": "Saudi Press Agency",
-      "ar": "وكالة الأنباء السعودية"
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
      },
-     "href": "https://www.spa.gov.sa/en/N2151998"
+     "href": "https://misa.gov.sa/app/uploads/2026/09/Investor-Guide_13-03-en.pdf"
     }
    ]
   },
@@ -1174,8 +1174,8 @@
       "ar": "سجّل لدى وزارة الاستثمار"
      },
      "text": {
-      "en": "Apply on the Invest Saudi platform; review takes up to 10 days.",
-      "ar": "قدّم عبر منصة «استثمر في السعودية»، ومدة الدراسة حتى 10 أيام."
+      "en": "Apply on the Invest Saudi platform; the Ministry estimates 5 working days.",
+      "ar": "قدّم عبر منصة «استثمر في السعودية»، والمدة التقديرية لدى الوزارة 5 أيام عمل."
      }
     },
     {
@@ -1354,14 +1354,14 @@
     {
      "id": "spa-law",
      "label": {
-      "en": "Investment Minister on the updated Investment Law",
-      "ar": "وزير الاستثمار عن نظام الاستثمار المحدّث"
+      "en": "Investor Guide (version 13.03)",
+      "ar": "دليل المستثمر (الإصدار 13.03)"
      },
      "publisher": {
-      "en": "Saudi Press Agency",
-      "ar": "وكالة الأنباء السعودية"
+      "en": "Ministry of Investment",
+      "ar": "وزارة الاستثمار"
      },
-     "href": "https://www.spa.gov.sa/en/N2151998"
+     "href": "https://misa.gov.sa/app/uploads/2026/09/Investor-Guide_13-03-en.pdf"
     },
     {
      "id": "clyde-co",

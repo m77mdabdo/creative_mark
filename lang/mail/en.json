@@ -46,10 +46,21 @@
     "staff_kicker": "Your dashboard access",
     "staff_invite_subject": "Your Creative Mark dashboard account",
     "staff_link_subject": "Choose a new password for the Creative Mark dashboard",
-    "staff_invite_intro": "An account has been created for you on the Creative Mark dashboard. Choose your password to start.",
+    "staff_invite_intro": "Creative Mark has added you to its dashboard as :role. Choose your password to start. Each time you sign in, we will email you a one-time code.",
     "staff_link_intro": "Use the button below to choose a new password for the Creative Mark dashboard.",
     "staff_button": "Choose my password",
     "staff_expires": "This link works once and expires in :minutes minutes. If it expires, ask an administrator for a new one.",
     "staff_account": "Your sign-in email: :email",
-    "staff_ignore": "If you did not expect this email, you can ignore it."
+    "staff_ignore": "If you did not expect this email, you can ignore it.",
+    "signin_subject": "Your sign-in code for the Creative Mark dashboard",
+    "signin_kicker": "Sign-in code",
+    "signin_intro": "Use this code to finish signing in to the Creative Mark dashboard:",
+    "signin_expires": "The code works once and expires in :minutes minutes.",
+    "signin_ignore": "If you did not just try to sign in, change your password and tell an administrator.",
+    "recipient_subject": "You will now receive Creative Mark booking notifications",
+    "recipient_kicker": "Booking notifications",
+    "recipient_intro": ":by added this address to the people who receive an email for every new consultation booked on the Creative Mark website.",
+    "recipient_what": "Each email shows the client’s details and the meeting time, with a button to open the booking in the dashboard. You can reply straight to the client.",
+    "recipient_ignore": "If you should not receive these emails, ask an administrator to remove this address.",
+    "recipient_address": "Receiving address: :email"
 }

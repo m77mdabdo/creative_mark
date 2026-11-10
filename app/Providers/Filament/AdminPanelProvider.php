@@ -2,11 +2,10 @@
 
 namespace App\Providers\Filament;
 
+use App\Auth\EmailSignInCode;
 use App\Filament\Pages\Dashboard;
-use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Http\Middleware\SecurityHeaders;
 use App\Http\Middleware\SetAdminLocale;
-use Filament\Auth\MultiFactor\App\AppAuthentication;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -50,8 +49,8 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->passwordReset()
             ->profile(isSimple: false)
-            ->multiFactorAuthentication([AppAuthentication::make()->recoverable()], isRequired: true)
-            ->multiFactorAuthenticationRequiredMiddlewareName(EnsurePrivilegedRolesUseMfa::class)
+            // Every sign-in is finished with a one-time code emailed to the person signing in.
+            ->multiFactorAuthentication([EmailSignInCode::make()], isRequired: true)
             ->brandName('Creative Mark')
             ->brandLogo(asset('brand/wordmark-gold.png'))
             ->brandLogoHeight('2.4rem')

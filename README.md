@@ -265,6 +265,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-11
+- Dashboard sign-in now ends with a one-time code emailed to the person signing in (10 minutes, sent immediately),
+  replacing the authenticator app; the stored app secrets are removed. New booking-email recipients get a welcome email
+  naming who added them, and staff invitations name the role they were given.
 - Automatic deploys switched on (GitHub secrets and server key in place); the Laravel scheduler runs every minute on
   Hostinger; the dashboard bell checks for new bookings every 5 seconds instead of 30.
 - Fact check against official sources (docs/reviews/2026-11-11-fact-check.md): Q2 2025 FDI growth corrected (the

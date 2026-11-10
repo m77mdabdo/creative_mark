@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Consultation\MailStrings;
+use App\Enums\Role;
 use App\Models\User;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -24,10 +25,18 @@ class StaffAccessLink extends Mailable
 
         return new Content(view: 'mail.staff-access', with: [
             'locale' => $locale, 'title' => MailStrings::get($locale, 'staff_kicker'), 'kicker' => MailStrings::get($locale, 'staff_kicker'),
-            'preheader' => MailStrings::get($locale, $this->invitation ? 'staff_invite_intro' : 'staff_link_intro'),
-            'name' => $this->staff->name, 'intro' => MailStrings::get($locale, $this->invitation ? 'staff_invite_intro' : 'staff_link_intro'),
+            'preheader' => MailStrings::get($locale, 'staff_kicker'),
+            'name' => $this->staff->name, 'intro' => $this->invitation ? MailStrings::get($locale, 'staff_invite_intro', ['role' => $this->roleLabel($locale)]) : MailStrings::get($locale, 'staff_link_intro'),
             'button' => MailStrings::get($locale, 'staff_button'), 'minutes' => (int) config('auth.passwords.users.expire', 60),
             'url' => $this->url, 'email' => $this->staff->email,
         ]);
+    }
+
+    /** The role's name in the staff member's language, e.g. "Super Admin" / "مدير عام". */
+    private function roleLabel(string $locale): string
+    {
+        $role = Role::tryFrom((string) $this->staff->roles->first()?->name);
+
+        return $role ? __($role->label(), [], $locale) : '—';
     }
 }

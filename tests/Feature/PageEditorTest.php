@@ -24,7 +24,6 @@ use App\Filament\Resources\CaseStudies\Pages\EditCaseStudy;
 use App\Filament\Resources\NewsArticles\Pages\EditNewsArticle;
 use App\Filament\Resources\NewsArticles\Pages\ListNewsArticles;
 use App\Filament\Support\IconPicker;
-use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Mail\ScheduledStoryPublished;
 use App\Models\CaseStudy;
 use App\Models\NewsArticle;
@@ -54,7 +53,6 @@ class PageEditorTest extends TestCase
     {
         parent::setUp();
         $this->seed([RbacSeeder::class, ContentSeeder::class]);
-        $this->withoutMiddleware(EnsurePrivilegedRolesUseMfa::class);
     }
 
     private function manager(): User

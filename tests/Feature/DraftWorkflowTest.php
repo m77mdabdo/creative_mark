@@ -10,7 +10,6 @@ use App\Filament\Pages\EditNavigationSettings;
 use App\Filament\Resources\Faqs\Pages\EditFaq;
 use App\Filament\Resources\Regions\Pages\EditRegion;
 use App\Filament\Resources\Stats\Pages\EditStat;
-use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\Faq;
 use App\Models\Region;
 use App\Models\Service;
@@ -33,7 +32,6 @@ class DraftWorkflowTest extends TestCase
     {
         parent::setUp();
         $this->seed([RbacSeeder::class, ContentSeeder::class]);
-        $this->withoutMiddleware(EnsurePrivilegedRolesUseMfa::class);
     }
 
     private function manager(): User

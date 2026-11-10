@@ -6,7 +6,6 @@ use App\Consultation\Calendar;
 use App\Consultation\Notifier;
 use App\Enums\ConsultationStatus;
 use App\Enums\Role;
-use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Mail\ConsultationReceived;
 use App\Mail\ConsultationReplyMail;
 use App\Mail\NewConsultationBooked;
@@ -204,7 +203,6 @@ class ConsultationBookingTest extends TestCase
     {
         $this->post('/en/consultation', $this->valid());
         $booking = ConsultationRequest::sole();
-        $this->withoutMiddleware(EnsurePrivilegedRolesUseMfa::class);
 
         $manager = User::factory()->withRole(Role::SalesManager)->create();
         $this->actingAs($manager)->get('/admin/consultation-requests')->assertOk()->assertSee($booking->reference);

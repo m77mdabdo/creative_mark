@@ -27,10 +27,4 @@ enum Role: string
             self::Viewer => 'Viewer',
         };
     }
-
-    /** MFA is mandatory for roles that publish or export personal data (§8 rule 4). */
-    public function requiresMfa(): bool
-    {
-        return in_array($this, [self::SuperAdmin, self::ContentManager, self::SalesManager], true);
-    }
 }

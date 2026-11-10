@@ -38,16 +38,11 @@ class AdminAccessTest extends TestCase
         $this->actingAs($user->fresh())->get('/admin')->assertForbidden();
     }
 
-    public function test_roles_requiring_mfa_are_sent_to_set_it_up(): void
+    public function test_every_role_reaches_the_dashboard_once_signed_in(): void
     {
-        $user = User::factory()->withRole(Role::ContentManager)->create();
-        $this->actingAs($user)->get('/admin')->assertRedirectContains('multi-factor');
-    }
-
-    public function test_roles_without_mandatory_mfa_reach_the_dashboard(): void
-    {
-        $user = User::factory()->withRole(Role::Editor)->create();
-        $this->actingAs($user)->get('/admin')->assertOk();
+        foreach ([Role::ContentManager, Role::Editor] as $role) {
+            $this->actingAs(User::factory()->withRole($role)->create())->get('/admin')->assertOk();
+        }
     }
 
     public function test_mass_assignment_cannot_activate_or_promote(): void
@@ -55,15 +50,6 @@ class AdminAccessTest extends TestCase
         // Strict models refuse unknown or guarded attributes instead of silently dropping them.
         $this->expectException(MassAssignmentException::class);
         new User(['name' => 'x', 'email' => 'x@example.com', 'password' => 'Secret-password-1', 'is_active' => false]);
-    }
-
-    public function test_mfa_secret_is_encrypted_at_rest(): void
-    {
-        $user = User::factory()->create();
-        $user->saveAppAuthenticationSecret('JBSWY3DPEHPK3PXP');
-        $raw = \DB::table('users')->where('id', $user->id)->value('app_authentication_secret');
-        $this->assertNotSame('JBSWY3DPEHPK3PXP', $raw);
-        $this->assertSame('JBSWY3DPEHPK3PXP', $user->fresh()->getAppAuthenticationSecret());
     }
 
     /** @return iterable<string, array{Role, string, bool}> 8 roles × 25 permissions, generated from the approved matrix. */

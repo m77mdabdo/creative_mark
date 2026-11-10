@@ -27,7 +27,7 @@ final class Audit
     /** Housekeeping columns that do not count as a change. */
     private const QUIET_FIELDS = ['updated_at', 'created_at', 'lock_version', 'remember_token', 'last_login_at', 'live_notified_at', 'notified_at', 'confirmed_at', 'mail_error', 'last_notified_at', 'reviewed_at'];
 
-    private const SECRET_FIELDS = ['password', 'app_authentication_secret', 'app_authentication_recovery_codes'];
+    private const SECRET_FIELDS = ['password'];
 
     public static function modelEvent(string $event, Model $model): void
     {

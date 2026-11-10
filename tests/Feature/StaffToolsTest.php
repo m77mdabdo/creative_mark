@@ -10,7 +10,6 @@ use App\Filament\Resources\ConsultationRequests\Pages\ListConsultationRequests;
 use App\Filament\Resources\Users\Pages\CreateUser;
 use App\Filament\Resources\Users\Pages\EditUser;
 use App\Filament\Resources\Users\Pages\ListUsers;
-use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Mail\StaffAccessLink;
 use App\Models\ActivityLog;
 use App\Models\ConsultationRequest;
@@ -36,7 +35,6 @@ class StaffToolsTest extends TestCase
     {
         parent::setUp();
         $this->seed([RbacSeeder::class, ContentSeeder::class]);
-        $this->withoutMiddleware(EnsurePrivilegedRolesUseMfa::class);
         MediaLibrary::flush();
         Filament::setCurrentPanel(Filament::getPanel('admin'));
     }
@@ -57,7 +55,8 @@ class StaffToolsTest extends TestCase
         $nora = User::where('email', 'nora@example.org')->first();
         $this->assertTrue($nora->hasRole('editor'));
         $this->assertTrue($nora->is_active);
-        Mail::assertSent(StaffAccessLink::class, fn ($m) => $m->hasTo('nora@example.org'));
+        // The invitation names the role she was given, in her dashboard language
+        Mail::assertSent(StaffAccessLink::class, fn ($m) => $m->hasTo('nora@example.org') && str_contains($m->render(), 'Editor'));
         $this->assertTrue(ActivityLog::where('event', 'invited')->where('subject_id', $nora->id)->exists());
     }
 
@@ -95,19 +94,13 @@ class StaffToolsTest extends TestCase
         $this->assertNull(User::find($agent->id));
     }
 
-    public function test_password_link_and_two_step_reset(): void
+    public function test_password_link_can_be_resent(): void
     {
         Mail::fake();
-        $admin = $this->admin();
         $staff = User::factory()->withRole(Role::Editor)->create();
-        $staff->forceFill(['app_authentication_secret' => 'SECRET'])->save();
-
-        $list = Livewire::actingAs($admin)->test(ListUsers::class);
-        $list->callTableAction('sendLink', $staff);
+        Livewire::actingAs($this->admin())->test(ListUsers::class)->callTableAction('sendLink', $staff);
         Mail::assertSent(StaffAccessLink::class, fn ($m) => $m->hasTo($staff->email) && ! $m->invitation);
-        $list->callTableAction('resetMfa', $staff);
-        $this->assertNull($staff->fresh()->app_authentication_secret);
-        $this->assertTrue(ActivityLog::where('event', 'mfa_reset')->where('subject_id', $staff->id)->exists());
+        $this->assertTrue(ActivityLog::where('event', 'password_link')->where('subject_id', $staff->id)->exists());
     }
 
     public function test_the_activity_log_records_staff_changes_without_values(): void

@@ -3,7 +3,6 @@
 namespace Tests\Feature\Admin;
 
 use App\Enums\Role;
-use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\CaseStudy;
 use App\Models\Country;
 use App\Models\Faq;
@@ -51,7 +50,6 @@ class CatalogueResourcesTest extends TestCase
         $this->get("/admin/{$slug}")->assertOk();
 
         $this->actingAs(User::factory()->withRole(Role::ContentManager)->create());
-        $this->withoutMiddleware(EnsurePrivilegedRolesUseMfa::class);
         $this->get("/admin/{$slug}")->assertOk();
         $this->get("/admin/{$slug}/".$model::query()->value('id').'/edit')->assertOk();
     }
@@ -61,7 +59,6 @@ class CatalogueResourcesTest extends TestCase
     {
         foreach ([Role::Viewer, Role::SalesManager, Role::Consultant] as $role) {
             $this->actingAs(User::factory()->withRole($role)->create());
-            $this->withoutMiddleware(EnsurePrivilegedRolesUseMfa::class);
             $this->get("/admin/{$slug}")->assertForbidden();
         }
     }
@@ -69,7 +66,6 @@ class CatalogueResourcesTest extends TestCase
     public function test_regions_cannot_be_created(): void
     {
         $this->actingAs(User::factory()->withRole(Role::SuperAdmin)->create());
-        $this->withoutMiddleware(EnsurePrivilegedRolesUseMfa::class);
         $this->get('/admin/regions/create')->assertNotFound();
     }
 }

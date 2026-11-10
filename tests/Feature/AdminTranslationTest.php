@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Enums\Role;
-use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\ConsultationRequest;
 use App\Models\User;
 use Database\Seeders\ContentSeeder;
@@ -23,7 +22,6 @@ class AdminTranslationTest extends TestCase
     public function test_arabic_dashboard_has_no_untranslated_interface_text(): void
     {
         $this->seed([RbacSeeder::class, ContentSeeder::class]);
-        $this->withoutMiddleware(EnsurePrivilegedRolesUseMfa::class);
         $admin = User::factory()->withRole(Role::SuperAdmin)->create(['name' => 'مدير', 'email' => 'boss@example.org']);
         $admin->forceFill(['admin_locale' => 'ar'])->save();
         ConsultationRequest::create([

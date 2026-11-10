@@ -8,7 +8,6 @@ use App\Filament\Widgets\BookingStatsWidget;
 use App\Filament\Widgets\ContentOverviewWidget;
 use App\Filament\Widgets\UpcomingConsultations;
 use App\Filament\Widgets\WelcomeWidget;
-use App\Http\Middleware\EnsurePrivilegedRolesUseMfa;
 use App\Models\ConsultationRequest;
 use App\Models\User;
 use Database\Seeders\ContentSeeder;
@@ -26,7 +25,6 @@ class AdminDashboardTest extends TestCase
     {
         parent::setUp();
         $this->seed([RbacSeeder::class, ContentSeeder::class]);
-        $this->withoutMiddleware(EnsurePrivilegedRolesUseMfa::class);
     }
 
     private function booking(array $overrides = []): ConsultationRequest

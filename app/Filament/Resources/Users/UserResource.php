@@ -107,7 +107,6 @@ class UserResource extends Resource
                 TextColumn::make('name')->label(__('Name'))->searchable()->sortable()->description(fn (User $u) => $u->email),
                 TextColumn::make('role')->label(__('Role'))->badge()->state(fn (User $u) => $u->roles->map(fn ($r) => __(Role::tryFrom($r->name)?->label() ?? $r->name))->all()),
                 IconColumn::make('is_active')->label(__('Can sign in'))->boolean(),
-                IconColumn::make('mfa')->label(__('Two-step verification'))->boolean()->state(fn (User $u) => filled($u->app_authentication_secret)),
                 TextColumn::make('last_login_at')->label(__('Last sign-in'))->since()->sortable()->placeholder(__('Never')),
             ])
             ->filters([
@@ -125,15 +124,6 @@ class UserResource extends Resource
                                 ? Notification::make()->success()->title(__('Link sent to :email', ['email' => $record->email]))->send()
                                 : Notification::make()->danger()->title(__('Sending failed'))->send();
                         }),
-                    Action::make('resetMfa')->label(__('Reset two-step'))->icon('heroicon-o-shield-exclamation')->color('warning')
-                        ->visible(fn (User $r) => filled($r->app_authentication_secret) && ! auth()->user()?->is($r))
-                        ->requiresConfirmation()->modalDescription(__('For someone who lost their phone. They set it up again at their next sign-in.'))
-                        ->action(function (User $record) {
-                            abort_if(auth()->user()?->is($record), 403);
-                            $record->forceFill(['app_authentication_secret' => null, 'app_authentication_recovery_codes' => null])->saveQuietly();
-                            Audit::record('mfa_reset', $record);
-                            Notification::make()->success()->title(__('Two-step verification reset'))->send();
-                        }),
                     DeleteAction::make()->visible(fn (User $r) => ! self::isProtected($r))
                         ->before(fn (User $record) => abort_if(self::isProtected($record), 403)),
                 ])->label(__('More'))->color('gray'),
@@ -145,7 +135,7 @@ class UserResource extends Resource
     {
         try {
             $url = Filament::getResetPasswordUrl(Password::broker()->createToken($user), $user);
-            Mail::to($user->email, $user->name)->send(new StaffAccessLink($user, $url, $event === 'invited'));
+            Mail::to($user->email, $user->name)->send(new StaffAccessLink($user->loadMissing('roles'), $url, $event === 'invited'));
             Audit::record($event, $user);
 
             return true;

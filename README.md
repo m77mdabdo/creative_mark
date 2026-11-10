@@ -265,6 +265,8 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-11
+- Automatic deploys switched on (GitHub secrets and server key in place); the Laravel scheduler runs every minute on
+  Hostinger; the dashboard bell checks for new bookings every 5 seconds instead of 30.
 - Fact check against official sources (docs/reviews/2026-11-11-fact-check.md): Q2 2025 FDI growth corrected (the
   home card and FAQ now quote GASTAT's 2025 annual figure), investment registration time corrected to MISA's
   5 working days, two news stories aligned with what their sources say. Applied in six languages by a data migration,

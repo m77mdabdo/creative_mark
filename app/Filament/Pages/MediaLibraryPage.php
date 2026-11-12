@@ -89,6 +89,7 @@ class MediaLibraryPage extends Page
             ->filter(fn ($m, $key) => $query === '' || str_contains(mb_strtolower($key.' '.implode(' ', $m['alt'] ?? [])), $query));
 
         return [
+            'canEdit' => (bool) auth()->user()?->can('content.publish'),
             'total' => $items->count(),
             'items' => $items->take($this->limit)->map(fn ($m, $key) => [
                 'key' => $key, 'url' => MediaLibrary::url($key), 'alt' => MediaLibrary::alt($key), 'uploaded' => ($m['folder'] ?? null) === 'uploads',
@@ -104,7 +105,8 @@ class MediaLibraryPage extends Page
                 ->modalHeading(__('Upload a new image'))
                 ->schema([
                     FileUpload::make('file')->label(__('Image'))->image()->required()->maxSize(12 * 1024)
-                        ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])->disk('local')->directory('media-uploads')->visibility('private')
+                        ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])->disk('local')->directory(MediaLibrary::UPLOAD_DIR)->visibility('private')
+                        ->preventFilePathTampering()
                         ->helperText(__('JPG, PNG or WebP, up to 12 MB. Large images look best: 2400 pixels wide or more.')),
                     Fieldset::make(__('Description for screen readers and Google'))->schema([
                         TextInput::make('alt_en')->label('English')->required()->maxLength(160),
@@ -112,15 +114,13 @@ class MediaLibraryPage extends Page
                     ]),
                 ])
                 ->action(function (array $data) {
-                    $path = storage_path('app/private/'.$data['file']);
+                    abort_unless(auth()->user()?->can('media.upload'), 403);
                     try {
-                        $key = MediaLibrary::store($path, $data['alt_en'], $data['alt_ar'] ?? null);
+                        $key = MediaLibrary::storeUpload($data['file'] ?? null, $data['alt_en'], $data['alt_ar'] ?? null);
                         Audit::record('created', null, $data['alt_en'], [$key], type: 'Media');
                         Notification::make()->success()->title(__('Image uploaded. You can now choose it in any editor.'))->send();
                     } catch (RuntimeException $e) {
                         Notification::make()->danger()->title(__('This file could not be read as an image.'))->send();
-                    } finally {
-                        @unlink($path);
                     }
                 }),
         ];
@@ -128,10 +128,13 @@ class MediaLibraryPage extends Page
 
     public function editAction(): Action
     {
+        // Alt text goes live at once, so changing it is a publishing right, not an upload right.
         return Action::make('edit')->label(__('Edit'))->modalHeading(__('Image description'))->modalSubmitActionLabel(__('Save'))
+            ->visible(fn () => (bool) auth()->user()?->can('content.publish'))
             ->fillForm(fn (array $arguments) => ['alt' => MediaLibrary::all()[$arguments['key']]['alt'] ?? []])
             ->schema([SectionForm::localeTabs(fn (string $l, bool $en) => [TextInput::make("alt.{$l}")->label(__('Description'))->required($en)->maxLength(160)])])
             ->action(function (array $data, array $arguments) {
+                abort_unless(auth()->user()?->can('content.publish'), 403);
                 MediaLibrary::updateAlt($arguments['key'], $data['alt'] ?? []);
                 Audit::record('updated', null, $data['alt']['en'] ?? $arguments['key'], [$arguments['key']], type: 'Media');
                 Notification::make()->success()->title(__('Saved'))->send();

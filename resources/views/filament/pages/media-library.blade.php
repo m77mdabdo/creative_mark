@@ -36,7 +36,11 @@
                         </ul>
                     </details>
                     <div class="mt-auto flex items-center justify-between gap-2 pt-1">
-                        <x-filament::link size="sm" tag="button" wire:click="mountAction('edit', { key: '{{ $item['key'] }}' })">{{ __('Edit') }}</x-filament::link>
+                        @if ($canEdit)
+                            <x-filament::link size="sm" tag="button" wire:click="mountAction('edit', { key: '{{ $item['key'] }}' })">{{ __('Edit') }}</x-filament::link>
+                        @else
+                            <span></span>
+                        @endif
                         @if ($item['canDelete'])
                             <x-filament::link size="sm" color="danger" tag="button" wire:click="mountAction('delete', { key: '{{ $item['key'] }}' })">{{ __('Delete') }}</x-filament::link>
                         @endif

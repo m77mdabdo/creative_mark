@@ -274,22 +274,20 @@ final class SectionForm
             ->live()
             ->createOptionForm([
                 FileUpload::make('file')->label(__('Image'))->image()->required()->maxSize(12 * 1024)
-                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])->disk('local')->directory('media-uploads')->visibility('private'),
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])->disk('local')->directory(MediaLibrary::UPLOAD_DIR)->visibility('private')
+                    ->preventFilePathTampering(),
                 Fieldset::make(__('Description for screen readers and Google'))->schema([
                     TextInput::make('alt_en')->label('English')->required()->maxLength(160),
                     TextInput::make('alt_ar')->label('العربية')->maxLength(160),
                 ]),
             ])
             ->createOptionModalHeading(__('Upload a new image'))
+            // Choosing an existing image is part of editing; adding a new one needs the upload right.
+            ->createOptionAction(fn (Action $action) => $action->visible(fn () => (bool) auth()->user()?->can('media.upload')))
             ->createOptionUsing(function (array $data) {
-                $path = storage_path('app/private/'.$data['file']);
-                if (! is_file($path)) {
-                    $path = storage_path('app/'.$data['file']);
-                }
-                $key = MediaLibrary::store($path, $data['alt_en'], $data['alt_ar'] ?? null);
-                @unlink($path);
+                abort_unless(auth()->user()?->can('media.upload'), 403);
 
-                return $key;
+                return MediaLibrary::storeUpload($data['file'] ?? null, $data['alt_en'], $data['alt_ar'] ?? null);
             });
     }
 }

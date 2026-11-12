@@ -36,6 +36,6 @@ final class PreviewMode
 
     public static function allowed(mixed $user): bool
     {
-        return (bool) ($user?->can('pages.edit') || $user?->can('content.edit'));
+        return (bool) $user?->is_active && ($user->can('pages.edit') || $user->can('content.edit'));
     }
 }

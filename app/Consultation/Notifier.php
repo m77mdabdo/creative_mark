@@ -28,6 +28,7 @@ final class Notifier
     public function bookingCreated(ConsultationRequest $booking): void
     {
         $errors = [];
+        $logged = [];
 
         $sent = 0;
         foreach (NotificationRecipient::query()->where('active', true)->get() as $recipient) {
@@ -37,6 +38,7 @@ final class Notifier
                 $sent++;
             } catch (Throwable $e) {
                 $errors[] = "team {$recipient->email}: ".$e->getMessage();
+                $logged[] = "team #{$recipient->id}: ".self::describe($e);
             }
         }
 
@@ -45,12 +47,14 @@ final class Notifier
             $booking->confirmed_at = now();
         } catch (Throwable $e) {
             $errors[] = 'client: '.$e->getMessage();
+            $logged[] = 'client: '.self::describe($e);
         }
 
         try {
             $this->notifyDashboard($booking);
         } catch (Throwable $e) {
             $errors[] = 'dashboard: '.$e->getMessage();
+            $logged[] = 'dashboard: '.self::describe($e);
         }
 
         $booking->notified_at = $sent > 0 ? now() : $booking->notified_at;
@@ -58,7 +62,7 @@ final class Notifier
         $booking->save();
 
         if ($errors) {
-            Log::warning('Consultation notifications incomplete', ['reference' => $booking->reference, 'errors' => $errors]);
+            Log::warning('Consultation notifications incomplete', ['reference' => $booking->reference, 'errors' => $logged]);
         }
     }
 
@@ -73,10 +77,21 @@ final class Notifier
             return true;
         } catch (Throwable $e) {
             $reply->forceFill(['error' => mb_strimwidth($e->getMessage(), 0, 500)])->save();
-            Log::warning('Consultation reply failed', ['reply' => $reply->id, 'error' => $e->getMessage()]);
+            Log::warning('Consultation reply failed', ['reply' => $reply->id, 'error' => self::describe($e)]);
 
             return false;
         }
+    }
+
+    /**
+     * For the log file: the exception class and a short message with any email address removed, so mail server
+     * errors (which often quote the recipient) do not copy personal data into the logs.
+     */
+    public static function describe(Throwable $e): string
+    {
+        $message = preg_replace('/[^\s<>"\'(),;:]+@[^\s<>"\'(),;:]+/u', '[address]', $e->getMessage()) ?? '';
+
+        return class_basename($e).': '.mb_strimwidth(trim($message), 0, 160, '…');
     }
 
     private function notifyDashboard(ConsultationRequest $booking): void

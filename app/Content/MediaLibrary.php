@@ -24,6 +24,12 @@ final class MediaLibrary
 {
     public const UPLOAD_WIDTHS = [800, 1600, 2400];
 
+    /** Dashboard uploads land here first (the "local" disk), relative to storage/app/private. */
+    public const UPLOAD_DIR = 'media-uploads';
+
+    /** Images larger than this are refused before decoding, so a small file cannot expand to gigabytes in memory. */
+    public const MAX_PIXELS = 40_000_000;
+
     /** @var array<string, array<string, mixed>>|null registry for this request */
     private static ?array $registry = null;
 
@@ -190,9 +196,50 @@ final class MediaLibrary
             : null;
     }
 
+    /**
+     * Turns the path a dashboard upload field submitted into the absolute path of a file inside the upload folder,
+     * or null. The value comes from the browser, so "..", absolute paths, other folders and symlinks out are refused.
+     */
+    public static function resolveUpload(mixed $file): ?string
+    {
+        if (! is_string($file) || $file === '' || str_contains($file, "\0") || str_contains($file, '\\')
+            || str_starts_with($file, '/') || preg_match('~(^|/)\.\.?(/|$)~', $file)
+            || ! str_starts_with($file, self::UPLOAD_DIR.'/') || substr_count($file, '/') !== 1) {
+            return null;
+        }
+        $root = realpath(storage_path('app/private/'.self::UPLOAD_DIR));
+        $path = realpath(storage_path('app/private/'.$file));
+        if ($root === false || $path === false || ! is_file($path) || ! str_starts_with($path, $root.DIRECTORY_SEPARATOR)) {
+            return null;
+        }
+
+        return $path;
+    }
+
+    /** Stores an image uploaded in the dashboard (see resolveUpload), then removes the temporary file. */
+    public static function storeUpload(mixed $file, string $altEn, ?string $altAr = null): string
+    {
+        $path = self::resolveUpload($file);
+        if ($path === null) {
+            throw new RuntimeException('The uploaded file could not be found.');
+        }
+        try {
+            return self::store($path, $altEn, $altAr);
+        } finally {
+            @unlink($path);
+        }
+    }
+
     /** Re-encodes an uploaded image and registers it. Returns its key. */
     public static function store(string $path, string $altEn, ?string $altAr = null): string
     {
+        $size = @getimagesize($path);
+        if ($size === false || $size[0] < 1 || $size[1] < 1) {
+            throw new RuntimeException('The file is not a readable image.');
+        }
+        if ($size[0] * $size[1] > self::MAX_PIXELS) {
+            throw new RuntimeException('The image has too many pixels.');
+        }
         $data = @file_get_contents($path);
         $image = $data !== false ? @imagecreatefromstring($data) : false;
         if (! $image) {

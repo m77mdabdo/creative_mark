@@ -6,7 +6,9 @@ use App\Consultation\BookConsultation;
 use App\Consultation\Calendar;
 use App\Consultation\Notifier;
 use App\Content\MediaLibrary;
+use App\Enums\ConsultationStatus;
 use App\Http\Requests\BookConsultationRequest;
+use App\Models\ConsultationRequest;
 use App\Models\Country;
 use App\Models\Region;
 use App\Models\Service;
@@ -82,16 +84,26 @@ class ConsultationController
         ]);
     }
 
-    /** At most N bookings per IP per hour and M per email per day. */
+    /**
+     * Limits per IP (hourly and daily) and per email (daily), plus a ceiling on bookings nobody has handled yet
+     * created today, so one visitor cannot hold every slot in the calendar.
+     */
     private function throttle(BookConsultationRequest $request): void
     {
-        $ipKey = 'consultation-ip:'.hash('sha256', (string) $request->ip());
+        $ip = hash('sha256', (string) $request->ip());
+        $ipKey = 'consultation-ip:'.$ip;
+        $ipDayKey = 'consultation-ip-day:'.$ip;
         $emailKey = 'consultation-email:'.hash('sha256', (string) $request->input('email'));
+        $newToday = ConsultationRequest::query()->where('status', ConsultationStatus::New->value)
+            ->where('created_at', '>=', now()->subDay())->count();
         if (RateLimiter::tooManyAttempts($ipKey, config('consultation.per_ip_per_hour'))
-            || RateLimiter::tooManyAttempts($emailKey, config('consultation.per_email_per_day'))) {
+            || RateLimiter::tooManyAttempts($ipDayKey, config('consultation.per_ip_per_day'))
+            || RateLimiter::tooManyAttempts($emailKey, config('consultation.per_email_per_day'))
+            || $newToday >= (int) config('consultation.new_per_day')) {
             throw ValidationException::withMessages(['form' => 'too_many']);
         }
         RateLimiter::hit($ipKey, 3600);
+        RateLimiter::hit($ipDayKey, 86400);
         RateLimiter::hit($emailKey, 86400);
     }
 }

@@ -186,7 +186,7 @@ final class SectionSchema
 
     public static function safeHref(string $href): bool
     {
-        return (bool) preg_match('~^(/(?!/)[^\s]*|#[\w-]*|https://[^\s]+|mailto:[^\s]+|tel:\+?[\d\s-]+)$~i', trim($href));
+        return (bool) preg_match('~^(/(?![/\\\\])[^\s]*|#[\w-]*|https://[^\s]+|mailto:[^\s]+|tel:\+?[\d\s-]+)$~i', trim($href));
     }
 
     private static function mediaKey(mixed $v): bool

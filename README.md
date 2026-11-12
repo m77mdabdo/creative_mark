@@ -264,6 +264,18 @@ role × permission combination, dashboard access, two-factor enforcement and the
 
 ## Changelog
 
+### 2026-11-12
+- Security fixes. Dashboard image uploads (media library and the "upload new image" option in image pickers) only
+  accept a file inside `storage/app/private/media-uploads`: tampered paths are refused before anything is read or
+  deleted, and every upload field rejects paths it did not create. Images over 40 megapixels are refused before
+  decoding. Uploading from an image picker needs the upload right; editing image descriptions needs the publish right.
+- Consultation booking: at most 3 bookings per address per day, and at most 30 bookings still marked "new" per day
+  from everyone (`CONSULTATION_PER_IP_PER_DAY`, `CONSULTATION_NEW_PER_DAY`), shown with the existing "too many" message.
+- Switching an account off now removes its "remember me" token and signs it out of every session; preview mode needs
+  an active account.
+- Button links refuse `//host` and `/\host` forms. Mail failures are logged as the error type and a short message with
+  addresses removed. The GitHub workflow token is read-only. Symfony packages updated; `composer audit` is clean.
+
 ### 2026-11-11
 - Dashboard sign-in now ends with a one-time code emailed to the person signing in (10 minutes, sent immediately),
   replacing the authenticator app; the stored app secrets are removed. New booking-email recipients get a welcome email

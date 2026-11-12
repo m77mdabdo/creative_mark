@@ -22,6 +22,9 @@ return [
     'min_fill_seconds' => 4,
     'per_ip_per_hour' => 5,
     'per_email_per_day' => 3,
+    // Slot exhaustion: bookings per IP per day, and unconfirmed ("new") bookings accepted from everyone per day.
+    'per_ip_per_day' => (int) env('CONSULTATION_PER_IP_PER_DAY', 3),
+    'new_per_day' => (int) env('CONSULTATION_NEW_PER_DAY', 30),
 
     // Language of the team's notification emails.
     'staff_locale' => env('CONSULTATION_STAFF_LOCALE', 'ar'),

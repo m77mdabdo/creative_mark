@@ -9,6 +9,8 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements FilamentUser, HasEmailAuthentication
@@ -27,6 +29,32 @@ class User extends Authenticatable implements FilamentUser, HasEmailAuthenticati
     protected $fillable = ['name', 'email', 'password', 'admin_locale'];
 
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * Switching an account off ends it everywhere: the "remember me" cookie stops working and every open session
+     * (database session driver) is removed, so a deactivated person is signed out on their next request.
+     */
+    protected static function booted(): void
+    {
+        static::updating(function (User $user) {
+            if ($user->isDirty('is_active') && ! $user->is_active) {
+                $user->remember_token = null;
+            }
+        });
+        static::updated(function (User $user) {
+            if ($user->wasChanged('is_active') && ! $user->is_active) {
+                $user->endSessions();
+            }
+        });
+    }
+
+    public function endSessions(): void
+    {
+        $table = (string) config('session.table', 'sessions');
+        if (Schema::hasTable($table)) {
+            DB::table($table)->where('user_id', $this->getKey())->delete();
+        }
+    }
 
     protected function casts(): array
     {

@@ -7,6 +7,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# The token GitHub gives this workflow can only read the code.
+permissions:
+  contents: read
+
 concurrency:
   group: production
   cancel-in-progress: false

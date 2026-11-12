@@ -265,6 +265,7 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-12
+- A `.htaccess` in the project folder refuses every web request that reaches it, so a local Apache (XAMPP) serving `htdocs` can no longer hand out `.env`, storage or logs; the site itself is still served from `public/`.
 - The live site answers only its own host (APP_URL and its subdomains); other Host headers get a 400. In production
   every generated link, including sign-in and password emails, starts with APP_URL. A Content-Security-Policy is sent
   in report-only mode (logged by browsers, nothing blocked) so it can be enforced later.

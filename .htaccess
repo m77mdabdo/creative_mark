@@ -1,0 +1,3 @@
+# This folder is not a web root. The site is served from public/ (php artisan serve, or the host pointing at public/).
+# Refuse every request that reaches the project folder itself, so .env, storage and logs are never served.
+Require all denied

@@ -17,6 +17,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Only APP_URL's host (and its subdomains) is answered; Laravel skips this check in local and testing.
+        $middleware->trustHosts();
         $middleware->web(append: [SecurityHeaders::class, HandleInertiaRequests::class, ShowDraftsInPreview::class]);
         // The only sign-in is the dashboard's.
         $middleware->redirectGuestsTo(fn () => route('filament.admin.auth.login'));

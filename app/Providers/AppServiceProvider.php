@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Support\CanonicalUrl;
 use App\Audit\Audit;
 use App\Enums\Role;
 use App\Models\CaseStudy;
@@ -56,6 +57,9 @@ class AppServiceProvider extends ServiceProvider
     {
         // Silent bugs become loud ones in development: lazy loading, unknown attributes, discarded fills.
         Model::shouldBeStrict(! $this->app->isProduction());
+
+        // Links in emails always point at APP_URL, whatever Host header a request carried.
+        CanonicalUrl::apply($this->app);
 
         // Super Admin passes every gate (Phase E/F §8 rule 1); every other role is deny-by-default.
         Gate::before(fn (User $user) => $user->is_active && $user->hasRole(Role::SuperAdmin->value) ? true : null);

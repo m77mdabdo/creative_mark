@@ -265,6 +265,9 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-12
+- The live site answers only its own host (APP_URL and its subdomains); other Host headers get a 400. In production
+  every generated link, including sign-in and password emails, starts with APP_URL. A Content-Security-Policy is sent
+  in report-only mode (logged by browsers, nothing blocked) so it can be enforced later.
 - Security fixes. Dashboard image uploads (media library and the "upload new image" option in image pickers) only
   accept a file inside `storage/app/private/media-uploads`: tampered paths are refused before anything is read or
   deleted, and every upload field rejects paths it did not create. Images over 40 megapixels are refused before

@@ -1,6 +1,18 @@
 # Deployment
 
-Production: **https://creativemark.anasfareed.com** on Hostinger (account `u109745148`, PHP 8.5, MariaDB 11.8).
+Production: **https://www.creativemaark.com** on Hostinger (account `u109745148`, PHP 8.5, MariaDB 11.8).
+
+## Domains
+
+- `www.creativemaark.com` is the site's address and the value of `APP_URL` in `shared/.env`. The site answers only
+  that host (and its subdomains); generated links and emails use it.
+- `creativemaark.com` (the company domain, registrant Creative Mark) is a parked domain on the Hostinger website
+  `creativemark.anasfareed.com`; its DNS is Hostinger's (ALIAS `@` and CNAME `www` to the Hostinger CDN). The Resend
+  mail records (`send`, `resend._domainkey`) and the Google site verification TXT live in the same zone.
+- `public/.htaccess` sends `creativemaark.com` and the old `creativemark.anasfareed.com` to
+  `https://www.creativemaark.com` with a 301, keeping the path.
+- After changing `APP_URL` on the server, run `php artisan optimize` in `current` (or deploy) so the cached config
+  picks it up.
 
 ## How a change reaches the site
 

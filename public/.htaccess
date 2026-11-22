@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # One public address: the bare domain and the old subdomain go to www.creativemaark.com
+    RewriteCond %{HTTP_HOST} ^(creativemaark\.com|(www\.)?creativemark\.anasfareed\.com)$ [NC]
+    RewriteRule ^ https://www.creativemaark.com%{REQUEST_URI} [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

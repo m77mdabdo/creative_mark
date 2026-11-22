@@ -264,6 +264,13 @@ role × permission combination, dashboard access, two-factor enforcement and the
 
 ## Changelog
 
+### 2026-11-22
+- The site moved to the company domain: **https://www.creativemaark.com** (`APP_URL`). `creativemaark.com` was moved
+  into the hosting account and parked on the live site, replacing the previous site on Vercel; email-sending (Resend)
+  and Google verification records were kept. The bare domain and the old `creativemark.anasfareed.com` address
+  redirect permanently (301) to `www.creativemaark.com` with the same path (`public/.htaccess`). Details in
+  [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
 ### 2026-11-12
 - A `.htaccess` in the project folder refuses every web request that reaches it, so a local Apache (XAMPP) serving `htdocs` can no longer hand out `.env`, storage or logs; the site itself is still served from `public/`.
 - The live site answers only its own host (APP_URL and its subdomains); other Host headers get a 400. In production

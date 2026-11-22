@@ -1,4 +1,4 @@
-# Every push to main is tested; if the tests pass, it is deployed to https://creativemark.anasfareed.com.
+# Every push to main is tested; if the tests pass, it is deployed to https://www.creativemaark.com.
 # Secrets (repository settings): DEPLOY_SSH_KEY, DEPLOY_HOST, DEPLOY_PORT, DEPLOY_USER, DEPLOY_KNOWN_HOSTS.
 name: Test and deploy
 

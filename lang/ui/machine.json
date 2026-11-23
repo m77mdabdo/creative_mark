@@ -1,6 +1,22 @@
 {
-    "fr": [],
-    "hi": [],
-    "ur": [],
-    "zh": []
+    "fr": [
+        "callUs",
+        "footerContactTitle",
+        "whatsappShort"
+    ],
+    "hi": [
+        "callUs",
+        "footerContactTitle",
+        "whatsappShort"
+    ],
+    "ur": [
+        "callUs",
+        "footerContactTitle",
+        "whatsappShort"
+    ],
+    "zh": [
+        "callUs",
+        "footerContactTitle",
+        "whatsappShort"
+    ]
 }

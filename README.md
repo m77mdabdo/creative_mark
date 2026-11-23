@@ -97,6 +97,9 @@ public website and the dashboard its team uses to run it.
 - Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
 - Localized URLs (`/ar`, `/en`, `/fr`, `/hi`, `/ur`, `/zh`), Arabic by default, per-script typography
   (Amiri, IBM Plex Sans Arabic, Noto Nastaliq Urdu, Noto Sans Devanagari, Cormorant Garamond, Manrope).
+- Footer in two tiers divided by an inset gold line: above it "Contact us" with call, WhatsApp and book-a-consultation
+  buttons beside the logo (mirrored between Arabic and English); below it offices, social links, site links and legal.
+  Call and WhatsApp buttons appear once their numbers are set in Settings › Contact details.
 - Responsive images (WebP up to 2560 px), lazy-loaded map, initial JavaScript under 180 KB gzip.
 
 ### Dashboard (`/admin`)
@@ -263,6 +266,14 @@ role × permission combination, dashboard access, two-factor enforcement and the
 - [Photo credits](docs/photo-credits.md)
 
 ## Changelog
+
+### 2026-11-23
+- New footer: an inset gold divider line splits it in two. Above the line, "Contact us" with three buttons (call,
+  WhatsApp, book a consultation in solid gold) beside the logo and tagline; the logo sits on the left in right-to-left
+  languages and on the right in left-to-right ones. Below the line, offices with social links, company links and
+  business solutions in three columns, then copyright and policies. On phones the logo comes first and link lists use
+  two columns. New interface labels in all six languages (fr, hi, ur and zh marked for review in the dashboard); the
+  WhatsApp mark is now one shared component used by the footer and the floating button.
 
 ### 2026-11-22
 - The site moved to the company domain: **https://www.creativemaark.com** (`APP_URL`). `creativemaark.com` was moved

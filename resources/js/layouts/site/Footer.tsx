@@ -34,12 +34,14 @@ function ContactAction({ href, icon, label, detail, primary = false, external = 
  * Two-tier footer split by an inset gold rule.
  * Above the rule: the contact buttons at the reading start and the logo at the end, so the layout mirrors
  * itself between RTL (logo on the left) and LTR (logo on the right). Below the rule: offices, links and legal.
- * Phone and WhatsApp buttons appear only once their numbers are set in the CMS contact settings.
+ * The call button uses the CMS phone number, falling back to the WhatsApp number; WhatsApp shows once its number is set.
  */
 export default function Footer() {
   const { site, t } = useSite()
   const social = Object.entries(site.social).filter((entry): entry is [string, string] => !!entry[1])
   const whatsappDigits = (site.whatsapp ?? '').replace(/\D/g, '')
+  // Until a separate phone number is set in the CMS, "Call us" dials the WhatsApp number.
+  const phone = site.phone || site.whatsapp
   const linkClass = 'inline-flex min-h-11 items-center hover:text-gold'
 
   return <footer className="border-t border-white/[.06] bg-[#070707] text-white/70">
@@ -49,7 +51,7 @@ export default function Footer() {
           <p className="eyebrow">{t('contactLink')}</p>
           <p className="mt-3 font-display text-2xl text-white md:text-3xl">{t('footerContactTitle')}</p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {site.phone && <ContactAction href={`tel:${site.phone.replace(/\s/g, '')}`} label={t('callUs')} detail={site.phone}
+            {phone && <ContactAction href={`tel:${phone.replace(/[^\d+]/g, '')}`} label={t('callUs')} detail={phone}
               icon={<Phone size={18} strokeWidth={1.5} aria-hidden />} />}
             {whatsappDigits && <ContactAction href={`https://wa.me/${whatsappDigits}?text=${encodeURIComponent(t('whatsappGreeting'))}`} external label={t('whatsappShort')} detail={site.whatsapp ?? undefined}
               icon={<WhatsAppGlyph className="h-5 w-5" />} />}

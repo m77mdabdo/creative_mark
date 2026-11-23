@@ -99,7 +99,7 @@ public website and the dashboard its team uses to run it.
   (Amiri, IBM Plex Sans Arabic, Noto Nastaliq Urdu, Noto Sans Devanagari, Cormorant Garamond, Manrope).
 - Footer in two tiers divided by an inset gold line: above it "Contact us" with call, WhatsApp and book-a-consultation
   buttons beside the logo (mirrored between Arabic and English); below it offices, social links, site links and legal.
-  Call and WhatsApp buttons appear once their numbers are set in Settings › Contact details.
+  The call button dials the phone number from Settings › Contact details, or the WhatsApp number until a phone is set.
 - Responsive images (WebP up to 2560 px), lazy-loaded map, initial JavaScript under 180 KB gzip.
 
 ### Dashboard (`/admin`)
@@ -274,6 +274,7 @@ role × permission combination, dashboard access, two-factor enforcement and the
   business solutions in three columns, then copyright and policies. On phones the logo comes first and link lists use
   two columns. New interface labels in all six languages (fr, hi, ur and zh marked for review in the dashboard); the
   WhatsApp mark is now one shared component used by the footer and the floating button.
+- The footer's call button shows straight away: it dials the WhatsApp number until a separate phone number is set.
 
 ### 2026-11-22
 - The site moved to the company domain: **https://www.creativemaark.com** (`APP_URL`). `creativemaark.com` was moved

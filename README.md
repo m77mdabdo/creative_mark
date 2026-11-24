@@ -97,6 +97,9 @@ public website and the dashboard its team uses to run it.
 - Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
 - Localized URLs (`/ar`, `/en`, `/fr`, `/hi`, `/ur`, `/zh`), Arabic by default, per-script typography
   (Amiri, IBM Plex Sans Arabic, Noto Nastaliq Urdu, Noto Sans Devanagari, Cormorant Garamond, Manrope).
+- Announcement bar above the menu on every page: a slim scrolling strip with a gold badge and short messages, each
+  optionally a link; pauses on hover, static for visitors who prefer reduced motion. Managed in Settings › Announcement
+  bar (on/off, speed, badge text and up to 12 messages in six languages, with draft, preview and publish).
 - Footer in two tiers divided by an inset gold line: above it "Contact us" with call, WhatsApp and book-a-consultation
   buttons beside the logo (mirrored between Arabic and English); below it offices, social links, site links and legal.
   The call button dials the phone number from Settings › Contact details, or the WhatsApp number until a phone is set.
@@ -266,6 +269,14 @@ role × permission combination, dashboard access, two-factor enforcement and the
 - [Photo credits](docs/photo-credits.md)
 
 ## Changelog
+
+### 2026-11-24
+- Announcement bar above the menu on every page, built on the same scrolling strip as the newsroom's "Latest" ticker
+  (now one shared component). Managed from Settings › Announcement bar: switch it on or off, choose slow, normal or
+  fast, edit the badge ("مستجدات" / "Updates") and the messages in six languages, each with an optional link; saved
+  as a draft, previewed and published like the other settings. Starts on with three messages (1,000+ companies over
+  8 years, the Riyadh and Cairo offices, booking a consultation); a migration adds them to existing sites without
+  touching settings already there. While the bar shows, pages start below it.
 
 ### 2026-11-23
 - New footer: an inset gold divider line splits it in two. Above the line, "Contact us" with three buttons (call,

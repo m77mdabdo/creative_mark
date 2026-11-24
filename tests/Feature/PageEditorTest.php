@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Content\MediaLibrary;
 use App\Enums\Role;
 use App\Filament\Pages\EditAboutPage;
+use App\Filament\Pages\EditAnnouncementBar;
 use App\Filament\Pages\EditBookingTexts;
 use App\Filament\Pages\EditCaseLabels;
 use App\Filament\Pages\EditContactSettings;
@@ -691,6 +692,42 @@ class PageEditorTest extends TestCase
         $header[$first]['href'] = 'javascript:alert(1)';
         Livewire::actingAs($admin)->test(EditNavigationSettings::class)->set('data.header', $header)->call('save')->assertHasErrors();
         $this->actingAs(User::factory()->withRole(Role::Editor)->create())->get('/admin/settings/navigation')->assertForbidden();
+    }
+
+    public function test_announcement_bar_is_managed_from_the_dashboard(): void
+    {
+        $admin = User::factory()->withRole(Role::SuperAdmin)->create();
+
+        // Seeded on, with messages in every language
+        $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('site.announcement.speed', 'normal')
+            ->where('site.announcement.items', fn ($items) => count($items) === 3 && collect($items)->every(fn ($i) => filled($i['text']))));
+        $this->get('/zh')->assertInertia(fn (Assert $p) => $p->where('site.announcement.label', '最新消息'));
+
+        // New wording, a plain-text message and a faster speed, published
+        $this->actingAs($admin)->get('/admin/settings/announcement')->assertOk();
+        $component = Livewire::actingAs($admin)->test(EditAnnouncementBar::class);
+        $items = $component->get('data.items');
+        $items[array_key_first($items)]['text']['ar'] = 'خبر جديد';
+        $items['extra'] = ['href' => '', 'text' => ['en' => 'Plain message']];
+        $component->set('data.items', $items)->set('data.speed', 'fast')->set('data.label.ar', 'عاجل')->callAction('publish')->assertHasNoErrors();
+
+        auth()->logout();
+        $this->get('/ar')->assertInertia(fn (Assert $p) => $p->where('site.announcement.label', 'عاجل')->where('site.announcement.speed', 'fast')
+            ->where('site.announcement.items.0.text', 'خبر جديد')
+            ->where('site.announcement.items.3', ['text' => 'Plain message', 'href' => null]));
+
+        // Switched off: hidden everywhere
+        Livewire::actingAs($admin)->test(EditAnnouncementBar::class)->set('data.enabled', false)->callAction('publish')->assertHasNoErrors();
+        auth()->logout();
+        $this->get('/en')->assertInertia(fn (Assert $p) => $p->where('site.announcement', null));
+
+        // Unsafe links and unknown speeds are refused; other roles cannot open it
+        $bad = Livewire::actingAs($admin)->test(EditAnnouncementBar::class);
+        $items = $bad->get('data.items');
+        $items[array_key_first($items)]['href'] = 'javascript:alert(1)';
+        $bad->set('data.items', $items)->call('save')->assertHasErrors();
+        Livewire::actingAs($admin)->test(EditAnnouncementBar::class)->set('data.speed', 'warp')->call('save')->assertHasErrors();
+        $this->actingAs(User::factory()->withRole(Role::Editor)->create())->get('/admin/settings/announcement')->assertForbidden();
     }
 
     public function test_key_figures_need_matching_labels(): void

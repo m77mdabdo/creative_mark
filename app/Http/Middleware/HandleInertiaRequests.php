@@ -14,6 +14,8 @@ class HandleInertiaRequests extends Middleware
 {
     protected $rootView = 'app';
 
+    public const ANNOUNCEMENT_SPEEDS = ['slow', 'normal', 'fast'];
+
     public function version(Request $request): ?string
     {
         return parent::version($request);
@@ -57,6 +59,34 @@ class HandleInertiaRequests extends Middleware
             'social' => Setting::group('social')['links'] ?? [],
             // RULE-06 notice; switched off by the owner on 2026-11-01 (docs/decisions.md, D-07)
             'translationNotice' => (bool) (Setting::group('site')['translation_notice'] ?? false),
+            'announcement' => $this->announcement($pick),
+        ];
+    }
+
+    /**
+     * The scrolling bar above the menu (Settings › Announcement bar): null when it is switched off or has no
+     * message in this language or English.
+     *
+     * @return array{label: ?string, speed: string, items: list<array{text: string, href: ?string}>}|null
+     */
+    private function announcement(\Closure $pick): ?array
+    {
+        $bar = Setting::group('announcement');
+        if (empty($bar['enabled'])) {
+            return null;
+        }
+        $items = [];
+        foreach ($bar['items'] ?? [] as $item) {
+            $text = $pick($item['text'] ?? []);
+            if (filled($text)) {
+                $items[] = ['text' => $text, 'href' => filled($item['href'] ?? null) ? $item['href'] : null];
+            }
+        }
+
+        return $items === [] ? null : [
+            'label' => $pick($bar['label'] ?? null),
+            'speed' => in_array($bar['speed'] ?? null, self::ANNOUNCEMENT_SPEEDS, true) ? $bar['speed'] : 'normal',
+            'items' => $items,
         ];
     }
 }

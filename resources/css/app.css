@@ -43,6 +43,10 @@
   --ease-expo: cubic-bezier(.77, 0, .18, 1);
 }
 @media (min-width: 1280px) { :root { --cm-header: 88px; } }
+/* Announcement bar above the menu: while it is shown, the page starts below it. */
+:root { --cm-announce-h: 36px; --cm-announce: 0px; }
+:root:has(.announce-bar) { --cm-announce: var(--cm-announce-h); }
+#main { padding-top: var(--cm-announce); }
 /* Type per script (Phase C/D §8.2). Components never name a font; they read these tokens. */
 html[lang="ar"] {
   --font-display: "Amiri", "IBM Plex Sans Arabic", serif;
@@ -86,7 +90,7 @@ html:is([lang="hi"], [lang="zh-Hans"]) .font-display { letter-spacing: 0 !import
   --ease-out-quint: var(--ease-out);
 }
 
-html { scroll-padding-top: calc(var(--cm-header) + 16px); -webkit-text-size-adjust: 100%; }
+html { scroll-padding-top: calc(var(--cm-header) + var(--cm-announce) + 16px); -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--cm-ink);

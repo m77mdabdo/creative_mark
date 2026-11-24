@@ -21,5 +21,11 @@ export type SharedProps = {
     whatsapp: string | null
     social: Partial<Record<'instagram' | 'facebook' | 'linkedin', string>>
     translationNotice: boolean
+    /** Scrolling bar above the menu (Settings › Announcement bar); null when switched off. */
+    announcement: Announcement | null
   }
 }
+
+export type AnnouncementSpeed = 'slow' | 'normal' | 'fast'
+
+export type Announcement = { label: string | null; speed: AnnouncementSpeed; items: { text: string; href: string | null }[] }

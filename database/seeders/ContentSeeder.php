@@ -158,6 +158,10 @@ class ContentSeeder extends Seeder
         ]);
         // Owner decision D-07 (2026-11-01): no "translation under review" notice on the public site.
         $set('site', 'translation_notice', false);
+        // Owner request 2026-11-24: a scrolling announcement bar above the menu on every page, managed in the dashboard.
+        foreach (json_decode(file_get_contents(__DIR__.'/data/announcement.json'), true, flags: JSON_THROW_ON_ERROR) as $key => $value) {
+            $set('announcement', $key, $value);
+        }
         $set('catalogue', 'industries', $c['industries']);
         $set('catalogue', 'faq_categories', $c['faq_categories']);
         // Business solutions grouping (Gate 3, G3-6) and the investor journey (presentation p39).

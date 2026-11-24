@@ -660,5 +660,19 @@
     "permission.translations.edit": "تعديل الترجمات",
     "permission.users.manage": "إدارة الموظفين",
     "sections": "أقسام",
-    "translations": "الترجمات"
+    "translations": "الترجمات",
+    "Announcement bar": "شريط الإعلانات",
+    "The scrolling bar above the menu on every page.": "الشريط المتحرك أعلى القائمة في كل صفحات الموقع.",
+    "Display": "العرض",
+    "Show the bar on every page": "إظهار الشريط في كل الصفحات",
+    "Speed": "السرعة",
+    "Slow": "بطيئة",
+    "Normal": "عادية",
+    "Fast": "سريعة",
+    "Badge text": "نص الشارة",
+    "The short gold label at the start of the bar. Leave empty to hide it.": "العنوان الذهبي القصير في بداية الشريط. اتركه فارغًا لإخفائه.",
+    "Messages": "الرسائل",
+    "Shown one after another, in this order. A message without a link is plain text.": "تظهر واحدة بعد الأخرى بهذا الترتيب. الرسالة بدون رابط تظهر كنص فقط.",
+    "Add a message": "إضافة رسالة",
+    "Link (optional)": "الرابط (اختياري)"
 }

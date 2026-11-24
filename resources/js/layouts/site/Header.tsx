@@ -4,6 +4,7 @@ import { ChevronDown, Menu, MessageSquareText } from 'lucide-react'
 import Logo from '@/components/Logo'
 import SmartLink from '@/components/SmartLink'
 import { useSite } from '@/hooks/useSite'
+import AnnouncementBar from './AnnouncementBar'
 import LanguageSwitcher from './LanguageSwitcher'
 import MegaMenu from './MegaMenu'
 import MobileDrawer from './MobileDrawer'
@@ -63,6 +64,7 @@ export default function Header() {
   return <>
     <header ref={header} onKeyDown={onKeyDown}
       className={`fixed inset-x-0 top-0 z-50 text-white transition-[transform,background-color] duration-500 ${hidden && !drawerOpen ? '-translate-y-full' : ''} ${solid ? 'border-b border-white/[.06] bg-ink/92 backdrop-blur-xl' : 'bg-gradient-to-b from-black/60 to-transparent'}`}>
+      <AnnouncementBar />
       <div className={`wrap flex items-center gap-4 transition-[height] duration-500 ${solid ? 'h-16' : 'h-16 xl:h-[88px]'}`}>
         <Link href={href('/')} aria-label={t('home')} className="shrink-0"><Logo className="h-9 xl:h-11" /></Link>
 

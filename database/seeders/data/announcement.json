@@ -1,0 +1,47 @@
+{
+    "enabled": true,
+    "speed": "normal",
+    "label": {
+        "ar": "مستجدات",
+        "en": "Updates",
+        "fr": "Actualités",
+        "hi": "अपडेट",
+        "ur": "اپ ڈیٹس",
+        "zh": "最新消息"
+    },
+    "items": [
+        {
+            "href": "/about",
+            "text": {
+                "ar": "أكثر من 1000 شركة أسسناها خلال 8 سنوات",
+                "en": "More than 1,000 companies established over 8 years",
+                "fr": "Plus de 1 000 entreprises créées en 8 ans",
+                "hi": "8 वर्षों में 1,000 से अधिक कंपनियों की स्थापना",
+                "ur": "8 برسوں میں 1,000 سے زائد کمپنیوں کا قیام",
+                "zh": "8 年来成立了 1,000 多家公司"
+            }
+        },
+        {
+            "href": "/contact",
+            "text": {
+                "ar": "مكاتبنا في الرياض والقاهرة في خدمتك",
+                "en": "Our offices in Riyadh and Cairo are here to help",
+                "fr": "Nos bureaux de Riyad et du Caire sont à votre service",
+                "hi": "रियाद और काहिरा में हमारे कार्यालय आपकी सेवा में",
+                "ur": "ریاض اور قاہرہ میں ہمارے دفاتر آپ کی خدمت میں",
+                "zh": "我们在利雅得和开罗的办公室随时为您服务"
+            }
+        },
+        {
+            "href": "/consultation",
+            "text": {
+                "ar": "احجز استشارتك الآن مع أحد مستشارينا",
+                "en": "Book a consultation with one of our consultants",
+                "fr": "Réservez une consultation avec l’un de nos conseillers",
+                "hi": "हमारे किसी सलाहकार के साथ परामर्श बुक करें",
+                "ur": "ہمارے کسی مشیر کے ساتھ مشاورت بُک کریں",
+                "zh": "与我们的顾问预约咨询"
+            }
+        }
+    ]
+}

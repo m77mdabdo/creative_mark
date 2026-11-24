@@ -106,6 +106,13 @@ html[dir="rtl"] body { font-size: 18px; line-height: 1.8; }
 ::selection { background: var(--cm-gold); color: var(--cm-ink); }
 :focus-visible { outline: 2px solid var(--cm-gold); outline-offset: 2px; }
 .th-ivory :focus-visible, .th-white :focus-visible { outline-color: var(--cm-ink); }
+/* Map regions are SVG paths: a rectangular outline would trace the path's bounding box, so focus
+   follows the region's own shape instead. Mouse/touch selection shows no ring at all; keyboard focus
+   brightens the border and adds a soft gold glow. Kept unlayered so it outranks the global ring above,
+   and !important because the fill/stroke of each region are set inline per state. */
+.map-region { outline: none; -webkit-tap-highlight-color: transparent; }
+.map-region:focus, .map-region:focus-visible { outline: none; }
+.map-region:focus-visible { stroke: #fff !important; stroke-opacity: 1 !important; stroke-width: 2.5 !important; filter: drop-shadow(0 0 6px color-mix(in srgb, var(--cm-gold) 70%, transparent)); }
 
 @layer components {
 .font-display { font-family: var(--font-display); }
@@ -231,4 +238,3 @@ html.lenis, html.lenis body { height: auto; }
 
 /* map */
 .map-region { cursor: pointer; transition: fill .3s var(--ease-out), opacity .3s; }
-.map-region:focus-visible { outline: none; stroke: #fff; stroke-width: 2.5; }

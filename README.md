@@ -94,6 +94,7 @@ public website and the dashboard its team uses to run it.
 - Consultation booking in four steps (needs, contact details, date and time, review): working days Sunday to Thursday,
   fixed slots in Riyadh time, a slot can be held by only one booking, reference number and confirmation page.
 - Interactive map of the 13 regions: keyboard operable, sector filter, list alternative, screen-reader announcements.
+  Clicking a region shows no focus box; keyboard focus follows the region's own outline with a soft gold glow.
 - Motion system (GSAP, ScrollTrigger, Lenis): reveal, parallax, counters and line-draw presets chosen per section.
 - Localized URLs (`/ar`, `/en`, `/fr`, `/hi`, `/ur`, `/zh`), Arabic by default, per-script typography
   (Amiri, IBM Plex Sans Arabic, Noto Nastaliq Urdu, Noto Sans Devanagari, Cormorant Garamond, Manrope).
@@ -271,6 +272,8 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-24
+- Regions map: clicking a region no longer draws a rectangular focus box around it. Keyboard users still see which
+  region has focus: its border turns white with a soft gold glow that follows the region's shape.
 - Announcement bar above the menu on every page, built on the same scrolling strip as the newsroom's "Latest" ticker
   (now one shared component). Managed from Settings › Announcement bar: switch it on or off, choose slow, normal or
   fast, edit the badge ("مستجدات" / "Updates") and the messages in six languages, each with an optional link; saved

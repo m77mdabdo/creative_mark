@@ -226,6 +226,16 @@ html[dir="rtl"] .news-ticker-track { animation-name: cm-ticker-rtl; }
 @keyframes cm-ticker-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
 .news-ticker:hover .news-ticker-track, .news-ticker:focus-within .news-ticker-track { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .news-ticker-track { animation: none; } .news-ticker-track > ul + ul { display: none; } }
+/* Client strip on Our portfolio: same direction rules as the ticker, paused while a tile is pointed at or focused. */
+.client-marquee-track { animation: cm-ticker 60s linear infinite; }
+html[dir="rtl"] .client-marquee-track { animation-name: cm-ticker-rtl; }
+.client-marquee:hover .client-marquee-track, .client-marquee:focus-within .client-marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .client-marquee-track { animation: none; } .client-marquee-track > ul + ul { display: none; } }
+/* Sector cards: a gold sheen crosses the card on hover. */
+.sector-sheen { background: linear-gradient(115deg, transparent 30%, rgba(243,208,143,.22) 48%, transparent 66%); transform: translateX(-120%); transition: transform 1.1s var(--ease-out); }
+.group:hover .sector-sheen, .group:focus-within .sector-sheen { transform: translateX(120%); }
+html[dir="rtl"] .sector-sheen { transform: translateX(120%); }
+html[dir="rtl"] .group:hover .sector-sheen, html[dir="rtl"] .group:focus-within .sector-sheen { transform: translateX(-120%); }
 @keyframes cm-kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }

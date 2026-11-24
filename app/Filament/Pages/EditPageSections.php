@@ -164,7 +164,7 @@ abstract class EditPageSections extends Page
                         Notification::make()->danger()->title(__('Translation service unavailable'))->body($e->getMessage())->send();
                     }
                 }),
-            CatalogueInline::statsAction()->visible(fn () => $user?->can('content.publish') && $this->hasSection('trackRecord')),
+            CatalogueInline::statsAction()->visible(fn () => $user?->can('content.publish') && ($this->hasSection('trackRecord') || $this->hasSection('milestones'))),
             CatalogueInline::testimonialsAction()->visible(fn () => $user?->can('content.publish') && $this->hasSection('testimonials')),
             Action::make('history')->label(__('Version history'))->icon('heroicon-o-clock')->color('gray')
                 ->modalHeading(__('Version history'))->modalSubmitAction(false)->modalCancelActionLabel(__('Close'))->modalWidth('3xl')
@@ -214,7 +214,7 @@ abstract class EditPageSections extends Page
     private function relatedDraftKeys(): array
     {
         $keys = [$this->seoDraftKey()];
-        if ($this->hasSection('trackRecord')) {
+        if ($this->hasSection('trackRecord') || $this->hasSection('milestones')) {
             $keys[] = CatalogueInline::draftKey('stats');
         }
         if ($this->hasSection('testimonials')) {
@@ -314,7 +314,14 @@ abstract class EditPageSections extends Page
     protected function toForm(array $s): array
     {
         // A card with no flag counts as verified; the toggle must not turn it into "hidden".
-        $s['cards'] = array_map(fn (array $c) => [...$c, 'verified' => $c['verified'] ?? true], $s['cards'] ?? []);
+        $s['cards'] = array_map(function (array $c) {
+            // A linked video sits in its own field; an uploaded one in the upload field.
+            if (str_starts_with((string) ($c['video'] ?? ''), 'https://')) {
+                [$c['video_url'], $c['video']] = [$c['video'], null];
+            }
+
+            return [...$c, 'verified' => $c['verified'] ?? true];
+        }, $s['cards'] ?? []);
 
         return [...$s, 'visible' => empty($s['hidden'])];
     }
@@ -349,7 +356,18 @@ abstract class EditPageSections extends Page
             unset($s['hidden']);
         }
         $s['buttons'] = array_values(array_map(fn ($b) => ['label' => $map($b['label'] ?? []), 'href' => trim((string) ($b['href'] ?? '')), 'style' => $b['style'] ?? 'gold'], $s['buttons'] ?? []));
-        $s['cards'] = array_values(array_map(fn ($c) => $clean([...$c, 'verified' => (bool) ($c['verified'] ?? true)], ['title', 'text']), $s['cards'] ?? []));
+        $s['cards'] = array_values(array_map(function ($c) use ($clean) {
+            $upload = is_array($c['video'] ?? null) ? (array_values($c['video'])[0] ?? null) : ($c['video'] ?? null);
+            $c['video'] = filled($c['video_url'] ?? null) ? trim((string) $c['video_url']) : $upload;
+            unset($c['video_url']);
+            foreach (['href', 'value'] as $k) {
+                if (isset($c[$k])) {
+                    $c[$k] = trim((string) $c[$k]);
+                }
+            }
+
+            return $clean([...$c, 'verified' => (bool) ($c['verified'] ?? true)], ['title', 'text']);
+        }, $s['cards'] ?? []));
         $s['slides'] = array_values(array_map(fn ($c) => $clean($c, ['eyebrow', 'title', 'highlight', 'subtitle']), $s['slides'] ?? []));
         $s['sources'] = array_values(array_map(function ($src) use ($map) {
             $src['label'] = $map($src['label'] ?? []);

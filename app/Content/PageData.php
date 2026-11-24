@@ -20,6 +20,9 @@ use App\Translation\UiStrings;
  */
 final class PageData
 {
+    /** Section types whose cards stay when unverified; only the card's figure is withheld (RULE-01). */
+    private const FIGURE_GATED = ['sectorWork'];
+
     public function __construct(private readonly PreviewMode $preview, private readonly Catalogue $catalogue) {}
 
     /**
@@ -103,6 +106,8 @@ final class PageData
             'relatedServices' => ($extra['related'] ?? []) !== [],
             'caseGrid' => ($catalogue['cases'] ?? []) !== [],
             'moreRegions' => ($extra['otherRegions'] ?? []) !== [],
+            'clientMarquee', 'sectorWork' => $s['cards'] !== [],
+            'milestones' => $s['cards'] !== [] || $catalogue['stats'] !== [],
             default => true,
         }));
 
@@ -336,10 +341,21 @@ final class PageData
             }
         }
         $s['buttons'] = array_map(fn ($b) => [...$b, 'label' => $pick($b['label'])], $s['buttons'] ?? []);
-        // RULE-01: a card quoting an unverified figure is not published
+        // RULE-01: a card quoting an unverified figure is not published. On "Sectors we worked in" the sector
+        // itself stays and only its unconfirmed figure is removed; on the client strip the flag is the client's consent.
+        $figureOnly = in_array($s['type'], self::FIGURE_GATED, true);
         $s['cards'] = array_values(array_map(
-            fn ($c) => [...$c, 'title' => $pick($c['title'] ?? null), 'text' => $pick($c['text'] ?? null)],
-            array_filter($s['cards'] ?? [], fn ($c) => ($c['verified'] ?? true) === true),
+            function ($c) use ($pick, $figureOnly) {
+                if ($figureOnly && ($c['verified'] ?? true) !== true) {
+                    unset($c['value']);
+                }
+                if (isset($c['video'])) {
+                    $c['video'] = str_starts_with($c['video'], 'https://') ? $c['video'] : '/media/uploads/'.$c['video'];
+                }
+
+                return [...$c, 'title' => $pick($c['title'] ?? null), 'text' => $pick($c['text'] ?? null)];
+            },
+            array_filter($s['cards'] ?? [], fn ($c) => $figureOnly || ($c['verified'] ?? true) === true),
         ));
         $s['slides'] = array_map(fn ($slide) => [
             ...$slide,

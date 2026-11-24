@@ -30,6 +30,7 @@ Route::prefix('{locale}')
         Route::get('/services', PageController::class)->defaults('key', 'services')->name('services');
         Route::get('/services/{slug}', ServiceController::class)->where('slug', '[a-z0-9-]+')->name('services.show');
         Route::get('/our-edge', PageController::class)->defaults('key', 'our-edge')->name('our-edge');
+        Route::get('/portfolio', PageController::class)->defaults('key', 'portfolio')->name('portfolio');
         Route::get('/investor-guide', PageController::class)->defaults('key', 'investor-guide')->name('investor-guide');
         Route::get('/news', PageController::class)->defaults('key', 'news')->name('news');
         Route::get('/news/{slug}', NewsController::class)->where('slug', '[a-z0-9-]+')->name('news.show');

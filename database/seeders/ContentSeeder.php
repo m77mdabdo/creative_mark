@@ -121,7 +121,7 @@ class ContentSeeder extends Seeder
     /** Pages are seeded from data/{key}.json and published once. */
     private function pages(): void
     {
-        foreach (['home', 'about', 'services', 'our-edge', 'regions', 'investor-guide', 'news', 'case-studies', 'start-your-company', 'faq', 'contact', 'privacy', 'terms'] as $key) {
+        foreach (['home', 'about', 'services', 'our-edge', 'portfolio', 'regions', 'investor-guide', 'news', 'case-studies', 'start-your-company', 'faq', 'contact', 'privacy', 'terms'] as $key) {
             $this->page($key);
         }
     }
@@ -183,6 +183,7 @@ class ContentSeeder extends Seeder
             ['label' => ['en' => 'About', 'ar' => 'من نحن'], 'href' => '/about'],
             ['label' => ['en' => 'Business solutions', 'ar' => 'حلول الأعمال'], 'href' => '/services', 'mega' => 'services'],
             ['label' => ['en' => 'Our edge', 'ar' => 'ميزتنا'], 'href' => '/our-edge'],
+            self::PORTFOLIO_NAV,
             ['label' => ['en' => 'Regions', 'ar' => 'المناطق'], 'href' => '/regions'],
             ['label' => ['en' => 'Investor guide', 'ar' => 'دليل المستثمر'], 'href' => '/investor-guide'],
             ['label' => ['en' => 'News', 'ar' => 'الأخبار'], 'href' => '/news'],
@@ -190,6 +191,10 @@ class ContentSeeder extends Seeder
         ]);
         $set('navigation', 'cta', ['label' => ['en' => 'Get consultation', 'ar' => 'احصل على استشارة'], 'href' => '/consultation']);
     }
+
+    /** Owner request 2026-11-24: "سابقة الأعمال" in the top menu, after Our edge. */
+    public const PORTFOLIO_NAV = ['label' => ['en' => 'Our portfolio', 'ar' => 'سابقة الأعمال', 'fr' => 'Nos réalisations', 'hi' => 'हमारा पोर्टफोलियो',
+        'ur' => 'ہمارا سابقہ کام', 'zh' => '过往业绩'], 'href' => '/portfolio'];
 
     private static function status(string $locale): ReviewStatus
     {

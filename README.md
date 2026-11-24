@@ -83,6 +83,14 @@ public website and the dashboard its team uses to run it.
 - Newsroom: real market news summarised by the team, each story with what it means for investors, key figures and a
   link to the original report; full-screen broadcast opening that plays the top stories, live Riyadh time, scrolling "Latest" ticker, topic filter and a page
   per story with related stories.
+- Our portfolio (سابقة الأعمال, `/portfolio`, in the top menu after Our edge): an endless strip of the clients we
+  founded companies for (image, logo or silent looping video, each optionally linking to a page or site; it moves
+  right to left in left-to-right languages and left to right in Arabic and Urdu, pauses under the pointer and the
+  tile grows), then our years and achievements (the years of experience counting up in large gold numerals beside
+  a timeline of the published statistics whose gold line fills as you scroll, plus confirmed milestone years), then
+  the fourteen sectors we work in as square cards (three per row on laptops, two on phones) with photo zoom, a gold
+  sheen and the number of companies per sector once it is verified. A client appears only with consent and a
+  figure only when verified; everything is edited in Pages › Our portfolio.
 - Case studies: each told in four chapters (starting point, our steps, what was delivered, where it leads) with an
   at-a-glance bar, a sticky chapter index, a timeline that fills as you scroll, the region on the map and the services
   used; sector filter on the overview. Examples built from the standard engagement are labelled "Illustrative example".
@@ -114,7 +122,7 @@ public website and the dashboard its team uses to run it.
   source name and https link; lead-story flag; draft and publish.
 - Dashboard in Arabic and English (switch in the top bar, remembered per staff member; a test fails if any Arabic
   dashboard string is untranslated), bright ivory-and-gold theme with optional dark mode, Arabic typography.
-- Page editor (Pages › Home page, About us, Our edge, Saudi regions and each region, Investor guide, Newsroom, Case studies, Business solutions; opening Business solutions shows a sub-menu with
+- Page editor (Pages › Home page, About us, Our edge, Our portfolio, Saudi regions and each region, Investor guide, Newsroom, Case studies, Business solutions; opening Business solutions shows a sub-menu with
   each of the eleven solutions): move sections up and down or drag them, hide, add, duplicate or delete them;
   edit every text in six languages, images (with upload: re-encoded to WebP), buttons, cards, hero slides,
   background, spacing and animation. Save a draft, preview it in any language, publish (Content Managers),
@@ -272,6 +280,14 @@ role × permission combination, dashboard access, two-factor enforcement and the
 ## Changelog
 
 ### 2026-11-24
+- New page **Our portfolio** (سابقة الأعمال) at `/portfolio` in six languages, added to the top menu after Our edge
+  (a migration adds the page and the menu entry to existing sites and leaves an edited menu otherwise untouched).
+  Three new section types for the page editor: **Client strip** (cards with an image, an uploaded MP4/WebM video up to
+  100 MB or a video link, and an optional link; shown only when "Client agreed to be shown" is on), **Years and
+  achievements** (figures from Content › Statistics with counters and a scroll-filled timeline, plus milestone years
+  shown once confirmed) and **Sectors we worked in** (the fourteen sectors of the site with photos and icons; each
+  sector's number of companies appears once its figure is verified). Videos are stored in `public/media/uploads/videos`,
+  which survives deploys. Placeholder clients and years start hidden until real ones are added.
 - Regions map: clicking a region no longer draws a rectangular focus box around it. Keyboard users still see which
   region has focus: its border turns white with a soft gold glow that follows the region's shape.
 - Announcement bar above the menu on every page, built on the same scrolling strip as the newsroom's "Latest" ticker

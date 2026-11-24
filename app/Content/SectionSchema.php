@@ -16,6 +16,7 @@ final class SectionSchema
         'statement', 'imageText', 'cards', 'serviceGroups', 'processSteps', 'comparison', 'regionGrid',
         'guideNav', 'guideChapter', 'checklist', 'sourceList', 'newsLead', 'newsGrid', 'caseGrid',
         'faqLibrary', 'contactInfo', 'legalText', 'serviceOverview', 'relatedServices', 'regionOverview', 'moreRegions',
+        'clientMarquee', 'milestones', 'sectorWork',
     ];
 
     public const LAYOUTS = ['split', 'split-reverse'];
@@ -28,7 +29,13 @@ final class SectionSchema
 
     private const KEYS = ['id', 'type', 'label', 'hidden', 'eyebrow', 'title', 'highlight', 'subtitle', 'body', 'media', 'media2', 'buttons', 'cards', 'slides', 'limit', 'layout', 'style', 'motion', 'points', 'note', 'sources'];
 
-    private const CARD_KEYS = ['id', 'title', 'text', 'icon', 'media', 'verified'];
+    private const CARD_KEYS = ['id', 'title', 'text', 'icon', 'media', 'verified', 'href', 'video', 'value'];
+
+    /**
+     * A card's video: a file uploaded in the dashboard (public/media/uploads/videos) or a secure link to an
+     * MP4 or WebM file.
+     */
+    private const VIDEO = '~^(videos/[A-Za-z0-9_-]{1,120}\.(mp4|webm)|https://[^\s<>"\']+\.(mp4|webm)(\?[^\s<>"\']*)?)$~i';
 
     /** Hero slideshow: each slide has its own image and copy; buttons stay with the section. */
     private const SLIDE_KEYS = ['id', 'media', 'eyebrow', 'title', 'highlight', 'subtitle', 'region'];
@@ -98,6 +105,16 @@ final class SectionSchema
             array_push($e, ...self::localeMap($c['title'] ?? null, 'card title'), ...self::localeMap($c['text'] ?? null, 'card text'));
             if (isset($c['media']) && ! self::mediaKey($c['media'])) {
                 $e[] = 'Invalid card media.';
+            }
+            if (isset($c['href']) && (! is_string($c['href']) || mb_strlen($c['href']) > 300 || ! self::safeHref($c['href']))) {
+                $e[] = 'Unsafe card link.';
+            }
+            if (isset($c['video']) && ! self::video($c['video'])) {
+                $e[] = 'Card video must be an uploaded MP4/WebM file or an https link to one.';
+            }
+            // A figure such as "120+": digits with an optional separator and a short suffix, never free text.
+            if (isset($c['value']) && (! is_string($c['value']) || ! preg_match('/^\d[\d,.]{0,11}\s?[+%]?$/u', $c['value']))) {
+                $e[] = 'Card figure must be a number such as 120 or 120+.';
             }
         }
         if (isset($s['layout']) && ! in_array($s['layout'], self::LAYOUTS, true)) {
@@ -187,6 +204,11 @@ final class SectionSchema
     public static function safeHref(string $href): bool
     {
         return (bool) preg_match('~^(/(?![/\\\\])[^\s]*|#[\w-]*|https://[^\s]+|mailto:[^\s]+|tel:\+?[\d\s-]+)$~i', trim($href));
+    }
+
+    public static function video(mixed $v): bool
+    {
+        return is_string($v) && mb_strlen($v) <= 500 && (bool) preg_match(self::VIDEO, $v);
     }
 
     private static function mediaKey(mixed $v): bool

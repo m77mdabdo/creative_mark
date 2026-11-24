@@ -30,7 +30,10 @@ use Illuminate\Support\Str;
 final class SectionForm
 {
     /** Section types with editable cards / slides / a number limit. */
-    private const WITH_CARDS = ['whyInvest', 'sectors', 'cards', 'checklist', 'guideChapter', 'serviceOverview', 'comparison', 'regionOverview'];
+    private const WITH_CARDS = ['whyInvest', 'sectors', 'cards', 'checklist', 'guideChapter', 'serviceOverview', 'comparison', 'regionOverview', 'clientMarquee', 'milestones', 'sectorWork'];
+
+    /** Largest video an editor can upload for the client strip, in kilobytes (REC-2: 100 MB). */
+    public const MAX_VIDEO_KB = 100 * 1024;
 
     private const WITH_LIMIT = ['services', 'faq', 'newsGrid', 'caseGrid', 'relatedServices', 'moreRegions'];
 
@@ -48,6 +51,8 @@ final class SectionForm
             'faqLibrary' => __('All questions'), 'contactInfo' => __('Offices and contacts'), 'legalText' => __('Legal text'),
             'serviceOverview' => __('Overview and what is included'), 'relatedServices' => __('Related solutions'),
             'regionOverview' => __('Opportunity, map and sectors'), 'moreRegions' => __('More regions'),
+            'clientMarquee' => __('Client strip (moving logos)'), 'milestones' => __('Years and achievements'),
+            'sectorWork' => __('Sectors we worked in'),
             default => (string) $type,
         };
     }
@@ -115,7 +120,7 @@ final class SectionForm
                 Textarea::make("body.{$l}")->label(__('Text'))->rows(fn (Get $get) => $get('type') === 'legalText' ? 24 : 4)
                     ->helperText(fn (Get $get) => $get('type') === 'legalText' ? __('A line starting with ## becomes a heading. Every other line is a paragraph.') : __('Leave a blank line between paragraphs.')),
                 Textarea::make("points.{$l}")->label(__('Points'))->rows(4)->helperText(__('One point per line.'))->visible($is(['guideChapter'])),
-                Textarea::make("note.{$l}")->label(__('Highlighted note'))->rows(2)->visible($is(['serviceOverview', 'guideChapter', 'legalText', 'sourceList'])),
+                Textarea::make("note.{$l}")->label(__('Highlighted note'))->rows(2)->visible($is(['serviceOverview', 'guideChapter', 'legalText', 'sourceList', 'sectorWork'])),
             ], __('Texts')),
 
             Grid::make(['default' => 1, 'md' => 2])->schema([
@@ -141,14 +146,58 @@ final class SectionForm
 
             Placeholder::make('comparison_hint')->hiddenLabel()->visible($is(['comparison']))
                 ->content(new HtmlString('<div style="padding:.75rem 1rem;border-radius:.75rem;background:rgba(235,189,108,.15);font-size:.875rem">'.e(__('Keep two cards: the first is the plain column, the second the gold column. In each card’s text, write one item per line.')).'</div>')),
+            Placeholder::make('portfolio_hint')->hiddenLabel()->visible($is(['clientMarquee', 'milestones', 'sectorWork']))
+                ->content(fn (Get $get) => new HtmlString('<div style="padding:.75rem 1rem;border-radius:.75rem;background:rgba(235,189,108,.15);font-size:.875rem">'.e(match ($get('type')) {
+                    'clientMarquee' => __('Each card is one client: an image or logo, or a video, with an optional link. Only clients who agreed to be shown appear on the website. The strip moves right to left in English and left to right in Arabic.'),
+                    'milestones' => __('The figures come from Content › Statistics. Each card is one year on the timeline: the title is the year and the text what happened. Only confirmed years appear.'),
+                    default => __('Each card is one sector. Write the number of companies in “Figure” and switch on “Figure verified” to show it; the unit under every figure is the “Highlighted note” above.'),
+                }).'</div>')),
             Repeater::make('cards')->label(__('Cards'))->visible($is(self::WITH_CARDS))
                 ->schema([
                     Hidden::make('id'),
                     Grid::make(['default' => 1, 'md' => 3])->schema([
                         IconPicker::make('icon'),
                         self::mediaSelect('media', __('Image')),
-                        Toggle::make('verified')->label(__('Figure verified'))->default(true)->inline(false)
-                            ->helperText(__('Cards with an unverified figure are hidden (RULE-01).')),
+                        Toggle::make('verified')->default(true)->inline(false)
+                            ->label(fn (Get $get) => match ($get('../../type')) {
+                                'clientMarquee' => __('Client agreed to be shown'),
+                                'milestones' => __('Confirmed'),
+                                default => __('Figure verified'),
+                            })
+                            ->helperText(fn (Get $get) => match ($get('../../type')) {
+                                'clientMarquee' => __('Clients are shown only with their consent (RULE-02).'),
+                                'milestones' => __('Unconfirmed years are hidden.'),
+                                'sectorWork' => __('The sector is always shown; its figure only when verified (RULE-01).'),
+                                default => __('Cards with an unverified figure are hidden (RULE-01).'),
+                            }),
+                    ]),
+                    Grid::make(['default' => 1, 'md' => 3])->visible(fn (Get $get) => in_array($get('../../type'), ['clientMarquee', 'sectorWork'], true))->schema([
+                        TextInput::make('href')->label(__('Link (optional)'))->maxLength(300)->extraInputAttributes(['dir' => 'ltr'])
+                            ->columnSpan(['md' => 2])
+                            ->helperText(__('A page of the site (/case-studies), a section (#map) or a full https link.'))
+                            ->rule(fn () => function (string $attribute, $value, $fail) {
+                                if (filled($value) && ! SectionSchema::safeHref((string) $value)) {
+                                    $fail(__('Use /page, #section, https://, mailto: or tel: links only.'));
+                                }
+                            }),
+                        TextInput::make('value')->label(__('Figure'))->maxLength(13)->extraInputAttributes(['dir' => 'ltr'])
+                            ->visible(fn (Get $get) => $get('../../type') === 'sectorWork')
+                            ->rule('regex:/^\d[\d,.]{0,11}\s?[+%]?$/u')->helperText(__('A number such as 120 or 120+.')),
+                    ]),
+                    Grid::make(['default' => 1, 'md' => 2])->visible(fn (Get $get) => $get('../../type') === 'clientMarquee')->schema([
+                        FileUpload::make('video')->label(__('Video (optional)'))
+                            ->disk('site_uploads')->directory('videos')->visibility('public')
+                            ->acceptedFileTypes(['video/mp4', 'video/webm'])->maxSize(self::MAX_VIDEO_KB)
+                            ->preventFilePathTampering()
+                            ->disabled(fn () => ! auth()->user()?->can('media.upload'))
+                            ->helperText(__('MP4 or WebM, up to 100 MB. It plays silently in a loop; the image is shown while it loads.')),
+                        TextInput::make('video_url')->label(__('Or a link to a video file'))->maxLength(500)->extraInputAttributes(['dir' => 'ltr'])
+                            ->helperText(__('An https link ending in .mp4 or .webm. Used instead of an uploaded video.'))
+                            ->rule(fn () => function (string $attribute, $value, $fail) {
+                                if (filled($value) && ! SectionSchema::video((string) $value)) {
+                                    $fail(__('Use an https link to an .mp4 or .webm file.'));
+                                }
+                            }),
                     ]),
                     self::localeTabs(fn (string $l) => [
                         TextInput::make("title.{$l}")->label(__('Title')),

@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react'
 import type { SectionType } from '@/types'
 import CaseGrid from './CaseGrid'
+import ClientMarquee from './ClientMarquee'
 import Comparison from './Comparison'
 import ContactInfo from './ContactInfo'
 import ConsultationCta from './ConsultationCta'
@@ -17,12 +18,14 @@ import NewsLead from './news/NewsLead'
 import ImageText from './ImageText'
 import Journey from './Journey'
 import LegalText from './LegalText'
+import Milestones from './Milestones'
 import MoreRegions from './MoreRegions'
 import RegionGrid from './RegionGrid'
 import RegionOverview from './RegionOverview'
 import RelatedServices from './RelatedServices'
 import RegionsMapSection from './RegionsMap/RegionsMapSection'
 import Sectors from './Sectors'
+import SectorWork from './SectorWork'
 import ProcessSteps from './ProcessSteps'
 import ServiceGroups from './ServiceGroups'
 import ServiceOverview from './ServiceOverview'
@@ -70,4 +73,7 @@ export const SECTION_COMPONENTS: Record<SectionType, ComponentType<SectionProps>
   newsLead: NewsLead,
   newsGrid: NewsGrid,
   caseGrid: CaseGrid,
+  clientMarquee: ClientMarquee,
+  milestones: Milestones,
+  sectorWork: SectorWork,
 }

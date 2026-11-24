@@ -6,7 +6,15 @@
 export type ButtonStyle = 'gold' | 'outline' | 'link'
 export type Button = { label: string; href: string; style: ButtonStyle }
 
-export type Card = { id: string; title: string | null; text: string | null; icon?: string; media?: string }
+export type Card = {
+  id: string; title: string | null; text: string | null; icon?: string; media?: string
+  /** Optional link of the whole card (client strip, sectors). */
+  href?: string
+  /** Video URL that plays in place of the image (client strip). */
+  video?: string
+  /** Verified figure such as "120+" (sectors); absent when not verified. */
+  value?: string
+}
 
 export type MotionPreset = 'none' | 'fade-up' | 'reveal-mask' | 'zoom-in' | 'parallax-slow' | 'stagger-cards' | 'counter' | 'line-draw'
 
@@ -16,6 +24,7 @@ export type SectionType =
   | 'statement' | 'imageText' | 'cards' | 'serviceGroups' | 'processSteps' | 'comparison' | 'regionGrid'
   | 'guideNav' | 'guideChapter' | 'checklist' | 'sourceList' | 'newsLead' | 'newsGrid' | 'caseGrid'
   | 'faqLibrary' | 'contactInfo' | 'legalText' | 'serviceOverview' | 'relatedServices' | 'regionOverview' | 'moreRegions'
+  | 'clientMarquee' | 'milestones' | 'sectorWork'
 
 /** One frame of the hero slideshow (copy already resolved to the visitor's locale). */
 export type Slide = {

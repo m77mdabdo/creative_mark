@@ -38,6 +38,17 @@ return [
             'report' => false,
         ],
 
+        // Files uploaded in the dashboard that the site serves as they are (videos of the client strip). In
+        // production public/media/uploads links to a folder shared by every release (deploy/remote-deploy.sh).
+        'site_uploads' => [
+            'driver' => 'local',
+            'root' => public_path('media/uploads'),
+            'url' => '/media/uploads',
+            'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

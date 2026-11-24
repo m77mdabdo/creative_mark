@@ -1,0 +1,861 @@
+{
+    "key": "portfolio",
+    "sections": [
+        {
+            "id": "portfolio-hero",
+            "type": "hero",
+            "label": "Hero",
+            "eyebrow": {
+                "en": "Our portfolio",
+                "ar": "سابقة الأعمال",
+                "fr": "Nos réalisations",
+                "hi": "हमारा पोर्टफोलियो",
+                "ur": "ہمارا سابقہ کام",
+                "zh": "过往业绩"
+            },
+            "title": {
+                "en": "Companies we built. Sectors we know.",
+                "ar": "شركات أسسناها، وقطاعات نعرفها.",
+                "fr": "Des sociétés créées. Des secteurs maîtrisés.",
+                "hi": "कंपनियाँ जो हमने बनाईं। क्षेत्र जिन्हें हम जानते हैं।",
+                "ur": "کمپنیاں جو ہم نے بنائیں، شعبے جنہیں ہم جانتے ہیں۔",
+                "zh": "我们设立的公司，我们熟悉的行业。"
+            },
+            "highlight": {
+                "en": "Sectors we know.",
+                "ar": "وقطاعات نعرفها.",
+                "fr": "Des secteurs maîtrisés.",
+                "hi": "क्षेत्र जिन्हें हम जानते हैं।",
+                "ur": "شعبے جنہیں ہم جانتے ہیں۔",
+                "zh": "我们熟悉的行业。"
+            },
+            "subtitle": {
+                "en": "More than 1,000 companies established over 8 years, each with the licences and approvals it needed to operate.",
+                "ar": "أكثر من 1,000 شركة أسسناها خلال 8 سنوات، لكل منها التراخيص والموافقات التي احتاجتها لتبدأ العمل.",
+                "fr": "Plus de 1 000 sociétés créées en 8 ans, chacune avec les licences et autorisations nécessaires pour démarrer.",
+                "hi": "8 वर्षों में 1,000 से अधिक कंपनियाँ स्थापित, हर एक के साथ वे लाइसेंस और स्वीकृतियाँ जो उसे काम शुरू करने के लिए चाहिए थीं।",
+                "ur": "8 برسوں میں 1,000 سے زائد کمپنیاں قائم کیں، ہر ایک کو کام شروع کرنے کے لیے درکار لائسنس اور منظوریوں کے ساتھ۔",
+                "zh": "8 年来设立 1,000 多家公司，每家都取得了开展业务所需的执照与审批。"
+            },
+            "media": "hero-riyadh-kingdom-dusk",
+            "buttons": [
+                {
+                    "label": {
+                        "en": "Book a consultation",
+                        "ar": "احجز استشارة",
+                        "fr": "Réserver une consultation",
+                        "hi": "परामर्श बुक करें",
+                        "ur": "مشاورت بُک کریں",
+                        "zh": "预约咨询"
+                    },
+                    "href": "/consultation",
+                    "style": "gold"
+                },
+                {
+                    "label": {
+                        "en": "Sectors we worked in",
+                        "ar": "القطاعات التي عملنا فيها",
+                        "fr": "Nos secteurs",
+                        "hi": "हमारे क्षेत्र",
+                        "ur": "ہمارے شعبے",
+                        "zh": "我们的行业"
+                    },
+                    "href": "#portfolio-sectors",
+                    "style": "outline"
+                }
+            ],
+            "cards": [],
+            "slides": [],
+            "style": {
+                "theme": "dark",
+                "overlay": 50,
+                "padding": "md",
+                "align": "start"
+            },
+            "motion": {
+                "preset": "zoom-in",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "portfolio-clients",
+            "type": "clientMarquee",
+            "label": "Clients",
+            "eyebrow": {
+                "en": "Clients we founded companies for",
+                "ar": "عملاء أسسنا لهم شركاتهم",
+                "fr": "Les clients que nous avons accompagnés",
+                "hi": "जिन ग्राहकों की कंपनियाँ हमने बनाईं",
+                "ur": "کلائنٹس جن کی کمپنیاں ہم نے قائم کیں",
+                "zh": "我们为其设立公司的客户"
+            },
+            "title": {
+                "en": "Investors who chose to build with us",
+                "ar": "مستثمرون اختاروا أن يبنوا معنا",
+                "fr": "Des investisseurs qui ont choisi de bâtir avec nous",
+                "hi": "निवेशक जिन्होंने हमारे साथ निर्माण चुना",
+                "ur": "سرمایہ کار جنہوں نے ہمارے ساتھ تعمیر کا انتخاب کیا",
+                "zh": "选择与我们一起起步的投资者"
+            },
+            "highlight": {
+                "en": "build with us",
+                "ar": "يبنوا معنا",
+                "fr": "bâtir avec nous",
+                "hi": "हमारे साथ निर्माण",
+                "ur": "ہمارے ساتھ تعمیر",
+                "zh": "与我们一起"
+            },
+            "buttons": [],
+            "cards": [
+                {
+                    "id": "client-1",
+                    "media": "cm-factory",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 1",
+                        "ar": "العميل 1",
+                        "fr": "Client 1",
+                        "hi": "ग्राहक 1",
+                        "ur": "کلائنٹ 1",
+                        "zh": "客户 1"
+                    }
+                },
+                {
+                    "id": "client-2",
+                    "media": "cm-port",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 2",
+                        "ar": "العميل 2",
+                        "fr": "Client 2",
+                        "hi": "ग्राहक 2",
+                        "ur": "کلائنٹ 2",
+                        "zh": "客户 2"
+                    }
+                },
+                {
+                    "id": "client-3",
+                    "media": "case-tech-team",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 3",
+                        "ar": "العميل 3",
+                        "fr": "Client 3",
+                        "hi": "ग्राहक 3",
+                        "ur": "کلائنٹ 3",
+                        "zh": "客户 3"
+                    }
+                },
+                {
+                    "id": "client-4",
+                    "media": "cm-farm",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 4",
+                        "ar": "العميل 4",
+                        "fr": "Client 4",
+                        "hi": "ग्राहक 4",
+                        "ur": "کلائنٹ 4",
+                        "zh": "客户 4"
+                    }
+                },
+                {
+                    "id": "client-5",
+                    "media": "cm-crane",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 5",
+                        "ar": "العميل 5",
+                        "fr": "Client 5",
+                        "hi": "ग्राहक 5",
+                        "ur": "کلائنٹ 5",
+                        "zh": "客户 5"
+                    }
+                },
+                {
+                    "id": "client-6",
+                    "media": "case-chef",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 6",
+                        "ar": "العميل 6",
+                        "fr": "Client 6",
+                        "hi": "ग्राहक 6",
+                        "ur": "کلائنٹ 6",
+                        "zh": "客户 6"
+                    }
+                },
+                {
+                    "id": "client-7",
+                    "media": "cm-solar",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 7",
+                        "ar": "العميل 7",
+                        "fr": "Client 7",
+                        "hi": "ग्राहक 7",
+                        "ur": "کلائنٹ 7",
+                        "zh": "客户 7"
+                    }
+                },
+                {
+                    "id": "client-8",
+                    "media": "cm-boardroom",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 8",
+                        "ar": "العميل 8",
+                        "fr": "Client 8",
+                        "hi": "ग्राहक 8",
+                        "ur": "کلائنٹ 8",
+                        "zh": "客户 8"
+                    }
+                },
+                {
+                    "id": "client-9",
+                    "media": "cm-mining",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 9",
+                        "ar": "العميل 9",
+                        "fr": "Client 9",
+                        "hi": "ग्राहक 9",
+                        "ur": "کلائنٹ 9",
+                        "zh": "客户 9"
+                    }
+                },
+                {
+                    "id": "client-10",
+                    "media": "news-payment",
+                    "verified": false,
+                    "title": {
+                        "en": "Client 10",
+                        "ar": "العميل 10",
+                        "fr": "Client 10",
+                        "hi": "ग्राहक 10",
+                        "ur": "کلائنٹ 10",
+                        "zh": "客户 10"
+                    }
+                }
+            ],
+            "slides": [],
+            "style": {
+                "theme": "dark",
+                "overlay": 55,
+                "padding": "md",
+                "align": "center"
+            },
+            "motion": {
+                "preset": "fade-up",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "portfolio-milestones",
+            "type": "milestones",
+            "label": "Years and achievements",
+            "eyebrow": {
+                "en": "Our years and achievements",
+                "ar": "سنواتنا وإنجازاتنا",
+                "fr": "Nos années et nos résultats",
+                "hi": "हमारे वर्ष और उपलब्धियाँ",
+                "ur": "ہمارے سال اور کامیابیاں",
+                "zh": "我们的历程与成就"
+            },
+            "title": {
+                "en": "Years of work, counted in companies",
+                "ar": "سنوات من العمل تُقاس بالشركات",
+                "fr": "Des années de travail, comptées en sociétés",
+                "hi": "वर्षों का काम, कंपनियों में गिना गया",
+                "ur": "برسوں کا کام، کمپنیوں میں گنا گیا",
+                "zh": "以公司数量衡量的多年耕耘"
+            },
+            "highlight": {
+                "en": "counted in companies",
+                "ar": "تُقاس بالشركات",
+                "fr": "comptées en sociétés",
+                "hi": "कंपनियों में गिना गया",
+                "ur": "کمپنیوں میں گنا گیا",
+                "zh": "以公司数量衡量"
+            },
+            "subtitle": {
+                "en": "Every figure is a company, a licence or an approval delivered for a client.",
+                "ar": "كل رقم هنا شركة أو ترخيص أو موافقة أنجزناها لعميل.",
+                "fr": "Chaque chiffre est une société, une licence ou une autorisation obtenue pour un client.",
+                "hi": "हर आँकड़ा किसी ग्राहक के लिए पूरी की गई एक कंपनी, लाइसेंस या स्वीकृति है।",
+                "ur": "ہر عدد کسی کلائنٹ کے لیے مکمل کی گئی ایک کمپنی، لائسنس یا منظوری ہے۔",
+                "zh": "每个数字都代表为客户完成的一家公司、一张执照或一项审批。"
+            },
+            "buttons": [],
+            "cards": [
+                {
+                    "id": "year-1",
+                    "verified": false,
+                    "icon": "Flag",
+                    "title": {
+                        "en": "Year",
+                        "ar": "السنة",
+                        "fr": "Année",
+                        "hi": "वर्ष",
+                        "ur": "سال",
+                        "zh": "年份"
+                    },
+                    "text": {
+                        "en": "What happened this year",
+                        "ar": "ما الذي تحقق في هذه السنة",
+                        "fr": "Ce qui s’est passé cette année",
+                        "hi": "इस वर्ष क्या हुआ",
+                        "ur": "اس سال کیا ہوا",
+                        "zh": "这一年的进展"
+                    }
+                },
+                {
+                    "id": "year-2",
+                    "verified": false,
+                    "icon": "Rocket",
+                    "title": {
+                        "en": "Year",
+                        "ar": "السنة",
+                        "fr": "Année",
+                        "hi": "वर्ष",
+                        "ur": "سال",
+                        "zh": "年份"
+                    },
+                    "text": {
+                        "en": "What happened this year",
+                        "ar": "ما الذي تحقق في هذه السنة",
+                        "fr": "Ce qui s’est passé cette année",
+                        "hi": "इस वर्ष क्या हुआ",
+                        "ur": "اس سال کیا ہوا",
+                        "zh": "这一年的进展"
+                    }
+                },
+                {
+                    "id": "year-3",
+                    "verified": false,
+                    "icon": "TrendingUp",
+                    "title": {
+                        "en": "Year",
+                        "ar": "السنة",
+                        "fr": "Année",
+                        "hi": "वर्ष",
+                        "ur": "سال",
+                        "zh": "年份"
+                    },
+                    "text": {
+                        "en": "What happened this year",
+                        "ar": "ما الذي تحقق في هذه السنة",
+                        "fr": "Ce qui s’est passé cette année",
+                        "hi": "इस वर्ष क्या हुआ",
+                        "ur": "اس سال کیا ہوا",
+                        "zh": "这一年的进展"
+                    }
+                },
+                {
+                    "id": "year-4",
+                    "verified": false,
+                    "icon": "Award",
+                    "title": {
+                        "en": "Year",
+                        "ar": "السنة",
+                        "fr": "Année",
+                        "hi": "वर्ष",
+                        "ur": "سال",
+                        "zh": "年份"
+                    },
+                    "text": {
+                        "en": "What happened this year",
+                        "ar": "ما الذي تحقق في هذه السنة",
+                        "fr": "Ce qui s’est passé cette année",
+                        "hi": "इस वर्ष क्या हुआ",
+                        "ur": "اس سال کیا ہوا",
+                        "zh": "这一年的进展"
+                    }
+                }
+            ],
+            "slides": [],
+            "style": {
+                "theme": "charcoal",
+                "overlay": 86,
+                "padding": "lg",
+                "align": "start",
+                "bgMedia": "about-kingdom-centre"
+            },
+            "motion": {
+                "preset": "counter",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "portfolio-sectors",
+            "type": "sectorWork",
+            "label": "Sectors",
+            "eyebrow": {
+                "en": "Sectors we worked in",
+                "ar": "القطاعات التي عملنا فيها",
+                "fr": "Les secteurs où nous intervenons",
+                "hi": "जिन क्षेत्रों में हमने काम किया",
+                "ur": "وہ شعبے جن میں ہم نے کام کیا",
+                "zh": "我们服务过的行业"
+            },
+            "title": {
+                "en": "Experience in every sector that drives the Kingdom",
+                "ar": "خبرة في كل قطاع يحرّك المملكة",
+                "fr": "Une expérience dans chaque secteur qui fait avancer le Royaume",
+                "hi": "राज्य को आगे बढ़ाने वाले हर क्षेत्र में अनुभव",
+                "ur": "مملکت کو آگے بڑھانے والے ہر شعبے میں تجربہ",
+                "zh": "深耕推动王国发展的每一个行业"
+            },
+            "highlight": {
+                "en": "every sector",
+                "ar": "كل قطاع",
+                "fr": "chaque secteur",
+                "hi": "हर क्षेत्र",
+                "ur": "ہر شعبے",
+                "zh": "每一个行业"
+            },
+            "body": {
+                "en": "From factories and ports to restaurants and software, we set up companies with the activity, licences and approvals each sector requires.",
+                "ar": "من المصانع والموانئ إلى المطاعم والبرمجيات، نؤسس الشركات بالنشاط والتراخيص والموافقات التي يتطلبها كل قطاع.",
+                "fr": "Des usines et des ports aux restaurants et aux logiciels, nous créons des sociétés avec l’activité, les licences et les autorisations propres à chaque secteur.",
+                "hi": "कारखानों और बंदरगाहों से लेकर रेस्तराँ और सॉफ़्टवेयर तक, हम हर क्षेत्र की ज़रूरत के अनुसार गतिविधि, लाइसेंस और स्वीकृतियों के साथ कंपनियाँ स्थापित करते हैं।",
+                "ur": "کارخانوں اور بندرگاہوں سے لے کر ریستورانوں اور سافٹ ویئر تک، ہم ہر شعبے کی ضرورت کے مطابق سرگرمی، لائسنس اور منظوریوں کے ساتھ کمپنیاں قائم کرتے ہیں۔",
+                "zh": "从工厂、港口到餐厅和软件，我们按照每个行业的要求，为公司确定经营范围并办理执照与审批。"
+            },
+            "note": {
+                "en": "companies established",
+                "ar": "شركة أسسناها",
+                "fr": "sociétés créées",
+                "hi": "कंपनियाँ स्थापित",
+                "ur": "کمپنیاں قائم کیں",
+                "zh": "家公司已设立"
+            },
+            "buttons": [],
+            "cards": [
+                {
+                    "id": "sector-industry",
+                    "icon": "Factory",
+                    "media": "cm-factory",
+                    "verified": false,
+                    "title": {
+                        "en": "Industry & manufacturing",
+                        "ar": "الصناعة والتصنيع",
+                        "fr": "Industrie et fabrication",
+                        "hi": "उद्योग और विनिर्माण",
+                        "ur": "صنعت اور مینوفیکچرنگ",
+                        "zh": "工业与制造"
+                    },
+                    "text": {
+                        "en": "Factories, industrial licences and the approvals that come with them.",
+                        "ar": "مصانع وتراخيص صناعية والموافقات المرتبطة بها.",
+                        "fr": "Usines, licences industrielles et autorisations associées.",
+                        "hi": "कारखाने, औद्योगिक लाइसेंस और उनसे जुड़ी स्वीकृतियाँ।",
+                        "ur": "کارخانے، صنعتی لائسنس اور ان سے متعلق منظوریاں۔",
+                        "zh": "工厂、工业执照及相关审批。"
+                    }
+                },
+                {
+                    "id": "sector-logistics",
+                    "icon": "Truck",
+                    "media": "cm-port",
+                    "verified": false,
+                    "title": {
+                        "en": "Logistics & trade",
+                        "ar": "الخدمات اللوجستية والتجارة",
+                        "fr": "Logistique et commerce",
+                        "hi": "लॉजिस्टिक्स और व्यापार",
+                        "ur": "لاجسٹکس اور تجارت",
+                        "zh": "物流与贸易"
+                    },
+                    "text": {
+                        "en": "Import, export, warehousing and customs registration.",
+                        "ar": "الاستيراد والتصدير والتخزين والتسجيل الجمركي.",
+                        "fr": "Import, export, entreposage et enregistrement douanier.",
+                        "hi": "आयात, निर्यात, भंडारण और सीमा शुल्क पंजीकरण।",
+                        "ur": "درآمد، برآمد، گودام اور کسٹمز رجسٹریشن۔",
+                        "zh": "进出口、仓储与海关登记。"
+                    }
+                },
+                {
+                    "id": "sector-construction",
+                    "icon": "HardHat",
+                    "media": "cm-crane",
+                    "verified": false,
+                    "title": {
+                        "en": "Construction & contracting",
+                        "ar": "البناء والمقاولات",
+                        "fr": "Construction et travaux",
+                        "hi": "निर्माण और ठेकेदारी",
+                        "ur": "تعمیرات اور ٹھیکیداری",
+                        "zh": "建筑与承包"
+                    },
+                    "text": {
+                        "en": "Contracting companies and their classification certificates.",
+                        "ar": "شركات المقاولات وشهادات تصنيفها.",
+                        "fr": "Entreprises de travaux et certificats de classification.",
+                        "hi": "ठेकेदारी कंपनियाँ और उनके वर्गीकरण प्रमाणपत्र।",
+                        "ur": "ٹھیکیداری کمپنیاں اور ان کے درجہ بندی سرٹیفکیٹ۔",
+                        "zh": "承包企业及其资质等级证书。"
+                    }
+                },
+                {
+                    "id": "sector-energy",
+                    "icon": "Sun",
+                    "media": "cm-solar",
+                    "verified": false,
+                    "title": {
+                        "en": "Energy",
+                        "ar": "الطاقة",
+                        "fr": "Énergie",
+                        "hi": "ऊर्जा",
+                        "ur": "توانائی",
+                        "zh": "能源"
+                    },
+                    "text": {
+                        "en": "Companies serving power, renewables and the energy supply chain.",
+                        "ar": "شركات تخدم الكهرباء والطاقة المتجددة وسلاسل إمداد الطاقة.",
+                        "fr": "Sociétés au service de l’électricité, des renouvelables et de la chaîne énergétique.",
+                        "hi": "बिजली, नवीकरणीय ऊर्जा और ऊर्जा आपूर्ति शृंखला की सेवा करने वाली कंपनियाँ।",
+                        "ur": "بجلی، قابلِ تجدید توانائی اور توانائی کی سپلائی چین کی خدمت کرنے والی کمپنیاں۔",
+                        "zh": "服务电力、可再生能源及能源供应链的企业。"
+                    }
+                },
+                {
+                    "id": "sector-mining",
+                    "icon": "Pickaxe",
+                    "media": "cm-mining",
+                    "verified": false,
+                    "title": {
+                        "en": "Mining",
+                        "ar": "التعدين",
+                        "fr": "Mines",
+                        "hi": "खनन",
+                        "ur": "کان کنی",
+                        "zh": "矿业"
+                    },
+                    "text": {
+                        "en": "Mining and quarrying activities with their licences.",
+                        "ar": "أنشطة التعدين والمحاجر وتراخيصها.",
+                        "fr": "Activités minières et carrières, avec leurs licences.",
+                        "hi": "खनन और उत्खनन गतिविधियाँ, उनके लाइसेंस सहित।",
+                        "ur": "کان کنی اور کھدائی کی سرگرمیاں اور ان کے لائسنس۔",
+                        "zh": "采矿与采石业务及其执照。"
+                    }
+                },
+                {
+                    "id": "sector-agriculture",
+                    "icon": "Sprout",
+                    "media": "cm-farm",
+                    "verified": false,
+                    "title": {
+                        "en": "Agriculture",
+                        "ar": "الزراعة",
+                        "fr": "Agriculture",
+                        "hi": "कृषि",
+                        "ur": "زراعت",
+                        "zh": "农业"
+                    },
+                    "text": {
+                        "en": "Farms, greenhouses and agricultural investment.",
+                        "ar": "المزارع والبيوت المحمية والاستثمار الزراعي.",
+                        "fr": "Exploitations, serres et investissement agricole.",
+                        "hi": "खेत, ग्रीनहाउस और कृषि निवेश।",
+                        "ur": "فارم، گرین ہاؤس اور زرعی سرمایہ کاری۔",
+                        "zh": "农场、温室与农业投资。"
+                    }
+                },
+                {
+                    "id": "sector-food",
+                    "icon": "UtensilsCrossed",
+                    "media": "case-chef",
+                    "verified": false,
+                    "title": {
+                        "en": "Food",
+                        "ar": "الأغذية",
+                        "fr": "Alimentation",
+                        "hi": "खाद्य",
+                        "ur": "خوراک",
+                        "zh": "食品"
+                    },
+                    "text": {
+                        "en": "Restaurants, food production and food trading.",
+                        "ar": "المطاعم وإنتاج الأغذية وتجارتها.",
+                        "fr": "Restaurants, production et négoce alimentaires.",
+                        "hi": "रेस्तराँ, खाद्य उत्पादन और खाद्य व्यापार।",
+                        "ur": "ریستوران، خوراک کی پیداوار اور تجارت۔",
+                        "zh": "餐厅、食品生产与食品贸易。"
+                    }
+                },
+                {
+                    "id": "sector-tourism",
+                    "icon": "Palmtree",
+                    "media": "hero-alula-elephant-rock",
+                    "verified": false,
+                    "title": {
+                        "en": "Tourism",
+                        "ar": "السياحة",
+                        "fr": "Tourisme",
+                        "hi": "पर्यटन",
+                        "ur": "سیاحت",
+                        "zh": "旅游"
+                    },
+                    "text": {
+                        "en": "Travel and tourism services, licensed for the Kingdom’s new destinations.",
+                        "ar": "خدمات السفر والسياحة المرخّصة لوجهات المملكة الجديدة.",
+                        "fr": "Services de voyage et de tourisme, agréés pour les nouvelles destinations du Royaume.",
+                        "hi": "यात्रा और पर्यटन सेवाएँ, राज्य के नए गंतव्यों के लिए लाइसेंस प्राप्त।",
+                        "ur": "سفر اور سیاحت کی خدمات، مملکت کی نئی منزلوں کے لیے لائسنس یافتہ۔",
+                        "zh": "面向王国新目的地、持牌经营的旅行与旅游服务。"
+                    }
+                },
+                {
+                    "id": "sector-hospitality",
+                    "icon": "Hotel",
+                    "media": "hero-abha-mountains",
+                    "verified": false,
+                    "title": {
+                        "en": "Hospitality",
+                        "ar": "الضيافة",
+                        "fr": "Hôtellerie",
+                        "hi": "आतिथ्य",
+                        "ur": "مہمان نوازی",
+                        "zh": "酒店业"
+                    },
+                    "text": {
+                        "en": "Hotels, resorts and guest services.",
+                        "ar": "الفنادق والمنتجعات وخدمات الضيافة.",
+                        "fr": "Hôtels, complexes et services aux clients.",
+                        "hi": "होटल, रिसॉर्ट और अतिथि सेवाएँ।",
+                        "ur": "ہوٹل، ریزورٹس اور مہمانوں کی خدمات۔",
+                        "zh": "酒店、度假村与宾客服务。"
+                    }
+                },
+                {
+                    "id": "sector-retail",
+                    "icon": "ShoppingBag",
+                    "media": "news-payment",
+                    "verified": false,
+                    "title": {
+                        "en": "Retail",
+                        "ar": "التجزئة",
+                        "fr": "Commerce de détail",
+                        "hi": "खुदरा",
+                        "ur": "ریٹیل",
+                        "zh": "零售"
+                    },
+                    "text": {
+                        "en": "Shops, showrooms and online stores.",
+                        "ar": "المتاجر وصالات العرض والمتاجر الإلكترونية.",
+                        "fr": "Boutiques, showrooms et boutiques en ligne.",
+                        "hi": "दुकानें, शोरूम और ऑनलाइन स्टोर।",
+                        "ur": "دکانیں، شوروم اور آن لائن اسٹور۔",
+                        "zh": "门店、展厅与网店。"
+                    }
+                },
+                {
+                    "id": "sector-technology",
+                    "icon": "Cpu",
+                    "media": "case-tech-team",
+                    "verified": false,
+                    "title": {
+                        "en": "Technology",
+                        "ar": "التقنية",
+                        "fr": "Technologie",
+                        "hi": "प्रौद्योगिकी",
+                        "ur": "ٹیکنالوجی",
+                        "zh": "科技"
+                    },
+                    "text": {
+                        "en": "Software, digital services and technology companies.",
+                        "ar": "البرمجيات والخدمات الرقمية وشركات التقنية.",
+                        "fr": "Logiciels, services numériques et sociétés technologiques.",
+                        "hi": "सॉफ़्टवेयर, डिजिटल सेवाएँ और प्रौद्योगिकी कंपनियाँ।",
+                        "ur": "سافٹ ویئر، ڈیجیٹل خدمات اور ٹیکنالوجی کمپنیاں۔",
+                        "zh": "软件、数字服务与科技企业。"
+                    }
+                },
+                {
+                    "id": "sector-consulting",
+                    "icon": "Lightbulb",
+                    "media": "cm-presentation",
+                    "verified": false,
+                    "title": {
+                        "en": "Consulting",
+                        "ar": "الاستشارات",
+                        "fr": "Conseil",
+                        "hi": "परामर्श",
+                        "ur": "مشاورت",
+                        "zh": "咨询"
+                    },
+                    "text": {
+                        "en": "Consulting firms and professional practices.",
+                        "ar": "مكاتب الاستشارات والممارسات المهنية.",
+                        "fr": "Cabinets de conseil et professions libérales.",
+                        "hi": "परामर्श फ़र्म और पेशेवर सेवाएँ।",
+                        "ur": "مشاورتی فرمیں اور پیشہ ورانہ خدمات۔",
+                        "zh": "咨询公司与专业服务机构。"
+                    }
+                },
+                {
+                    "id": "sector-services",
+                    "icon": "Briefcase",
+                    "media": "cm-docs",
+                    "verified": false,
+                    "title": {
+                        "en": "Business services",
+                        "ar": "خدمات الأعمال",
+                        "fr": "Services aux entreprises",
+                        "hi": "व्यावसायिक सेवाएँ",
+                        "ur": "کاروباری خدمات",
+                        "zh": "商业服务"
+                    },
+                    "text": {
+                        "en": "Companies that serve other businesses, from offices to support services.",
+                        "ar": "شركات تخدم الأعمال الأخرى، من المكاتب إلى خدمات الدعم.",
+                        "fr": "Sociétés au service des entreprises, des bureaux aux services de soutien.",
+                        "hi": "अन्य व्यवसायों की सेवा करने वाली कंपनियाँ, कार्यालयों से लेकर सहायक सेवाओं तक।",
+                        "ur": "دوسرے کاروباروں کی خدمت کرنے والی کمپنیاں، دفاتر سے معاون خدمات تک۔",
+                        "zh": "为其他企业提供服务的公司，从办公到支持服务。"
+                    }
+                },
+                {
+                    "id": "sector-b2b",
+                    "icon": "Handshake",
+                    "media": "cm-handshake",
+                    "verified": false,
+                    "title": {
+                        "en": "B2B",
+                        "ar": "أعمال بين الشركات",
+                        "fr": "B2B",
+                        "hi": "B2B",
+                        "ur": "B2B",
+                        "zh": "企业对企业"
+                    },
+                    "text": {
+                        "en": "Suppliers, distributors and trading partners.",
+                        "ar": "الموردون والموزعون والشركاء التجاريون.",
+                        "fr": "Fournisseurs, distributeurs et partenaires commerciaux.",
+                        "hi": "आपूर्तिकर्ता, वितरक और व्यापारिक साझेदार।",
+                        "ur": "سپلائرز، ڈسٹری بیوٹرز اور تجارتی شراکت دار۔",
+                        "zh": "供应商、分销商与贸易伙伴。"
+                    }
+                }
+            ],
+            "slides": [],
+            "style": {
+                "theme": "dark",
+                "overlay": 55,
+                "padding": "lg",
+                "align": "start"
+            },
+            "motion": {
+                "preset": "counter",
+                "intensity": 100,
+                "delay": 0
+            }
+        },
+        {
+            "id": "portfolio-cta",
+            "type": "cta",
+            "label": "Call to action",
+            "title": {
+                "en": "Your company could be the next one we build.",
+                "ar": "قد تكون شركتك القادمة التي نؤسسها.",
+                "fr": "Votre société pourrait être la prochaine que nous créons.",
+                "hi": "अगली कंपनी जो हम बनाएँ, वह आपकी हो सकती है।",
+                "ur": "ہماری اگلی قائم کردہ کمپنی آپ کی ہو سکتی ہے۔",
+                "zh": "下一家由我们设立的，可能就是您的公司。"
+            },
+            "highlight": {
+                "en": "the next one",
+                "ar": "القادمة",
+                "fr": "la prochaine",
+                "hi": "अगली कंपनी",
+                "ur": "اگلی",
+                "zh": "下一家"
+            },
+            "body": {
+                "en": "Tell our consultants about your activity and your plans. We will show you the path from registration to operation.",
+                "ar": "حدّث مستشارينا عن نشاطك وخططك، وسنوضح لك الطريق من التسجيل حتى التشغيل.",
+                "fr": "Parlez à nos consultants de votre activité et de vos projets. Nous vous montrerons le chemin de l’immatriculation à l’exploitation.",
+                "hi": "हमारे सलाहकारों को अपनी गतिविधि और योजनाओं के बारे में बताएं। हम आपको पंजीकरण से संचालन तक का रास्ता दिखाएँगे।",
+                "ur": "ہمارے مشیروں کو اپنی سرگرمی اور منصوبوں کے بارے میں بتائیں۔ ہم آپ کو رجسٹریشن سے آپریشن تک کا راستہ دکھائیں گے۔",
+                "zh": "向我们的顾问介绍您的业务与计划，我们将为您展示从注册到运营的路径。"
+            },
+            "buttons": [
+                {
+                    "label": {
+                        "en": "Book a consultation",
+                        "ar": "احجز استشارة",
+                        "fr": "Réserver une consultation",
+                        "hi": "परामर्श बुक करें",
+                        "ur": "مشاورت بُک کریں",
+                        "zh": "预约咨询"
+                    },
+                    "href": "/consultation",
+                    "style": "gold"
+                },
+                {
+                    "label": {
+                        "en": "See case studies",
+                        "ar": "شاهد دراسات الحالة",
+                        "fr": "Voir les études de cas",
+                        "hi": "केस स्टडी देखें",
+                        "ur": "کیس اسٹڈیز دیکھیں",
+                        "zh": "查看案例"
+                    },
+                    "href": "/case-studies",
+                    "style": "outline"
+                }
+            ],
+            "cards": [],
+            "slides": [],
+            "style": {
+                "theme": "charcoal",
+                "overlay": 55,
+                "padding": "lg",
+                "align": "center"
+            },
+            "motion": {
+                "preset": "reveal-mask",
+                "intensity": 100,
+                "delay": 0
+            }
+        }
+    ],
+    "translations": {
+        "en": {
+            "title": "Our portfolio",
+            "seo_title": "Our portfolio | Clients, achievements and sectors | Creative Mark",
+            "seo_description": "More than 1,000 companies established over 8 years: the clients we set up in Saudi Arabia, the licences and approvals behind them, and the sectors we work in."
+        },
+        "ar": {
+            "title": "سابقة الأعمال",
+            "seo_title": "سابقة الأعمال | العملاء والإنجازات والقطاعات | كرييتف مارك",
+            "seo_description": "أكثر من 1,000 شركة أسسناها خلال 8 سنوات: عملاء أسسنا لهم شركاتهم في السعودية، والتراخيص والموافقات التي أنجزناها، والقطاعات التي نعمل فيها."
+        },
+        "fr": {
+            "title": "Nos réalisations",
+            "seo_title": "Nos réalisations | Clients, résultats et secteurs | Creative Mark",
+            "seo_description": "Plus de 1 000 sociétés créées en 8 ans : les clients que nous avons installés en Arabie saoudite, les licences et autorisations obtenues et les secteurs où nous intervenons."
+        },
+        "hi": {
+            "title": "हमारा पोर्टफोलियो",
+            "seo_title": "हमारा पोर्टफोलियो | ग्राहक, उपलब्धियाँ और क्षेत्र | Creative Mark",
+            "seo_description": "8 वर्षों में 1,000 से अधिक कंपनियाँ स्थापित: सऊदी अरब में हमने जिन ग्राहकों की कंपनियाँ बनाईं, उनके लाइसेंस और स्वीकृतियाँ, और वे क्षेत्र जिनमें हम काम करते हैं।"
+        },
+        "ur": {
+            "title": "ہمارا سابقہ کام",
+            "seo_title": "ہمارا سابقہ کام | کلائنٹس، کامیابیاں اور شعبے | Creative Mark",
+            "seo_description": "8 برسوں میں 1,000 سے زائد کمپنیاں قائم کیں: سعودی عرب میں جن کلائنٹس کی کمپنیاں ہم نے بنائیں، ان کے لائسنس اور منظوریاں، اور وہ شعبے جن میں ہم کام کرتے ہیں۔"
+        },
+        "zh": {
+            "title": "过往业绩",
+            "seo_title": "过往业绩 | 客户、成就与行业 | Creative Mark",
+            "seo_description": "8 年来设立 1,000 多家公司：我们在沙特阿拉伯为客户设立的公司、背后的执照与审批，以及我们服务的行业。"
+        }
+    }
+}
